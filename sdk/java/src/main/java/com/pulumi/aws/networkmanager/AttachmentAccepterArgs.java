@@ -15,14 +15,14 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
     public static final AttachmentAccepterArgs Empty = new AttachmentAccepterArgs();
 
     /**
-     * The ID of the attachment.
+     * ID of the attachment.
      * 
      */
     @Import(name="attachmentId", required=true)
     private Output<String> attachmentId;
 
     /**
-     * @return The ID of the attachment.
+     * @return ID of the attachment.
      * 
      */
     public Output<String> attachmentId() {
@@ -30,14 +30,14 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
      * 
      */
     @Import(name="attachmentType", required=true)
     private Output<String> attachmentType;
 
     /**
-     * @return The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * @return Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
      * 
      */
     public Output<String> attachmentType() {
@@ -70,7 +70,7 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param attachmentId The ID of the attachment.
+         * @param attachmentId ID of the attachment.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param attachmentId The ID of the attachment.
+         * @param attachmentId ID of the attachment.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param attachmentType The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param attachmentType The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
          * 
          * @return builder
          * 

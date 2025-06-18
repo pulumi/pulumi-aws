@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about sites.
+// Provides details about existing Network Manager sites.
 //
 // ## Example Usage
 //

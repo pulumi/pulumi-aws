@@ -147,7 +147,7 @@ class GetFunctionResult:
     @pulumi.getter
     def arn(self) -> builtins.str:
         """
-        Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+        ARN of the Amazon EFS Access Point that provides access to the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -171,7 +171,7 @@ class GetFunctionResult:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> 'outputs.GetFunctionDeadLetterConfigResult':
         """
-        Configure the function's *dead letter queue*.
+        Configuration for the function's dead letter queue. See below.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -187,7 +187,7 @@ class GetFunctionResult:
     @pulumi.getter
     def environment(self) -> 'outputs.GetFunctionEnvironmentResult':
         """
-        Lambda environment's configuration settings.
+        Lambda environment's configuration settings. See below.
         """
         return pulumi.get(self, "environment")
 
@@ -195,7 +195,7 @@ class GetFunctionResult:
     @pulumi.getter(name="ephemeralStorages")
     def ephemeral_storages(self) -> Sequence['outputs.GetFunctionEphemeralStorageResult']:
         """
-        Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+        Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
         """
         return pulumi.get(self, "ephemeral_storages")
 
@@ -203,7 +203,7 @@ class GetFunctionResult:
     @pulumi.getter(name="fileSystemConfigs")
     def file_system_configs(self) -> Sequence['outputs.GetFunctionFileSystemConfigResult']:
         """
-        Connection settings for an Amazon EFS file system.
+        Connection settings for an Amazon EFS file system. See below.
         """
         return pulumi.get(self, "file_system_configs")
 
@@ -240,7 +240,7 @@ class GetFunctionResult:
     @pulumi.getter(name="invokeArn")
     def invoke_arn(self) -> builtins.str:
         """
-        ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
+        ARN to be used for invoking Lambda Function from API Gateway. **Note:** Starting with `v4.51.0` of the provider, this will not include the qualifier.
         """
         return pulumi.get(self, "invoke_arn")
 
@@ -272,7 +272,7 @@ class GetFunctionResult:
     @pulumi.getter(name="loggingConfigs")
     def logging_configs(self) -> Sequence['outputs.GetFunctionLoggingConfigResult']:
         """
-        Advanced logging settings.
+        Advanced logging settings. See below.
         """
         return pulumi.get(self, "logging_configs")
 
@@ -314,7 +314,7 @@ class GetFunctionResult:
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> builtins.int:
         """
-        The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
+        Amount of reserved concurrent executions for this Lambda function or `-1` if unreserved.
         """
         return pulumi.get(self, "reserved_concurrent_executions")
 
@@ -346,7 +346,7 @@ class GetFunctionResult:
     @pulumi.getter(name="signingProfileVersionArn")
     def signing_profile_version_arn(self) -> builtins.str:
         """
-        The ARN for a signing profile version.
+        ARN for a signing profile version.
         """
         return pulumi.get(self, "signing_profile_version_arn")
 
@@ -370,6 +370,9 @@ class GetFunctionResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
+        """
+        Map of tags assigned to the Lambda Function.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -384,7 +387,7 @@ class GetFunctionResult:
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> 'outputs.GetFunctionTracingConfigResult':
         """
-        Tracing settings of the function.
+        Tracing settings of the function. See below.
         """
         return pulumi.get(self, "tracing_config")
 
@@ -392,7 +395,7 @@ class GetFunctionResult:
     @pulumi.getter
     def version(self) -> builtins.str:
         """
-        The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
+        Version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
         """
         return pulumi.get(self, "version")
 
@@ -400,7 +403,7 @@ class GetFunctionResult:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> 'outputs.GetFunctionVpcConfigResult':
         """
-        VPC configuration associated with your Lambda function.
+        VPC configuration associated with your Lambda function. See below.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -454,23 +457,93 @@ def get_function(function_name: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
-    Provides information about a Lambda Function.
+    Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+
+    > **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
 
     ## Example Usage
+
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function(function_name=function_name)
+    example = aws.lambda.get_function(function_name="my-lambda-function")
+    pulumi.export("functionArn", example.arn)
+    ```
+
+    ### Using Function Alias
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.lambda.get_function(function_name="api-handler",
+        qualifier="production")
+    # Use in API Gateway integration
+    example_integration = aws.apigateway.Integration("example",
+        rest_api=example_aws_api_gateway_rest_api["id"],
+        resource_id=example_aws_api_gateway_resource["id"],
+        http_method=example_aws_api_gateway_method["httpMethod"],
+        integration_http_method="POST",
+        type="AWS_PROXY",
+        uri=example.invoke_arn)
+    ```
+
+    ### Function Configuration Reference
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get existing function details
+    reference = aws.lambda.get_function(function_name="existing-function")
+    # Create new function with similar configuration
+    example = aws.lambda_.Function("example",
+        code=pulumi.FileArchive("new-function.zip"),
+        name="new-function",
+        role=reference.role,
+        handler=reference.handler,
+        runtime=reference.runtime,
+        memory_size=reference.memory_size,
+        timeout=reference.timeout,
+        architectures=reference.architectures,
+        vpc_config={
+            "subnet_ids": reference.vpc_config.subnet_ids,
+            "security_group_ids": reference.vpc_config.security_group_ids,
+        },
+        environment={
+            "variables": reference.environment.variables,
+        })
+    ```
+
+    ### Function Version Management
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get details about specific version
+    version = aws.lambda.get_function(function_name="my-function",
+        qualifier="3")
+    # Get details about latest version
+    latest = aws.lambda.get_function(function_name="my-function",
+        qualifier="$LATEST")
+    pulumi.export("versionComparison", {
+        "specificVersion": version.version,
+        "latestVersion": latest.version,
+        "codeDifference": version.code_sha256 != latest.code_sha256,
+    })
     ```
 
 
-    :param builtins.str function_name: Name of the lambda function.
-    :param builtins.str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+    :param builtins.str function_name: Name of the Lambda function.
+           
+           The following arguments are optional:
+    :param builtins.str qualifier: Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, builtins.str] tags: Map of tags assigned to the Lambda Function.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -522,23 +595,93 @@ def get_function_output(function_name: Optional[pulumi.Input[builtins.str]] = No
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
-    Provides information about a Lambda Function.
+    Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+
+    > **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
 
     ## Example Usage
+
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function(function_name=function_name)
+    example = aws.lambda.get_function(function_name="my-lambda-function")
+    pulumi.export("functionArn", example.arn)
+    ```
+
+    ### Using Function Alias
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.lambda.get_function(function_name="api-handler",
+        qualifier="production")
+    # Use in API Gateway integration
+    example_integration = aws.apigateway.Integration("example",
+        rest_api=example_aws_api_gateway_rest_api["id"],
+        resource_id=example_aws_api_gateway_resource["id"],
+        http_method=example_aws_api_gateway_method["httpMethod"],
+        integration_http_method="POST",
+        type="AWS_PROXY",
+        uri=example.invoke_arn)
+    ```
+
+    ### Function Configuration Reference
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get existing function details
+    reference = aws.lambda.get_function(function_name="existing-function")
+    # Create new function with similar configuration
+    example = aws.lambda_.Function("example",
+        code=pulumi.FileArchive("new-function.zip"),
+        name="new-function",
+        role=reference.role,
+        handler=reference.handler,
+        runtime=reference.runtime,
+        memory_size=reference.memory_size,
+        timeout=reference.timeout,
+        architectures=reference.architectures,
+        vpc_config={
+            "subnet_ids": reference.vpc_config.subnet_ids,
+            "security_group_ids": reference.vpc_config.security_group_ids,
+        },
+        environment={
+            "variables": reference.environment.variables,
+        })
+    ```
+
+    ### Function Version Management
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get details about specific version
+    version = aws.lambda.get_function(function_name="my-function",
+        qualifier="3")
+    # Get details about latest version
+    latest = aws.lambda.get_function(function_name="my-function",
+        qualifier="$LATEST")
+    pulumi.export("versionComparison", {
+        "specificVersion": version.version,
+        "latestVersion": latest.version,
+        "codeDifference": version.code_sha256 != latest.code_sha256,
+    })
     ```
 
 
-    :param builtins.str function_name: Name of the lambda function.
-    :param builtins.str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+    :param builtins.str function_name: Name of the Lambda function.
+           
+           The following arguments are optional:
+    :param builtins.str qualifier: Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, builtins.str] tags: Map of tags assigned to the Lambda Function.
     """
     __args__ = dict()
     __args__['functionName'] = function_name

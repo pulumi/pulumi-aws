@@ -16,14 +16,14 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
     public static final LbCertificateAttachmentState Empty = new LbCertificateAttachmentState();
 
     /**
-     * The name of your SSL/TLS certificate.
+     * Name of your SSL/TLS certificate.
      * 
      */
     @Import(name="certificateName")
     private @Nullable Output<String> certificateName;
 
     /**
-     * @return The name of your SSL/TLS certificate.
+     * @return Name of your SSL/TLS certificate.
      * 
      */
     public Optional<Output<String>> certificateName() {
@@ -31,14 +31,18 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
     /**
-     * @return The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * @return Name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> lbName() {
@@ -87,7 +91,7 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param certificateName The name of your SSL/TLS certificate.
+         * @param certificateName Name of your SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -98,7 +102,7 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param certificateName The name of your SSL/TLS certificate.
+         * @param certificateName Name of your SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -108,7 +112,9 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param lbName The name of the load balancer to which you want to associate the SSL/TLS certificate.
+         * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -119,7 +125,9 @@ public final class LbCertificateAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param lbName The name of the load balancer to which you want to associate the SSL/TLS certificate.
+         * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

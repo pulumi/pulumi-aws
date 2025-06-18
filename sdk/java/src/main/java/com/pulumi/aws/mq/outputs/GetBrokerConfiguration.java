@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerConfiguration {
+    /**
+     * @return Configuration ID.
+     * 
+     */
     private String id;
+    /**
+     * @return Revision of the Configuration.
+     * 
+     */
     private Integer revision;
 
     private GetBrokerConfiguration() {}
+    /**
+     * @return Configuration ID.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Revision of the Configuration.
+     * 
+     */
     public Integer revision() {
         return this.revision;
     }

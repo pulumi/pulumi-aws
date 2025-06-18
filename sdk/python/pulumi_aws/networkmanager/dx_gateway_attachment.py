@@ -122,6 +122,7 @@ class _DxGatewayAttachmentState:
                  timeouts: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DxGatewayAttachment resources.
+        :param pulumi.Input[builtins.str] arn: ARN of the attachment.
         :param pulumi.Input[builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
         :param pulumi.Input[builtins.str] attachment_type: Type of attachment.
         :param pulumi.Input[builtins.str] core_network_arn: ARN of the core network for the attachment.
@@ -134,7 +135,7 @@ class _DxGatewayAttachmentState:
         :param pulumi.Input[builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -166,6 +167,9 @@ class _DxGatewayAttachmentState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARN of the attachment.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -298,7 +302,7 @@ class _DxGatewayAttachmentState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -329,7 +333,9 @@ class DxGatewayAttachment(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['DxGatewayAttachmentTimeoutsArgs', 'DxGatewayAttachmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Network Manager Direct Connect (DX) Gateway Attachment.
+        Manages a Network Manager Direct Connect Gateway Attachment.
+
+        Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
 
         ## Example Usage
 
@@ -369,7 +375,9 @@ class DxGatewayAttachment(pulumi.CustomResource):
                  args: DxGatewayAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Network Manager Direct Connect (DX) Gateway Attachment.
+        Manages a Network Manager Direct Connect Gateway Attachment.
+
+        Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
 
         ## Example Usage
 
@@ -471,6 +479,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] arn: ARN of the attachment.
         :param pulumi.Input[builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
         :param pulumi.Input[builtins.str] attachment_type: Type of attachment.
         :param pulumi.Input[builtins.str] core_network_arn: ARN of the core network for the attachment.
@@ -483,7 +492,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] segment_name: Name of the segment attachment.
         :param pulumi.Input[builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,6 +516,9 @@ class DxGatewayAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        ARN of the attachment.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -595,7 +607,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -16,14 +16,14 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
     public static final BucketAccessKeyState Empty = new BucketAccessKeyState();
 
     /**
-     * The ID of the access key.
+     * Access key ID.
      * 
      */
     @Import(name="accessKeyId")
     private @Nullable Output<String> accessKeyId;
 
     /**
-     * @return The ID of the access key.
+     * @return Access key ID.
      * 
      */
     public Optional<Output<String>> accessKeyId() {
@@ -31,14 +31,14 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the bucket that the new access key will belong to, and grant access to.
+     * Name of the bucket that the access key will belong to and grant access to.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return The name of the bucket that the new access key will belong to, and grant access to.
+     * @return Name of the bucket that the access key will belong to and grant access to.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -46,14 +46,14 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The timestamp when the access key was created.
+     * Date and time when the access key was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The timestamp when the access key was created.
+     * @return Date and time when the access key was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -76,14 +76,14 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+     * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
     @Import(name="secretAccessKey")
     private @Nullable Output<String> secretAccessKey;
 
     /**
-     * @return The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+     * @return Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
     public Optional<Output<String>> secretAccessKey() {
@@ -91,14 +91,14 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The status of the access key.
+     * Status of the access key.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the access key.
+     * @return Status of the access key.
      * 
      */
     public Optional<Output<String>> status() {
@@ -135,7 +135,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accessKeyId The ID of the access key.
+         * @param accessKeyId Access key ID.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accessKeyId The ID of the access key.
+         * @param accessKeyId Access key ID.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketName The name of the bucket that the new access key will belong to, and grant access to.
+         * @param bucketName Name of the bucket that the access key will belong to and grant access to.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketName The name of the bucket that the new access key will belong to, and grant access to.
+         * @param bucketName Name of the bucket that the access key will belong to and grant access to.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdAt The timestamp when the access key was created.
+         * @param createdAt Date and time when the access key was created.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdAt The timestamp when the access key was created.
+         * @param createdAt Date and time when the access key was created.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secretAccessKey The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+         * @param secretAccessKey Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secretAccessKey The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+         * @param secretAccessKey Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The status of the access key.
+         * @param status Status of the access key.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The status of the access key.
+         * @param status Status of the access key.
          * 
          * @return builder
          * 

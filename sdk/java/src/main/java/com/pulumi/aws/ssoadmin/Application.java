@@ -144,14 +144,18 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.applicationAccount;
     }
     /**
-     * ARN of the application.
+     * (**Deprecated** Reference `arn` instead) ARN of the application.
+     * 
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future verion of the provider.
      * 
      */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future verion of the provider. */
     @Export(name="applicationArn", refs={String.class}, tree="[0]")
     private Output<String> applicationArn;
 
     /**
-     * @return ARN of the application.
+     * @return (**Deprecated** Reference `arn` instead) ARN of the application.
      * 
      */
     public Output<String> applicationArn() {
@@ -170,6 +174,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<String> applicationProviderArn() {
         return this.applicationProviderArn;
+    }
+    /**
+     * ARN of the application.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the application.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about global networks.
+ * Provides details about existing Network Manager global networks.
  *
  * ## Example Usage
  *
@@ -53,7 +53,7 @@ export interface GetGlobalNetworksResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * Retrieve information about global networks.
+ * Provides details about existing Network Manager global networks.
  *
  * ## Example Usage
  *

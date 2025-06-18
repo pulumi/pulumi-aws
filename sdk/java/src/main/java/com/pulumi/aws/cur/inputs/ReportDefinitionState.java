@@ -34,14 +34,14 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      * 
      */
     @Import(name="additionalSchemaElements")
     private @Nullable Output<List<String>> additionalSchemaElements;
 
     /**
-     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      * 
      */
     public Optional<Output<List<String>>> additionalSchemaElements() {
@@ -297,7 +297,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
          * 
          * @return builder
          * 

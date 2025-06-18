@@ -23,6 +23,9 @@ __all__ = [
     'ScraperSource',
     'ScraperSourceEks',
     'ScraperTimeouts',
+    'WorkspaceConfigurationLimitsPerLabelSet',
+    'WorkspaceConfigurationLimitsPerLabelSetLimits',
+    'WorkspaceConfigurationTimeouts',
     'WorkspaceLoggingConfiguration',
 ]
 
@@ -240,6 +243,119 @@ class ScraperTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class WorkspaceConfigurationLimitsPerLabelSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelSet":
+            suggest = "label_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceConfigurationLimitsPerLabelSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceConfigurationLimitsPerLabelSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceConfigurationLimitsPerLabelSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label_set: Mapping[str, builtins.str],
+                 limits: Optional['outputs.WorkspaceConfigurationLimitsPerLabelSetLimits'] = None):
+        """
+        :param Mapping[str, builtins.str] label_set: Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+        :param 'WorkspaceConfigurationLimitsPerLabelSetLimitsArgs' limits: Configuration block for the limits to apply to the specified label set. Detailed below.
+        """
+        pulumi.set(__self__, "label_set", label_set)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+
+    @property
+    @pulumi.getter(name="labelSet")
+    def label_set(self) -> Mapping[str, builtins.str]:
+        """
+        Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+        """
+        return pulumi.get(self, "label_set")
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional['outputs.WorkspaceConfigurationLimitsPerLabelSetLimits']:
+        """
+        Configuration block for the limits to apply to the specified label set. Detailed below.
+        """
+        return pulumi.get(self, "limits")
+
+
+@pulumi.output_type
+class WorkspaceConfigurationLimitsPerLabelSetLimits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSeries":
+            suggest = "max_series"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceConfigurationLimitsPerLabelSetLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceConfigurationLimitsPerLabelSetLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceConfigurationLimitsPerLabelSetLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_series: builtins.int):
+        """
+        :param builtins.int max_series: Maximum number of active time series that can be ingested for metrics matching the label set.
+        """
+        pulumi.set(__self__, "max_series", max_series)
+
+    @property
+    @pulumi.getter(name="maxSeries")
+    def max_series(self) -> builtins.int:
+        """
+        Maximum number of active time series that can be ingested for metrics matching the label set.
+        """
+        return pulumi.get(self, "max_series")
+
+
+@pulumi.output_type
+class WorkspaceConfigurationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[builtins.str] = None,
+                 update: Optional[builtins.str] = None):
+        """
+        :param builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
     @property
     @pulumi.getter

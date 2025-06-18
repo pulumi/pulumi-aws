@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
+    /// Manages public ports for a Lightsail instance. Use this resource to open ports for a specific Amazon Lightsail instance and specify the IP addresses allowed to connect to the instance through the ports and the protocol.
     /// 
     /// &gt; See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
     /// 
@@ -26,17 +26,33 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Instance("test", new()
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         Name = "yak_sail",
-    ///         AvailabilityZone = available.Names[0],
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.LightSail.Instance("example", new()
+    ///     {
+    ///         Name = "example-instance",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_3_0",
     ///     });
     /// 
-    ///     var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("test", new()
+    ///     var exampleInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("example", new()
     ///     {
-    ///         InstanceName = test.Name,
+    ///         InstanceName = example.Name,
     ///         PortInfos = new[]
     ///         {
     ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
@@ -44,6 +60,16 @@ namespace Pulumi.Aws.LightSail
     ///                 Protocol = "tcp",
     ///                 FromPort = 80,
     ///                 ToPort = 80,
+    ///             },
+    ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
+    ///             {
+    ///                 Protocol = "tcp",
+    ///                 FromPort = 443,
+    ///                 ToPort = 443,
+    ///                 Cidrs = new[]
+    ///                 {
+    ///                     "192.168.1.0/24",
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -61,7 +87,9 @@ namespace Pulumi.Aws.LightSail
         public Output<string> InstanceName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("portInfos")]
         public Output<ImmutableArray<Outputs.InstancePublicPortsPortInfo>> PortInfos { get; private set; } = null!;
@@ -128,7 +156,9 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.InstancePublicPortsPortInfoArgs>? _portInfos;
 
         /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.InstancePublicPortsPortInfoArgs> PortInfos
         {
@@ -160,7 +190,9 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.InstancePublicPortsPortInfoGetArgs>? _portInfos;
 
         /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.InstancePublicPortsPortInfoGetArgs> PortInfos
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class EventSourceMappingDestinationConfig
     {
         /// <summary>
-        /// The destination configuration for failed invocations. Detailed below.
+        /// Destination configuration for failed invocations. See below.
         /// </summary>
         public readonly Outputs.EventSourceMappingDestinationConfigOnFailure? OnFailure;
 

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class FunctionEventInvokeConfigDestinationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+        /// Configuration block with destination configuration for failed asynchronous invocations. See below.
         /// </summary>
         [Input("onFailure")]
         public Input<Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureGetArgs>? OnFailure { get; set; }
 
         /// <summary>
-        /// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+        /// Configuration block with destination configuration for successful asynchronous invocations. See below.
         /// </summary>
         [Input("onSuccess")]
         public Input<Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessGetArgs>? OnSuccess { get; set; }

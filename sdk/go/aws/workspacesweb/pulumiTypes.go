@@ -13,6 +13,774 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DataProtectionSettingsInlineRedactionConfiguration struct {
+	// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+	GlobalConfidenceLevel *int `pulumi:"globalConfidenceLevel"`
+	// The global enforced URL configuration for the inline redaction configuration.
+	GlobalEnforcedUrls []string `pulumi:"globalEnforcedUrls"`
+	// The global exempt URL configuration for the inline redaction configuration.
+	GlobalExemptUrls []string `pulumi:"globalExemptUrls"`
+	// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+	InlineRedactionPatterns []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern `pulumi:"inlineRedactionPatterns"`
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationArgs and DataProtectionSettingsInlineRedactionConfigurationOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationInput` via:
+//
+//	DataProtectionSettingsInlineRedactionConfigurationArgs{...}
+type DataProtectionSettingsInlineRedactionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationOutput() DataProtectionSettingsInlineRedactionConfigurationOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationOutput
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationArgs struct {
+	// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+	GlobalConfidenceLevel pulumi.IntPtrInput `pulumi:"globalConfidenceLevel"`
+	// The global enforced URL configuration for the inline redaction configuration.
+	GlobalEnforcedUrls pulumi.StringArrayInput `pulumi:"globalEnforcedUrls"`
+	// The global exempt URL configuration for the inline redaction configuration.
+	GlobalExemptUrls pulumi.StringArrayInput `pulumi:"globalExemptUrls"`
+	// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+	InlineRedactionPatterns DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayInput `pulumi:"inlineRedactionPatterns"`
+}
+
+func (DataProtectionSettingsInlineRedactionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfiguration)(nil)).Elem()
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationArgs) ToDataProtectionSettingsInlineRedactionConfigurationOutput() DataProtectionSettingsInlineRedactionConfigurationOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationArgs) ToDataProtectionSettingsInlineRedactionConfigurationOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationOutput)
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationArgs) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutput() DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationArgs) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationOutput).ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationPtrInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationArgs, DataProtectionSettingsInlineRedactionConfigurationPtr and DataProtectionSettingsInlineRedactionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationPtrInput` via:
+//
+//	        DataProtectionSettingsInlineRedactionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProtectionSettingsInlineRedactionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationPtrOutput() DataProtectionSettingsInlineRedactionConfigurationPtrOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationPtrOutput
+}
+
+type dataProtectionSettingsInlineRedactionConfigurationPtrType DataProtectionSettingsInlineRedactionConfigurationArgs
+
+func DataProtectionSettingsInlineRedactionConfigurationPtr(v *DataProtectionSettingsInlineRedactionConfigurationArgs) DataProtectionSettingsInlineRedactionConfigurationPtrInput {
+	return (*dataProtectionSettingsInlineRedactionConfigurationPtrType)(v)
+}
+
+func (*dataProtectionSettingsInlineRedactionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProtectionSettingsInlineRedactionConfiguration)(nil)).Elem()
+}
+
+func (i *dataProtectionSettingsInlineRedactionConfigurationPtrType) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutput() DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProtectionSettingsInlineRedactionConfigurationPtrType) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationPtrOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfiguration)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) ToDataProtectionSettingsInlineRedactionConfigurationOutput() DataProtectionSettingsInlineRedactionConfigurationOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) ToDataProtectionSettingsInlineRedactionConfigurationOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutput() DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return o.ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProtectionSettingsInlineRedactionConfiguration) *DataProtectionSettingsInlineRedactionConfiguration {
+		return &v
+	}).(DataProtectionSettingsInlineRedactionConfigurationPtrOutput)
+}
+
+// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalConfidenceLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) *int { return v.GlobalConfidenceLevel }).(pulumi.IntPtrOutput)
+}
+
+// The global enforced URL configuration for the inline redaction configuration.
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalEnforcedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []string { return v.GlobalEnforcedUrls }).(pulumi.StringArrayOutput)
+}
+
+// The global exempt URL configuration for the inline redaction configuration.
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalExemptUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []string { return v.GlobalExemptUrls }).(pulumi.StringArrayOutput)
+}
+
+// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+func (o DataProtectionSettingsInlineRedactionConfigurationOutput) InlineRedactionPatterns() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern {
+		return v.InlineRedactionPatterns
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProtectionSettingsInlineRedactionConfiguration)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutput() DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) ToDataProtectionSettingsInlineRedactionConfigurationPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) Elem() DataProtectionSettingsInlineRedactionConfigurationOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) DataProtectionSettingsInlineRedactionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataProtectionSettingsInlineRedactionConfiguration
+		return ret
+	}).(DataProtectionSettingsInlineRedactionConfigurationOutput)
+}
+
+// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalConfidenceLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalConfidenceLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// The global enforced URL configuration for the inline redaction configuration.
+func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalEnforcedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalEnforcedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The global exempt URL configuration for the inline redaction configuration.
+func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalExemptUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalExemptUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) InlineRedactionPatterns() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern {
+		if v == nil {
+			return nil
+		}
+		return v.InlineRedactionPatterns
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern struct {
+	// The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
+	BuiltInPatternId *string `pulumi:"builtInPatternId"`
+	// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+	ConfidenceLevel *int `pulumi:"confidenceLevel"`
+	// The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
+	CustomPattern *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern `pulumi:"customPattern"`
+	// The enforced URL configuration for the inline redaction pattern.
+	EnforcedUrls []string `pulumi:"enforcedUrls"`
+	// The exempt URL configuration for the inline redaction pattern.
+	ExemptUrls []string `pulumi:"exemptUrls"`
+	// The redaction placeholder that will replace the redacted text in session. Detailed below.
+	RedactionPlaceHolders []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder `pulumi:"redactionPlaceHolders"`
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternInput` via:
+//
+//	DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{...}
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs struct {
+	// The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
+	BuiltInPatternId pulumi.StringPtrInput `pulumi:"builtInPatternId"`
+	// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+	ConfidenceLevel pulumi.IntPtrInput `pulumi:"confidenceLevel"`
+	// The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
+	CustomPattern DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput `pulumi:"customPattern"`
+	// The enforced URL configuration for the inline redaction pattern.
+	EnforcedUrls pulumi.StringArrayInput `pulumi:"enforcedUrls"`
+	// The exempt URL configuration for the inline redaction pattern.
+	ExemptUrls pulumi.StringArrayInput `pulumi:"exemptUrls"`
+	// The redaction placeholder that will replace the redacted text in session. Detailed below.
+	RedactionPlaceHolders DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayInput `pulumi:"redactionPlaceHolders"`
+}
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern)(nil)).Elem()
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput)
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayInput` via:
+//
+//	DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{ DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{...} }
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternInput
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern)(nil)).Elem()
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput {
+	return o
+}
+
+// The built-in pattern from the list of preconfigured patterns. Either a `customPattern` or `builtInPatternId` is required.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) BuiltInPatternId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) *string {
+		return v.BuiltInPatternId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) ConfidenceLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) *int {
+		return v.ConfidenceLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration for a custom pattern. Either a `customPattern` or `builtInPatternId` is required. Detailed below.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) CustomPattern() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern {
+		return v.CustomPattern
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput)
+}
+
+// The enforced URL configuration for the inline redaction pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) EnforcedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) []string {
+		return v.EnforcedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The exempt URL configuration for the inline redaction pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) ExemptUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) []string {
+		return v.ExemptUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The redaction placeholder that will replace the redacted text in session. Detailed below.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput) RedactionPlaceHolders() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern) []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder {
+		return v.RedactionPlaceHolders
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput) Index(i pulumi.IntInput) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern {
+		return vs[0].([]DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern)[vs[1].(int)]
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern struct {
+	// The keyword regex for the customer pattern.
+	KeywordRegex *string `pulumi:"keywordRegex"`
+	// The pattern description for the customer pattern.
+	PatternDescription *string `pulumi:"patternDescription"`
+	// The pattern name for the custom pattern.
+	PatternName string `pulumi:"patternName"`
+	// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
+	PatternRegex string `pulumi:"patternRegex"`
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternInput` via:
+//
+//	DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs{...}
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs struct {
+	// The keyword regex for the customer pattern.
+	KeywordRegex pulumi.StringPtrInput `pulumi:"keywordRegex"`
+	// The pattern description for the customer pattern.
+	PatternDescription pulumi.StringPtrInput `pulumi:"patternDescription"`
+	// The pattern name for the custom pattern.
+	PatternName pulumi.StringInput `pulumi:"patternName"`
+	// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
+	PatternRegex pulumi.StringInput `pulumi:"patternRegex"`
+}
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern)(nil)).Elem()
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput)
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput).ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(ctx)
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs, DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtr and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput` via:
+//
+//	        DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput
+}
+
+type dataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrType DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs
+
+func DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtr(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput {
+	return (*dataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrType)(v)
+}
+
+func (*dataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern)(nil)).Elem()
+}
+
+func (i *dataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrType) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrType) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return o.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(context.Background())
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern {
+		return &v
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput)
+}
+
+// The keyword regex for the customer pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) KeywordRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
+		return v.KeywordRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pattern description for the customer pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) PatternDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
+		return v.PatternDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pattern name for the custom pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) PatternName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) string {
+		return v.PatternName
+	}).(pulumi.StringOutput)
+}
+
+// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput) PatternRegex() pulumi.StringOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) string {
+		return v.PatternRegex
+	}).(pulumi.StringOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) Elem() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern {
+		if v != nil {
+			return *v
+		}
+		var ret DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern
+		return ret
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput)
+}
+
+// The keyword regex for the customer pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) KeywordRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeywordRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pattern description for the customer pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) PatternDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatternDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pattern name for the custom pattern.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) PatternName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PatternName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pattern regex for the customer pattern. The format must follow JavaScript regex format.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput) PatternRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PatternRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder struct {
+	// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+	RedactionPlaceHolderText *string `pulumi:"redactionPlaceHolderText"`
+	// The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
+	RedactionPlaceHolderType string `pulumi:"redactionPlaceHolderType"`
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderInput` via:
+//
+//	DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{...}
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs struct {
+	// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+	RedactionPlaceHolderText pulumi.StringPtrInput `pulumi:"redactionPlaceHolderText"`
+	// The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
+	RedactionPlaceHolderType pulumi.StringInput `pulumi:"redactionPlaceHolderType"`
+}
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder)(nil)).Elem()
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput)
+}
+
+// DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayInput is an input type that accepts DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray and DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput values.
+// You can construct a concrete instance of `DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayInput` via:
+//
+//	DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{ DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{...} }
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput
+	ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutputWithContext(context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray []DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderInput
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder)(nil)).Elem()
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput {
+	return i.ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutputWithContext(context.Background())
+}
+
+func (i DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput {
+	return o
+}
+
+// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput) RedactionPlaceHolderText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder) *string {
+		return v.RedactionPlaceHolderText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput) RedactionPlaceHolderType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder) string {
+		return v.RedactionPlaceHolderType
+	}).(pulumi.StringOutput)
+}
+
+type DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput() DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput) ToDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutputWithContext(ctx context.Context) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput {
+	return o
+}
+
+func (o DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput) Index(i pulumi.IntInput) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder {
+		return vs[0].([]DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder)[vs[1].(int)]
+	}).(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput)
+}
+
+type IpAccessSettingsIpRule struct {
+	// The description of the IP access settings.
+	Description *string `pulumi:"description"`
+	// The IP range of the IP rule.
+	IpRange string `pulumi:"ipRange"`
+}
+
+// IpAccessSettingsIpRuleInput is an input type that accepts IpAccessSettingsIpRuleArgs and IpAccessSettingsIpRuleOutput values.
+// You can construct a concrete instance of `IpAccessSettingsIpRuleInput` via:
+//
+//	IpAccessSettingsIpRuleArgs{...}
+type IpAccessSettingsIpRuleInput interface {
+	pulumi.Input
+
+	ToIpAccessSettingsIpRuleOutput() IpAccessSettingsIpRuleOutput
+	ToIpAccessSettingsIpRuleOutputWithContext(context.Context) IpAccessSettingsIpRuleOutput
+}
+
+type IpAccessSettingsIpRuleArgs struct {
+	// The description of the IP access settings.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The IP range of the IP rule.
+	IpRange pulumi.StringInput `pulumi:"ipRange"`
+}
+
+func (IpAccessSettingsIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAccessSettingsIpRule)(nil)).Elem()
+}
+
+func (i IpAccessSettingsIpRuleArgs) ToIpAccessSettingsIpRuleOutput() IpAccessSettingsIpRuleOutput {
+	return i.ToIpAccessSettingsIpRuleOutputWithContext(context.Background())
+}
+
+func (i IpAccessSettingsIpRuleArgs) ToIpAccessSettingsIpRuleOutputWithContext(ctx context.Context) IpAccessSettingsIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsIpRuleOutput)
+}
+
+// IpAccessSettingsIpRuleArrayInput is an input type that accepts IpAccessSettingsIpRuleArray and IpAccessSettingsIpRuleArrayOutput values.
+// You can construct a concrete instance of `IpAccessSettingsIpRuleArrayInput` via:
+//
+//	IpAccessSettingsIpRuleArray{ IpAccessSettingsIpRuleArgs{...} }
+type IpAccessSettingsIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToIpAccessSettingsIpRuleArrayOutput() IpAccessSettingsIpRuleArrayOutput
+	ToIpAccessSettingsIpRuleArrayOutputWithContext(context.Context) IpAccessSettingsIpRuleArrayOutput
+}
+
+type IpAccessSettingsIpRuleArray []IpAccessSettingsIpRuleInput
+
+func (IpAccessSettingsIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAccessSettingsIpRule)(nil)).Elem()
+}
+
+func (i IpAccessSettingsIpRuleArray) ToIpAccessSettingsIpRuleArrayOutput() IpAccessSettingsIpRuleArrayOutput {
+	return i.ToIpAccessSettingsIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IpAccessSettingsIpRuleArray) ToIpAccessSettingsIpRuleArrayOutputWithContext(ctx context.Context) IpAccessSettingsIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsIpRuleArrayOutput)
+}
+
+type IpAccessSettingsIpRuleOutput struct{ *pulumi.OutputState }
+
+func (IpAccessSettingsIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAccessSettingsIpRule)(nil)).Elem()
+}
+
+func (o IpAccessSettingsIpRuleOutput) ToIpAccessSettingsIpRuleOutput() IpAccessSettingsIpRuleOutput {
+	return o
+}
+
+func (o IpAccessSettingsIpRuleOutput) ToIpAccessSettingsIpRuleOutputWithContext(ctx context.Context) IpAccessSettingsIpRuleOutput {
+	return o
+}
+
+// The description of the IP access settings.
+func (o IpAccessSettingsIpRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAccessSettingsIpRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The IP range of the IP rule.
+func (o IpAccessSettingsIpRuleOutput) IpRange() pulumi.StringOutput {
+	return o.ApplyT(func(v IpAccessSettingsIpRule) string { return v.IpRange }).(pulumi.StringOutput)
+}
+
+type IpAccessSettingsIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IpAccessSettingsIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAccessSettingsIpRule)(nil)).Elem()
+}
+
+func (o IpAccessSettingsIpRuleArrayOutput) ToIpAccessSettingsIpRuleArrayOutput() IpAccessSettingsIpRuleArrayOutput {
+	return o
+}
+
+func (o IpAccessSettingsIpRuleArrayOutput) ToIpAccessSettingsIpRuleArrayOutputWithContext(ctx context.Context) IpAccessSettingsIpRuleArrayOutput {
+	return o
+}
+
+func (o IpAccessSettingsIpRuleArrayOutput) Index(i pulumi.IntInput) IpAccessSettingsIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpAccessSettingsIpRule {
+		return vs[0].([]IpAccessSettingsIpRule)[vs[1].(int)]
+	}).(IpAccessSettingsIpRuleOutput)
+}
+
 type UserSettingsCookieSynchronizationConfiguration struct {
 	// List of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlists []UserSettingsCookieSynchronizationConfigurationAllowlist `pulumi:"allowlists"`
@@ -598,6 +1366,16 @@ func (o UserSettingsToolbarConfigurationPtrOutput) VisualMode() pulumi.StringPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationPtrInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpAccessSettingsIpRuleInput)(nil)).Elem(), IpAccessSettingsIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpAccessSettingsIpRuleArrayInput)(nil)).Elem(), IpAccessSettingsIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationPtrInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationAllowlistInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationAllowlistArgs{})
@@ -606,6 +1384,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationBlocklistArrayInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationBlocklistArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationPtrInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArrayOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternPtrOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArrayOutput{})
+	pulumi.RegisterOutputType(IpAccessSettingsIpRuleOutput{})
+	pulumi.RegisterOutputType(IpAccessSettingsIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationAllowlistOutput{})

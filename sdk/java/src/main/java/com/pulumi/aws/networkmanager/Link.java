@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a link for a site.
+ * Manages a Network Manager link. Use this resource to create a link for a site.
  * 
  * ## Example Usage
  * 
@@ -73,84 +73,88 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/link:Link")
 public class Link extends com.pulumi.resources.CustomResource {
     /**
-     * Link Amazon Resource Name (ARN).
+     * Link ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Link Amazon Resource Name (ARN).
+     * @return Link ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The upload speed and download speed in Mbps. Documented below.
+     * Upload speed and download speed in Mbps. See below.
      * 
      */
     @Export(name="bandwidth", refs={LinkBandwidth.class}, tree="[0]")
     private Output<LinkBandwidth> bandwidth;
 
     /**
-     * @return The upload speed and download speed in Mbps. Documented below.
+     * @return Upload speed and download speed in Mbps. See below.
      * 
      */
     public Output<LinkBandwidth> bandwidth() {
         return this.bandwidth;
     }
     /**
-     * A description of the link.
+     * Description of the link.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the link.
+     * @return Description of the link.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ID of the global network.
+     * ID of the global network.
      * 
      */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
      * 
      */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
     /**
-     * The provider of the link.
+     * Provider of the link.
      * 
      */
     @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> providerName;
 
     /**
-     * @return The provider of the link.
+     * @return Provider of the link.
      * 
      */
     public Output<Optional<String>> providerName() {
         return Codegen.optional(this.providerName);
     }
     /**
-     * The ID of the site.
+     * ID of the site.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="siteId", refs={String.class}, tree="[0]")
     private Output<String> siteId;
 
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> siteId() {
@@ -171,28 +175,28 @@ public class Link extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of the link.
+     * Type of the link.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of the link.
+     * @return Type of the link.
      * 
      */
     public Output<Optional<String>> type() {

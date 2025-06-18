@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class EventSourceMappingSelfManagedKafkaEventSourceConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        /// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
         /// </summary>
         [Input("consumerGroupId")]
         public Input<string>? ConsumerGroupId { get; set; }

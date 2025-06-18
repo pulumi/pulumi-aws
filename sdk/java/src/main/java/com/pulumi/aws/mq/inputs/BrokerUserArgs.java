@@ -49,14 +49,14 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+     * Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+     * @return Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
      * 
      */
     public Output<String> password() {
@@ -64,14 +64,18 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to set set replication user. Defaults to `false`.
+     * Whether to set replication user. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     @Import(name="replicationUser")
     private @Nullable Output<Boolean> replicationUser;
 
     /**
-     * @return Whether to set set replication user. Defaults to `false`.
+     * @return Whether to set replication user. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     public Optional<Output<Boolean>> replicationUser() {
@@ -81,7 +85,7 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Username of the user.
      * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+     * The following arguments are optional:
      * 
      */
     @Import(name="username", required=true)
@@ -90,7 +94,7 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Username of the user.
      * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+     * The following arguments are optional:
      * 
      */
     public Output<String> username() {
@@ -178,7 +182,7 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+         * @param password Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
          * 
          * @return builder
          * 
@@ -189,7 +193,7 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+         * @param password Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
          * 
          * @return builder
          * 
@@ -199,7 +203,9 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationUser Whether to set set replication user. Defaults to `false`.
+         * @param replicationUser Whether to set replication user. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
          * 
          * @return builder
          * 
@@ -210,7 +216,9 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationUser Whether to set set replication user. Defaults to `false`.
+         * @param replicationUser Whether to set replication user. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
          * 
          * @return builder
          * 
@@ -222,7 +230,7 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param username Username of the user.
          * 
-         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -235,7 +243,7 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param username Username of the user.
          * 
-         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+         * The following arguments are optional:
          * 
          * @return builder
          * 

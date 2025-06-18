@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventSourceMappingDocumentDbEventSourceConfig {
     /**
-     * @return The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+     * @return Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
      * 
      */
     private @Nullable String collectionName;
     /**
-     * @return The name of the database to consume within the DocumentDB cluster.
+     * @return Name of the database to consume within the DocumentDB cluster.
      * 
      */
     private String databaseName;
@@ -30,14 +30,14 @@ public final class EventSourceMappingDocumentDbEventSourceConfig {
 
     private EventSourceMappingDocumentDbEventSourceConfig() {}
     /**
-     * @return The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+     * @return Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
      * 
      */
     public Optional<String> collectionName() {
         return Optional.ofNullable(this.collectionName);
     }
     /**
-     * @return The name of the database to consume within the DocumentDB cluster.
+     * @return Name of the database to consume within the DocumentDB cluster.
      * 
      */
     public String databaseName() {

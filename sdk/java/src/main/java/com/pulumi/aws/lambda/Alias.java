@@ -16,12 +16,51 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
+ * Manages an AWS Lambda Alias. Use this resource to create an alias that points to a specific Lambda function version for traffic management and deployment strategies.
  * 
- * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
- * For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html). For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Alias
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Alias;
+ * import com.pulumi.aws.lambda.AliasArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Alias("example", AliasArgs.builder()
+ *             .name("production")
+ *             .description("Production environment alias")
+ *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .functionVersion("1")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Alias with Traffic Splitting
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -47,14 +86,98 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLambdaAlias = new Alias("testLambdaAlias", AliasArgs.builder()
- *             .name("my_alias")
- *             .description("a sample description")
- *             .functionName(lambdaFunctionTest.arn())
- *             .functionVersion("1")
+ *         var example = new Alias("example", AliasArgs.builder()
+ *             .name("staging")
+ *             .description("Staging environment with traffic splitting")
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionVersion("2")
  *             .routingConfig(AliasRoutingConfigArgs.builder()
- *                 .additionalVersionWeights(Map.of("2", 0.5))
+ *                 .additionalVersionWeights(Map.ofEntries(
+ *                     Map.entry("1", 0.1),
+ *                     Map.entry("3", 0.2)
+ *                 ))
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Blue-Green Deployment Alias
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Alias;
+ * import com.pulumi.aws.lambda.AliasArgs;
+ * import com.pulumi.aws.lambda.inputs.AliasRoutingConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Alias for gradual rollout
+ *         var example = new Alias("example", AliasArgs.builder()
+ *             .name("live")
+ *             .description("Live traffic with gradual rollout to new version")
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionVersion("5")
+ *             .routingConfig(AliasRoutingConfigArgs.builder()
+ *                 .additionalVersionWeights(Map.of("6", 0.05))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Development Alias
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Alias;
+ * import com.pulumi.aws.lambda.AliasArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Alias("example", AliasArgs.builder()
+ *             .name("dev")
+ *             .description("Development environment - always points to latest")
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionVersion("$LATEST")
  *             .build());
  * 
  *     }
@@ -65,24 +188,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
+ * For backwards compatibility, the following legacy `pulumi import` command is also supported:
  * 
  * ```sh
- * $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+ * $ pulumi import aws:lambda/alias:Alias example example/production
  * ```
  * 
  */
 @ResourceType(type="aws:lambda/alias:Alias")
 public class Alias extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda function alias.
+     * ARN identifying your Lambda function alias.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) identifying your Lambda function alias.
+     * @return ARN identifying your Lambda function alias.
      * 
      */
     public Output<String> arn() {
@@ -103,14 +226,14 @@ public class Alias extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Lambda Function name or ARN.
+     * Name or ARN of the Lambda function.
      * 
      */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
-     * @return Lambda Function name or ARN.
+     * @return Name or ARN of the Lambda function.
      * 
      */
     public Output<String> functionName() {
@@ -131,28 +254,32 @@ public class Alias extends com.pulumi.resources.CustomResource {
         return this.functionVersion;
     }
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
+     * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     @Export(name="invokeArn", refs={String.class}, tree="[0]")
     private Output<String> invokeArn;
 
     /**
-     * @return The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
+     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     public Output<String> invokeArn() {
         return this.invokeArn;
     }
     /**
-     * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+     * Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+     * @return Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -173,14 +300,14 @@ public class Alias extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Lambda alias&#39; route configuration settings. Fields documented below
+     * Lambda alias&#39; route configuration settings. See below.
      * 
      */
     @Export(name="routingConfig", refs={AliasRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ AliasRoutingConfig> routingConfig;
 
     /**
-     * @return The Lambda alias&#39; route configuration settings. Fields documented below
+     * @return Lambda alias&#39; route configuration settings. See below.
      * 
      */
     public Output<Optional<AliasRoutingConfig>> routingConfig() {

@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Lambda Provisioned Concurrency Configuration.
+ * Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
  *
- * > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
+ * > **Note:** Setting `skipDestroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
  *
  * ## Example Usage
  *
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
  *
  * ```sh
- * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+ * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
  * ```
  */
 export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
@@ -78,7 +78,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
-     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * Amount of capacity to allocate. Must be greater than or equal to 1.
      */
     public readonly provisionedConcurrentExecutions!: pulumi.Output<number>;
     /**
@@ -92,7 +92,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
 
@@ -145,7 +145,7 @@ export interface ProvisionedConcurrencyConfigState {
      */
     functionName?: pulumi.Input<string>;
     /**
-     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * Amount of capacity to allocate. Must be greater than or equal to 1.
      */
     provisionedConcurrentExecutions?: pulumi.Input<number>;
     /**
@@ -159,7 +159,7 @@ export interface ProvisionedConcurrencyConfigState {
      */
     region?: pulumi.Input<string>;
     /**
-     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      */
     skipDestroy?: pulumi.Input<boolean>;
 }
@@ -173,7 +173,7 @@ export interface ProvisionedConcurrencyConfigArgs {
      */
     functionName: pulumi.Input<string>;
     /**
-     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * Amount of capacity to allocate. Must be greater than or equal to 1.
      */
     provisionedConcurrentExecutions: pulumi.Input<number>;
     /**
@@ -187,7 +187,7 @@ export interface ProvisionedConcurrencyConfigArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      */
     skipDestroy?: pulumi.Input<boolean>;
 }

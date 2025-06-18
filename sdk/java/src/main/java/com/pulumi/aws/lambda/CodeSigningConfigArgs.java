@@ -20,14 +20,18 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
     public static final CodeSigningConfigArgs Empty = new CodeSigningConfigArgs();
 
     /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="allowedPublishers", required=true)
     private Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers;
 
     /**
-     * @return A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * @return Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers() {
@@ -50,14 +54,14 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      * 
      */
     @Import(name="policies")
     private @Nullable Output<CodeSigningConfigPoliciesArgs> policies;
 
     /**
-     * @return A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * @return Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      * 
      */
     public Optional<Output<CodeSigningConfigPoliciesArgs>> policies() {
@@ -123,7 +127,9 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param allowedPublishers A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+         * @param allowedPublishers Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -134,7 +140,9 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param allowedPublishers A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+         * @param allowedPublishers Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -165,7 +173,7 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policies A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+         * @param policies Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
          * 
          * @return builder
          * 
@@ -176,7 +184,7 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policies A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+         * @param policies Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
          * 
          * @return builder
          * 

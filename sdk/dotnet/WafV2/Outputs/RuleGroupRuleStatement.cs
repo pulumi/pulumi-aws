@@ -18,6 +18,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementAndStatement? AndStatement;
         /// <summary>
+        /// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementAsnMatchStatement? AsnMatchStatement;
+        /// <summary>
         /// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementByteMatchStatement? ByteMatchStatement;
@@ -70,6 +74,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         private RuleGroupRuleStatement(
             Outputs.RuleGroupRuleStatementAndStatement? andStatement,
 
+            Outputs.RuleGroupRuleStatementAsnMatchStatement? asnMatchStatement,
+
             Outputs.RuleGroupRuleStatementByteMatchStatement? byteMatchStatement,
 
             Outputs.RuleGroupRuleStatementGeoMatchStatement? geoMatchStatement,
@@ -95,6 +101,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             Outputs.RuleGroupRuleStatementXssMatchStatement? xssMatchStatement)
         {
             AndStatement = andStatement;
+            AsnMatchStatement = asnMatchStatement;
             ByteMatchStatement = byteMatchStatement;
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;

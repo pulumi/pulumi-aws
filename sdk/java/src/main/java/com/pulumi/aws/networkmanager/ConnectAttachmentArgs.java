@@ -19,14 +19,14 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
     public static final ConnectAttachmentArgs Empty = new ConnectAttachmentArgs();
 
     /**
-     * The ID of a core network where you want to create the attachment.
+     * ID of a core network where you want to create the attachment.
      * 
      */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network where you want to create the attachment.
+     * @return ID of a core network where you want to create the attachment.
      * 
      */
     public Output<String> coreNetworkId() {
@@ -34,14 +34,14 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      * 
      */
     @Import(name="edgeLocation", required=true)
     private Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located.
+     * @return Region where the edge is located.
      * 
      */
     public Output<String> edgeLocation() {
@@ -51,16 +51,12 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
     /**
      * Options block. See options for more information.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="options", required=true)
     private Output<ConnectAttachmentOptionsArgs> options;
 
     /**
      * @return Options block. See options for more information.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<ConnectAttachmentOptionsArgs> options() {
@@ -83,14 +79,18 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the attachment between the two connections.
+     * ID of the attachment between the two connections.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="transportAttachmentId", required=true)
     private Output<String> transportAttachmentId;
 
     /**
-     * @return The ID of the attachment between the two connections.
+     * @return ID of the attachment between the two connections.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transportAttachmentId() {
@@ -126,7 +126,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param coreNetworkId The ID of a core network where you want to create the attachment.
+         * @param coreNetworkId ID of a core network where you want to create the attachment.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param coreNetworkId The ID of a core network where you want to create the attachment.
+         * @param coreNetworkId ID of a core network where you want to create the attachment.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation Region where the edge is located.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation Region where the edge is located.
          * 
          * @return builder
          * 
@@ -170,8 +170,6 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param options Options block. See options for more information.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -182,8 +180,6 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param options Options block. See options for more information.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -214,7 +210,9 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param transportAttachmentId The ID of the attachment between the two connections.
+         * @param transportAttachmentId ID of the attachment between the two connections.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -225,7 +223,9 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param transportAttachmentId The ID of the attachment between the two connections.
+         * @param transportAttachmentId ID of the attachment between the two connections.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

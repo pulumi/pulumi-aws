@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerUserResult
     {
+        /// <summary>
+        /// Whether to enable access to the ActiveMQ Web Console for the user.
+        /// </summary>
         public readonly bool ConsoleAccess;
+        /// <summary>
+        /// List of groups to which the ActiveMQ user belongs.
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
+        /// <summary>
+        /// Whether to set replication user.
+        /// </summary>
         public readonly bool ReplicationUser;
+        /// <summary>
+        /// Username of the user.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

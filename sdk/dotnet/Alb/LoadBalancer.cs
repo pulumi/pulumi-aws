@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Alb
         public Output<Outputs.LoadBalancerAccessLogs?> AccessLogs { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the load balancer (matches `id`).
+        /// ARN of the load balancer.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -203,6 +203,7 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// DNS name of the load balancer.
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
@@ -649,7 +650,7 @@ namespace Pulumi.Aws.Alb
         public Input<Inputs.LoadBalancerAccessLogsGetArgs>? AccessLogs { get; set; }
 
         /// <summary>
-        /// ARN of the load balancer (matches `id`).
+        /// ARN of the load balancer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -686,6 +687,7 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// DNS name of the load balancer.
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }

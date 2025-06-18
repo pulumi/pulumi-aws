@@ -18,7 +18,7 @@ import (
 //
 // > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
 //
-// > This resource cannot be used with S3 directory buckets.
+// > This resource can be used with s3 directory buckets. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) for more information.
 //
 // ## Example Usage
 //
@@ -89,6 +89,49 @@ import (
 //				VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
 //					VpcId: exampleVpc.ID(),
 //				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### AWS Partition Directory Bucket
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
+//				Bucket: pulumi.String("example--zoneId--x-s3"),
+//				Location: &s3.DirectoryBucketLocationArgs{
+//					Name: pulumi.String(available.ZoneIds[0]),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
+//				Bucket: pulumi.Any(test.Bucket),
+//				Name:   pulumi.String("example--zoneId--xa-s3"),
 //			})
 //			if err != nil {
 //				return err

@@ -29,12 +29,14 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input[builtins.str] connected_device_id: The ID of the second device in the connection.
-        :param pulumi.Input[builtins.str] device_id: The ID of the first device in the connection.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the global network.
-        :param pulumi.Input[builtins.str] connected_link_id: The ID of the link for the second device.
-        :param pulumi.Input[builtins.str] description: A description of the connection.
-        :param pulumi.Input[builtins.str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[builtins.str] connected_device_id: ID of the second device in the connection.
+        :param pulumi.Input[builtins.str] device_id: ID of the first device in the connection.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the global network.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] connected_link_id: ID of the link for the second device.
+        :param pulumi.Input[builtins.str] description: Description of the connection.
+        :param pulumi.Input[builtins.str] link_id: ID of the link for the first device.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connected_device_id", connected_device_id)
@@ -53,7 +55,7 @@ class ConnectionArgs:
     @pulumi.getter(name="connectedDeviceId")
     def connected_device_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the second device in the connection.
+        ID of the second device in the connection.
         """
         return pulumi.get(self, "connected_device_id")
 
@@ -65,7 +67,7 @@ class ConnectionArgs:
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the first device in the connection.
+        ID of the first device in the connection.
         """
         return pulumi.get(self, "device_id")
 
@@ -77,7 +79,9 @@ class ConnectionArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the global network.
+        ID of the global network.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "global_network_id")
 
@@ -89,7 +93,7 @@ class ConnectionArgs:
     @pulumi.getter(name="connectedLinkId")
     def connected_link_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the link for the second device.
+        ID of the link for the second device.
         """
         return pulumi.get(self, "connected_link_id")
 
@@ -101,7 +105,7 @@ class ConnectionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A description of the connection.
+        Description of the connection.
         """
         return pulumi.get(self, "description")
 
@@ -113,7 +117,7 @@ class ConnectionArgs:
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the link for the first device.
+        ID of the link for the first device.
         """
         return pulumi.get(self, "link_id")
 
@@ -148,15 +152,17 @@ class _ConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
-        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the connection.
-        :param pulumi.Input[builtins.str] connected_device_id: The ID of the second device in the connection.
-        :param pulumi.Input[builtins.str] connected_link_id: The ID of the link for the second device.
-        :param pulumi.Input[builtins.str] description: A description of the connection.
-        :param pulumi.Input[builtins.str] device_id: The ID of the first device in the connection.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the global network.
-        :param pulumi.Input[builtins.str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[builtins.str] arn: ARN of the connection.
+        :param pulumi.Input[builtins.str] connected_device_id: ID of the second device in the connection.
+        :param pulumi.Input[builtins.str] connected_link_id: ID of the link for the second device.
+        :param pulumi.Input[builtins.str] description: Description of the connection.
+        :param pulumi.Input[builtins.str] device_id: ID of the first device in the connection.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the global network.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] link_id: ID of the link for the first device.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -181,7 +187,7 @@ class _ConnectionState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the connection.
+        ARN of the connection.
         """
         return pulumi.get(self, "arn")
 
@@ -193,7 +199,7 @@ class _ConnectionState:
     @pulumi.getter(name="connectedDeviceId")
     def connected_device_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the second device in the connection.
+        ID of the second device in the connection.
         """
         return pulumi.get(self, "connected_device_id")
 
@@ -205,7 +211,7 @@ class _ConnectionState:
     @pulumi.getter(name="connectedLinkId")
     def connected_link_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the link for the second device.
+        ID of the link for the second device.
         """
         return pulumi.get(self, "connected_link_id")
 
@@ -217,7 +223,7 @@ class _ConnectionState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A description of the connection.
+        Description of the connection.
         """
         return pulumi.get(self, "description")
 
@@ -229,7 +235,7 @@ class _ConnectionState:
     @pulumi.getter(name="deviceId")
     def device_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the first device in the connection.
+        ID of the first device in the connection.
         """
         return pulumi.get(self, "device_id")
 
@@ -241,7 +247,9 @@ class _ConnectionState:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the global network.
+        ID of the global network.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "global_network_id")
 
@@ -253,7 +261,7 @@ class _ConnectionState:
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the link for the first device.
+        ID of the link for the first device.
         """
         return pulumi.get(self, "link_id")
 
@@ -277,7 +285,7 @@ class _ConnectionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -301,8 +309,9 @@ class Connection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a connection between two devices.
-        The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
+        Manages a Network Manager Connection.
+
+        Use this resource to create a connection between two devices in your global network.
 
         ## Example Usage
 
@@ -326,12 +335,14 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] connected_device_id: The ID of the second device in the connection.
-        :param pulumi.Input[builtins.str] connected_link_id: The ID of the link for the second device.
-        :param pulumi.Input[builtins.str] description: A description of the connection.
-        :param pulumi.Input[builtins.str] device_id: The ID of the first device in the connection.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the global network.
-        :param pulumi.Input[builtins.str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[builtins.str] connected_device_id: ID of the second device in the connection.
+        :param pulumi.Input[builtins.str] connected_link_id: ID of the link for the second device.
+        :param pulumi.Input[builtins.str] description: Description of the connection.
+        :param pulumi.Input[builtins.str] device_id: ID of the first device in the connection.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the global network.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] link_id: ID of the link for the first device.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -341,8 +352,9 @@ class Connection(pulumi.CustomResource):
                  args: ConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a connection between two devices.
-        The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
+        Manages a Network Manager Connection.
+
+        Use this resource to create a connection between two devices in your global network.
 
         ## Example Usage
 
@@ -436,15 +448,17 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the connection.
-        :param pulumi.Input[builtins.str] connected_device_id: The ID of the second device in the connection.
-        :param pulumi.Input[builtins.str] connected_link_id: The ID of the link for the second device.
-        :param pulumi.Input[builtins.str] description: A description of the connection.
-        :param pulumi.Input[builtins.str] device_id: The ID of the first device in the connection.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the global network.
-        :param pulumi.Input[builtins.str] link_id: The ID of the link for the first device.
+        :param pulumi.Input[builtins.str] arn: ARN of the connection.
+        :param pulumi.Input[builtins.str] connected_device_id: ID of the second device in the connection.
+        :param pulumi.Input[builtins.str] connected_link_id: ID of the link for the second device.
+        :param pulumi.Input[builtins.str] description: Description of the connection.
+        :param pulumi.Input[builtins.str] device_id: ID of the first device in the connection.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the global network.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] link_id: ID of the link for the first device.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -465,7 +479,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the connection.
+        ARN of the connection.
         """
         return pulumi.get(self, "arn")
 
@@ -473,7 +487,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectedDeviceId")
     def connected_device_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the second device in the connection.
+        ID of the second device in the connection.
         """
         return pulumi.get(self, "connected_device_id")
 
@@ -481,7 +495,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="connectedLinkId")
     def connected_link_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The ID of the link for the second device.
+        ID of the link for the second device.
         """
         return pulumi.get(self, "connected_link_id")
 
@@ -489,7 +503,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        A description of the connection.
+        Description of the connection.
         """
         return pulumi.get(self, "description")
 
@@ -497,7 +511,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the first device in the connection.
+        ID of the first device in the connection.
         """
         return pulumi.get(self, "device_id")
 
@@ -505,7 +519,9 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the global network.
+        ID of the global network.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "global_network_id")
 
@@ -513,7 +529,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The ID of the link for the first device.
+        ID of the link for the first device.
         """
         return pulumi.get(self, "link_id")
 
@@ -529,7 +545,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

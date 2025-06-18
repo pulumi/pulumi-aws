@@ -290,6 +290,52 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Example with S3 as source for the suricata rules
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const suricataRules = aws.s3.getObject({
+ *     bucket: suricataRulesAwsS3Bucket.id,
+ *     key: "rules/custom.rules",
+ * });
+ * const s3RulesExample = new aws.networkfirewall.RuleGroup("s3_rules_example", {
+ *     capacity: 1000,
+ *     name: "my-terraform-s3-rules",
+ *     type: "STATEFUL",
+ *     ruleGroup: {
+ *         ruleVariables: {
+ *             ipSets: [{
+ *                 key: "HOME_NET",
+ *                 ipSet: {
+ *                     definitions: [
+ *                         "10.0.0.0/16",
+ *                         "192.168.0.0/16",
+ *                         "172.16.0.0/12",
+ *                     ],
+ *                 },
+ *             }],
+ *             portSets: [{
+ *                 key: "HTTP_PORTS",
+ *                 portSet: {
+ *                     definitions: [
+ *                         "443",
+ *                         "80",
+ *                     ],
+ *                 },
+ *             }],
+ *         },
+ *         rulesSource: {
+ *             rulesString: suricataRules.then(suricataRules => suricataRules.body),
+ *         },
+ *     },
+ *     tags: {
+ *         ManagedBy: "terraform",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:

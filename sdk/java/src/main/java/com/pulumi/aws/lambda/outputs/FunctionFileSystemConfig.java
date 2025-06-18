@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class FunctionFileSystemConfig {
     /**
-     * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * @return ARN of the Amazon EFS Access Point.
      * 
      */
     private String arn;
     /**
-     * @return Path where the function can access the file system, starting with /mnt/.
+     * @return Path where the function can access the file system. Must start with `/mnt/`.
      * 
      */
     private String localMountPath;
 
     private FunctionFileSystemConfig() {}
     /**
-     * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * @return ARN of the Amazon EFS Access Point.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Path where the function can access the file system, starting with /mnt/.
+     * @return Path where the function can access the file system. Must start with `/mnt/`.
      * 
      */
     public String localMountPath() {

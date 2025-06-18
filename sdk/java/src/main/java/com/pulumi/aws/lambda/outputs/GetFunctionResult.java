@@ -28,7 +28,7 @@ public final class GetFunctionResult {
      */
     private List<String> architectures;
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+     * @return ARN of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
     private String arn;
@@ -43,7 +43,7 @@ public final class GetFunctionResult {
      */
     private String codeSigningConfigArn;
     /**
-     * @return Configure the function&#39;s *dead letter queue*.
+     * @return Configuration for the function&#39;s dead letter queue. See below.
      * 
      */
     private GetFunctionDeadLetterConfig deadLetterConfig;
@@ -53,17 +53,17 @@ public final class GetFunctionResult {
      */
     private String description;
     /**
-     * @return Lambda environment&#39;s configuration settings.
+     * @return Lambda environment&#39;s configuration settings. See below.
      * 
      */
     private GetFunctionEnvironment environment;
     /**
-     * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+     * @return Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
      * 
      */
     private List<GetFunctionEphemeralStorage> ephemeralStorages;
     /**
-     * @return Connection settings for an Amazon EFS file system.
+     * @return Connection settings for an Amazon EFS file system. See below.
      * 
      */
     private List<GetFunctionFileSystemConfig> fileSystemConfigs;
@@ -84,7 +84,7 @@ public final class GetFunctionResult {
      */
     private String imageUri;
     /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
+     * @return ARN to be used for invoking Lambda Function from API Gateway. **Note:** Starting with `v4.51.0` of the provider, this will not include the qualifier.
      * 
      */
     private String invokeArn;
@@ -104,7 +104,7 @@ public final class GetFunctionResult {
      */
     private List<String> layers;
     /**
-     * @return Advanced logging settings.
+     * @return Advanced logging settings. See below.
      * 
      */
     private List<GetFunctionLoggingConfig> loggingConfigs;
@@ -126,7 +126,7 @@ public final class GetFunctionResult {
     private @Nullable String qualifier;
     private String region;
     /**
-     * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
+     * @return Amount of reserved concurrent executions for this Lambda function or `-1` if unreserved.
      * 
      */
     private Integer reservedConcurrentExecutions;
@@ -146,7 +146,7 @@ public final class GetFunctionResult {
      */
     private String signingJobArn;
     /**
-     * @return The ARN for a signing profile version.
+     * @return ARN for a signing profile version.
      * 
      */
     private String signingProfileVersionArn;
@@ -164,6 +164,10 @@ public final class GetFunctionResult {
      * 
      */
     private Integer sourceCodeSize;
+    /**
+     * @return Map of tags assigned to the Lambda Function.
+     * 
+     */
     private Map<String,String> tags;
     /**
      * @return Function execution time at which Lambda should terminate the function.
@@ -171,17 +175,17 @@ public final class GetFunctionResult {
      */
     private Integer timeout;
     /**
-     * @return Tracing settings of the function.
+     * @return Tracing settings of the function. See below.
      * 
      */
     private GetFunctionTracingConfig tracingConfig;
     /**
-     * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
+     * @return Version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      * 
      */
     private String version;
     /**
-     * @return VPC configuration associated with your Lambda function.
+     * @return VPC configuration associated with your Lambda function. See below.
      * 
      */
     private GetFunctionVpcConfig vpcConfig;
@@ -195,7 +199,7 @@ public final class GetFunctionResult {
         return this.architectures;
     }
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+     * @return ARN of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
     public String arn() {
@@ -216,7 +220,7 @@ public final class GetFunctionResult {
         return this.codeSigningConfigArn;
     }
     /**
-     * @return Configure the function&#39;s *dead letter queue*.
+     * @return Configuration for the function&#39;s dead letter queue. See below.
      * 
      */
     public GetFunctionDeadLetterConfig deadLetterConfig() {
@@ -230,21 +234,21 @@ public final class GetFunctionResult {
         return this.description;
     }
     /**
-     * @return Lambda environment&#39;s configuration settings.
+     * @return Lambda environment&#39;s configuration settings. See below.
      * 
      */
     public GetFunctionEnvironment environment() {
         return this.environment;
     }
     /**
-     * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+     * @return Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
      * 
      */
     public List<GetFunctionEphemeralStorage> ephemeralStorages() {
         return this.ephemeralStorages;
     }
     /**
-     * @return Connection settings for an Amazon EFS file system.
+     * @return Connection settings for an Amazon EFS file system. See below.
      * 
      */
     public List<GetFunctionFileSystemConfig> fileSystemConfigs() {
@@ -275,7 +279,7 @@ public final class GetFunctionResult {
         return this.imageUri;
     }
     /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
+     * @return ARN to be used for invoking Lambda Function from API Gateway. **Note:** Starting with `v4.51.0` of the provider, this will not include the qualifier.
      * 
      */
     public String invokeArn() {
@@ -303,7 +307,7 @@ public final class GetFunctionResult {
         return this.layers;
     }
     /**
-     * @return Advanced logging settings.
+     * @return Advanced logging settings. See below.
      * 
      */
     public List<GetFunctionLoggingConfig> loggingConfigs() {
@@ -337,7 +341,7 @@ public final class GetFunctionResult {
         return this.region;
     }
     /**
-     * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
+     * @return Amount of reserved concurrent executions for this Lambda function or `-1` if unreserved.
      * 
      */
     public Integer reservedConcurrentExecutions() {
@@ -365,7 +369,7 @@ public final class GetFunctionResult {
         return this.signingJobArn;
     }
     /**
-     * @return The ARN for a signing profile version.
+     * @return ARN for a signing profile version.
      * 
      */
     public String signingProfileVersionArn() {
@@ -389,6 +393,10 @@ public final class GetFunctionResult {
     public Integer sourceCodeSize() {
         return this.sourceCodeSize;
     }
+    /**
+     * @return Map of tags assigned to the Lambda Function.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -400,21 +408,21 @@ public final class GetFunctionResult {
         return this.timeout;
     }
     /**
-     * @return Tracing settings of the function.
+     * @return Tracing settings of the function. See below.
      * 
      */
     public GetFunctionTracingConfig tracingConfig() {
         return this.tracingConfig;
     }
     /**
-     * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
+     * @return Version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      * 
      */
     public String version() {
         return this.version;
     }
     /**
-     * @return VPC configuration associated with your Lambda function.
+     * @return VPC configuration associated with your Lambda function. See below.
      * 
      */
     public GetFunctionVpcConfig vpcConfig() {

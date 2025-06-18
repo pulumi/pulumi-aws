@@ -16,14 +16,14 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
     public static final FunctionRecursionConfigState Empty = new FunctionRecursionConfigState();
 
     /**
-     * Lambda function name.
+     * Name of the Lambda function.
      * 
      */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
     /**
-     * @return Lambda function name.
+     * @return Name of the Lambda function.
      * 
      */
     public Optional<Output<String>> functionName() {
@@ -33,12 +33,16 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="recursiveLoop")
     private @Nullable Output<String> recursiveLoop;
 
     /**
      * @return Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> recursiveLoop() {
@@ -87,7 +91,7 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param functionName Lambda function name.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -98,7 +102,7 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param functionName Lambda function name.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -110,6 +114,8 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
         /**
          * @param recursiveLoop Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class FunctionRecursionConfigState extends com.pulumi.resources.Res
 
         /**
          * @param recursiveLoop Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

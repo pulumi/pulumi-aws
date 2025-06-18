@@ -90,6 +90,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
      */
     public readonly dataCompressionType!: pulumi.Output<string | undefined>;
+    public readonly dataReadCacheConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemDataReadCacheConfiguration | undefined>;
     /**
      * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      */
@@ -179,7 +180,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
     /**
-     * The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
@@ -196,6 +197,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+     */
+    public readonly throughputCapacity!: pulumi.Output<number | undefined>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
@@ -225,6 +230,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
             resourceInputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
+            resourceInputs["dataReadCacheConfiguration"] = state ? state.dataReadCacheConfiguration : undefined;
             resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["driveCacheType"] = state ? state.driveCacheType : undefined;
@@ -250,6 +256,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
             resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
@@ -263,6 +270,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             resourceInputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
+            resourceInputs["dataReadCacheConfiguration"] = args ? args.dataReadCacheConfiguration : undefined;
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["driveCacheType"] = args ? args.driveCacheType : undefined;
             resourceInputs["efaEnabled"] = args ? args.efaEnabled : undefined;
@@ -283,6 +291,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
             resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
@@ -329,6 +338,7 @@ export interface LustreFileSystemState {
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
      */
     dataCompressionType?: pulumi.Input<string>;
+    dataReadCacheConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemDataReadCacheConfiguration>;
     /**
      * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      */
@@ -418,7 +428,7 @@ export interface LustreFileSystemState {
      */
     storageCapacity?: pulumi.Input<number>;
     /**
-     * The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -435,6 +445,10 @@ export interface LustreFileSystemState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+     */
+    throughputCapacity?: pulumi.Input<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
@@ -473,6 +487,7 @@ export interface LustreFileSystemArgs {
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
      */
     dataCompressionType?: pulumi.Input<string>;
+    dataReadCacheConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemDataReadCacheConfiguration>;
     /**
      * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      */
@@ -546,7 +561,7 @@ export interface LustreFileSystemArgs {
      */
     storageCapacity?: pulumi.Input<number>;
     /**
-     * The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -559,6 +574,10 @@ export interface LustreFileSystemArgs {
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+     */
+    throughputCapacity?: pulumi.Input<number>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */

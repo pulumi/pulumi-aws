@@ -371,6 +371,7 @@ class Endpoints(dict):
                  eventbridge: Optional[builtins.str] = None,
                  events: Optional[builtins.str] = None,
                  evidently: Optional[builtins.str] = None,
+                 evs: Optional[builtins.str] = None,
                  finspace: Optional[builtins.str] = None,
                  firehose: Optional[builtins.str] = None,
                  fis: Optional[builtins.str] = None,
@@ -668,6 +669,7 @@ class Endpoints(dict):
         :param builtins.str eventbridge: Use this to override the default service endpoint URL
         :param builtins.str events: Use this to override the default service endpoint URL
         :param builtins.str evidently: Use this to override the default service endpoint URL
+        :param builtins.str evs: Use this to override the default service endpoint URL
         :param builtins.str finspace: Use this to override the default service endpoint URL
         :param builtins.str firehose: Use this to override the default service endpoint URL
         :param builtins.str fis: Use this to override the default service endpoint URL
@@ -1093,6 +1095,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "events", events)
         if evidently is not None:
             pulumi.set(__self__, "evidently", evidently)
+        if evs is not None:
+            pulumi.set(__self__, "evs", evs)
         if finspace is not None:
             pulumi.set(__self__, "finspace", finspace)
         if firehose is not None:
@@ -2453,6 +2457,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "evidently")
+
+    @property
+    @pulumi.getter
+    def evs(self) -> Optional[builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "evs")
 
     @property
     @pulumi.getter

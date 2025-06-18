@@ -20,14 +20,14 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcAttachmentArgs Empty = new VpcAttachmentArgs();
 
     /**
-     * The ID of a core network for the VPC attachment.
+     * ID of a core network for the VPC attachment.
      * 
      */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network for the VPC attachment.
+     * @return ID of a core network for the VPC attachment.
      * 
      */
     public Output<String> coreNetworkId() {
@@ -35,14 +35,14 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Options for the VPC attachment.
+     * Options for the VPC attachment. See below.
      * 
      */
     @Import(name="options")
     private @Nullable Output<VpcAttachmentOptionsArgs> options;
 
     /**
-     * @return Options for the VPC attachment.
+     * @return Options for the VPC attachment. See below.
      * 
      */
     public Optional<Output<VpcAttachmentOptionsArgs>> options() {
@@ -50,14 +50,14 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subnet ARN of the VPC attachment.
+     * Subnet ARNs of the VPC attachment.
      * 
      */
     @Import(name="subnetArns", required=true)
     private Output<List<String>> subnetArns;
 
     /**
-     * @return The subnet ARN of the VPC attachment.
+     * @return Subnet ARNs of the VPC attachment.
      * 
      */
     public Output<List<String>> subnetArns() {
@@ -80,7 +80,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the VPC.
+     * ARN of the VPC.
      * 
      * The following arguments are optional:
      * 
@@ -89,7 +89,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> vpcArn;
 
     /**
-     * @return The ARN of the VPC.
+     * @return ARN of the VPC.
      * 
      * The following arguments are optional:
      * 
@@ -127,7 +127,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPC attachment.
+         * @param coreNetworkId ID of a core network for the VPC attachment.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPC attachment.
+         * @param coreNetworkId ID of a core network for the VPC attachment.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options Options for the VPC attachment.
+         * @param options Options for the VPC attachment. See below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options Options for the VPC attachment.
+         * @param options Options for the VPC attachment. See below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArns The subnet ARN of the VPC attachment.
+         * @param subnetArns Subnet ARNs of the VPC attachment.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArns The subnet ARN of the VPC attachment.
+         * @param subnetArns Subnet ARNs of the VPC attachment.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArns The subnet ARN of the VPC attachment.
+         * @param subnetArns Subnet ARNs of the VPC attachment.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcArn The ARN of the VPC.
+         * @param vpcArn ARN of the VPC.
          * 
          * The following arguments are optional:
          * 
@@ -234,7 +234,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcArn The ARN of the VPC.
+         * @param vpcArn ARN of the VPC.
          * 
          * The following arguments are optional:
          * 

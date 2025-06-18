@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class GetBrokerEngineTypesBrokerEngineTypeResult
     {
         /// <summary>
-        /// The MQ engine type to return version details for.
+        /// MQ engine type to return version details for.
         /// </summary>
         public readonly string EngineType;
         /// <summary>
-        /// The list of engine versions.
+        /// List of engine versions. See Engine Versions.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult> EngineVersions;
 

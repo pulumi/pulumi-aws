@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS Network Manager Direct Connect (DX) Gateway Attachment.
+    /// Manages a Network Manager Direct Connect Gateway Attachment.
+    /// 
+    /// Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
     /// 
     /// ## Example Usage
     /// 
@@ -48,6 +50,9 @@ namespace Pulumi.Aws.NetworkManager
     [AwsResourceType("aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")]
     public partial class DxGatewayAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -114,7 +119,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -217,6 +222,9 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class DxGatewayAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -298,7 +306,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

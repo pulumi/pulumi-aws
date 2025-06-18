@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
-    /// Manages a Lambda Provisioned Concurrency Configuration.
+    /// Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
     /// 
-    /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
+    /// &gt; **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
     /// 
     /// ## Example Usage
     /// 
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Lambda
     /// Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+    /// $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of capacity to allocate. Must be greater than or equal to `1`.
+        /// Amount of capacity to allocate. Must be greater than or equal to 1.
         /// </summary>
         [Output("provisionedConcurrentExecutions")]
         public Output<int> ProvisionedConcurrentExecutions { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Amount of capacity to allocate. Must be greater than or equal to `1`.
+        /// Amount of capacity to allocate. Must be greater than or equal to 1.
         /// </summary>
         [Input("provisionedConcurrentExecutions", required: true)]
         public Input<int> ProvisionedConcurrentExecutions { get; set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// Amount of capacity to allocate. Must be greater than or equal to `1`.
+        /// Amount of capacity to allocate. Must be greater than or equal to 1.
         /// </summary>
         [Input("provisionedConcurrentExecutions")]
         public Input<int>? ProvisionedConcurrentExecutions { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }

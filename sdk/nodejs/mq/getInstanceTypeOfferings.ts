@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a MQ Broker Instance Offerings.
+ * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
  *
  * ## Example Usage
  *
@@ -16,20 +16,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const empty = aws.mq.getInstanceTypeOfferings({});
- * const engine = aws.mq.getInstanceTypeOfferings({
+ * // Get all instance type offerings
+ * const all = aws.mq.getInstanceTypeOfferings({});
+ * // Filter by engine type
+ * const activemq = aws.mq.getInstanceTypeOfferings({
  *     engineType: "ACTIVEMQ",
  * });
- * const storage = aws.mq.getInstanceTypeOfferings({
+ * // Filter by storage type
+ * const ebs = aws.mq.getInstanceTypeOfferings({
  *     storageType: "EBS",
  * });
- * const instance = aws.mq.getInstanceTypeOfferings({
+ * // Filter by instance type
+ * const m5 = aws.mq.getInstanceTypeOfferings({
  *     hostInstanceType: "mq.m5.large",
  * });
- * const all = aws.mq.getInstanceTypeOfferings({
- *     hostInstanceType: "mq.m5.large",
- *     storageType: "EBS",
+ * // Filter by multiple criteria
+ * const filtered = aws.mq.getInstanceTypeOfferings({
  *     engineType: "ACTIVEMQ",
+ *     storageType: "EBS",
+ *     hostInstanceType: "mq.m5.large",
  * });
  * ```
  */
@@ -71,7 +76,7 @@ export interface GetInstanceTypeOfferingsArgs {
  */
 export interface GetInstanceTypeOfferingsResult {
     /**
-     * Option for host instance type. See Broker Instance Options below.
+     * List of broker instance options. See Broker Instance Options below.
      */
     readonly brokerInstanceOptions: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOption[];
     /**
@@ -93,7 +98,7 @@ export interface GetInstanceTypeOfferingsResult {
     readonly storageType?: string;
 }
 /**
- * Provides information about a MQ Broker Instance Offerings.
+ * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
  *
  * ## Example Usage
  *
@@ -101,20 +106,25 @@ export interface GetInstanceTypeOfferingsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const empty = aws.mq.getInstanceTypeOfferings({});
- * const engine = aws.mq.getInstanceTypeOfferings({
+ * // Get all instance type offerings
+ * const all = aws.mq.getInstanceTypeOfferings({});
+ * // Filter by engine type
+ * const activemq = aws.mq.getInstanceTypeOfferings({
  *     engineType: "ACTIVEMQ",
  * });
- * const storage = aws.mq.getInstanceTypeOfferings({
+ * // Filter by storage type
+ * const ebs = aws.mq.getInstanceTypeOfferings({
  *     storageType: "EBS",
  * });
- * const instance = aws.mq.getInstanceTypeOfferings({
+ * // Filter by instance type
+ * const m5 = aws.mq.getInstanceTypeOfferings({
  *     hostInstanceType: "mq.m5.large",
  * });
- * const all = aws.mq.getInstanceTypeOfferings({
- *     hostInstanceType: "mq.m5.large",
- *     storageType: "EBS",
+ * // Filter by multiple criteria
+ * const filtered = aws.mq.getInstanceTypeOfferings({
  *     engineType: "ACTIVEMQ",
+ *     storageType: "EBS",
+ *     hostInstanceType: "mq.m5.large",
  * });
  * ```
  */

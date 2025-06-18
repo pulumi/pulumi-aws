@@ -15,14 +15,14 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
     public static final FunctionFileSystemConfigArgs Empty = new FunctionFileSystemConfigArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * ARN of the Amazon EFS Access Point.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+     * @return ARN of the Amazon EFS Access Point.
      * 
      */
     public Output<String> arn() {
@@ -30,14 +30,14 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Path where the function can access the file system, starting with /mnt/.
+     * Path where the function can access the file system. Must start with `/mnt/`.
      * 
      */
     @Import(name="localMountPath", required=true)
     private Output<String> localMountPath;
 
     /**
-     * @return Path where the function can access the file system, starting with /mnt/.
+     * @return Path where the function can access the file system. Must start with `/mnt/`.
      * 
      */
     public Output<String> localMountPath() {
@@ -70,7 +70,7 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+         * @param arn ARN of the Amazon EFS Access Point.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+         * @param arn ARN of the Amazon EFS Access Point.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param localMountPath Path where the function can access the file system, starting with /mnt/.
+         * @param localMountPath Path where the function can access the file system. Must start with `/mnt/`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param localMountPath Path where the function can access the file system, starting with /mnt/.
+         * @param localMountPath Path where the function can access the file system. Must start with `/mnt/`.
          * 
          * @return builder
          * 

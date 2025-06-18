@@ -15,9 +15,17 @@ public final class ConnectPeerBgpOptionsArgs extends com.pulumi.resources.Resour
 
     public static final ConnectPeerBgpOptionsArgs Empty = new ConnectPeerBgpOptionsArgs();
 
+    /**
+     * Peer ASN.
+     * 
+     */
     @Import(name="peerAsn")
     private @Nullable Output<Integer> peerAsn;
 
+    /**
+     * @return Peer ASN.
+     * 
+     */
     public Optional<Output<Integer>> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }
@@ -46,11 +54,23 @@ public final class ConnectPeerBgpOptionsArgs extends com.pulumi.resources.Resour
             $ = new ConnectPeerBgpOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param peerAsn Peer ASN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peerAsn(@Nullable Output<Integer> peerAsn) {
             $.peerAsn = peerAsn;
             return this;
         }
 
+        /**
+         * @param peerAsn Peer ASN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peerAsn(Integer peerAsn) {
             return peerAsn(Output.of(peerAsn));
         }

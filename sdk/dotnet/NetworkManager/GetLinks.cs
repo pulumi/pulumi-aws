@@ -12,7 +12,7 @@ namespace Pulumi.Aws.NetworkManager
     public static class GetLinks
     {
         /// <summary>
-        /// Retrieve information about link.
+        /// Provides details about existing Network Manager links.
         /// 
         /// ## Example Usage
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinksResult>("aws:networkmanager/getLinks:getLinks", args ?? new GetLinksArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about link.
+        /// Provides details about existing Network Manager links.
         /// 
         /// ## Example Usage
         /// 
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.Invoke<GetLinksResult>("aws:networkmanager/getLinks:getLinks", args ?? new GetLinksInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about link.
+        /// Provides details about existing Network Manager links.
         /// 
         /// ## Example Usage
         /// 

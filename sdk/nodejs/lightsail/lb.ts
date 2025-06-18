@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Lightsail load balancer resource.
+ * Manages a Lightsail load balancer resource.
+ *
+ * Use this resource to distribute incoming traffic across multiple Lightsail instances to improve application availability and performance.
  *
  * ## Example Usage
  *
@@ -13,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Lb("test", {
- *     name: "test-load-balancer",
+ * const example = new aws.lightsail.Lb("example", {
+ *     name: "example-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
@@ -28,7 +30,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+ * $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
  * ```
  */
 export class Lb extends pulumi.CustomResource {
@@ -60,36 +62,41 @@ export class Lb extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Lightsail load balancer.
+     * ARN of the Lightsail load balancer.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The timestamp when the load balancer was created.
+     * Timestamp when the load balancer was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The DNS name of the load balancer.
+     * DNS name of the load balancer.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
-     * The health check path of the load balancer. Default value "/".
+     * Health check path of the load balancer. Default value `/`.
      */
     public readonly healthCheckPath!: pulumi.Output<string | undefined>;
     /**
-     * The instance port the load balancer will connect.
+     * Instance port the load balancer will connect to.
      */
     public readonly instancePort!: pulumi.Output<number>;
+    /**
+     * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+     */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the Lightsail load balancer.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The protocol of the load balancer.
+     * Protocol of the load balancer.
      */
     public /*out*/ readonly protocol!: pulumi.Output<string>;
     /**
-     * The public ports of the load balancer.
+     * Public ports of the load balancer.
      */
     public /*out*/ readonly publicPorts!: pulumi.Output<number[]>;
     /**
@@ -97,15 +104,15 @@ export class Lb extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -164,36 +171,41 @@ export class Lb extends pulumi.CustomResource {
  */
 export interface LbState {
     /**
-     * The ARN of the Lightsail load balancer.
+     * ARN of the Lightsail load balancer.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The timestamp when the load balancer was created.
+     * Timestamp when the load balancer was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The DNS name of the load balancer.
+     * DNS name of the load balancer.
      */
     dnsName?: pulumi.Input<string>;
     /**
-     * The health check path of the load balancer. Default value "/".
+     * Health check path of the load balancer. Default value `/`.
      */
     healthCheckPath?: pulumi.Input<string>;
     /**
-     * The instance port the load balancer will connect.
+     * Instance port the load balancer will connect to.
      */
     instancePort?: pulumi.Input<number>;
+    /**
+     * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+     */
     ipAddressType?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the Lightsail load balancer.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
-     * The protocol of the load balancer.
+     * Protocol of the load balancer.
      */
     protocol?: pulumi.Input<string>;
     /**
-     * The public ports of the load balancer.
+     * Public ports of the load balancer.
      */
     publicPorts?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -201,15 +213,15 @@ export interface LbState {
      */
     region?: pulumi.Input<string>;
     /**
-     * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
     supportCode?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -219,16 +231,21 @@ export interface LbState {
  */
 export interface LbArgs {
     /**
-     * The health check path of the load balancer. Default value "/".
+     * Health check path of the load balancer. Default value `/`.
      */
     healthCheckPath?: pulumi.Input<string>;
     /**
-     * The instance port the load balancer will connect.
+     * Instance port the load balancer will connect to.
      */
     instancePort: pulumi.Input<number>;
+    /**
+     * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+     */
     ipAddressType?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the Lightsail load balancer.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -236,7 +253,7 @@ export interface LbArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

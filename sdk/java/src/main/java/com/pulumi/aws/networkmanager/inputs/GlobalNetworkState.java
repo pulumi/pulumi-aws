@@ -17,14 +17,14 @@ public final class GlobalNetworkState extends com.pulumi.resources.ResourceArgs 
     public static final GlobalNetworkState Empty = new GlobalNetworkState();
 
     /**
-     * Global Network Amazon Resource Name (ARN)
+     * Global Network ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Global Network Amazon Resource Name (ARN)
+     * @return Global Network ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -62,14 +62,14 @@ public final class GlobalNetworkState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -104,7 +104,7 @@ public final class GlobalNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Global Network Amazon Resource Name (ARN)
+         * @param arn Global Network ARN.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GlobalNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Global Network Amazon Resource Name (ARN)
+         * @param arn Global Network ARN.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class GlobalNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GlobalNetworkState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

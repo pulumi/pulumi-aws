@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectAttachmentOptions {
     /**
-     * @return The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+     * @return Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
      * 
      */
     private @Nullable String protocol;
 
     private ConnectAttachmentOptions() {}
     /**
-     * @return The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+     * @return Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
      * 
      */
     public Optional<String> protocol() {

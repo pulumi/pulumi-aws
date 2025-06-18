@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
+// Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
+//
+// Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
 //
 // ## Example Usage
 //
@@ -28,8 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
-//				Name:            pulumi.String("test-load-balancer"),
+//			example, err := lightsail.NewLb(ctx, "example", &lightsail.LbArgs{
+//				Name:            pulumi.String("example-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -39,17 +41,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "test", &lightsail.LbCertificateArgs{
-//				Name:       pulumi.String("test-load-balancer-certificate"),
-//				LbName:     test.ID(),
-//				DomainName: pulumi.String("test.com"),
+//			exampleLbCertificate, err := lightsail.NewLbCertificate(ctx, "example", &lightsail.LbCertificateArgs{
+//				Name:       pulumi.String("example-load-balancer-certificate"),
+//				LbName:     example.ID(),
+//				DomainName: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbCertificateAttachment(ctx, "test", &lightsail.LbCertificateAttachmentArgs{
-//				LbName:          test.Name,
-//				CertificateName: testLbCertificate.Name,
+//			_, err = lightsail.NewLbCertificateAttachment(ctx, "example", &lightsail.LbCertificateAttachmentArgs{
+//				LbName:          example.Name,
+//				CertificateName: exampleLbCertificate.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -65,14 +67,16 @@ import (
 // Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
 //
 // ```sh
-// $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+// $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
 // ```
 type LbCertificateAttachment struct {
 	pulumi.CustomResourceState
 
-	// The name of your SSL/TLS certificate.
+	// Name of your SSL/TLS certificate.
 	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
-	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringOutput `pulumi:"lbName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -114,18 +118,22 @@ func GetLbCertificateAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbCertificateAttachment resources.
 type lbCertificateAttachmentState struct {
-	// The name of your SSL/TLS certificate.
+	// Name of your SSL/TLS certificate.
 	CertificateName *string `pulumi:"certificateName"`
-	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName *string `pulumi:"lbName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type LbCertificateAttachmentState struct {
-	// The name of your SSL/TLS certificate.
+	// Name of your SSL/TLS certificate.
 	CertificateName pulumi.StringPtrInput
-	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -136,9 +144,11 @@ func (LbCertificateAttachmentState) ElementType() reflect.Type {
 }
 
 type lbCertificateAttachmentArgs struct {
-	// The name of your SSL/TLS certificate.
+	// Name of your SSL/TLS certificate.
 	CertificateName string `pulumi:"certificateName"`
-	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName string `pulumi:"lbName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -146,9 +156,11 @@ type lbCertificateAttachmentArgs struct {
 
 // The set of arguments for constructing a LbCertificateAttachment resource.
 type LbCertificateAttachmentArgs struct {
-	// The name of your SSL/TLS certificate.
+	// Name of your SSL/TLS certificate.
 	CertificateName pulumi.StringInput
-	// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -241,12 +253,14 @@ func (o LbCertificateAttachmentOutput) ToLbCertificateAttachmentOutputWithContex
 	return o
 }
 
-// The name of your SSL/TLS certificate.
+// Name of your SSL/TLS certificate.
 func (o LbCertificateAttachmentOutput) CertificateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.CertificateName }).(pulumi.StringOutput)
 }
 
-// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+//
+// The following arguments are optional:
 func (o LbCertificateAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }

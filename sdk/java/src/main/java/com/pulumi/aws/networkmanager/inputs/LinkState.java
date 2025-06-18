@@ -18,14 +18,14 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     public static final LinkState Empty = new LinkState();
 
     /**
-     * Link Amazon Resource Name (ARN).
+     * Link ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Link Amazon Resource Name (ARN).
+     * @return Link ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The upload speed and download speed in Mbps. Documented below.
+     * Upload speed and download speed in Mbps. See below.
      * 
      */
     @Import(name="bandwidth")
     private @Nullable Output<LinkBandwidthArgs> bandwidth;
 
     /**
-     * @return The upload speed and download speed in Mbps. Documented below.
+     * @return Upload speed and download speed in Mbps. See below.
      * 
      */
     public Optional<Output<LinkBandwidthArgs>> bandwidth() {
@@ -48,14 +48,14 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the link.
+     * Description of the link.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the link.
+     * @return Description of the link.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
      * 
      */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
      * 
      */
     public Optional<Output<String>> globalNetworkId() {
@@ -78,14 +78,14 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The provider of the link.
+     * Provider of the link.
      * 
      */
     @Import(name="providerName")
     private @Nullable Output<String> providerName;
 
     /**
-     * @return The provider of the link.
+     * @return Provider of the link.
      * 
      */
     public Optional<Output<String>> providerName() {
@@ -93,14 +93,18 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the site.
+     * ID of the site.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="siteId")
     private @Nullable Output<String> siteId;
 
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> siteId() {
@@ -123,14 +127,14 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -138,14 +142,14 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the link.
+     * Type of the link.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the link.
+     * @return Type of the link.
      * 
      */
     public Optional<Output<String>> type() {
@@ -185,7 +189,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Link Amazon Resource Name (ARN).
+         * @param arn Link ARN.
          * 
          * @return builder
          * 
@@ -196,7 +200,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Link Amazon Resource Name (ARN).
+         * @param arn Link ARN.
          * 
          * @return builder
          * 
@@ -206,7 +210,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bandwidth The upload speed and download speed in Mbps. Documented below.
+         * @param bandwidth Upload speed and download speed in Mbps. See below.
          * 
          * @return builder
          * 
@@ -217,7 +221,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bandwidth The upload speed and download speed in Mbps. Documented below.
+         * @param bandwidth Upload speed and download speed in Mbps. See below.
          * 
          * @return builder
          * 
@@ -227,7 +231,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the link.
+         * @param description Description of the link.
          * 
          * @return builder
          * 
@@ -238,7 +242,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the link.
+         * @param description Description of the link.
          * 
          * @return builder
          * 
@@ -248,7 +252,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -259,7 +263,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -269,7 +273,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerName The provider of the link.
+         * @param providerName Provider of the link.
          * 
          * @return builder
          * 
@@ -280,7 +284,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerName The provider of the link.
+         * @param providerName Provider of the link.
          * 
          * @return builder
          * 
@@ -290,7 +294,9 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteId The ID of the site.
+         * @param siteId ID of the site.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -301,7 +307,9 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteId The ID of the site.
+         * @param siteId ID of the site.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -332,7 +340,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -343,7 +351,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -353,7 +361,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the link.
+         * @param type Type of the link.
          * 
          * @return builder
          * 
@@ -364,7 +372,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the link.
+         * @param type Type of the link.
          * 
          * @return builder
          * 

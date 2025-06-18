@@ -17,14 +17,14 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs extends
     public static final DistributionCacheBehaviorSettingsForwardedHeadersArgs Empty = new DistributionCacheBehaviorSettingsForwardedHeadersArgs();
 
     /**
-     * The specific headers to forward to your distribution&#39;s origin.
+     * Specific headers to forward to your distribution&#39;s origin.
      * 
      */
     @Import(name="headersAllowLists")
     private @Nullable Output<List<String>> headersAllowLists;
 
     /**
-     * @return The specific headers to forward to your distribution&#39;s origin.
+     * @return Specific headers to forward to your distribution&#39;s origin.
      * 
      */
     public Optional<Output<List<String>>> headersAllowLists() {
@@ -32,14 +32,14 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs extends
     }
 
     /**
-     * The headers that you want your distribution to forward to your origin and base caching on.
+     * Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
      * 
      */
     @Import(name="option")
     private @Nullable Output<String> option;
 
     /**
-     * @return The headers that you want your distribution to forward to your origin and base caching on.
+     * @return Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
      * 
      */
     public Optional<Output<String>> option() {
@@ -72,7 +72,7 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs extends
         }
 
         /**
-         * @param headersAllowLists The specific headers to forward to your distribution&#39;s origin.
+         * @param headersAllowLists Specific headers to forward to your distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs extends
         }
 
         /**
-         * @param headersAllowLists The specific headers to forward to your distribution&#39;s origin.
+         * @param headersAllowLists Specific headers to forward to your distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs extends
         }
 
         /**
-         * @param headersAllowLists The specific headers to forward to your distribution&#39;s origin.
+         * @param headersAllowLists Specific headers to forward to your distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs extends
         }
 
         /**
-         * @param option The headers that you want your distribution to forward to your origin and base caching on.
+         * @param option Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs extends
         }
 
         /**
-         * @param option The headers that you want your distribution to forward to your origin and base caching on.
+         * @param option Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
     public static final TransitGatewayPeeringArgs Empty = new TransitGatewayPeeringArgs();
 
     /**
-     * The ID of a core network.
+     * ID of a core network.
      * 
      */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network.
+     * @return ID of a core network.
      * 
      */
     public Output<String> coreNetworkId() {
@@ -48,14 +48,18 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the transit gateway for the peering request.
+     * ARN of the transit gateway for the peering request.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="transitGatewayArn", required=true)
     private Output<String> transitGatewayArn;
 
     /**
-     * @return The ARN of the transit gateway for the peering request.
+     * @return ARN of the transit gateway for the peering request.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayArn() {
@@ -89,7 +93,7 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param coreNetworkId The ID of a core network.
+         * @param coreNetworkId ID of a core network.
          * 
          * @return builder
          * 
@@ -100,7 +104,7 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param coreNetworkId The ID of a core network.
+         * @param coreNetworkId ID of a core network.
          * 
          * @return builder
          * 
@@ -131,7 +135,9 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param transitGatewayArn The ARN of the transit gateway for the peering request.
+         * @param transitGatewayArn ARN of the transit gateway for the peering request.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -142,7 +148,9 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param transitGatewayArn The ARN of the transit gateway for the peering request.
+         * @param transitGatewayArn ARN of the transit gateway for the peering request.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

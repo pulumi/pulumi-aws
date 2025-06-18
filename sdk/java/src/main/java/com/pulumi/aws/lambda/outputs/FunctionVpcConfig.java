@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionVpcConfig {
     /**
-     * @return Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+     * @return Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
      * 
      */
     private @Nullable Boolean ipv6AllowedForDualStack;
@@ -37,7 +37,7 @@ public final class FunctionVpcConfig {
 
     private FunctionVpcConfig() {}
     /**
-     * @return Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+     * @return Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
      * 
      */
     public Optional<Boolean> ipv6AllowedForDualStack() {

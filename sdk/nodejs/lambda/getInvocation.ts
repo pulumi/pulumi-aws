@@ -5,13 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to invoke custom lambda functions as data source.
- * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
- * invocation type.
+ * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
  *
- * > **NOTE:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+ * The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
  *
- * > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+ * > **Note:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+ *
+ * > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+ *
+ * ## Example Usage
  */
 export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,16 +30,17 @@ export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetInvocationArgs {
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
      */
     functionName: string;
     /**
-     * String in JSON format that is passed as payload to the lambda function.
+     * String in JSON format that is passed as payload to the Lambda function.
+     *
+     * The following arguments are optional:
      */
     input: string;
     /**
-     * Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
+     * Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
      */
     qualifier?: string;
     /**
@@ -59,18 +62,20 @@ export interface GetInvocationResult {
     readonly qualifier?: string;
     readonly region: string;
     /**
-     * String result of the lambda function invocation.
+     * String result of the Lambda function invocation.
      */
     readonly result: string;
 }
 /**
- * Use this data source to invoke custom lambda functions as data source.
- * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
- * invocation type.
+ * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
  *
- * > **NOTE:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+ * The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
  *
- * > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+ * > **Note:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+ *
+ * > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+ *
+ * ## Example Usage
  */
 export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInvocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,16 +92,17 @@ export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi
  */
 export interface GetInvocationOutputArgs {
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
      */
     functionName: pulumi.Input<string>;
     /**
-     * String in JSON format that is passed as payload to the lambda function.
+     * String in JSON format that is passed as payload to the Lambda function.
+     *
+     * The following arguments are optional:
      */
     input: pulumi.Input<string>;
     /**
-     * Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
+     * Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
     /**

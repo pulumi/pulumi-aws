@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
+// Manages an AWS Lambda permission. Use this resource to grant external sources (e.g., EventBridge Rules, SNS, or S3) permission to invoke Lambda functions.
 //
 // ## Example Usage
 //
-// ### Basic Usage
+// ### Basic Usage with EventBridge
 //
 // ```go
 // package main
@@ -93,7 +93,7 @@ import (
 //
 // ```
 //
-// ### With SNS
+// ### SNS Integration
 //
 // ```go
 // package main
@@ -175,7 +175,7 @@ import (
 //
 // ```
 //
-// ### With API Gateway REST API
+// ### API Gateway REST API Integration
 //
 // ```go
 // package main
@@ -217,7 +217,7 @@ import (
 //
 // ```
 //
-// ### With CloudWatch Log Group
+// ### CloudWatch Log Group Integration
 //
 // ```go
 // package main
@@ -307,7 +307,7 @@ import (
 //
 // ```
 //
-// ### With Cross-Account Invocation Policy
+// ### Cross-Account Function URL Access
 //
 // ```go
 // package main
@@ -343,51 +343,34 @@ import (
 //	}
 //
 // ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
-//
-// ```sh
-// $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
-// ```
-// ```sh
-// $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
-// ```
 type Permission struct {
 	pulumi.CustomResourceState
 
-	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 	Action pulumi.StringOutput `pulumi:"action"`
-	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+	// Event Source Token for Alexa Skills
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
-	// Name of the Lambda function whose resource policy you are updating
+	// Name of the Lambda function
 	Function pulumi.StringOutput `pulumi:"function"`
-	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrOutput `pulumi:"functionUrlAuthType"`
-	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
-	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+	// The following arguments are optional:
+	Principal pulumi.StringOutput `pulumi:"principal"`
+	// AWS Organizations ID to grant permission to all accounts under this organization
 	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Lambda function version or alias name
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region pulumi.StringOutput `pulumi:"region"`
-	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+	// AWS account ID of the source owner for cross-account access, S3, or SES
 	SourceAccount pulumi.StringPtrOutput `pulumi:"sourceAccount"`
-	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-	// For S3, this should be the ARN of the S3 Bucket.
-	// For EventBridge events, this should be the ARN of the EventBridge Rule.
-	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+	// ARN of the source resource granting permission to invoke the Lambda function
 	SourceArn pulumi.StringPtrOutput `pulumi:"sourceArn"`
-	// A unique statement identifier. By default generated by the provider.
+	// Statement identifier. Generated by Pulumi if not provided
 	StatementId pulumi.StringOutput `pulumi:"statementId"`
-	// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
+	// Statement identifier prefix. Conflicts with `statementId`
 	StatementIdPrefix pulumi.StringOutput `pulumi:"statementIdPrefix"`
 }
 
@@ -430,72 +413,60 @@ func GetPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Permission resources.
 type permissionState struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 	Action *string `pulumi:"action"`
-	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+	// Event Source Token for Alexa Skills
 	EventSourceToken *string `pulumi:"eventSourceToken"`
-	// Name of the Lambda function whose resource policy you are updating
+	// Name of the Lambda function
 	Function interface{} `pulumi:"function"`
-	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
-	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-	Principal *string `pulumi:"principal"`
-	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
-	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+	// The following arguments are optional:
+	Principal *string `pulumi:"principal"`
+	// AWS Organizations ID to grant permission to all accounts under this organization
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Lambda function version or alias name
 	Qualifier *string `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region *string `pulumi:"region"`
-	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+	// AWS account ID of the source owner for cross-account access, S3, or SES
 	SourceAccount *string `pulumi:"sourceAccount"`
-	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-	// For S3, this should be the ARN of the S3 Bucket.
-	// For EventBridge events, this should be the ARN of the EventBridge Rule.
-	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+	// ARN of the source resource granting permission to invoke the Lambda function
 	SourceArn *string `pulumi:"sourceArn"`
-	// A unique statement identifier. By default generated by the provider.
+	// Statement identifier. Generated by Pulumi if not provided
 	StatementId *string `pulumi:"statementId"`
-	// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
+	// Statement identifier prefix. Conflicts with `statementId`
 	StatementIdPrefix *string `pulumi:"statementIdPrefix"`
 }
 
 type PermissionState struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 	Action pulumi.StringPtrInput
-	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+	// Event Source Token for Alexa Skills
 	EventSourceToken pulumi.StringPtrInput
-	// Name of the Lambda function whose resource policy you are updating
+	// Name of the Lambda function
 	Function pulumi.Input
-	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrInput
-	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-	Principal pulumi.StringPtrInput
-	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
-	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+	// The following arguments are optional:
+	Principal pulumi.StringPtrInput
+	// AWS Organizations ID to grant permission to all accounts under this organization
 	PrincipalOrgId pulumi.StringPtrInput
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Lambda function version or alias name
 	Qualifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region pulumi.StringPtrInput
-	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+	// AWS account ID of the source owner for cross-account access, S3, or SES
 	SourceAccount pulumi.StringPtrInput
-	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-	// For S3, this should be the ARN of the S3 Bucket.
-	// For EventBridge events, this should be the ARN of the EventBridge Rule.
-	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+	// ARN of the source resource granting permission to invoke the Lambda function
 	SourceArn pulumi.StringPtrInput
-	// A unique statement identifier. By default generated by the provider.
+	// Statement identifier. Generated by Pulumi if not provided
 	StatementId pulumi.StringPtrInput
-	// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
+	// Statement identifier prefix. Conflicts with `statementId`
 	StatementIdPrefix pulumi.StringPtrInput
 }
 
@@ -504,73 +475,61 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 	Action string `pulumi:"action"`
-	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+	// Event Source Token for Alexa Skills
 	EventSourceToken *string `pulumi:"eventSourceToken"`
-	// Name of the Lambda function whose resource policy you are updating
+	// Name of the Lambda function
 	Function interface{} `pulumi:"function"`
-	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
-	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-	Principal string `pulumi:"principal"`
-	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
-	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+	// The following arguments are optional:
+	Principal string `pulumi:"principal"`
+	// AWS Organizations ID to grant permission to all accounts under this organization
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Lambda function version or alias name
 	Qualifier *string `pulumi:"qualifier"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region *string `pulumi:"region"`
-	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+	// AWS account ID of the source owner for cross-account access, S3, or SES
 	SourceAccount *string `pulumi:"sourceAccount"`
-	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-	// For S3, this should be the ARN of the S3 Bucket.
-	// For EventBridge events, this should be the ARN of the EventBridge Rule.
-	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+	// ARN of the source resource granting permission to invoke the Lambda function
 	SourceArn *string `pulumi:"sourceArn"`
-	// A unique statement identifier. By default generated by the provider.
+	// Statement identifier. Generated by Pulumi if not provided
 	StatementId *string `pulumi:"statementId"`
-	// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
+	// Statement identifier prefix. Conflicts with `statementId`
 	StatementIdPrefix *string `pulumi:"statementIdPrefix"`
 }
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+	// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 	Action pulumi.StringInput
-	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+	// Event Source Token for Alexa Skills
 	EventSourceToken pulumi.StringPtrInput
-	// Name of the Lambda function whose resource policy you are updating
+	// Name of the Lambda function
 	Function pulumi.Input
-	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+	// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 	FunctionUrlAuthType pulumi.StringPtrInput
-	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-	Principal pulumi.StringInput
-	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 	//
-	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+	// The following arguments are optional:
+	Principal pulumi.StringInput
+	// AWS Organizations ID to grant permission to all accounts under this organization
 	PrincipalOrgId pulumi.StringPtrInput
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Lambda function version or alias name
 	Qualifier pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region pulumi.StringPtrInput
-	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+	// AWS account ID of the source owner for cross-account access, S3, or SES
 	SourceAccount pulumi.StringPtrInput
-	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-	// For S3, this should be the ARN of the S3 Bucket.
-	// For EventBridge events, this should be the ARN of the EventBridge Rule.
-	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+	// ARN of the source resource granting permission to invoke the Lambda function
 	SourceArn pulumi.StringPtrInput
-	// A unique statement identifier. By default generated by the provider.
+	// Statement identifier. Generated by Pulumi if not provided
 	StatementId pulumi.StringPtrInput
-	// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
+	// Statement identifier prefix. Conflicts with `statementId`
 	StatementIdPrefix pulumi.StringPtrInput
 }
 
@@ -661,70 +620,64 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+// Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
 func (o PermissionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+// Event Source Token for Alexa Skills
 func (o PermissionOutput) EventSourceToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.EventSourceToken }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Lambda function whose resource policy you are updating
+// Name of the Lambda function
 func (o PermissionOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Function }).(pulumi.StringOutput)
 }
 
-// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
 func (o PermissionOutput) FunctionUrlAuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.FunctionUrlAuthType }).(pulumi.StringPtrOutput)
 }
 
-// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+// AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
+//
+// The following arguments are optional:
 func (o PermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-//
-// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+// AWS Organizations ID to grant permission to all accounts under this organization
 func (o PermissionOutput) PrincipalOrgId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.PrincipalOrgId }).(pulumi.StringPtrOutput)
 }
 
-// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+// Lambda function version or alias name
 func (o PermissionOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 func (o PermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+// AWS account ID of the source owner for cross-account access, S3, or SES
 func (o PermissionOutput) SourceAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceAccount }).(pulumi.StringPtrOutput)
 }
 
-// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-// For S3, this should be the ARN of the S3 Bucket.
-// For EventBridge events, this should be the ARN of the EventBridge Rule.
-// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+// ARN of the source resource granting permission to invoke the Lambda function
 func (o PermissionOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
 
-// A unique statement identifier. By default generated by the provider.
+// Statement identifier. Generated by Pulumi if not provided
 func (o PermissionOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }
 
-// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
+// Statement identifier prefix. Conflicts with `statementId`
 func (o PermissionOutput) StatementIdPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.StatementIdPrefix }).(pulumi.StringOutput)
 }

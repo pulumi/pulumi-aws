@@ -558,13 +558,14 @@ class _LoadBalancerState:
         """
         Input properties used for looking up and filtering LoadBalancer resources.
         :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: Access Logs block. See below.
-        :param pulumi.Input[builtins.str] arn: ARN of the load balancer (matches `id`).
+        :param pulumi.Input[builtins.str] arn: ARN of the load balancer.
         :param pulumi.Input[builtins.str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[builtins.int] client_keep_alive: Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
         :param pulumi.Input['LoadBalancerConnectionLogsArgs'] connection_logs: Connection Logs block. See below. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[builtins.str] customer_owned_ipv4_pool: ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[builtins.str] desync_mitigation_mode: How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[builtins.str] dns_name: DNS name of the load balancer.
+               * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         :param pulumi.Input[builtins.str] dns_record_client_routing_policy: How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         :param pulumi.Input[builtins.bool] drop_invalid_header_fields: Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[builtins.bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
@@ -686,7 +687,7 @@ class _LoadBalancerState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ARN of the load balancer (matches `id`).
+        ARN of the load balancer.
         """
         return pulumi.get(self, "arn")
 
@@ -759,6 +760,7 @@ class _LoadBalancerState:
     def dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         DNS name of the load balancer.
+        * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         """
         return pulumi.get(self, "dns_name")
 
@@ -1524,13 +1526,14 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']] access_logs: Access Logs block. See below.
-        :param pulumi.Input[builtins.str] arn: ARN of the load balancer (matches `id`).
+        :param pulumi.Input[builtins.str] arn: ARN of the load balancer.
         :param pulumi.Input[builtins.str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[builtins.int] client_keep_alive: Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
         :param pulumi.Input[Union['LoadBalancerConnectionLogsArgs', 'LoadBalancerConnectionLogsArgsDict']] connection_logs: Connection Logs block. See below. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[builtins.str] customer_owned_ipv4_pool: ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[builtins.str] desync_mitigation_mode: How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[builtins.str] dns_name: DNS name of the load balancer.
+               * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         :param pulumi.Input[builtins.str] dns_record_client_routing_policy: How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         :param pulumi.Input[builtins.bool] drop_invalid_header_fields: Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[builtins.bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
@@ -1617,7 +1620,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        ARN of the load balancer (matches `id`).
+        ARN of the load balancer.
         """
         return pulumi.get(self, "arn")
 
@@ -1666,6 +1669,7 @@ class LoadBalancer(pulumi.CustomResource):
     def dns_name(self) -> pulumi.Output[builtins.str]:
         """
         DNS name of the load balancer.
+        * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         """
         return pulumi.get(self, "dns_name")
 

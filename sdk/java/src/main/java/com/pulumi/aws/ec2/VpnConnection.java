@@ -354,6 +354,34 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.outsideIpAddressType;
     }
     /**
+     * ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+     * 
+     */
+    @Export(name="presharedKeyArn", refs={String.class}, tree="[0]")
+    private Output<String> presharedKeyArn;
+
+    /**
+     * @return ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+     * 
+     */
+    public Output<String> presharedKeyArn() {
+        return this.presharedKeyArn;
+    }
+    /**
+     * Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+     * 
+     */
+    @Export(name="presharedKeyStorage", refs={String.class}, tree="[0]")
+    private Output<String> presharedKeyStorage;
+
+    /**
+     * @return Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+     * 
+     */
+    public Output<String> presharedKeyStorage() {
+        return this.presharedKeyStorage;
+    }
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */

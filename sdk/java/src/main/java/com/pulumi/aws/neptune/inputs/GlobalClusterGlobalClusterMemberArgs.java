@@ -17,14 +17,14 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
     public static final GlobalClusterGlobalClusterMemberArgs Empty = new GlobalClusterGlobalClusterMemberArgs();
 
     /**
-     * Amazon Resource Name (ARN) of member DB Cluster.
+     * ARN of member DB Cluster.
      * 
      */
     @Import(name="dbClusterArn")
     private @Nullable Output<String> dbClusterArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster.
+     * @return ARN of member DB Cluster.
      * 
      */
     public Optional<Output<String>> dbClusterArn() {
@@ -72,7 +72,7 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dbClusterArn Amazon Resource Name (ARN) of member DB Cluster.
+         * @param dbClusterArn ARN of member DB Cluster.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dbClusterArn Amazon Resource Name (ARN) of member DB Cluster.
+         * @param dbClusterArn ARN of member DB Cluster.
          * 
          * @return builder
          * 

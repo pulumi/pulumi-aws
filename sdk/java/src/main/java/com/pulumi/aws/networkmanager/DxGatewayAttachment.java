@@ -19,7 +19,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Network Manager Direct Connect (DX) Gateway Attachment.
+ * Manages a Network Manager Direct Connect Gateway Attachment.
+ * 
+ * Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
  * 
  * ## Example Usage
  * 
@@ -71,9 +73,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")
 public class DxGatewayAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the attachment.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -222,14 +232,14 @@ public class DxGatewayAttachment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

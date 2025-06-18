@@ -64,6 +64,10 @@ __all__ = [
     'RuleGroupRuleStatementArgsDict',
     'RuleGroupRuleStatementAndStatementArgs',
     'RuleGroupRuleStatementAndStatementArgsDict',
+    'RuleGroupRuleStatementAsnMatchStatementArgs',
+    'RuleGroupRuleStatementAsnMatchStatementArgsDict',
+    'RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs',
+    'RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgsDict',
     'RuleGroupRuleStatementByteMatchStatementArgs',
     'RuleGroupRuleStatementByteMatchStatementArgsDict',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs',
@@ -166,6 +170,10 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs',
@@ -808,6 +816,10 @@ __all__ = [
     'WebAclRuleStatementArgsDict',
     'WebAclRuleStatementAndStatementArgs',
     'WebAclRuleStatementAndStatementArgsDict',
+    'WebAclRuleStatementAsnMatchStatementArgs',
+    'WebAclRuleStatementAsnMatchStatementArgsDict',
+    'WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs',
+    'WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgsDict',
     'WebAclRuleStatementByteMatchStatementArgs',
     'WebAclRuleStatementByteMatchStatementArgsDict',
     'WebAclRuleStatementByteMatchStatementFieldToMatchArgs',
@@ -954,6 +966,10 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs',
@@ -1290,6 +1306,10 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs',
@@ -2919,6 +2939,10 @@ if not MYPY:
         """
         A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         """
+        asn_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementArgsDict']]
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementByteMatchStatementArgsDict']]
         """
         A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
@@ -2974,6 +2998,7 @@ elif False:
 class RuleGroupRuleStatementArgs:
     def __init__(__self__, *,
                  and_statement: Optional[pulumi.Input['RuleGroupRuleStatementAndStatementArgs']] = None,
+                 asn_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementGeoMatchStatementArgs']] = None,
                  ip_set_reference_statement: Optional[pulumi.Input['RuleGroupRuleStatementIpSetReferenceStatementArgs']] = None,
@@ -2988,6 +3013,7 @@ class RuleGroupRuleStatementArgs:
                  xss_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementAndStatementArgs'] and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementArgs'] byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementGeoMatchStatementArgs'] geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
@@ -3003,6 +3029,8 @@ class RuleGroupRuleStatementArgs:
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -3039,6 +3067,18 @@ class RuleGroupRuleStatementArgs:
     @and_statement.setter
     def and_statement(self, value: Optional[pulumi.Input['RuleGroupRuleStatementAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementArgs']]:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
+
+    @asn_match_statement.setter
+    def asn_match_statement(self, value: Optional[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementArgs']]):
+        pulumi.set(self, "asn_match_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -3214,6 +3254,107 @@ class RuleGroupRuleStatementAndStatementArgs:
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+if not MYPY:
+    class RuleGroupRuleStatementAsnMatchStatementArgsDict(TypedDict):
+        asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgsDict']]
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+elif False:
+    RuleGroupRuleStatementAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementAsnMatchStatementArgs:
+    def __init__(__self__, *,
+                 asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]],
+                 forwarded_ip_config: Optional[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param pulumi.Input['RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs'] forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.int]]]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @asn_lists.setter
+    def asn_lists(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        pulumi.set(self, "asn_lists", value)
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs']]:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+    @forwarded_ip_config.setter
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs']]):
+        pulumi.set(self, "forwarded_ip_config", value)
+
+
+if not MYPY:
+    class RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
+        fallback_behavior: pulumi.Input[builtins.str]
+        """
+        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        header_name: pulumi.Input[builtins.str]
+        """
+        The name of the HTTP header to use for the IP address.
+        """
+elif False:
+    RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input[builtins.str],
+                 header_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param pulumi.Input[builtins.str] header_name: The name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input[builtins.str]:
+        """
+        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "header_name", value)
 
 
 if not MYPY:
@@ -5699,6 +5840,10 @@ if not MYPY:
         """
         A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         """
+        asn_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict']]
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgsDict']]
         """
         A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
@@ -5750,6 +5895,7 @@ elif False:
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     def __init__(__self__, *,
                  and_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs']] = None,
+                 asn_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs']] = None,
                  ip_set_reference_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs']] = None,
@@ -5763,6 +5909,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
                  xss_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs'] and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs'] byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs'] geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
@@ -5777,6 +5924,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -5811,6 +5960,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @and_statement.setter
     def and_statement(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs']]:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
+
+    @asn_match_statement.setter
+    def asn_match_statement(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs']]):
+        pulumi.set(self, "asn_match_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -5974,6 +6135,107 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict(TypedDict):
+        asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        forwarded_ip_config: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict']]
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs:
+    def __init__(__self__, *,
+                 asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]],
+                 forwarded_ip_config: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs'] forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.int]]]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @asn_lists.setter
+    def asn_lists(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        pulumi.set(self, "asn_lists", value)
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']]:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+    @forwarded_ip_config.setter
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']]):
+        pulumi.set(self, "forwarded_ip_config", value)
+
+
+if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
+        fallback_behavior: pulumi.Input[builtins.str]
+        """
+        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        header_name: pulumi.Input[builtins.str]
+        """
+        The name of the HTTP header to use for the IP address.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input[builtins.str],
+                 header_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param pulumi.Input[builtins.str] header_name: The name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input[builtins.str]:
+        """
+        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "header_name", value)
 
 
 if not MYPY:
@@ -21258,6 +21520,10 @@ if not MYPY:
         """
         Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         """
+        asn_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementAsnMatchStatementArgsDict']]
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementByteMatchStatementArgsDict']]
         """
         Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
@@ -21321,6 +21587,7 @@ elif False:
 class WebAclRuleStatementArgs:
     def __init__(__self__, *,
                  and_statement: Optional[pulumi.Input['WebAclRuleStatementAndStatementArgs']] = None,
+                 asn_match_statement: Optional[pulumi.Input['WebAclRuleStatementAsnMatchStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['WebAclRuleStatementGeoMatchStatementArgs']] = None,
                  ip_set_reference_statement: Optional[pulumi.Input['WebAclRuleStatementIpSetReferenceStatementArgs']] = None,
@@ -21337,6 +21604,7 @@ class WebAclRuleStatementArgs:
                  xss_match_statement: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementAndStatementArgs'] and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementByteMatchStatementArgs'] byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementGeoMatchStatementArgs'] geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
@@ -21354,6 +21622,8 @@ class WebAclRuleStatementArgs:
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -21394,6 +21664,18 @@ class WebAclRuleStatementArgs:
     @and_statement.setter
     def and_statement(self, value: Optional[pulumi.Input['WebAclRuleStatementAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementAsnMatchStatementArgs']]:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
+
+    @asn_match_statement.setter
+    def asn_match_statement(self, value: Optional[pulumi.Input['WebAclRuleStatementAsnMatchStatementArgs']]):
+        pulumi.set(self, "asn_match_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -21593,6 +21875,107 @@ class WebAclRuleStatementAndStatementArgs:
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementAsnMatchStatementArgsDict(TypedDict):
+        asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        forwarded_ip_config: NotRequired[pulumi.Input['WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgsDict']]
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+elif False:
+    WebAclRuleStatementAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementAsnMatchStatementArgs:
+    def __init__(__self__, *,
+                 asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]],
+                 forwarded_ip_config: Optional[pulumi.Input['WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param pulumi.Input['WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs'] forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.int]]]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @asn_lists.setter
+    def asn_lists(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        pulumi.set(self, "asn_lists", value)
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs']]:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+    @forwarded_ip_config.setter
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs']]):
+        pulumi.set(self, "forwarded_ip_config", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
+        fallback_behavior: pulumi.Input[builtins.str]
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        header_name: pulumi.Input[builtins.str]
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+elif False:
+    WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input[builtins.str],
+                 header_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param pulumi.Input[builtins.str] header_name: Name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input[builtins.str]:
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "header_name", value)
 
 
 if not MYPY:
@@ -25427,6 +25810,10 @@ if not MYPY:
         """
         Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         """
+        asn_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgsDict']]
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgsDict']]
         """
         Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
@@ -25478,6 +25865,7 @@ elif False:
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     def __init__(__self__, *,
                  and_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs']] = None,
+                 asn_match_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs']] = None,
                  ip_set_reference_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs']] = None,
@@ -25491,6 +25879,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
                  xss_match_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs'] and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs'] byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs'] geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
@@ -25505,6 +25894,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -25539,6 +25930,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @and_statement.setter
     def and_statement(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs']]:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
+
+    @asn_match_statement.setter
+    def asn_match_statement(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs']]):
+        pulumi.set(self, "asn_match_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -25702,6 +26105,107 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgsDict(TypedDict):
+        asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        forwarded_ip_config: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict']]
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs:
+    def __init__(__self__, *,
+                 asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]],
+                 forwarded_ip_config: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs'] forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.int]]]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @asn_lists.setter
+    def asn_lists(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        pulumi.set(self, "asn_lists", value)
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']]:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+    @forwarded_ip_config.setter
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']]):
+        pulumi.set(self, "forwarded_ip_config", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
+        fallback_behavior: pulumi.Input[builtins.str]
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        header_name: pulumi.Input[builtins.str]
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input[builtins.str],
+                 header_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param pulumi.Input[builtins.str] header_name: Name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input[builtins.str]:
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "header_name", value)
 
 
 if not MYPY:
@@ -33843,6 +34347,10 @@ if not MYPY:
         """
         Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         """
+        asn_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict']]
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgsDict']]
         """
         Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
@@ -33894,6 +34402,7 @@ elif False:
 class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     def __init__(__self__, *,
                  and_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs']] = None,
+                 asn_match_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs']] = None,
                  ip_set_reference_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs']] = None,
@@ -33907,6 +34416,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
                  xss_match_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs'] and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs'] asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs'] byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs'] geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
@@ -33921,6 +34431,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -33955,6 +34467,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @and_statement.setter
     def and_statement(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs']]):
         pulumi.set(self, "and_statement", value)
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs']]:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
+
+    @asn_match_statement.setter
+    def asn_match_statement(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs']]):
+        pulumi.set(self, "asn_match_statement", value)
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -34118,6 +34642,107 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs:
     @statements.setter
     def statements(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementArgs']]]):
         pulumi.set(self, "statements", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict(TypedDict):
+        asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        forwarded_ip_config: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict']]
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs:
+    def __init__(__self__, *,
+                 asn_lists: pulumi.Input[Sequence[pulumi.Input[builtins.int]]],
+                 forwarded_ip_config: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs'] forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.int]]]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @asn_lists.setter
+    def asn_lists(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.int]]]):
+        pulumi.set(self, "asn_lists", value)
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']]:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+    @forwarded_ip_config.setter
+    def forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs']]):
+        pulumi.set(self, "forwarded_ip_config", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict(TypedDict):
+        fallback_behavior: pulumi.Input[builtins.str]
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        header_name: pulumi.Input[builtins.str]
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input[builtins.str],
+                 header_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param pulumi.Input[builtins.str] header_name: Name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input[builtins.str]:
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "fallback_behavior", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "header_name", value)
 
 
 if not MYPY:

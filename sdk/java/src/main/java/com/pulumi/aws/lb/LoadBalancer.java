@@ -159,14 +159,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessLogs);
     }
     /**
-     * ARN of the load balancer (matches `id`).
+     * ARN of the load balancer.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the load balancer (matches `id`).
+     * @return ARN of the load balancer.
      * 
      */
     public Output<String> arn() {
@@ -244,6 +244,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     }
     /**
      * DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
@@ -251,6 +252,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
 
     /**
      * @return DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     public Output<String> dnsName() {

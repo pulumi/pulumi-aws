@@ -41,6 +41,8 @@ __all__ = [
     'RuleGroupRuleRuleLabel',
     'RuleGroupRuleStatement',
     'RuleGroupRuleStatementAndStatement',
+    'RuleGroupRuleStatementAsnMatchStatement',
+    'RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig',
     'RuleGroupRuleStatementByteMatchStatement',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatch',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments',
@@ -92,6 +94,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementForwardedIpConfig',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatement',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments',
@@ -413,6 +417,8 @@ __all__ = [
     'WebAclRuleRuleLabel',
     'WebAclRuleStatement',
     'WebAclRuleStatementAndStatement',
+    'WebAclRuleStatementAsnMatchStatement',
+    'WebAclRuleStatementAsnMatchStatementForwardedIpConfig',
     'WebAclRuleStatementByteMatchStatement',
     'WebAclRuleStatementByteMatchStatementFieldToMatch',
     'WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments',
@@ -486,6 +492,8 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments',
@@ -654,6 +662,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementForwardedIpConfig',
     'WebAclRuleStatementRateBasedStatementScopeDownStatement',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments',
@@ -1828,6 +1838,8 @@ class RuleGroupRuleStatement(dict):
         suggest = None
         if key == "andStatement":
             suggest = "and_statement"
+        elif key == "asnMatchStatement":
+            suggest = "asn_match_statement"
         elif key == "byteMatchStatement":
             suggest = "byte_match_statement"
         elif key == "geoMatchStatement":
@@ -1866,6 +1878,7 @@ class RuleGroupRuleStatement(dict):
 
     def __init__(__self__, *,
                  and_statement: Optional['outputs.RuleGroupRuleStatementAndStatement'] = None,
+                 asn_match_statement: Optional['outputs.RuleGroupRuleStatementAsnMatchStatement'] = None,
                  byte_match_statement: Optional['outputs.RuleGroupRuleStatementByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.RuleGroupRuleStatementGeoMatchStatement'] = None,
                  ip_set_reference_statement: Optional['outputs.RuleGroupRuleStatementIpSetReferenceStatement'] = None,
@@ -1880,6 +1893,7 @@ class RuleGroupRuleStatement(dict):
                  xss_match_statement: Optional['outputs.RuleGroupRuleStatementXssMatchStatement'] = None):
         """
         :param 'RuleGroupRuleStatementAndStatementArgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param 'RuleGroupRuleStatementAsnMatchStatementArgs' asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementArgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         :param 'RuleGroupRuleStatementGeoMatchStatementArgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         :param 'RuleGroupRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
@@ -1895,6 +1909,8 @@ class RuleGroupRuleStatement(dict):
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -1927,6 +1943,14 @@ class RuleGroupRuleStatement(dict):
         A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         """
         return pulumi.get(self, "and_statement")
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementAsnMatchStatement']:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -2041,6 +2065,103 @@ class RuleGroupRuleStatementAndStatement(dict):
         The statements to combine.
         """
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementAsnMatchStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asnLists":
+            suggest = "asn_lists"
+        elif key == "forwardedIpConfig":
+            suggest = "forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementAsnMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementAsnMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementAsnMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 asn_lists: Sequence[builtins.int],
+                 forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig'] = None):
+        """
+        :param Sequence[builtins.int] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param 'RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> Sequence[builtins.int]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional['outputs.RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig']:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: builtins.str,
+                 header_name: builtins.str):
+        """
+        :param builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param builtins.str header_name: The name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> builtins.str:
+        """
+        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> builtins.str:
+        """
+        The name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type
@@ -4027,6 +4148,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
         suggest = None
         if key == "andStatement":
             suggest = "and_statement"
+        elif key == "asnMatchStatement":
+            suggest = "asn_match_statement"
         elif key == "byteMatchStatement":
             suggest = "byte_match_statement"
         elif key == "geoMatchStatement":
@@ -4063,6 +4186,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
 
     def __init__(__self__, *,
                  and_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement'] = None,
+                 asn_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement'] = None,
                  byte_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement'] = None,
                  ip_set_reference_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement'] = None,
@@ -4076,6 +4200,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
                  xss_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None):
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs' asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
@@ -4090,6 +4215,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -4120,6 +4247,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
         A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         """
         return pulumi.get(self, "and_statement")
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement']:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -4226,6 +4361,103 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement(dic
         The statements to combine.
         """
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asnLists":
+            suggest = "asn_lists"
+        elif key == "forwardedIpConfig":
+            suggest = "forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 asn_lists: Sequence[builtins.int],
+                 forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig'] = None):
+        """
+        :param Sequence[builtins.int] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> Sequence[builtins.int]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig']:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: builtins.str,
+                 header_name: builtins.str):
+        """
+        :param builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param builtins.str header_name: The name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> builtins.str:
+        """
+        The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> builtins.str:
+        """
+        The name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type
@@ -16819,6 +17051,8 @@ class WebAclRuleStatement(dict):
         suggest = None
         if key == "andStatement":
             suggest = "and_statement"
+        elif key == "asnMatchStatement":
+            suggest = "asn_match_statement"
         elif key == "byteMatchStatement":
             suggest = "byte_match_statement"
         elif key == "geoMatchStatement":
@@ -16861,6 +17095,7 @@ class WebAclRuleStatement(dict):
 
     def __init__(__self__, *,
                  and_statement: Optional['outputs.WebAclRuleStatementAndStatement'] = None,
+                 asn_match_statement: Optional['outputs.WebAclRuleStatementAsnMatchStatement'] = None,
                  byte_match_statement: Optional['outputs.WebAclRuleStatementByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.WebAclRuleStatementGeoMatchStatement'] = None,
                  ip_set_reference_statement: Optional['outputs.WebAclRuleStatementIpSetReferenceStatement'] = None,
@@ -16877,6 +17112,7 @@ class WebAclRuleStatement(dict):
                  xss_match_statement: Optional['outputs.WebAclRuleStatementXssMatchStatement'] = None):
         """
         :param 'WebAclRuleStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param 'WebAclRuleStatementAsnMatchStatementArgs' asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param 'WebAclRuleStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param 'WebAclRuleStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         :param 'WebAclRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
@@ -16894,6 +17130,8 @@ class WebAclRuleStatement(dict):
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -16930,6 +17168,14 @@ class WebAclRuleStatement(dict):
         Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         """
         return pulumi.get(self, "and_statement")
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional['outputs.WebAclRuleStatementAsnMatchStatement']:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -17060,6 +17306,103 @@ class WebAclRuleStatementAndStatement(dict):
         The statements to combine.
         """
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class WebAclRuleStatementAsnMatchStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asnLists":
+            suggest = "asn_lists"
+        elif key == "forwardedIpConfig":
+            suggest = "forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementAsnMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementAsnMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementAsnMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 asn_lists: Sequence[builtins.int],
+                 forwarded_ip_config: Optional['outputs.WebAclRuleStatementAsnMatchStatementForwardedIpConfig'] = None):
+        """
+        :param Sequence[builtins.int] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param 'WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> Sequence[builtins.int]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional['outputs.WebAclRuleStatementAsnMatchStatementForwardedIpConfig']:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+
+@pulumi.output_type
+class WebAclRuleStatementAsnMatchStatementForwardedIpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementAsnMatchStatementForwardedIpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: builtins.str,
+                 header_name: builtins.str):
+        """
+        :param builtins.str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param builtins.str header_name: Name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> builtins.str:
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> builtins.str:
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type
@@ -20196,6 +20539,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
         suggest = None
         if key == "andStatement":
             suggest = "and_statement"
+        elif key == "asnMatchStatement":
+            suggest = "asn_match_statement"
         elif key == "byteMatchStatement":
             suggest = "byte_match_statement"
         elif key == "geoMatchStatement":
@@ -20232,6 +20577,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
 
     def __init__(__self__, *,
                  and_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement'] = None,
+                 asn_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement'] = None,
                  byte_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement'] = None,
                  ip_set_reference_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement'] = None,
@@ -20245,6 +20591,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
                  xss_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement'] = None):
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs' asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
@@ -20259,6 +20606,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -20289,6 +20638,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
         Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         """
         return pulumi.get(self, "and_statement")
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement']:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -20395,6 +20752,103 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement
         The statements to combine.
         """
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asnLists":
+            suggest = "asn_lists"
+        elif key == "forwardedIpConfig":
+            suggest = "forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 asn_lists: Sequence[builtins.int],
+                 forwarded_ip_config: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig'] = None):
+        """
+        :param Sequence[builtins.int] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> Sequence[builtins.int]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig']:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: builtins.str,
+                 header_name: builtins.str):
+        """
+        :param builtins.str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param builtins.str header_name: Name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> builtins.str:
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> builtins.str:
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type
@@ -26986,6 +27440,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
         suggest = None
         if key == "andStatement":
             suggest = "and_statement"
+        elif key == "asnMatchStatement":
+            suggest = "asn_match_statement"
         elif key == "byteMatchStatement":
             suggest = "byte_match_statement"
         elif key == "geoMatchStatement":
@@ -27022,6 +27478,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
 
     def __init__(__self__, *,
                  and_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement'] = None,
+                 asn_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement'] = None,
                  byte_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement'] = None,
                  ip_set_reference_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement'] = None,
@@ -27035,6 +27492,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
                  xss_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None):
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs' asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
@@ -27049,6 +27507,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
+        if asn_match_statement is not None:
+            pulumi.set(__self__, "asn_match_statement", asn_match_statement)
         if byte_match_statement is not None:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
@@ -27079,6 +27539,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
         Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         """
         return pulumi.get(self, "and_statement")
+
+    @property
+    @pulumi.getter(name="asnMatchStatement")
+    def asn_match_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement']:
+        """
+        Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        """
+        return pulumi.get(self, "asn_match_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
@@ -27185,6 +27653,103 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement(dict):
         The statements to combine.
         """
         return pulumi.get(self, "statements")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asnLists":
+            suggest = "asn_lists"
+        elif key == "forwardedIpConfig":
+            suggest = "forwarded_ip_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 asn_lists: Sequence[builtins.int],
+                 forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig'] = None):
+        """
+        :param Sequence[builtins.int] asn_lists: List of Autonomous System Numbers (ASNs).
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        pulumi.set(__self__, "asn_lists", asn_lists)
+        if forwarded_ip_config is not None:
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+
+    @property
+    @pulumi.getter(name="asnLists")
+    def asn_lists(self) -> Sequence[builtins.int]:
+        """
+        List of Autonomous System Numbers (ASNs).
+        """
+        return pulumi.get(self, "asn_lists")
+
+    @property
+    @pulumi.getter(name="forwardedIpConfig")
+    def forwarded_ip_config(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig']:
+        """
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        """
+        return pulumi.get(self, "forwarded_ip_config")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: builtins.str,
+                 header_name: builtins.str):
+        """
+        :param builtins.str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        :param builtins.str header_name: Name of the HTTP header to use for the IP address.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> builtins.str:
+        """
+        Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> builtins.str:
+        """
+        Name of the HTTP header to use for the IP address.
+        """
+        return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type

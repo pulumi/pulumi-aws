@@ -19,14 +19,14 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
     public static final FunctionUrlCorsArgs Empty = new FunctionUrlCorsArgs();
 
     /**
-     * Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+     * Whether to allow cookies or other credentials in requests to the function URL.
      * 
      */
     @Import(name="allowCredentials")
     private @Nullable Output<Boolean> allowCredentials;
 
     /**
-     * @return Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+     * @return Whether to allow cookies or other credentials in requests to the function URL.
      * 
      */
     public Optional<Output<Boolean>> allowCredentials() {
@@ -34,14 +34,14 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
+     * HTTP headers that origins can include in requests to the function URL.
      * 
      */
     @Import(name="allowHeaders")
     private @Nullable Output<List<String>> allowHeaders;
 
     /**
-     * @return The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
+     * @return HTTP headers that origins can include in requests to the function URL.
      * 
      */
     public Optional<Output<List<String>>> allowHeaders() {
@@ -49,14 +49,14 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
+     * HTTP methods that are allowed when calling the function URL.
      * 
      */
     @Import(name="allowMethods")
     private @Nullable Output<List<String>> allowMethods;
 
     /**
-     * @return The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
+     * @return HTTP methods that are allowed when calling the function URL.
      * 
      */
     public Optional<Output<List<String>>> allowMethods() {
@@ -64,14 +64,14 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
+     * Origins that can access the function URL.
      * 
      */
     @Import(name="allowOrigins")
     private @Nullable Output<List<String>> allowOrigins;
 
     /**
-     * @return The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
+     * @return Origins that can access the function URL.
      * 
      */
     public Optional<Output<List<String>>> allowOrigins() {
@@ -79,14 +79,14 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The HTTP headers in your function response that you want to expose to origins that call the function URL.
+     * HTTP headers in your function response that you want to expose to origins that call the function URL.
      * 
      */
     @Import(name="exposeHeaders")
     private @Nullable Output<List<String>> exposeHeaders;
 
     /**
-     * @return The HTTP headers in your function response that you want to expose to origins that call the function URL.
+     * @return HTTP headers in your function response that you want to expose to origins that call the function URL.
      * 
      */
     public Optional<Output<List<String>>> exposeHeaders() {
@@ -94,14 +94,14 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
+     * Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
      * 
      */
     @Import(name="maxAge")
     private @Nullable Output<Integer> maxAge;
 
     /**
-     * @return The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
+     * @return Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
      * 
      */
     public Optional<Output<Integer>> maxAge() {
@@ -138,7 +138,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowCredentials Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+         * @param allowCredentials Whether to allow cookies or other credentials in requests to the function URL.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowCredentials Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+         * @param allowCredentials Whether to allow cookies or other credentials in requests to the function URL.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowHeaders The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
+         * @param allowHeaders HTTP headers that origins can include in requests to the function URL.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowHeaders The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
+         * @param allowHeaders HTTP headers that origins can include in requests to the function URL.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowHeaders The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
+         * @param allowHeaders HTTP headers that origins can include in requests to the function URL.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowMethods The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
+         * @param allowMethods HTTP methods that are allowed when calling the function URL.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowMethods The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
+         * @param allowMethods HTTP methods that are allowed when calling the function URL.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowMethods The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
+         * @param allowMethods HTTP methods that are allowed when calling the function URL.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowOrigins The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
+         * @param allowOrigins Origins that can access the function URL.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowOrigins The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
+         * @param allowOrigins Origins that can access the function URL.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowOrigins The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
+         * @param allowOrigins Origins that can access the function URL.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param exposeHeaders The HTTP headers in your function response that you want to expose to origins that call the function URL.
+         * @param exposeHeaders HTTP headers in your function response that you want to expose to origins that call the function URL.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param exposeHeaders The HTTP headers in your function response that you want to expose to origins that call the function URL.
+         * @param exposeHeaders HTTP headers in your function response that you want to expose to origins that call the function URL.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param exposeHeaders The HTTP headers in your function response that you want to expose to origins that call the function URL.
+         * @param exposeHeaders HTTP headers in your function response that you want to expose to origins that call the function URL.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxAge The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
+         * @param maxAge Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class FunctionUrlCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxAge The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
+         * @param maxAge Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
          * 
          * @return builder
          * 

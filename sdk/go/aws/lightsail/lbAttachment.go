@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a Lightsail Instance to a Lightsail Load Balancer.
+// Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
 //
 // ## Example Usage
 //
@@ -43,8 +43,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
-//				Name:            pulumi.String("test-load-balancer"),
+//			example, err := lightsail.NewLb(ctx, "example", &lightsail.LbArgs{
+//				Name:            pulumi.String("example-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -54,8 +54,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("test-instance"),
+//			exampleInstance, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("example-instance"),
 //				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_3_0"),
@@ -63,9 +63,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbAttachment(ctx, "test", &lightsail.LbAttachmentArgs{
-//				LbName:       test.Name,
-//				InstanceName: testInstance.Name,
+//			_, err = lightsail.NewLbAttachment(ctx, "example", &lightsail.LbAttachmentArgs{
+//				LbName:       example.Name,
+//				InstanceName: exampleInstance.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -81,14 +81,16 @@ import (
 // Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 //
 // ```sh
-// $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+// $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
 // ```
 type LbAttachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the instance to attach to the load balancer.
+	// Name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// The name of the Lightsail load balancer.
+	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringOutput `pulumi:"lbName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -130,18 +132,22 @@ func GetLbAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbAttachment resources.
 type lbAttachmentState struct {
-	// The name of the instance to attach to the load balancer.
+	// Name of the instance to attach to the load balancer.
 	InstanceName *string `pulumi:"instanceName"`
-	// The name of the Lightsail load balancer.
+	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName *string `pulumi:"lbName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type LbAttachmentState struct {
-	// The name of the instance to attach to the load balancer.
+	// Name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringPtrInput
-	// The name of the Lightsail load balancer.
+	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -152,9 +158,11 @@ func (LbAttachmentState) ElementType() reflect.Type {
 }
 
 type lbAttachmentArgs struct {
-	// The name of the instance to attach to the load balancer.
+	// Name of the instance to attach to the load balancer.
 	InstanceName string `pulumi:"instanceName"`
-	// The name of the Lightsail load balancer.
+	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName string `pulumi:"lbName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -162,9 +170,11 @@ type lbAttachmentArgs struct {
 
 // The set of arguments for constructing a LbAttachment resource.
 type LbAttachmentArgs struct {
-	// The name of the instance to attach to the load balancer.
+	// Name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringInput
-	// The name of the Lightsail load balancer.
+	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -257,12 +267,14 @@ func (o LbAttachmentOutput) ToLbAttachmentOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the instance to attach to the load balancer.
+// Name of the instance to attach to the load balancer.
 func (o LbAttachmentOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// The name of the Lightsail load balancer.
+// Name of the Lightsail load balancer.
+//
+// The following arguments are optional:
 func (o LbAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }

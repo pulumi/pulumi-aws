@@ -8,7 +8,19 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about a device.
+ * Provides details about an existing Network Manager device.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getDevice({
+ *     globalNetworkId: globalNetworkId,
+ *     deviceId: deviceId,
+ * });
+ * ```
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +101,19 @@ export interface GetDeviceResult {
     readonly vendor: string;
 }
 /**
- * Retrieve information about a device.
+ * Provides details about an existing Network Manager device.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.networkmanager.getDevice({
+ *     globalNetworkId: globalNetworkId,
+ *     deviceId: deviceId,
+ * });
+ * ```
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBrokerEngineTypesBrokerEngineType {
     /**
-     * @return The MQ engine type to return version details for.
+     * @return MQ engine type to return version details for.
      * 
      */
     private String engineType;
     /**
-     * @return The list of engine versions.
+     * @return List of engine versions. See Engine Versions.
      * 
      */
     private List<GetBrokerEngineTypesBrokerEngineTypeEngineVersion> engineVersions;
 
     private GetBrokerEngineTypesBrokerEngineType() {}
     /**
-     * @return The MQ engine type to return version details for.
+     * @return MQ engine type to return version details for.
      * 
      */
     public String engineType() {
         return this.engineType;
     }
     /**
-     * @return The list of engine versions.
+     * @return List of engine versions. See Engine Versions.
      * 
      */
     public List<GetBrokerEngineTypesBrokerEngineTypeEngineVersion> engineVersions() {

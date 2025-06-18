@@ -14,9 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Associates a link to a device.
- * A device can be associated to multiple links and a link can be associated to multiple devices.
- * The device and link must be in the same global network and the same site.
+ * Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
  * 
  * ## Example Usage
  * 
@@ -67,42 +65,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/linkAssociation:LinkAssociation")
 public class LinkAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the device.
+     * ID of the device.
      * 
      */
     @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
     /**
-     * @return The ID of the device.
+     * @return ID of the device.
      * 
      */
     public Output<String> deviceId() {
         return this.deviceId;
     }
     /**
-     * The ID of the global network.
+     * ID of the global network.
      * 
      */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
      * 
      */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
     /**
-     * The ID of the link.
+     * ID of the link.
      * 
      */
     @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output<String> linkId;
 
     /**
-     * @return The ID of the link.
+     * @return ID of the link.
      * 
      */
     public Output<String> linkId() {

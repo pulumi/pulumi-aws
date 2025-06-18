@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a lightsail certificate.
+ * Manages a Lightsail certificate. Use this resource to create and manage SSL/TLS certificates for securing custom domains with your Lightsail resources.
  * 
  * ## Example Usage
  * 
@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Certificate("test", CertificateArgs.builder()
- *             .name("test")
- *             .domainName("testdomain.com")
- *             .subjectAlternativeNames("www.testdomain.com")
+ *         var example = new Certificate("example", CertificateArgs.builder()
+ *             .name("example-certificate")
+ *             .domainName("example.com")
+ *             .subjectAlternativeNames("www.example.com")
  *             .build());
  * 
  *     }
@@ -62,77 +62,81 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+ * $ pulumi import aws:lightsail/certificate:Certificate example example-certificate
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the lightsail certificate.
+     * ARN of the certificate.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the lightsail certificate.
+     * @return ARN of the certificate.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The timestamp when the instance was created.
+     * Date and time when the certificate was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the instance was created.
+     * @return Date and time when the certificate was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * A domain name for which the certificate should be issued.
+     * Domain name for which the certificate should be issued.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return A domain name for which the certificate should be issued.
+     * @return Domain name for which the certificate should be issued.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      * 
      */
     @Export(name="domainValidationOptions", refs={List.class,CertificateDomainValidationOption.class}, tree="[0,1]")
     private Output<List<CertificateDomainValidationOption>> domainValidationOptions;
 
     /**
-     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
      * 
      */
     public Output<List<CertificateDomainValidationOption>> domainValidationOptions() {
         return this.domainValidationOptions;
     }
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the certificate.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return Name of the certificate.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -167,28 +171,28 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.subjectAlternativeNames;
     }
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

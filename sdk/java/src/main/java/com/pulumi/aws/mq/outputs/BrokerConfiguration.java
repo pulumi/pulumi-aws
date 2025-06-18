@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BrokerConfiguration {
     /**
-     * @return The Configuration ID.
+     * @return Configuration ID.
      * 
      */
     private @Nullable String id;
@@ -25,7 +25,7 @@ public final class BrokerConfiguration {
 
     private BrokerConfiguration() {}
     /**
-     * @return The Configuration ID.
+     * @return Configuration ID.
      * 
      */
     public Optional<String> id() {

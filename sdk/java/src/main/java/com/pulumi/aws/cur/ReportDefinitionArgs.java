@@ -35,14 +35,14 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      * 
      */
     @Import(name="additionalSchemaElements", required=true)
     private Output<List<String>> additionalSchemaElements;
 
     /**
-     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      * 
      */
     public Output<List<String>> additionalSchemaElements() {
@@ -143,15 +143,15 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
      * Report path prefix. Limited to 256 characters.
      * 
      */
-    @Import(name="s3Prefix")
-    private @Nullable Output<String> s3Prefix;
+    @Import(name="s3Prefix", required=true)
+    private Output<String> s3Prefix;
 
     /**
      * @return Report path prefix. Limited to 256 characters.
      * 
      */
-    public Optional<Output<String>> s3Prefix() {
-        return Optional.ofNullable(this.s3Prefix);
+    public Output<String> s3Prefix() {
+        return this.s3Prefix;
     }
 
     /**
@@ -266,7 +266,7 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+         * @param additionalSchemaElements A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder s3Prefix(@Nullable Output<String> s3Prefix) {
+        public Builder s3Prefix(Output<String> s3Prefix) {
             $.s3Prefix = s3Prefix;
             return this;
         }
@@ -521,6 +521,9 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
             }
             if ($.s3Bucket == null) {
                 throw new MissingRequiredPropertyException("ReportDefinitionArgs", "s3Bucket");
+            }
+            if ($.s3Prefix == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "s3Prefix");
             }
             if ($.s3Region == null) {
                 throw new MissingRequiredPropertyException("ReportDefinitionArgs", "s3Region");

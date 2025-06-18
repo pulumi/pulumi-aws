@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
+ * Manages a Network Manager transit gateway peering connection. Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
  *
  * ## Example Usage
  *
@@ -56,31 +56,31 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
     }
 
     /**
-     * Peering Amazon Resource Name (ARN).
+     * Peering ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**
-     * The ID of a core network.
+     * ID of a core network.
      */
     public readonly coreNetworkId!: pulumi.Output<string>;
     /**
-     * The edge location for the peer.
+     * Edge location for the peer.
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
-     * The ID of the account owner.
+     * ID of the account owner.
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * The type of peering. This will be `TRANSIT_GATEWAY`.
+     * Type of peering. This will be `TRANSIT_GATEWAY`.
      */
     public /*out*/ readonly peeringType!: pulumi.Output<string>;
     /**
-     * The resource ARN of the peer.
+     * Resource ARN of the peer.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
@@ -88,15 +88,17 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ARN of the transit gateway for the peering request.
+     * ARN of the transit gateway for the peering request.
+     *
+     * The following arguments are optional:
      */
     public readonly transitGatewayArn!: pulumi.Output<string>;
     /**
-     * The ID of the transit gateway peering attachment.
+     * ID of the transit gateway peering attachment.
      */
     public /*out*/ readonly transitGatewayPeeringAttachmentId!: pulumi.Output<string>;
 
@@ -154,31 +156,31 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
  */
 export interface TransitGatewayPeeringState {
     /**
-     * Peering Amazon Resource Name (ARN).
+     * Peering ARN.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      */
     coreNetworkArn?: pulumi.Input<string>;
     /**
-     * The ID of a core network.
+     * ID of a core network.
      */
     coreNetworkId?: pulumi.Input<string>;
     /**
-     * The edge location for the peer.
+     * Edge location for the peer.
      */
     edgeLocation?: pulumi.Input<string>;
     /**
-     * The ID of the account owner.
+     * ID of the account owner.
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
-     * The type of peering. This will be `TRANSIT_GATEWAY`.
+     * Type of peering. This will be `TRANSIT_GATEWAY`.
      */
     peeringType?: pulumi.Input<string>;
     /**
-     * The resource ARN of the peer.
+     * Resource ARN of the peer.
      */
     resourceArn?: pulumi.Input<string>;
     /**
@@ -186,15 +188,17 @@ export interface TransitGatewayPeeringState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the transit gateway for the peering request.
+     * ARN of the transit gateway for the peering request.
+     *
+     * The following arguments are optional:
      */
     transitGatewayArn?: pulumi.Input<string>;
     /**
-     * The ID of the transit gateway peering attachment.
+     * ID of the transit gateway peering attachment.
      */
     transitGatewayPeeringAttachmentId?: pulumi.Input<string>;
 }
@@ -204,7 +208,7 @@ export interface TransitGatewayPeeringState {
  */
 export interface TransitGatewayPeeringArgs {
     /**
-     * The ID of a core network.
+     * ID of a core network.
      */
     coreNetworkId: pulumi.Input<string>;
     /**
@@ -212,7 +216,9 @@ export interface TransitGatewayPeeringArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the transit gateway for the peering request.
+     * ARN of the transit gateway for the peering request.
+     *
+     * The following arguments are optional:
      */
     transitGatewayArn: pulumi.Input<string>;
 }

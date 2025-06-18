@@ -16,7 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a global network resource.
+ * Manages a Network Manager Global Network.
+ * 
+ * Use this resource to create and manage a global network, which is a single private network that acts as the high-level container for your network objects.
  * 
  * ## Example Usage
  * 
@@ -65,14 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/globalNetwork:GlobalNetwork")
 public class GlobalNetwork extends com.pulumi.resources.CustomResource {
     /**
-     * Global Network Amazon Resource Name (ARN)
+     * Global Network ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Global Network Amazon Resource Name (ARN)
+     * @return Global Network ARN.
      * 
      */
     public Output<String> arn() {
@@ -107,14 +109,14 @@ public class GlobalNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

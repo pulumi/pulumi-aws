@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceTypeOfferingsBrokerInstanceOption {
     /**
-     * @return List of available AZs. See Availability Zones. below
+     * @return List of available Availability Zones. See Availability Zones below.
      * 
      */
     private List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
@@ -33,19 +33,19 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
      */
     private String storageType;
     /**
-     * @return The list of supported deployment modes.
+     * @return List of supported deployment modes.
      * 
      */
     private List<String> supportedDeploymentModes;
     /**
-     * @return The list of supported engine versions.
+     * @return List of supported engine versions.
      * 
      */
     private List<String> supportedEngineVersions;
 
     private GetInstanceTypeOfferingsBrokerInstanceOption() {}
     /**
-     * @return List of available AZs. See Availability Zones. below
+     * @return List of available Availability Zones. See Availability Zones below.
      * 
      */
     public List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones() {
@@ -73,14 +73,14 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
         return this.storageType;
     }
     /**
-     * @return The list of supported deployment modes.
+     * @return List of supported deployment modes.
      * 
      */
     public List<String> supportedDeploymentModes() {
         return this.supportedDeploymentModes;
     }
     /**
-     * @return The list of supported engine versions.
+     * @return List of supported engine versions.
      * 
      */
     public List<String> supportedEngineVersions() {

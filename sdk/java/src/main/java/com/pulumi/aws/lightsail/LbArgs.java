@@ -19,14 +19,14 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
     public static final LbArgs Empty = new LbArgs();
 
     /**
-     * The health check path of the load balancer. Default value &#34;/&#34;.
+     * Health check path of the load balancer. Default value `/`.
      * 
      */
     @Import(name="healthCheckPath")
     private @Nullable Output<String> healthCheckPath;
 
     /**
-     * @return The health check path of the load balancer. Default value &#34;/&#34;.
+     * @return Health check path of the load balancer. Default value `/`.
      * 
      */
     public Optional<Output<String>> healthCheckPath() {
@@ -34,36 +34,48 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance port the load balancer will connect.
+     * Instance port the load balancer will connect to.
      * 
      */
     @Import(name="instancePort", required=true)
     private Output<Integer> instancePort;
 
     /**
-     * @return The instance port the load balancer will connect.
+     * @return Instance port the load balancer will connect to.
      * 
      */
     public Output<Integer> instancePort() {
         return this.instancePort;
     }
 
+    /**
+     * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+     * 
+     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
+    /**
+     * @return IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+     * 
+     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the Lightsail load balancer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return Name of the Lightsail load balancer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -86,14 +98,14 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -130,7 +142,7 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckPath The health check path of the load balancer. Default value &#34;/&#34;.
+         * @param healthCheckPath Health check path of the load balancer. Default value `/`.
          * 
          * @return builder
          * 
@@ -141,7 +153,7 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckPath The health check path of the load balancer. Default value &#34;/&#34;.
+         * @param healthCheckPath Health check path of the load balancer. Default value `/`.
          * 
          * @return builder
          * 
@@ -151,7 +163,7 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instancePort The instance port the load balancer will connect.
+         * @param instancePort Instance port the load balancer will connect to.
          * 
          * @return builder
          * 
@@ -162,7 +174,7 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instancePort The instance port the load balancer will connect.
+         * @param instancePort Instance port the load balancer will connect to.
          * 
          * @return builder
          * 
@@ -171,17 +183,31 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
             return instancePort(Output.of(instancePort));
         }
 
+        /**
+         * @param ipAddressType IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
+        /**
+         * @param ipAddressType IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }
 
         /**
-         * @param name The name of the Lightsail load balancer.
+         * @param name Name of the Lightsail load balancer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -192,7 +218,9 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail load balancer.
+         * @param name Name of the Lightsail load balancer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -223,7 +251,7 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -234,7 +262,7 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

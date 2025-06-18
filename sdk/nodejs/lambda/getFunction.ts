@@ -8,19 +8,96 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a Lambda Function.
+ * Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+ *
+ * > **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.lambda.getFunction({
- *     functionName: functionName,
+ * const example = aws.lambda.getFunction({
+ *     functionName: "my-lambda-function",
  * });
+ * export const functionArn = example.then(example => example.arn);
+ * ```
+ *
+ * ### Using Function Alias
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lambda.getFunction({
+ *     functionName: "api-handler",
+ *     qualifier: "production",
+ * });
+ * // Use in API Gateway integration
+ * const exampleIntegration = new aws.apigateway.Integration("example", {
+ *     restApi: exampleAwsApiGatewayRestApi.id,
+ *     resourceId: exampleAwsApiGatewayResource.id,
+ *     httpMethod: exampleAwsApiGatewayMethod.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     type: "AWS_PROXY",
+ *     uri: example.then(example => example.invokeArn),
+ * });
+ * ```
+ *
+ * ### Function Configuration Reference
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get existing function details
+ * const reference = aws.lambda.getFunction({
+ *     functionName: "existing-function",
+ * });
+ * // Create new function with similar configuration
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("new-function.zip"),
+ *     name: "new-function",
+ *     role: reference.then(reference => reference.role),
+ *     handler: reference.then(reference => reference.handler),
+ *     runtime: reference.then(reference => reference.runtime).apply((x) => aws.lambda.Runtime[x]),
+ *     memorySize: reference.then(reference => reference.memorySize),
+ *     timeout: reference.then(reference => reference.timeout),
+ *     architectures: reference.then(reference => reference.architectures),
+ *     vpcConfig: {
+ *         subnetIds: reference.then(reference => reference.vpcConfig?.subnetIds),
+ *         securityGroupIds: reference.then(reference => reference.vpcConfig?.securityGroupIds),
+ *     },
+ *     environment: {
+ *         variables: reference.then(reference => reference.environment?.variables),
+ *     },
+ * });
+ * ```
+ *
+ * ### Function Version Management
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get details about specific version
+ * const version = aws.lambda.getFunction({
+ *     functionName: "my-function",
+ *     qualifier: "3",
+ * });
+ * // Get details about latest version
+ * const latest = aws.lambda.getFunction({
+ *     functionName: "my-function",
+ *     qualifier: "$LATEST",
+ * });
+ * export const versionComparison = {
+ *     specificVersion: version.then(version => version.version),
+ *     latestVersion: latest.then(latest => latest.version),
+ *     codeDifference: Promise.all([version, latest]).then(([version, latest]) => version.codeSha256 != latest.codeSha256),
+ * };
  * ```
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
@@ -38,17 +115,22 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetFunctionArgs {
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
+     *
+     * The following arguments are optional:
      */
     functionName: string;
     /**
-     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+     * Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      */
     qualifier?: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
+    /**
+     * Map of tags assigned to the Lambda Function.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -61,7 +143,7 @@ export interface GetFunctionResult {
      */
     readonly architectures: string[];
     /**
-     * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
+     * ARN of the Amazon EFS Access Point that provides access to the file system.
      */
     readonly arn: string;
     /**
@@ -73,7 +155,7 @@ export interface GetFunctionResult {
      */
     readonly codeSigningConfigArn: string;
     /**
-     * Configure the function's *dead letter queue*.
+     * Configuration for the function's dead letter queue. See below.
      */
     readonly deadLetterConfig: outputs.lambda.GetFunctionDeadLetterConfig;
     /**
@@ -81,15 +163,15 @@ export interface GetFunctionResult {
      */
     readonly description: string;
     /**
-     * Lambda environment's configuration settings.
+     * Lambda environment's configuration settings. See below.
      */
     readonly environment: outputs.lambda.GetFunctionEnvironment;
     /**
-     * Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+     * Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
      */
     readonly ephemeralStorages: outputs.lambda.GetFunctionEphemeralStorage[];
     /**
-     * Connection settings for an Amazon EFS file system.
+     * Connection settings for an Amazon EFS file system. See below.
      */
     readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
     readonly functionName: string;
@@ -106,7 +188,7 @@ export interface GetFunctionResult {
      */
     readonly imageUri: string;
     /**
-     * ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
+     * ARN to be used for invoking Lambda Function from API Gateway. **Note:** Starting with `v4.51.0` of the provider, this will not include the qualifier.
      */
     readonly invokeArn: string;
     /**
@@ -122,7 +204,7 @@ export interface GetFunctionResult {
      */
     readonly layers: string[];
     /**
-     * Advanced logging settings.
+     * Advanced logging settings. See below.
      */
     readonly loggingConfigs: outputs.lambda.GetFunctionLoggingConfig[];
     /**
@@ -140,7 +222,7 @@ export interface GetFunctionResult {
     readonly qualifier?: string;
     readonly region: string;
     /**
-     * The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
+     * Amount of reserved concurrent executions for this Lambda function or `-1` if unreserved.
      */
     readonly reservedConcurrentExecutions: number;
     /**
@@ -156,7 +238,7 @@ export interface GetFunctionResult {
      */
     readonly signingJobArn: string;
     /**
-     * The ARN for a signing profile version.
+     * ARN for a signing profile version.
      */
     readonly signingProfileVersionArn: string;
     /**
@@ -169,38 +251,118 @@ export interface GetFunctionResult {
      * Size in bytes of the function .zip file.
      */
     readonly sourceCodeSize: number;
+    /**
+     * Map of tags assigned to the Lambda Function.
+     */
     readonly tags: {[key: string]: string};
     /**
      * Function execution time at which Lambda should terminate the function.
      */
     readonly timeout: number;
     /**
-     * Tracing settings of the function.
+     * Tracing settings of the function. See below.
      */
     readonly tracingConfig: outputs.lambda.GetFunctionTracingConfig;
     /**
-     * The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
+     * Version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      */
     readonly version: string;
     /**
-     * VPC configuration associated with your Lambda function.
+     * VPC configuration associated with your Lambda function. See below.
      */
     readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
 }
 /**
- * Provides information about a Lambda Function.
+ * Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+ *
+ * > **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.lambda.getFunction({
- *     functionName: functionName,
+ * const example = aws.lambda.getFunction({
+ *     functionName: "my-lambda-function",
  * });
+ * export const functionArn = example.then(example => example.arn);
+ * ```
+ *
+ * ### Using Function Alias
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lambda.getFunction({
+ *     functionName: "api-handler",
+ *     qualifier: "production",
+ * });
+ * // Use in API Gateway integration
+ * const exampleIntegration = new aws.apigateway.Integration("example", {
+ *     restApi: exampleAwsApiGatewayRestApi.id,
+ *     resourceId: exampleAwsApiGatewayResource.id,
+ *     httpMethod: exampleAwsApiGatewayMethod.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     type: "AWS_PROXY",
+ *     uri: example.then(example => example.invokeArn),
+ * });
+ * ```
+ *
+ * ### Function Configuration Reference
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get existing function details
+ * const reference = aws.lambda.getFunction({
+ *     functionName: "existing-function",
+ * });
+ * // Create new function with similar configuration
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("new-function.zip"),
+ *     name: "new-function",
+ *     role: reference.then(reference => reference.role),
+ *     handler: reference.then(reference => reference.handler),
+ *     runtime: reference.then(reference => reference.runtime).apply((x) => aws.lambda.Runtime[x]),
+ *     memorySize: reference.then(reference => reference.memorySize),
+ *     timeout: reference.then(reference => reference.timeout),
+ *     architectures: reference.then(reference => reference.architectures),
+ *     vpcConfig: {
+ *         subnetIds: reference.then(reference => reference.vpcConfig?.subnetIds),
+ *         securityGroupIds: reference.then(reference => reference.vpcConfig?.securityGroupIds),
+ *     },
+ *     environment: {
+ *         variables: reference.then(reference => reference.environment?.variables),
+ *     },
+ * });
+ * ```
+ *
+ * ### Function Version Management
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get details about specific version
+ * const version = aws.lambda.getFunction({
+ *     functionName: "my-function",
+ *     qualifier: "3",
+ * });
+ * // Get details about latest version
+ * const latest = aws.lambda.getFunction({
+ *     functionName: "my-function",
+ *     qualifier: "$LATEST",
+ * });
+ * export const versionComparison = {
+ *     specificVersion: version.then(version => version.version),
+ *     latestVersion: latest.then(latest => latest.version),
+ *     codeDifference: Promise.all([version, latest]).then(([version, latest]) => version.codeSha256 != latest.codeSha256),
+ * };
  * ```
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionResult> {
@@ -218,16 +380,21 @@ export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.Inv
  */
 export interface GetFunctionOutputArgs {
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
+     *
+     * The following arguments are optional:
      */
     functionName: pulumi.Input<string>;
     /**
-     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+     * Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
      */
     qualifier?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Map of tags assigned to the Lambda Function.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

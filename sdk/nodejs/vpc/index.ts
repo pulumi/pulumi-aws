@@ -30,6 +30,31 @@ export const getSecurityGroupRules: typeof import("./getSecurityGroupRules").get
 export const getSecurityGroupRulesOutput: typeof import("./getSecurityGroupRules").getSecurityGroupRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupRules","getSecurityGroupRulesOutput"], () => require("./getSecurityGroupRules"));
 
+export { RouteServerArgs, RouteServerState } from "./routeServer";
+export type RouteServer = import("./routeServer").RouteServer;
+export const RouteServer: typeof import("./routeServer").RouteServer = null as any;
+utilities.lazyLoad(exports, ["RouteServer"], () => require("./routeServer"));
+
+export { RouteServerEndpointArgs, RouteServerEndpointState } from "./routeServerEndpoint";
+export type RouteServerEndpoint = import("./routeServerEndpoint").RouteServerEndpoint;
+export const RouteServerEndpoint: typeof import("./routeServerEndpoint").RouteServerEndpoint = null as any;
+utilities.lazyLoad(exports, ["RouteServerEndpoint"], () => require("./routeServerEndpoint"));
+
+export { RouteServerPeerArgs, RouteServerPeerState } from "./routeServerPeer";
+export type RouteServerPeer = import("./routeServerPeer").RouteServerPeer;
+export const RouteServerPeer: typeof import("./routeServerPeer").RouteServerPeer = null as any;
+utilities.lazyLoad(exports, ["RouteServerPeer"], () => require("./routeServerPeer"));
+
+export { RouteServerPropagationArgs, RouteServerPropagationState } from "./routeServerPropagation";
+export type RouteServerPropagation = import("./routeServerPropagation").RouteServerPropagation;
+export const RouteServerPropagation: typeof import("./routeServerPropagation").RouteServerPropagation = null as any;
+utilities.lazyLoad(exports, ["RouteServerPropagation"], () => require("./routeServerPropagation"));
+
+export { RouteServerVpcAssociationArgs, RouteServerVpcAssociationState } from "./routeServerVpcAssociation";
+export type RouteServerVpcAssociation = import("./routeServerVpcAssociation").RouteServerVpcAssociation;
+export const RouteServerVpcAssociation: typeof import("./routeServerVpcAssociation").RouteServerVpcAssociation = null as any;
+utilities.lazyLoad(exports, ["RouteServerVpcAssociation"], () => require("./routeServerVpcAssociation"));
+
 export { SecurityGroupEgressRuleArgs, SecurityGroupEgressRuleState } from "./securityGroupEgressRule";
 export type SecurityGroupEgressRule = import("./securityGroupEgressRule").SecurityGroupEgressRule;
 export const SecurityGroupEgressRule: typeof import("./securityGroupEgressRule").SecurityGroupEgressRule = null as any;
@@ -54,6 +79,16 @@ const _module = {
                 return new EndpointPrivateDns(name, <any>undefined, { urn })
             case "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification":
                 return new EndpointServicePrivateDnsVerification(name, <any>undefined, { urn })
+            case "aws:vpc/routeServer:RouteServer":
+                return new RouteServer(name, <any>undefined, { urn })
+            case "aws:vpc/routeServerEndpoint:RouteServerEndpoint":
+                return new RouteServerEndpoint(name, <any>undefined, { urn })
+            case "aws:vpc/routeServerPeer:RouteServerPeer":
+                return new RouteServerPeer(name, <any>undefined, { urn })
+            case "aws:vpc/routeServerPropagation:RouteServerPropagation":
+                return new RouteServerPropagation(name, <any>undefined, { urn })
+            case "aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation":
+                return new RouteServerVpcAssociation(name, <any>undefined, { urn })
             case "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule":
                 return new SecurityGroupEgressRule(name, <any>undefined, { urn })
             case "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule":
@@ -67,6 +102,11 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "vpc/endpointPrivateDns", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/endpointServicePrivateDnsVerification", _module)
+pulumi.runtime.registerResourceModule("aws", "vpc/routeServer", _module)
+pulumi.runtime.registerResourceModule("aws", "vpc/routeServerEndpoint", _module)
+pulumi.runtime.registerResourceModule("aws", "vpc/routeServerPeer", _module)
+pulumi.runtime.registerResourceModule("aws", "vpc/routeServerPropagation", _module)
+pulumi.runtime.registerResourceModule("aws", "vpc/routeServerVpcAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupEgressRule", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupIngressRule", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupVpcAssociation", _module)

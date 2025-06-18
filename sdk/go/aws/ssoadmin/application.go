@@ -103,10 +103,14 @@ type Application struct {
 
 	// AWS account ID.
 	ApplicationAccount pulumi.StringOutput `pulumi:"applicationAccount"`
-	// ARN of the application.
+	// (**Deprecated** Reference `arn` instead) ARN of the application.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// ARN of the application provider.
 	ApplicationProviderArn pulumi.StringOutput `pulumi:"applicationProviderArn"`
+	// ARN of the application.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// Description of the application.
@@ -167,10 +171,14 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// AWS account ID.
 	ApplicationAccount *string `pulumi:"applicationAccount"`
-	// ARN of the application.
+	// (**Deprecated** Reference `arn` instead) ARN of the application.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// ARN of the application provider.
 	ApplicationProviderArn *string `pulumi:"applicationProviderArn"`
+	// ARN of the application.
+	Arn *string `pulumi:"arn"`
 	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 	ClientToken *string `pulumi:"clientToken"`
 	// Description of the application.
@@ -196,10 +204,14 @@ type applicationState struct {
 type ApplicationState struct {
 	// AWS account ID.
 	ApplicationAccount pulumi.StringPtrInput
-	// ARN of the application.
+	// (**Deprecated** Reference `arn` instead) ARN of the application.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 	ApplicationArn pulumi.StringPtrInput
 	// ARN of the application provider.
 	ApplicationProviderArn pulumi.StringPtrInput
+	// ARN of the application.
+	Arn pulumi.StringPtrInput
 	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 	ClientToken pulumi.StringPtrInput
 	// Description of the application.
@@ -365,7 +377,9 @@ func (o ApplicationOutput) ApplicationAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationAccount }).(pulumi.StringOutput)
 }
 
-// ARN of the application.
+// (**Deprecated** Reference `arn` instead) ARN of the application.
+//
+// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
@@ -373,6 +387,11 @@ func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 // ARN of the application provider.
 func (o ApplicationOutput) ApplicationProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationProviderArn }).(pulumi.StringOutput)
+}
+
+// ARN of the application.
+func (o ApplicationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.

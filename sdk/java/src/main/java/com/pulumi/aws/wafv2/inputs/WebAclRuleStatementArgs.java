@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementAndStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementAsnMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementIpSetReferenceStatementArgs;
@@ -42,6 +43,21 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
      */
     public Optional<Output<WebAclRuleStatementAndStatementArgs>> andStatement() {
         return Optional.ofNullable(this.andStatement);
+    }
+
+    /**
+     * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    @Import(name="asnMatchStatement")
+    private @Nullable Output<WebAclRuleStatementAsnMatchStatementArgs> asnMatchStatement;
+
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementAsnMatchStatementArgs>> asnMatchStatement() {
+        return Optional.ofNullable(this.asnMatchStatement);
     }
 
     /**
@@ -258,6 +274,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
 
     private WebAclRuleStatementArgs(WebAclRuleStatementArgs $) {
         this.andStatement = $.andStatement;
+        this.asnMatchStatement = $.asnMatchStatement;
         this.byteMatchStatement = $.byteMatchStatement;
         this.geoMatchStatement = $.geoMatchStatement;
         this.ipSetReferenceStatement = $.ipSetReferenceStatement;
@@ -311,6 +328,27 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
          */
         public Builder andStatement(WebAclRuleStatementAndStatementArgs andStatement) {
             return andStatement(Output.of(andStatement));
+        }
+
+        /**
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asnMatchStatement(@Nullable Output<WebAclRuleStatementAsnMatchStatementArgs> asnMatchStatement) {
+            $.asnMatchStatement = asnMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asnMatchStatement(WebAclRuleStatementAsnMatchStatementArgs asnMatchStatement) {
+            return asnMatchStatement(Output.of(asnMatchStatement));
         }
 
         /**

@@ -11,20 +11,28 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionFileSystemConfig {
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+     * @return ARN of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
     private String arn;
+    /**
+     * @return Path where the function can access the file system, starting with `/mnt/`.
+     * 
+     */
     private String localMountPath;
 
     private GetFunctionFileSystemConfig() {}
     /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+     * @return ARN of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Path where the function can access the file system, starting with `/mnt/`.
+     * 
+     */
     public String localMountPath() {
         return this.localMountPath;
     }

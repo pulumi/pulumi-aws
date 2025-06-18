@@ -12,9 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Lambda Provisioned Concurrency Configuration.
+// Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
 //
-// > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
+// > **Note:** Setting `skipDestroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
 //
 // ## Example Usage
 //
@@ -79,14 +79,14 @@ import (
 // Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 //
 // ```sh
-// $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+// $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
 // ```
 type ProvisionedConcurrencyConfig struct {
 	pulumi.CustomResourceState
 
 	// Name or Amazon Resource Name (ARN) of the Lambda Function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
-	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions pulumi.IntOutput `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
 	//
@@ -94,7 +94,7 @@ type ProvisionedConcurrencyConfig struct {
 	Qualifier pulumi.StringOutput `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 }
 
@@ -139,7 +139,7 @@ func GetProvisionedConcurrencyConfig(ctx *pulumi.Context,
 type provisionedConcurrencyConfigState struct {
 	// Name or Amazon Resource Name (ARN) of the Lambda Function.
 	FunctionName *string `pulumi:"functionName"`
-	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions *int `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
 	//
@@ -147,14 +147,14 @@ type provisionedConcurrencyConfigState struct {
 	Qualifier *string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
 
 type ProvisionedConcurrencyConfigState struct {
 	// Name or Amazon Resource Name (ARN) of the Lambda Function.
 	FunctionName pulumi.StringPtrInput
-	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions pulumi.IntPtrInput
 	// Lambda Function version or Lambda Alias name.
 	//
@@ -162,7 +162,7 @@ type ProvisionedConcurrencyConfigState struct {
 	Qualifier pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
 	SkipDestroy pulumi.BoolPtrInput
 }
 
@@ -173,7 +173,7 @@ func (ProvisionedConcurrencyConfigState) ElementType() reflect.Type {
 type provisionedConcurrencyConfigArgs struct {
 	// Name or Amazon Resource Name (ARN) of the Lambda Function.
 	FunctionName string `pulumi:"functionName"`
-	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
 	//
@@ -181,7 +181,7 @@ type provisionedConcurrencyConfigArgs struct {
 	Qualifier string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
 
@@ -189,7 +189,7 @@ type provisionedConcurrencyConfigArgs struct {
 type ProvisionedConcurrencyConfigArgs struct {
 	// Name or Amazon Resource Name (ARN) of the Lambda Function.
 	FunctionName pulumi.StringInput
-	// Amount of capacity to allocate. Must be greater than or equal to `1`.
+	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions pulumi.IntInput
 	// Lambda Function version or Lambda Alias name.
 	//
@@ -197,7 +197,7 @@ type ProvisionedConcurrencyConfigArgs struct {
 	Qualifier pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
 	SkipDestroy pulumi.BoolPtrInput
 }
 
@@ -293,7 +293,7 @@ func (o ProvisionedConcurrencyConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// Amount of capacity to allocate. Must be greater than or equal to `1`.
+// Amount of capacity to allocate. Must be greater than or equal to 1.
 func (o ProvisionedConcurrencyConfigOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.IntOutput { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
 }
@@ -310,7 +310,7 @@ func (o ProvisionedConcurrencyConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
 func (o ProvisionedConcurrencyConfigOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }

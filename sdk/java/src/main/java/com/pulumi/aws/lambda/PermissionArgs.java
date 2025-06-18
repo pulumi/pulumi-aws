@@ -17,14 +17,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     public static final PermissionArgs Empty = new PermissionArgs();
 
     /**
-     * The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+     * Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+     * @return Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
      * 
      */
     public Output<String> action() {
@@ -32,14 +32,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+     * Event Source Token for Alexa Skills
      * 
      */
     @Import(name="eventSourceToken")
     private @Nullable Output<String> eventSourceToken;
 
     /**
-     * @return The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+     * @return Event Source Token for Alexa Skills
      * 
      */
     public Optional<Output<String>> eventSourceToken() {
@@ -47,14 +47,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Lambda function whose resource policy you are updating
+     * Name of the Lambda function
      * 
      */
     @Import(name="function", required=true)
     private Output<String> function;
 
     /**
-     * @return Name of the Lambda function whose resource policy you are updating
+     * @return Name of the Lambda function
      * 
      */
     public Output<String> function() {
@@ -62,14 +62,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+     * Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
      * 
      */
     @Import(name="functionUrlAuthType")
     private @Nullable Output<String> functionUrlAuthType;
 
     /**
-     * @return Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+     * @return Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
      * 
      */
     public Optional<Output<String>> functionUrlAuthType() {
@@ -77,14 +77,18 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
-     * @return The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * @return AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> principal() {
@@ -92,22 +96,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-     * 
-     * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-     * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-     * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+     * AWS Organizations ID to grant permission to all accounts under this organization
      * 
      */
     @Import(name="principalOrgId")
     private @Nullable Output<String> principalOrgId;
 
     /**
-     * @return The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-     * 
-     * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-     * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-     * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+     * @return AWS Organizations ID to grant permission to all accounts under this organization
      * 
      */
     public Optional<Output<String>> principalOrgId() {
@@ -115,14 +111,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * Lambda function version or alias name
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * @return Lambda function version or alias name
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -130,14 +126,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
      * 
      */
     public Optional<Output<String>> region() {
@@ -145,14 +141,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+     * AWS account ID of the source owner for cross-account access, S3, or SES
      * 
      */
     @Import(name="sourceAccount")
     private @Nullable Output<String> sourceAccount;
 
     /**
-     * @return This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+     * @return AWS account ID of the source owner for cross-account access, S3, or SES
      * 
      */
     public Optional<Output<String>> sourceAccount() {
@@ -160,22 +156,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-     * Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-     * For S3, this should be the ARN of the S3 Bucket.
-     * For EventBridge events, this should be the ARN of the EventBridge Rule.
-     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * ARN of the source resource granting permission to invoke the Lambda function
      * 
      */
     @Import(name="sourceArn")
     private @Nullable Output<String> sourceArn;
 
     /**
-     * @return When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-     * Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-     * For S3, this should be the ARN of the S3 Bucket.
-     * For EventBridge events, this should be the ARN of the EventBridge Rule.
-     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * @return ARN of the source resource granting permission to invoke the Lambda function
      * 
      */
     public Optional<Output<String>> sourceArn() {
@@ -183,14 +171,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique statement identifier. By default generated by the provider.
+     * Statement identifier. Generated by Pulumi if not provided
      * 
      */
     @Import(name="statementId")
     private @Nullable Output<String> statementId;
 
     /**
-     * @return A unique statement identifier. By default generated by the provider.
+     * @return Statement identifier. Generated by Pulumi if not provided
      * 
      */
     public Optional<Output<String>> statementId() {
@@ -198,14 +186,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+     * Statement identifier prefix. Conflicts with `statement_id`
      * 
      */
     @Import(name="statementIdPrefix")
     private @Nullable Output<String> statementIdPrefix;
 
     /**
-     * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+     * @return Statement identifier prefix. Conflicts with `statement_id`
      * 
      */
     public Optional<Output<String>> statementIdPrefix() {
@@ -248,7 +236,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+         * @param action Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
          * 
          * @return builder
          * 
@@ -259,7 +247,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
+         * @param action Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
          * 
          * @return builder
          * 
@@ -269,7 +257,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventSourceToken The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+         * @param eventSourceToken Event Source Token for Alexa Skills
          * 
          * @return builder
          * 
@@ -280,7 +268,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventSourceToken The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
+         * @param eventSourceToken Event Source Token for Alexa Skills
          * 
          * @return builder
          * 
@@ -290,7 +278,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function Name of the Lambda function whose resource policy you are updating
+         * @param function Name of the Lambda function
          * 
          * @return builder
          * 
@@ -301,7 +289,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param function Name of the Lambda function whose resource policy you are updating
+         * @param function Name of the Lambda function
          * 
          * @return builder
          * 
@@ -311,7 +299,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionUrlAuthType Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+         * @param functionUrlAuthType Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
          * 
          * @return builder
          * 
@@ -322,7 +310,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionUrlAuthType Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
+         * @param functionUrlAuthType Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
          * 
          * @return builder
          * 
@@ -332,7 +320,9 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principal The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+         * @param principal AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -343,7 +333,9 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principal The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+         * @param principal AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -353,11 +345,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalOrgId The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-         * 
-         * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-         * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-         * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+         * @param principalOrgId AWS Organizations ID to grant permission to all accounts under this organization
          * 
          * @return builder
          * 
@@ -368,11 +356,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalOrgId The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-         * 
-         * [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
-         * [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
-         * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
+         * @param principalOrgId AWS Organizations ID to grant permission to all accounts under this organization
          * 
          * @return builder
          * 
@@ -382,7 +366,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+         * @param qualifier Lambda function version or alias name
          * 
          * @return builder
          * 
@@ -393,7 +377,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+         * @param qualifier Lambda function version or alias name
          * 
          * @return builder
          * 
@@ -403,7 +387,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
          * 
          * @return builder
          * 
@@ -414,7 +398,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
          * 
          * @return builder
          * 
@@ -424,7 +408,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAccount This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+         * @param sourceAccount AWS account ID of the source owner for cross-account access, S3, or SES
          * 
          * @return builder
          * 
@@ -435,7 +419,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceAccount This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
+         * @param sourceAccount AWS account ID of the source owner for cross-account access, S3, or SES
          * 
          * @return builder
          * 
@@ -445,11 +429,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceArn When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-         * Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-         * For S3, this should be the ARN of the S3 Bucket.
-         * For EventBridge events, this should be the ARN of the EventBridge Rule.
-         * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+         * @param sourceArn ARN of the source resource granting permission to invoke the Lambda function
          * 
          * @return builder
          * 
@@ -460,11 +440,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceArn When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-         * Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
-         * For S3, this should be the ARN of the S3 Bucket.
-         * For EventBridge events, this should be the ARN of the EventBridge Rule.
-         * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+         * @param sourceArn ARN of the source resource granting permission to invoke the Lambda function
          * 
          * @return builder
          * 
@@ -474,7 +450,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementId A unique statement identifier. By default generated by the provider.
+         * @param statementId Statement identifier. Generated by Pulumi if not provided
          * 
          * @return builder
          * 
@@ -485,7 +461,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementId A unique statement identifier. By default generated by the provider.
+         * @param statementId Statement identifier. Generated by Pulumi if not provided
          * 
          * @return builder
          * 
@@ -495,7 +471,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementIdPrefix A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+         * @param statementIdPrefix Statement identifier prefix. Conflicts with `statement_id`
          * 
          * @return builder
          * 
@@ -506,7 +482,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementIdPrefix A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+         * @param statementIdPrefix Statement identifier prefix. Conflicts with `statement_id`
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ public final class GetFunctionUrlResult {
      */
     private String authorizationType;
     /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
+     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     private List<GetFunctionUrlCor> cors;
@@ -72,7 +72,7 @@ public final class GetFunctionUrlResult {
         return this.authorizationType;
     }
     /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
+     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     public List<GetFunctionUrlCor> cors() {

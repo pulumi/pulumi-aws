@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCodeSigningConfigResult {
     /**
-     * @return List of allowed publishers as signing profiles for this code signing configuration.
+     * @return List of allowed publishers as signing profiles for this code signing configuration. See below.
      * 
      */
     private List<GetCodeSigningConfigAllowedPublisher> allowedPublishers;
@@ -40,7 +40,7 @@ public final class GetCodeSigningConfigResult {
      */
     private String lastModified;
     /**
-     * @return List of code signing policies that control the validation failure action for signature mismatch or expiry.
+     * @return List of code signing policies that control the validation failure action for signature mismatch or expiry. See below.
      * 
      */
     private List<GetCodeSigningConfigPolicy> policies;
@@ -48,7 +48,7 @@ public final class GetCodeSigningConfigResult {
 
     private GetCodeSigningConfigResult() {}
     /**
-     * @return List of allowed publishers as signing profiles for this code signing configuration.
+     * @return List of allowed publishers as signing profiles for this code signing configuration. See below.
      * 
      */
     public List<GetCodeSigningConfigAllowedPublisher> allowedPublishers() {
@@ -86,7 +86,7 @@ public final class GetCodeSigningConfigResult {
         return this.lastModified;
     }
     /**
-     * @return List of code signing policies that control the validation failure action for signature mismatch or expiry.
+     * @return List of code signing policies that control the validation failure action for signature mismatch or expiry. See below.
      * 
      */
     public List<GetCodeSigningConfigPolicy> policies() {

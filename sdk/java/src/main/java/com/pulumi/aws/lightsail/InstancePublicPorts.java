@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
+ * Manages public ports for a Lightsail instance. Use this resource to open ports for a specific Amazon Lightsail instance and specify the IP addresses allowed to connect to the instance through the ports and the protocol.
  * 
  * &gt; See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
  * 
@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
  * import com.pulumi.aws.lightsail.Instance;
  * import com.pulumi.aws.lightsail.InstanceArgs;
  * import com.pulumi.aws.lightsail.InstancePublicPorts;
@@ -50,20 +52,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance("test", InstanceArgs.builder()
- *             .name("yak_sail")
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state("available")
+ *             .filters(GetAvailabilityZonesFilterArgs.builder()
+ *                 .name("opt-in-status")
+ *                 .values("opt-in-not-required")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example = new Instance("example", InstanceArgs.builder()
+ *             .name("example-instance")
  *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testInstancePublicPorts = new InstancePublicPorts("testInstancePublicPorts", InstancePublicPortsArgs.builder()
- *             .instanceName(test.name())
- *             .portInfos(InstancePublicPortsPortInfoArgs.builder()
- *                 .protocol("tcp")
- *                 .fromPort(80)
- *                 .toPort(80)
- *                 .build())
+ *         var exampleInstancePublicPorts = new InstancePublicPorts("exampleInstancePublicPorts", InstancePublicPortsArgs.builder()
+ *             .instanceName(example.name())
+ *             .portInfos(            
+ *                 InstancePublicPortsPortInfoArgs.builder()
+ *                     .protocol("tcp")
+ *                     .fromPort(80)
+ *                     .toPort(80)
+ *                     .build(),
+ *                 InstancePublicPortsPortInfoArgs.builder()
+ *                     .protocol("tcp")
+ *                     .fromPort(443)
+ *                     .toPort(443)
+ *                     .cidrs("192.168.1.0/24")
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -90,14 +107,18 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
         return this.instanceName;
     }
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="portInfos", refs={List.class,InstancePublicPortsPortInfo.class}, tree="[0,1]")
     private Output<List<InstancePublicPortsPortInfo>> portInfos;
 
     /**
-     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<InstancePublicPortsPortInfo>> portInfos() {

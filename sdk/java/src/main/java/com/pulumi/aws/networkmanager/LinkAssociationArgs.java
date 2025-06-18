@@ -15,14 +15,14 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
     public static final LinkAssociationArgs Empty = new LinkAssociationArgs();
 
     /**
-     * The ID of the device.
+     * ID of the device.
      * 
      */
     @Import(name="deviceId", required=true)
     private Output<String> deviceId;
 
     /**
-     * @return The ID of the device.
+     * @return ID of the device.
      * 
      */
     public Output<String> deviceId() {
@@ -30,14 +30,14 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
      * 
      */
     public Output<String> globalNetworkId() {
@@ -45,14 +45,14 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the link.
+     * ID of the link.
      * 
      */
     @Import(name="linkId", required=true)
     private Output<String> linkId;
 
     /**
-     * @return The ID of the link.
+     * @return ID of the link.
      * 
      */
     public Output<String> linkId() {
@@ -86,7 +86,7 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class LinkAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 

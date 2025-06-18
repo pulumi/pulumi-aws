@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class EventSourceMappingProvisionedPollerConfig
     {
         /// <summary>
-        /// The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+        /// Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
         /// </summary>
         public readonly int? MaximumPollers;
         /// <summary>
-        /// The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+        /// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
         /// </summary>
         public readonly int? MinimumPollers;
 

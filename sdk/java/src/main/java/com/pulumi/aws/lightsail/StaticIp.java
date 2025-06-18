@@ -14,9 +14,11 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Allocates a static IP address.
+ * Manages a static IP address.
  * 
- * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ * Use this resource to allocate a static IP address that can be attached to Lightsail instances to provide a consistent public IP address that persists across instance restarts.
+ * 
+ * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
  * 
  * ## Example Usage
  * 
@@ -43,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new StaticIp("test", StaticIpArgs.builder()
+ *         var example = new StaticIp("example", StaticIpArgs.builder()
  *             .name("example")
  *             .build());
  * 
@@ -53,46 +55,58 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:lightsail/staticIp:StaticIp example example
+ * ```
+ * 
  */
 @ResourceType(type="aws:lightsail/staticIp:StaticIp")
 public class StaticIp extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Lightsail static IP
+     * ARN of the Lightsail static IP.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail static IP
+     * @return ARN of the Lightsail static IP.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The allocated static IP address
+     * Allocated static IP address.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
-     * @return The allocated static IP address
+     * @return Allocated static IP address.
      * 
      */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
     /**
-     * The name for the allocated static IP
+     * Name for the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name for the allocated static IP
+     * @return Name for the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -113,14 +127,14 @@ public class StaticIp extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The support code.
+     * Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     /**
-     * @return The support code.
+     * @return Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     public Output<String> supportCode() {

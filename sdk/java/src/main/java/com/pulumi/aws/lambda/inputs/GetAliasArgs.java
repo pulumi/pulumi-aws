@@ -34,12 +34,16 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Name of the Lambda alias.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return Name of the Lambda alias.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -111,6 +115,8 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Name of the Lambda alias.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -121,6 +127,8 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param name Name of the Lambda alias.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

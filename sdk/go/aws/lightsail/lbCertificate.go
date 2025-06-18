@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Lightsail load balancer Certificate resource.
+// Manages a Lightsail Load Balancer Certificate.
+//
+// Use this resource to create and manage SSL/TLS certificates for Lightsail Load Balancers. The certificate must be validated before it can be attached to a load balancer to enable HTTPS traffic.
 //
 // ## Example Usage
 //
@@ -28,8 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
-//				Name:            pulumi.String("test-load-balancer"),
+//			example, err := lightsail.NewLb(ctx, "example", &lightsail.LbArgs{
+//				Name:            pulumi.String("example-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -39,10 +41,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbCertificate(ctx, "test", &lightsail.LbCertificateArgs{
-//				Name:       pulumi.String("test-load-balancer-certificate"),
-//				LbName:     test.ID(),
-//				DomainName: pulumi.String("test.com"),
+//			_, err = lightsail.NewLbCertificate(ctx, "example", &lightsail.LbCertificateArgs{
+//				Name:       pulumi.String("example-load-balancer-certificate"),
+//				LbName:     example.ID(),
+//				DomainName: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -58,27 +60,31 @@ import (
 // Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
 //
 // ```sh
-// $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+// $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate
 // ```
 type LbCertificate struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the lightsail certificate.
+	// ARN of the lightsail certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The timestamp when the instance was created.
+	// Timestamp when the instance was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
-	DomainName              pulumi.StringOutput                            `pulumi:"domainName"`
+	// Domain name (e.g., example.com) for your SSL/TLS certificate.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
 	DomainValidationRecords LbCertificateDomainValidationRecordArrayOutput `pulumi:"domainValidationRecords"`
-	// The load balancer name where you want to create the SSL/TLS certificate.
+	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
-	// The SSL/TLS certificate name.
+	// SSL/TLS certificate name.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	SupportCode             pulumi.StringOutput      `pulumi:"supportCode"`
+	// Support code for the certificate.
+	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 }
 
 // NewLbCertificate registers a new resource with the given unique name, arguments, and options.
@@ -114,41 +120,49 @@ func GetLbCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbCertificate resources.
 type lbCertificateState struct {
-	// The ARN of the lightsail certificate.
+	// ARN of the lightsail certificate.
 	Arn *string `pulumi:"arn"`
-	// The timestamp when the instance was created.
+	// Timestamp when the instance was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
-	DomainName              *string                               `pulumi:"domainName"`
+	// Domain name (e.g., example.com) for your SSL/TLS certificate.
+	DomainName *string `pulumi:"domainName"`
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
 	DomainValidationRecords []LbCertificateDomainValidationRecord `pulumi:"domainValidationRecords"`
-	// The load balancer name where you want to create the SSL/TLS certificate.
+	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName *string `pulumi:"lbName"`
-	// The SSL/TLS certificate name.
+	// SSL/TLS certificate name.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	SupportCode             *string  `pulumi:"supportCode"`
+	// Support code for the certificate.
+	SupportCode *string `pulumi:"supportCode"`
 }
 
 type LbCertificateState struct {
-	// The ARN of the lightsail certificate.
+	// ARN of the lightsail certificate.
 	Arn pulumi.StringPtrInput
-	// The timestamp when the instance was created.
+	// Timestamp when the instance was created.
 	CreatedAt pulumi.StringPtrInput
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
-	DomainName              pulumi.StringPtrInput
+	// Domain name (e.g., example.com) for your SSL/TLS certificate.
+	DomainName pulumi.StringPtrInput
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
 	DomainValidationRecords LbCertificateDomainValidationRecordArrayInput
-	// The load balancer name where you want to create the SSL/TLS certificate.
+	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName pulumi.StringPtrInput
-	// The SSL/TLS certificate name.
+	// SSL/TLS certificate name.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames pulumi.StringArrayInput
-	SupportCode             pulumi.StringPtrInput
+	// Support code for the certificate.
+	SupportCode pulumi.StringPtrInput
 }
 
 func (LbCertificateState) ElementType() reflect.Type {
@@ -156,11 +170,13 @@ func (LbCertificateState) ElementType() reflect.Type {
 }
 
 type lbCertificateArgs struct {
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
+	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName *string `pulumi:"domainName"`
-	// The load balancer name where you want to create the SSL/TLS certificate.
+	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName string `pulumi:"lbName"`
-	// The SSL/TLS certificate name.
+	// SSL/TLS certificate name.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -170,11 +186,13 @@ type lbCertificateArgs struct {
 
 // The set of arguments for constructing a LbCertificate resource.
 type LbCertificateArgs struct {
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
+	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName pulumi.StringPtrInput
-	// The load balancer name where you want to create the SSL/TLS certificate.
+	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName pulumi.StringInput
-	// The SSL/TLS certificate name.
+	// SSL/TLS certificate name.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -269,33 +287,36 @@ func (o LbCertificateOutput) ToLbCertificateOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the lightsail certificate.
+// ARN of the lightsail certificate.
 func (o LbCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The timestamp when the instance was created.
+// Timestamp when the instance was created.
 func (o LbCertificateOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The domain name (e.g., example.com) for your SSL/TLS certificate.
+// Domain name (e.g., example.com) for your SSL/TLS certificate.
 func (o LbCertificateOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
 func (o LbCertificateOutput) DomainValidationRecords() LbCertificateDomainValidationRecordArrayOutput {
 	return o.ApplyT(func(v *LbCertificate) LbCertificateDomainValidationRecordArrayOutput {
 		return v.DomainValidationRecords
 	}).(LbCertificateDomainValidationRecordArrayOutput)
 }
 
-// The load balancer name where you want to create the SSL/TLS certificate.
+// Load balancer name where you want to create the SSL/TLS certificate.
 func (o LbCertificateOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }
 
-// The SSL/TLS certificate name.
+// SSL/TLS certificate name.
+//
+// The following arguments are optional:
 func (o LbCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -310,6 +331,7 @@ func (o LbCertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
+// Support code for the certificate.
 func (o LbCertificateOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }

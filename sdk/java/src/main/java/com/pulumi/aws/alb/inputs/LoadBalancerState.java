@@ -43,14 +43,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the load balancer (matches `id`).
+     * ARN of the load balancer.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the load balancer (matches `id`).
+     * @return ARN of the load balancer.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -134,6 +134,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     @Import(name="dnsName")
@@ -141,6 +142,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -648,7 +650,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the load balancer (matches `id`).
+         * @param arn ARN of the load balancer.
          * 
          * @return builder
          * 
@@ -659,7 +661,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the load balancer (matches `id`).
+         * @param arn ARN of the load balancer.
          * 
          * @return builder
          * 
@@ -775,6 +777,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dnsName DNS name of the load balancer.
+         * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
          * 
          * @return builder
          * 
@@ -786,6 +789,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dnsName DNS name of the load balancer.
+         * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
          * 
          * @return builder
          * 

@@ -179,6 +179,7 @@ class _ApplicationState:
                  application_account: Optional[pulumi.Input[builtins.str]] = None,
                  application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  application_provider_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 arn: Optional[pulumi.Input[builtins.str]] = None,
                  client_token: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -191,8 +192,9 @@ class _ApplicationState:
         """
         Input properties used for looking up and filtering Application resources.
         :param pulumi.Input[builtins.str] application_account: AWS account ID.
-        :param pulumi.Input[builtins.str] application_arn: ARN of the application.
+        :param pulumi.Input[builtins.str] application_arn: (**Deprecated** Reference `arn` instead) ARN of the application.
         :param pulumi.Input[builtins.str] application_provider_arn: ARN of the application provider.
+        :param pulumi.Input[builtins.str] arn: ARN of the application.
         :param pulumi.Input[builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         :param pulumi.Input[builtins.str] description: Description of the application.
         :param pulumi.Input[builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
@@ -208,9 +210,14 @@ class _ApplicationState:
         if application_account is not None:
             pulumi.set(__self__, "application_account", application_account)
         if application_arn is not None:
+            warnings.warn("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""application_arn is deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
+        if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
         if application_provider_arn is not None:
             pulumi.set(__self__, "application_provider_arn", application_provider_arn)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
         if description is not None:
@@ -244,9 +251,10 @@ class _ApplicationState:
 
     @property
     @pulumi.getter(name="applicationArn")
+    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
     def application_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ARN of the application.
+        (**Deprecated** Reference `arn` instead) ARN of the application.
         """
         return pulumi.get(self, "application_arn")
 
@@ -265,6 +273,18 @@ class _ApplicationState:
     @application_provider_arn.setter
     def application_provider_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "application_provider_arn", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARN of the application.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="clientToken")
@@ -561,6 +581,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_account"] = None
             __props__.__dict__["application_arn"] = None
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(Application, __self__).__init__(
             'aws:ssoadmin/application:Application',
@@ -575,6 +596,7 @@ class Application(pulumi.CustomResource):
             application_account: Optional[pulumi.Input[builtins.str]] = None,
             application_arn: Optional[pulumi.Input[builtins.str]] = None,
             application_provider_arn: Optional[pulumi.Input[builtins.str]] = None,
+            arn: Optional[pulumi.Input[builtins.str]] = None,
             client_token: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             instance_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -592,8 +614,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_account: AWS account ID.
-        :param pulumi.Input[builtins.str] application_arn: ARN of the application.
+        :param pulumi.Input[builtins.str] application_arn: (**Deprecated** Reference `arn` instead) ARN of the application.
         :param pulumi.Input[builtins.str] application_provider_arn: ARN of the application provider.
+        :param pulumi.Input[builtins.str] arn: ARN of the application.
         :param pulumi.Input[builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         :param pulumi.Input[builtins.str] description: Description of the application.
         :param pulumi.Input[builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
@@ -613,6 +636,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["application_account"] = application_account
         __props__.__dict__["application_arn"] = application_arn
         __props__.__dict__["application_provider_arn"] = application_provider_arn
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["client_token"] = client_token
         __props__.__dict__["description"] = description
         __props__.__dict__["instance_arn"] = instance_arn
@@ -634,9 +658,10 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationArn")
+    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
     def application_arn(self) -> pulumi.Output[builtins.str]:
         """
-        ARN of the application.
+        (**Deprecated** Reference `arn` instead) ARN of the application.
         """
         return pulumi.get(self, "application_arn")
 
@@ -647,6 +672,14 @@ class Application(pulumi.CustomResource):
         ARN of the application provider.
         """
         return pulumi.get(self, "application_provider_arn")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        ARN of the application.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clientToken")

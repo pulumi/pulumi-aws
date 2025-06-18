@@ -49,7 +49,6 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
      * 
      */
     @Import(name="engineVersion")
@@ -57,7 +56,6 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -65,14 +63,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      * 
      */
     @Import(name="globalClusterIdentifier", required=true)
     private Output<String> globalClusterIdentifier;
 
     /**
-     * @return The global cluster identifier.
+     * @return Global cluster identifier.
      * 
      */
     public Output<String> globalClusterIdentifier() {
@@ -95,14 +93,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     @Import(name="sourceDbClusterIdentifier")
     private @Nullable Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     public Optional<Output<String>> sourceDbClusterIdentifier() {
@@ -110,14 +108,14 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * @return Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -198,7 +196,6 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param engineVersion Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-         * * **NOTE:** Upgrading major versions is not supported.
          * 
          * @return builder
          * 
@@ -210,7 +207,6 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param engineVersion Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-         * * **NOTE:** Upgrading major versions is not supported.
          * 
          * @return builder
          * 
@@ -220,7 +216,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalClusterIdentifier The global cluster identifier.
+         * @param globalClusterIdentifier Global cluster identifier.
          * 
          * @return builder
          * 
@@ -231,7 +227,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalClusterIdentifier The global cluster identifier.
+         * @param globalClusterIdentifier Global cluster identifier.
          * 
          * @return builder
          * 
@@ -262,7 +258,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
          * 
          * @return builder
          * 
@@ -273,7 +269,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
          * 
          * @return builder
          * 
@@ -283,7 +279,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -294,7 +290,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 

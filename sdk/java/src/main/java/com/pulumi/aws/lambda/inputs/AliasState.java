@@ -17,14 +17,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     public static final AliasState Empty = new AliasState();
 
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda function alias.
+     * ARN identifying your Lambda function alias.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) identifying your Lambda function alias.
+     * @return ARN identifying your Lambda function alias.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Lambda Function name or ARN.
+     * Name or ARN of the Lambda function.
      * 
      */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
     /**
-     * @return Lambda Function name or ARN.
+     * @return Name or ARN of the Lambda function.
      * 
      */
     public Optional<Output<String>> functionName() {
@@ -77,14 +77,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
+     * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     @Import(name="invokeArn")
     private @Nullable Output<String> invokeArn;
 
     /**
-     * @return The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
+     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     public Optional<Output<String>> invokeArn() {
@@ -92,14 +92,18 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+     * Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+     * @return Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -122,14 +126,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Lambda alias&#39; route configuration settings. Fields documented below
+     * Lambda alias&#39; route configuration settings. See below.
      * 
      */
     @Import(name="routingConfig")
     private @Nullable Output<AliasRoutingConfigArgs> routingConfig;
 
     /**
-     * @return The Lambda alias&#39; route configuration settings. Fields documented below
+     * @return Lambda alias&#39; route configuration settings. See below.
      * 
      */
     public Optional<Output<AliasRoutingConfigArgs>> routingConfig() {
@@ -168,7 +172,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) identifying your Lambda function alias.
+         * @param arn ARN identifying your Lambda function alias.
          * 
          * @return builder
          * 
@@ -179,7 +183,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) identifying your Lambda function alias.
+         * @param arn ARN identifying your Lambda function alias.
          * 
          * @return builder
          * 
@@ -210,7 +214,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Lambda Function name or ARN.
+         * @param functionName Name or ARN of the Lambda function.
          * 
          * @return builder
          * 
@@ -221,7 +225,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Lambda Function name or ARN.
+         * @param functionName Name or ARN of the Lambda function.
          * 
          * @return builder
          * 
@@ -252,7 +256,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeArn The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
+         * @param invokeArn ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
          * 
          * @return builder
          * 
@@ -263,7 +267,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeArn The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
+         * @param invokeArn ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
          * 
          * @return builder
          * 
@@ -273,7 +277,9 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+         * @param name Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -284,7 +290,9 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+         * @param name Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -315,7 +323,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingConfig The Lambda alias&#39; route configuration settings. Fields documented below
+         * @param routingConfig Lambda alias&#39; route configuration settings. See below.
          * 
          * @return builder
          * 
@@ -326,7 +334,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingConfig The Lambda alias&#39; route configuration settings. Fields documented below
+         * @param routingConfig Lambda alias&#39; route configuration settings. See below.
          * 
          * @return builder
          * 

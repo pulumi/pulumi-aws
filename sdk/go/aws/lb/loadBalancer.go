@@ -103,7 +103,7 @@ type LoadBalancer struct {
 
 	// Access Logs block. See below.
 	AccessLogs LoadBalancerAccessLogsPtrOutput `pulumi:"accessLogs"`
-	// ARN of the load balancer (matches `id`).
+	// ARN of the load balancer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
@@ -116,6 +116,7 @@ type LoadBalancer struct {
 	// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
 	DesyncMitigationMode pulumi.StringPtrOutput `pulumi:"desyncMitigationMode"`
 	// DNS name of the load balancer.
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
 	DnsRecordClientRoutingPolicy pulumi.StringPtrOutput `pulumi:"dnsRecordClientRoutingPolicy"`
@@ -216,7 +217,7 @@ func GetLoadBalancer(ctx *pulumi.Context,
 type loadBalancerState struct {
 	// Access Logs block. See below.
 	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
-	// ARN of the load balancer (matches `id`).
+	// ARN of the load balancer.
 	Arn *string `pulumi:"arn"`
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix *string `pulumi:"arnSuffix"`
@@ -229,6 +230,7 @@ type loadBalancerState struct {
 	// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
 	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
 	// DNS name of the load balancer.
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	DnsName *string `pulumi:"dnsName"`
 	// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
 	DnsRecordClientRoutingPolicy *string `pulumi:"dnsRecordClientRoutingPolicy"`
@@ -294,7 +296,7 @@ type loadBalancerState struct {
 type LoadBalancerState struct {
 	// Access Logs block. See below.
 	AccessLogs LoadBalancerAccessLogsPtrInput
-	// ARN of the load balancer (matches `id`).
+	// ARN of the load balancer.
 	Arn pulumi.StringPtrInput
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringPtrInput
@@ -307,6 +309,7 @@ type LoadBalancerState struct {
 	// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
 	DesyncMitigationMode pulumi.StringPtrInput
 	// DNS name of the load balancer.
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	DnsName pulumi.StringPtrInput
 	// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
 	DnsRecordClientRoutingPolicy pulumi.StringPtrInput
@@ -600,7 +603,7 @@ func (o LoadBalancerOutput) AccessLogs() LoadBalancerAccessLogsPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAccessLogsPtrOutput { return v.AccessLogs }).(LoadBalancerAccessLogsPtrOutput)
 }
 
-// ARN of the load balancer (matches `id`).
+// ARN of the load balancer.
 func (o LoadBalancerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -631,6 +634,7 @@ func (o LoadBalancerOutput) DesyncMitigationMode() pulumi.StringPtrOutput {
 }
 
 // DNS name of the load balancer.
+// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }

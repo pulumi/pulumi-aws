@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetBrokerEngineTypesResult {
     /**
-     * @return A list of available engine types and versions. See Engine Types.
+     * @return List of available engine types and versions. See Engine Types.
      * 
      */
     private List<GetBrokerEngineTypesBrokerEngineType> brokerEngineTypes;
     /**
-     * @return The broker&#39;s engine type.
+     * @return Broker&#39;s engine type.
      * 
      */
     private @Nullable String engineType;
@@ -33,14 +33,14 @@ public final class GetBrokerEngineTypesResult {
 
     private GetBrokerEngineTypesResult() {}
     /**
-     * @return A list of available engine types and versions. See Engine Types.
+     * @return List of available engine types and versions. See Engine Types.
      * 
      */
     public List<GetBrokerEngineTypesBrokerEngineType> brokerEngineTypes() {
         return this.brokerEngineTypes;
     }
     /**
-     * @return The broker&#39;s engine type.
+     * @return Broker&#39;s engine type.
      * 
      */
     public Optional<String> engineType() {

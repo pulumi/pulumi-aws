@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Scraper{}
 	case "aws:amp/workspace:Workspace":
 		r = &Workspace{}
+	case "aws:amp/workspaceConfiguration:WorkspaceConfiguration":
+		r = &WorkspaceConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"amp/workspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amp/workspaceConfiguration",
 		&module{version},
 	)
 }

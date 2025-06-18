@@ -20,41 +20,129 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerResult {
+    /**
+     * @return ARN of the broker.
+     * 
+     */
     private String arn;
+    /**
+     * @return Authentication strategy used to secure the broker.
+     * 
+     */
     private String authenticationStrategy;
+    /**
+     * @return Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
+     * 
+     */
     private Boolean autoMinorVersionUpgrade;
     private String brokerId;
     private String brokerName;
+    /**
+     * @return Configuration block for broker configuration. See Configuration below.
+     * 
+     */
     private GetBrokerConfiguration configuration;
+    /**
+     * @return Deployment mode of the broker.
+     * 
+     */
     private String deploymentMode;
+    /**
+     * @return Configuration block containing encryption options. See Encryption Options below.
+     * 
+     */
     private List<GetBrokerEncryptionOption> encryptionOptions;
+    /**
+     * @return Type of broker engine.
+     * 
+     */
     private String engineType;
+    /**
+     * @return Version of the broker engine.
+     * 
+     */
     private String engineVersion;
+    /**
+     * @return Broker&#39;s instance type.
+     * 
+     */
     private String hostInstanceType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return List of information about allocated brokers (both active &amp; standby). See Instances below.
+     * 
+     */
     private List<GetBrokerInstance> instances;
+    /**
+     * @return Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+     * 
+     */
     private List<GetBrokerLdapServerMetadata> ldapServerMetadatas;
+    /**
+     * @return Configuration block for the logging configuration of the broker. See Logs below.
+     * 
+     */
     private GetBrokerLogs logs;
+    /**
+     * @return Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+     * 
+     */
     private GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
+    /**
+     * @return Whether to enable connections from applications outside of the VPC that hosts the broker&#39;s subnets.
+     * 
+     */
     private Boolean publiclyAccessible;
     private String region;
+    /**
+     * @return List of security group IDs assigned to the broker.
+     * 
+     */
     private List<String> securityGroups;
+    /**
+     * @return Storage type of the broker.
+     * 
+     */
     private String storageType;
+    /**
+     * @return List of subnet IDs in which to launch the broker.
+     * 
+     */
     private List<String> subnetIds;
+    /**
+     * @return Map of tags assigned to the broker.
+     * 
+     */
     private Map<String,String> tags;
+    /**
+     * @return Configuration block for broker users. See User below.
+     * 
+     */
     private List<GetBrokerUser> users;
 
     private GetBrokerResult() {}
+    /**
+     * @return ARN of the broker.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Authentication strategy used to secure the broker.
+     * 
+     */
     public String authenticationStrategy() {
         return this.authenticationStrategy;
     }
+    /**
+     * @return Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
+     * 
+     */
     public Boolean autoMinorVersionUpgrade() {
         return this.autoMinorVersionUpgrade;
     }
@@ -64,21 +152,45 @@ public final class GetBrokerResult {
     public String brokerName() {
         return this.brokerName;
     }
+    /**
+     * @return Configuration block for broker configuration. See Configuration below.
+     * 
+     */
     public GetBrokerConfiguration configuration() {
         return this.configuration;
     }
+    /**
+     * @return Deployment mode of the broker.
+     * 
+     */
     public String deploymentMode() {
         return this.deploymentMode;
     }
+    /**
+     * @return Configuration block containing encryption options. See Encryption Options below.
+     * 
+     */
     public List<GetBrokerEncryptionOption> encryptionOptions() {
         return this.encryptionOptions;
     }
+    /**
+     * @return Type of broker engine.
+     * 
+     */
     public String engineType() {
         return this.engineType;
     }
+    /**
+     * @return Version of the broker engine.
+     * 
+     */
     public String engineVersion() {
         return this.engineVersion;
     }
+    /**
+     * @return Broker&#39;s instance type.
+     * 
+     */
     public String hostInstanceType() {
         return this.hostInstanceType;
     }
@@ -89,36 +201,76 @@ public final class GetBrokerResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of information about allocated brokers (both active &amp; standby). See Instances below.
+     * 
+     */
     public List<GetBrokerInstance> instances() {
         return this.instances;
     }
+    /**
+     * @return Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+     * 
+     */
     public List<GetBrokerLdapServerMetadata> ldapServerMetadatas() {
         return this.ldapServerMetadatas;
     }
+    /**
+     * @return Configuration block for the logging configuration of the broker. See Logs below.
+     * 
+     */
     public GetBrokerLogs logs() {
         return this.logs;
     }
+    /**
+     * @return Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+     * 
+     */
     public GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime() {
         return this.maintenanceWindowStartTime;
     }
+    /**
+     * @return Whether to enable connections from applications outside of the VPC that hosts the broker&#39;s subnets.
+     * 
+     */
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
     public String region() {
         return this.region;
     }
+    /**
+     * @return List of security group IDs assigned to the broker.
+     * 
+     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
+    /**
+     * @return Storage type of the broker.
+     * 
+     */
     public String storageType() {
         return this.storageType;
     }
+    /**
+     * @return List of subnet IDs in which to launch the broker.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return Map of tags assigned to the broker.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Configuration block for broker users. See User below.
+     * 
+     */
     public List<GetBrokerUser> users() {
         return this.users;
     }

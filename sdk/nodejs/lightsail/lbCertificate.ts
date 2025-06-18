@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Lightsail load balancer Certificate resource.
+ * Manages a Lightsail Load Balancer Certificate.
+ *
+ * Use this resource to create and manage SSL/TLS certificates for Lightsail Load Balancers. The certificate must be validated before it can be attached to a load balancer to enable HTTPS traffic.
  *
  * ## Example Usage
  *
@@ -16,18 +18,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Lb("test", {
- *     name: "test-load-balancer",
+ * const example = new aws.lightsail.Lb("example", {
+ *     name: "example-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("test", {
- *     name: "test-load-balancer-certificate",
- *     lbName: test.id,
- *     domainName: "test.com",
+ * const exampleLbCertificate = new aws.lightsail.LbCertificate("example", {
+ *     name: "example-load-balancer-certificate",
+ *     lbName: example.id,
+ *     domainName: "example.com",
  * });
  * ```
  *
@@ -36,7 +38,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+ * $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate
  * ```
  */
 export class LbCertificate extends pulumi.CustomResource {
@@ -68,24 +70,29 @@ export class LbCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the lightsail certificate.
+     * ARN of the lightsail certificate.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The timestamp when the instance was created.
+     * Timestamp when the instance was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * Domain name (e.g., example.com) for your SSL/TLS certificate.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     */
     public /*out*/ readonly domainValidationRecords!: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[]>;
     /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
+     * Load balancer name where you want to create the SSL/TLS certificate.
      */
     public readonly lbName!: pulumi.Output<string>;
     /**
-     * The SSL/TLS certificate name.
+     * SSL/TLS certificate name.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -96,6 +103,9 @@ export class LbCertificate extends pulumi.CustomResource {
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
+    /**
+     * Support code for the certificate.
+     */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
 
     /**
@@ -145,24 +155,29 @@ export class LbCertificate extends pulumi.CustomResource {
  */
 export interface LbCertificateState {
     /**
-     * The ARN of the lightsail certificate.
+     * ARN of the lightsail certificate.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The timestamp when the instance was created.
+     * Timestamp when the instance was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * Domain name (e.g., example.com) for your SSL/TLS certificate.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     */
     domainValidationRecords?: pulumi.Input<pulumi.Input<inputs.lightsail.LbCertificateDomainValidationRecord>[]>;
     /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
+     * Load balancer name where you want to create the SSL/TLS certificate.
      */
     lbName?: pulumi.Input<string>;
     /**
-     * The SSL/TLS certificate name.
+     * SSL/TLS certificate name.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -173,6 +188,9 @@ export interface LbCertificateState {
      * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Support code for the certificate.
+     */
     supportCode?: pulumi.Input<string>;
 }
 
@@ -181,15 +199,17 @@ export interface LbCertificateState {
  */
 export interface LbCertificateArgs {
     /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * Domain name (e.g., example.com) for your SSL/TLS certificate.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
+     * Load balancer name where you want to create the SSL/TLS certificate.
      */
     lbName: pulumi.Input<string>;
     /**
-     * The SSL/TLS certificate name.
+     * SSL/TLS certificate name.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

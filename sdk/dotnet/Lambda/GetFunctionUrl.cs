@@ -12,9 +12,11 @@ namespace Pulumi.Aws.Lambda
     public static class GetFunctionUrl
     {
         /// <summary>
-        /// Provides information about a Lambda function URL.
+        /// Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -24,13 +26,84 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
         ///     {
-        ///         FunctionName = functionName,
+        ///         FunctionName = "my_lambda_function",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionUrl"] = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### With Qualifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     {
+        ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+        ///         Qualifier = "production",
+        ///     });
+        /// 
+        ///     // Use the URL in other resources
+        ///     var lambdaAlias = new Aws.Route53.Record("lambda_alias", new()
+        ///     {
+        ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
+        ///         Name = "api.example.com",
+        ///         Type = Aws.Route53.RecordType.CNAME,
+        ///         Ttl = 300,
+        ///         Records = new[]
+        ///         {
+        ///             Std.Replace.Invoke(new()
+        ///             {
+        ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
+        ///                 Search = "https://",
+        ///                 Replace = "",
+        ///             }).Apply(invoke =&gt; invoke.Result),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Retrieve CORS Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     {
+        ///         FunctionName = "api_function",
+        ///     });
+        /// 
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
+        ///     {
+        ///         var length = values.Item1;
+        ///         var example = values.Item2;
+        ///         return length &gt; 0 ? example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors[0]) : null;
+        ///     });
+        /// 
+        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new[] {};
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["corsAllowedOrigins"] = allowedOrigins,
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -38,9 +111,11 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda function URL.
+        /// Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -50,13 +125,84 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
         ///     {
-        ///         FunctionName = functionName,
+        ///         FunctionName = "my_lambda_function",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionUrl"] = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### With Qualifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     {
+        ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+        ///         Qualifier = "production",
+        ///     });
+        /// 
+        ///     // Use the URL in other resources
+        ///     var lambdaAlias = new Aws.Route53.Record("lambda_alias", new()
+        ///     {
+        ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
+        ///         Name = "api.example.com",
+        ///         Type = Aws.Route53.RecordType.CNAME,
+        ///         Ttl = 300,
+        ///         Records = new[]
+        ///         {
+        ///             Std.Replace.Invoke(new()
+        ///             {
+        ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
+        ///                 Search = "https://",
+        ///                 Replace = "",
+        ///             }).Apply(invoke =&gt; invoke.Result),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Retrieve CORS Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     {
+        ///         FunctionName = "api_function",
+        ///     });
+        /// 
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
+        ///     {
+        ///         var length = values.Item1;
+        ///         var example = values.Item2;
+        ///         return length &gt; 0 ? example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors[0]) : null;
+        ///     });
+        /// 
+        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new[] {};
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["corsAllowedOrigins"] = allowedOrigins,
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -64,9 +210,11 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda function URL.
+        /// Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -76,13 +224,84 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
         ///     {
-        ///         FunctionName = functionName,
+        ///         FunctionName = "my_lambda_function",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionUrl"] = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### With Qualifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     {
+        ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+        ///         Qualifier = "production",
+        ///     });
+        /// 
+        ///     // Use the URL in other resources
+        ///     var lambdaAlias = new Aws.Route53.Record("lambda_alias", new()
+        ///     {
+        ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
+        ///         Name = "api.example.com",
+        ///         Type = Aws.Route53.RecordType.CNAME,
+        ///         Ttl = 300,
+        ///         Records = new[]
+        ///         {
+        ///             Std.Replace.Invoke(new()
+        ///             {
+        ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
+        ///                 Search = "https://",
+        ///                 Replace = "",
+        ///             }).Apply(invoke =&gt; invoke.Result),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Retrieve CORS Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunctionUrl.Invoke(new()
+        ///     {
+        ///         FunctionName = "api_function",
+        ///     });
+        /// 
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
+        ///     {
+        ///         var length = values.Item1;
+        ///         var example = values.Item2;
+        ///         return length &gt; 0 ? example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors[0]) : null;
+        ///     });
+        /// 
+        ///     var allowedOrigins = corsConfig != null ? corsConfig?.AllowOrigins : new[] {};
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["corsAllowedOrigins"] = allowedOrigins,
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -94,13 +313,15 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name (or ARN) of the Lambda function.
+        /// Name or ARN of the Lambda function.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName", required: true)]
         public string FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or `"$LATEST"`.
+        /// Alias name or `$LATEST`.
         /// </summary>
         [Input("qualifier")]
         public string? Qualifier { get; set; }
@@ -120,13 +341,15 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name (or ARN) of the Lambda function.
+        /// Name or ARN of the Lambda function.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or `"$LATEST"`.
+        /// Alias name or `$LATEST`.
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
@@ -152,7 +375,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string AuthorizationType;
         /// <summary>
-        /// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
+        /// Cross-origin resource sharing (CORS) settings for the function URL. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionUrlCorResult> Cors;
         /// <summary>

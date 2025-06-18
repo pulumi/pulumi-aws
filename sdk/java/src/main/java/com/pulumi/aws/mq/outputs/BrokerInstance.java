@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BrokerInstance {
     /**
-     * @return The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+     * @return URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
      * 
      */
     private @Nullable String consoleUrl;
@@ -38,7 +38,7 @@ public final class BrokerInstance {
 
     private BrokerInstance() {}
     /**
-     * @return The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+     * @return URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
      * 
      */
     public Optional<String> consoleUrl() {

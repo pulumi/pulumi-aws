@@ -16,14 +16,14 @@ public final class BrokerLogsArgs extends com.pulumi.resources.ResourceArgs {
     public static final BrokerLogsArgs Empty = new BrokerLogsArgs();
 
     /**
-     * Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+     * Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
      * 
      */
     @Import(name="audit")
     private @Nullable Output<Boolean> audit;
 
     /**
-     * @return Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+     * @return Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> audit() {
@@ -31,14 +31,14 @@ public final class BrokerLogsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables general logging via CloudWatch. Defaults to `false`.
+     * Whether to enable general logging via CloudWatch. Defaults to `false`.
      * 
      */
     @Import(name="general")
     private @Nullable Output<Boolean> general;
 
     /**
-     * @return Enables general logging via CloudWatch. Defaults to `false`.
+     * @return Whether to enable general logging via CloudWatch. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> general() {
@@ -71,7 +71,7 @@ public final class BrokerLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audit Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+         * @param audit Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BrokerLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audit Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+         * @param audit Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BrokerLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param general Enables general logging via CloudWatch. Defaults to `false`.
+         * @param general Whether to enable general logging via CloudWatch. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BrokerLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param general Enables general logging via CloudWatch. Defaults to `false`.
+         * @param general Whether to enable general logging via CloudWatch. Defaults to `false`.
          * 
          * @return builder
          * 

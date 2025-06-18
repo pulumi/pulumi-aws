@@ -17,14 +17,14 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     public static final InvocationState Empty = new InvocationState();
 
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
      * 
      */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
     /**
-     * @return Name of the lambda function.
+     * @return Name of the Lambda function.
      * 
      */
     public Optional<Output<String>> functionName() {
@@ -32,7 +32,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON payload to the lambda function.
+     * JSON payload to the Lambda function.
      * 
      * The following arguments are optional:
      * 
@@ -41,7 +41,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> input;
 
     /**
-     * @return JSON payload to the lambda function.
+     * @return JSON payload to the Lambda function.
      * 
      * The following arguments are optional:
      * 
@@ -66,14 +66,14 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * @return Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -96,14 +96,14 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String result of the lambda function invocation.
+     * String result of the Lambda function invocation.
      * 
      */
     @Import(name="result")
     private @Nullable Output<String> result;
 
     /**
-     * @return String result of the lambda function invocation.
+     * @return String result of the Lambda function invocation.
      * 
      */
     public Optional<Output<String>> result() {
@@ -164,7 +164,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Name of the lambda function.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Name of the lambda function.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param input JSON payload to the lambda function.
+         * @param input JSON payload to the Lambda function.
          * 
          * The following arguments are optional:
          * 
@@ -198,7 +198,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param input JSON payload to the lambda function.
+         * @param input JSON payload to the Lambda function.
          * 
          * The following arguments are optional:
          * 
@@ -231,7 +231,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+         * @param qualifier Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+         * @param qualifier Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param result String result of the lambda function invocation.
+         * @param result String result of the Lambda function invocation.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param result String result of the lambda function invocation.
+         * @param result String result of the Lambda function invocation.
          * 
          * @return builder
          * 

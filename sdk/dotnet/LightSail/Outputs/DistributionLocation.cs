@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionLocation
     {
         /// <summary>
-        /// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+        /// Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// The AWS Region name.
+        /// AWS Region name.
         /// </summary>
         public readonly string RegionName;
 

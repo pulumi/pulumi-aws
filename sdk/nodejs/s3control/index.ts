@@ -45,6 +45,11 @@ export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
 export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
 utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
 
+export { DirectoryBucketAccessPointScopeArgs, DirectoryBucketAccessPointScopeState } from "./directoryBucketAccessPointScope";
+export type DirectoryBucketAccessPointScope = import("./directoryBucketAccessPointScope").DirectoryBucketAccessPointScope;
+export const DirectoryBucketAccessPointScope: typeof import("./directoryBucketAccessPointScope").DirectoryBucketAccessPointScope = null as any;
+utilities.lazyLoad(exports, ["DirectoryBucketAccessPointScope"], () => require("./directoryBucketAccessPointScope"));
+
 export { GetMultiRegionAccessPointArgs, GetMultiRegionAccessPointResult, GetMultiRegionAccessPointOutputArgs } from "./getMultiRegionAccessPoint";
 export const getMultiRegionAccessPoint: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPoint = null as any;
 export const getMultiRegionAccessPointOutput: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPointOutput = null as any;
@@ -96,6 +101,8 @@ const _module = {
                 return new BucketLifecycleConfiguration(name, <any>undefined, { urn })
             case "aws:s3control/bucketPolicy:BucketPolicy":
                 return new BucketPolicy(name, <any>undefined, { urn })
+            case "aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope":
+                return new DirectoryBucketAccessPointScope(name, <any>undefined, { urn })
             case "aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint":
                 return new MultiRegionAccessPoint(name, <any>undefined, { urn })
             case "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy":
@@ -119,6 +126,7 @@ pulumi.runtime.registerResourceModule("aws", "s3control/accessPointPolicy", _mod
 pulumi.runtime.registerResourceModule("aws", "s3control/bucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucketLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucketPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/directoryBucketAccessPointScope", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/multiRegionAccessPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/multiRegionAccessPointPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/objectLambdaAccessPoint", _module)

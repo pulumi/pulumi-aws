@@ -46,7 +46,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class NetworkmanagerFunctions {
     /**
-     * Retrieve information about a connection.
+     * Provides details about an existing Network Manager connection.
      * 
      * ## Example Usage
      * 
@@ -89,7 +89,7 @@ public final class NetworkmanagerFunctions {
         return getConnection(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a connection.
+     * Provides details about an existing Network Manager connection.
      * 
      * ## Example Usage
      * 
@@ -132,7 +132,7 @@ public final class NetworkmanagerFunctions {
         return getConnectionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a connection.
+     * Provides details about an existing Network Manager connection.
      * 
      * ## Example Usage
      * 
@@ -175,7 +175,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a connection.
+     * Provides details about an existing Network Manager connection.
      * 
      * ## Example Usage
      * 
@@ -218,7 +218,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a connection.
+     * Provides details about an existing Network Manager connection.
      * 
      * ## Example Usage
      * 
@@ -261,7 +261,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about connections.
+     * Provides details about existing Network Manager connections.
      * 
      * ## Example Usage
      * 
@@ -304,7 +304,7 @@ public final class NetworkmanagerFunctions {
         return getConnections(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about connections.
+     * Provides details about existing Network Manager connections.
      * 
      * ## Example Usage
      * 
@@ -347,7 +347,7 @@ public final class NetworkmanagerFunctions {
         return getConnectionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about connections.
+     * Provides details about existing Network Manager connections.
      * 
      * ## Example Usage
      * 
@@ -390,7 +390,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about connections.
+     * Provides details about existing Network Manager connections.
      * 
      * ## Example Usage
      * 
@@ -433,7 +433,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about connections.
+     * Provides details about existing Network Manager connections.
      * 
      * ## Example Usage
      * 
@@ -1006,11 +1006,42 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", TypeShape.of(GetCoreNetworkPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a device.
+     * Provides details about an existing Network Manager device.
      * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *             .globalNetworkId(globalNetworkId)
+     *             .deviceId(deviceId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1018,11 +1049,42 @@ public final class NetworkmanagerFunctions {
         return getDevice(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a device.
+     * Provides details about an existing Network Manager device.
      * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *             .globalNetworkId(globalNetworkId)
+     *             .deviceId(deviceId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1030,11 +1092,42 @@ public final class NetworkmanagerFunctions {
         return getDevicePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a device.
+     * Provides details about an existing Network Manager device.
      * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *             .globalNetworkId(globalNetworkId)
+     *             .deviceId(deviceId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1042,11 +1135,42 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a device.
+     * Provides details about an existing Network Manager device.
      * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *             .globalNetworkId(globalNetworkId)
+     *             .deviceId(deviceId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1054,11 +1178,42 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a device.
+     * Provides details about an existing Network Manager device.
      * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *             .globalNetworkId(globalNetworkId)
+     *             .deviceId(deviceId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1066,7 +1221,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about devices.
+     * Provides details about existing Network Manager devices.
      * 
      * ## Example Usage
      * 
@@ -1109,7 +1264,7 @@ public final class NetworkmanagerFunctions {
         return getDevices(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about devices.
+     * Provides details about existing Network Manager devices.
      * 
      * ## Example Usage
      * 
@@ -1152,7 +1307,7 @@ public final class NetworkmanagerFunctions {
         return getDevicesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about devices.
+     * Provides details about existing Network Manager devices.
      * 
      * ## Example Usage
      * 
@@ -1195,7 +1350,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getDevices:getDevices", TypeShape.of(GetDevicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about devices.
+     * Provides details about existing Network Manager devices.
      * 
      * ## Example Usage
      * 
@@ -1238,7 +1393,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getDevices:getDevices", TypeShape.of(GetDevicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about devices.
+     * Provides details about existing Network Manager devices.
      * 
      * ## Example Usage
      * 
@@ -1281,7 +1436,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getDevices:getDevices", TypeShape.of(GetDevicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a global network.
+     * Provides details about an existing Network Manager global network.
      * 
      * ## Example Usage
      * 
@@ -1323,7 +1478,7 @@ public final class NetworkmanagerFunctions {
         return getGlobalNetwork(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a global network.
+     * Provides details about an existing Network Manager global network.
      * 
      * ## Example Usage
      * 
@@ -1365,7 +1520,7 @@ public final class NetworkmanagerFunctions {
         return getGlobalNetworkPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a global network.
+     * Provides details about an existing Network Manager global network.
      * 
      * ## Example Usage
      * 
@@ -1407,7 +1562,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", TypeShape.of(GetGlobalNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a global network.
+     * Provides details about an existing Network Manager global network.
      * 
      * ## Example Usage
      * 
@@ -1449,7 +1604,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", TypeShape.of(GetGlobalNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a global network.
+     * Provides details about an existing Network Manager global network.
      * 
      * ## Example Usage
      * 
@@ -1491,7 +1646,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", TypeShape.of(GetGlobalNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about global networks.
+     * Provides details about existing Network Manager global networks.
      * 
      * ## Example Usage
      * 
@@ -1533,7 +1688,7 @@ public final class NetworkmanagerFunctions {
         return getGlobalNetworks(GetGlobalNetworksArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about global networks.
+     * Provides details about existing Network Manager global networks.
      * 
      * ## Example Usage
      * 
@@ -1575,7 +1730,7 @@ public final class NetworkmanagerFunctions {
         return getGlobalNetworksPlain(GetGlobalNetworksPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about global networks.
+     * Provides details about existing Network Manager global networks.
      * 
      * ## Example Usage
      * 
@@ -1617,7 +1772,7 @@ public final class NetworkmanagerFunctions {
         return getGlobalNetworks(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about global networks.
+     * Provides details about existing Network Manager global networks.
      * 
      * ## Example Usage
      * 
@@ -1659,7 +1814,7 @@ public final class NetworkmanagerFunctions {
         return getGlobalNetworksPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about global networks.
+     * Provides details about existing Network Manager global networks.
      * 
      * ## Example Usage
      * 
@@ -1701,7 +1856,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", TypeShape.of(GetGlobalNetworksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about global networks.
+     * Provides details about existing Network Manager global networks.
      * 
      * ## Example Usage
      * 
@@ -1743,7 +1898,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", TypeShape.of(GetGlobalNetworksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about global networks.
+     * Provides details about existing Network Manager global networks.
      * 
      * ## Example Usage
      * 
@@ -1785,7 +1940,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", TypeShape.of(GetGlobalNetworksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a link.
+     * Provides details about an existing Network Manager link.
      * 
      * ## Example Usage
      * 
@@ -1828,7 +1983,7 @@ public final class NetworkmanagerFunctions {
         return getLink(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a link.
+     * Provides details about an existing Network Manager link.
      * 
      * ## Example Usage
      * 
@@ -1871,7 +2026,7 @@ public final class NetworkmanagerFunctions {
         return getLinkPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a link.
+     * Provides details about an existing Network Manager link.
      * 
      * ## Example Usage
      * 
@@ -1914,7 +2069,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getLink:getLink", TypeShape.of(GetLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a link.
+     * Provides details about an existing Network Manager link.
      * 
      * ## Example Usage
      * 
@@ -1957,7 +2112,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getLink:getLink", TypeShape.of(GetLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a link.
+     * Provides details about an existing Network Manager link.
      * 
      * ## Example Usage
      * 
@@ -2000,7 +2155,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getLink:getLink", TypeShape.of(GetLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about link.
+     * Provides details about existing Network Manager links.
      * 
      * ## Example Usage
      * 
@@ -2043,7 +2198,7 @@ public final class NetworkmanagerFunctions {
         return getLinks(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about link.
+     * Provides details about existing Network Manager links.
      * 
      * ## Example Usage
      * 
@@ -2086,7 +2241,7 @@ public final class NetworkmanagerFunctions {
         return getLinksPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about link.
+     * Provides details about existing Network Manager links.
      * 
      * ## Example Usage
      * 
@@ -2129,7 +2284,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about link.
+     * Provides details about existing Network Manager links.
      * 
      * ## Example Usage
      * 
@@ -2172,7 +2327,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about link.
+     * Provides details about existing Network Manager links.
      * 
      * ## Example Usage
      * 
@@ -2215,7 +2370,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a site.
+     * Provides details about an existing Network Manager site.
      * 
      * ## Example Usage
      * 
@@ -2258,7 +2413,7 @@ public final class NetworkmanagerFunctions {
         return getSite(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a site.
+     * Provides details about an existing Network Manager site.
      * 
      * ## Example Usage
      * 
@@ -2301,7 +2456,7 @@ public final class NetworkmanagerFunctions {
         return getSitePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about a site.
+     * Provides details about an existing Network Manager site.
      * 
      * ## Example Usage
      * 
@@ -2344,7 +2499,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getSite:getSite", TypeShape.of(GetSiteResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a site.
+     * Provides details about an existing Network Manager site.
      * 
      * ## Example Usage
      * 
@@ -2387,7 +2542,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getSite:getSite", TypeShape.of(GetSiteResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about a site.
+     * Provides details about an existing Network Manager site.
      * 
      * ## Example Usage
      * 
@@ -2430,7 +2585,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getSite:getSite", TypeShape.of(GetSiteResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about sites.
+     * Provides details about existing Network Manager sites.
      * 
      * ## Example Usage
      * 
@@ -2473,7 +2628,7 @@ public final class NetworkmanagerFunctions {
         return getSites(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about sites.
+     * Provides details about existing Network Manager sites.
      * 
      * ## Example Usage
      * 
@@ -2516,7 +2671,7 @@ public final class NetworkmanagerFunctions {
         return getSitesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about sites.
+     * Provides details about existing Network Manager sites.
      * 
      * ## Example Usage
      * 
@@ -2559,7 +2714,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about sites.
+     * Provides details about existing Network Manager sites.
      * 
      * ## Example Usage
      * 
@@ -2602,7 +2757,7 @@ public final class NetworkmanagerFunctions {
         return Deployment.getInstance().invoke("aws:networkmanager/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about sites.
+     * Provides details about existing Network Manager sites.
      * 
      * ## Example Usage
      * 

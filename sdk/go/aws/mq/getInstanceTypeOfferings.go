@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a MQ Broker Instance Offerings.
+// Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
 //
 // ## Example Usage
 //
@@ -27,32 +27,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get all instance type offerings
 //			_, err := mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by engine type
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
 //				EngineType: pulumi.StringRef("ACTIVEMQ"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by storage type
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
 //				StorageType: pulumi.StringRef("EBS"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by instance type
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
 //				HostInstanceType: pulumi.StringRef("mq.m5.large"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by multiple criteria
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
-//				HostInstanceType: pulumi.StringRef("mq.m5.large"),
-//				StorageType:      pulumi.StringRef("EBS"),
 //				EngineType:       pulumi.StringRef("ACTIVEMQ"),
+//				StorageType:      pulumi.StringRef("EBS"),
+//				HostInstanceType: pulumi.StringRef("mq.m5.large"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -86,7 +91,7 @@ type GetInstanceTypeOfferingsArgs struct {
 
 // A collection of values returned by getInstanceTypeOfferings.
 type GetInstanceTypeOfferingsResult struct {
-	// Option for host instance type. See Broker Instance Options below.
+	// List of broker instance options. See Broker Instance Options below.
 	BrokerInstanceOptions []GetInstanceTypeOfferingsBrokerInstanceOption `pulumi:"brokerInstanceOptions"`
 	// Broker's engine type.
 	EngineType *string `pulumi:"engineType"`
@@ -139,7 +144,7 @@ func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOu
 	return o
 }
 
-// Option for host instance type. See Broker Instance Options below.
+// List of broker instance options. See Broker Instance Options below.
 func (o GetInstanceTypeOfferingsResultOutput) BrokerInstanceOptions() GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []GetInstanceTypeOfferingsBrokerInstanceOption {
 		return v.BrokerInstanceOptions

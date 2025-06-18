@@ -12,9 +12,11 @@ namespace Pulumi.Aws.Lambda
     public static class GetAlias
     {
         /// <summary>
-        /// Provides information about a Lambda Alias.
+        /// Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -24,10 +26,152 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     var example = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-lambda-function",
+        ///         Name = "production",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["aliasArn"] = example.Apply(getAliasResult =&gt; getAliasResult.Arn),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### API Gateway Integration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var apiHandler = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "api-handler",
+        ///         Name = "live",
+        ///     });
+        /// 
+        ///     var example = new Aws.ApiGateway.Integration("example", new()
+        ///     {
+        ///         RestApi = exampleAwsApiGatewayRestApi.Id,
+        ///         ResourceId = exampleAwsApiGatewayResource.Id,
+        ///         HttpMethod = exampleAwsApiGatewayMethod.HttpMethod,
+        ///         IntegrationHttpMethod = "POST",
+        ///         Type = "AWS_PROXY",
+        ///         Uri = apiHandler.Apply(getAliasResult =&gt; getAliasResult.InvokeArn),
+        ///     });
+        /// 
+        ///     // Grant API Gateway permission to invoke the alias
+        ///     var apiGateway = new Aws.Lambda.Permission("api_gateway", new()
+        ///     {
+        ///         StatementId = "AllowExecutionFromAPIGateway",
+        ///         Action = "lambda:InvokeFunction",
+        ///         Function = apiHandler.Apply(getAliasResult =&gt; getAliasResult.FunctionName),
+        ///         Principal = "apigateway.amazonaws.com",
+        ///         Qualifier = apiHandler.Apply(getAliasResult =&gt; getAliasResult.Name),
+        ///         SourceArn = $"{exampleAwsApiGatewayRestApi.ExecutionArn}/*/*",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Deployment Version Tracking
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get production alias details
         ///     var production = Aws.Lambda.GetAlias.Invoke(new()
         ///     {
-        ///         FunctionName = "my-lambda-func",
+        ///         FunctionName = "payment-processor",
         ///         Name = "production",
+        ///     });
+        /// 
+        ///     // Get staging alias details
+        ///     var staging = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "payment-processor",
+        ///         Name = "staging",
+        ///     });
+        /// 
+        ///     var versionDrift = Output.Tuple(production, staging).Apply(values =&gt;
+        ///     {
+        ///         var production = values.Item1;
+        ///         var staging = values.Item2;
+        ///         return production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) != staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion);
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["deploymentStatus"] = 
+        ///         {
+        ///             { "productionVersion", production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
+        ///             { "stagingVersion", staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
+        ///             { "versionDrift", versionDrift },
+        ///             { "readyForPromotion", !versionDrift },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### EventBridge Rule Target
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventProcessor = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "event-processor",
+        ///         Name = "stable",
+        ///     });
+        /// 
+        ///     var example = new Aws.CloudWatch.EventRule("example", new()
+        ///     {
+        ///         Name = "capture-events",
+        ///         Description = "Capture events for processing",
+        ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["source"] = new[]
+        ///             {
+        ///                 "myapp.orders",
+        ///             },
+        ///             ["detail-type"] = new[]
+        ///             {
+        ///                 "Order Placed",
+        ///             },
+        ///         }),
+        ///     });
+        /// 
+        ///     var lambda = new Aws.CloudWatch.EventTarget("lambda", new()
+        ///     {
+        ///         Rule = example.Name,
+        ///         TargetId = "SendToLambda",
+        ///         Arn = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.Arn),
+        ///     });
+        /// 
+        ///     var allowEventbridge = new Aws.Lambda.Permission("allow_eventbridge", new()
+        ///     {
+        ///         StatementId = "AllowExecutionFromEventBridge",
+        ///         Action = "lambda:InvokeFunction",
+        ///         Function = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.FunctionName),
+        ///         Principal = "events.amazonaws.com",
+        ///         Qualifier = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.Name),
+        ///         SourceArn = example.Arn,
         ///     });
         /// 
         /// });
@@ -37,9 +181,11 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Alias.
+        /// Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -49,10 +195,152 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     var example = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-lambda-function",
+        ///         Name = "production",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["aliasArn"] = example.Apply(getAliasResult =&gt; getAliasResult.Arn),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### API Gateway Integration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var apiHandler = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "api-handler",
+        ///         Name = "live",
+        ///     });
+        /// 
+        ///     var example = new Aws.ApiGateway.Integration("example", new()
+        ///     {
+        ///         RestApi = exampleAwsApiGatewayRestApi.Id,
+        ///         ResourceId = exampleAwsApiGatewayResource.Id,
+        ///         HttpMethod = exampleAwsApiGatewayMethod.HttpMethod,
+        ///         IntegrationHttpMethod = "POST",
+        ///         Type = "AWS_PROXY",
+        ///         Uri = apiHandler.Apply(getAliasResult =&gt; getAliasResult.InvokeArn),
+        ///     });
+        /// 
+        ///     // Grant API Gateway permission to invoke the alias
+        ///     var apiGateway = new Aws.Lambda.Permission("api_gateway", new()
+        ///     {
+        ///         StatementId = "AllowExecutionFromAPIGateway",
+        ///         Action = "lambda:InvokeFunction",
+        ///         Function = apiHandler.Apply(getAliasResult =&gt; getAliasResult.FunctionName),
+        ///         Principal = "apigateway.amazonaws.com",
+        ///         Qualifier = apiHandler.Apply(getAliasResult =&gt; getAliasResult.Name),
+        ///         SourceArn = $"{exampleAwsApiGatewayRestApi.ExecutionArn}/*/*",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Deployment Version Tracking
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get production alias details
         ///     var production = Aws.Lambda.GetAlias.Invoke(new()
         ///     {
-        ///         FunctionName = "my-lambda-func",
+        ///         FunctionName = "payment-processor",
         ///         Name = "production",
+        ///     });
+        /// 
+        ///     // Get staging alias details
+        ///     var staging = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "payment-processor",
+        ///         Name = "staging",
+        ///     });
+        /// 
+        ///     var versionDrift = Output.Tuple(production, staging).Apply(values =&gt;
+        ///     {
+        ///         var production = values.Item1;
+        ///         var staging = values.Item2;
+        ///         return production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) != staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion);
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["deploymentStatus"] = 
+        ///         {
+        ///             { "productionVersion", production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
+        ///             { "stagingVersion", staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
+        ///             { "versionDrift", versionDrift },
+        ///             { "readyForPromotion", !versionDrift },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### EventBridge Rule Target
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventProcessor = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "event-processor",
+        ///         Name = "stable",
+        ///     });
+        /// 
+        ///     var example = new Aws.CloudWatch.EventRule("example", new()
+        ///     {
+        ///         Name = "capture-events",
+        ///         Description = "Capture events for processing",
+        ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["source"] = new[]
+        ///             {
+        ///                 "myapp.orders",
+        ///             },
+        ///             ["detail-type"] = new[]
+        ///             {
+        ///                 "Order Placed",
+        ///             },
+        ///         }),
+        ///     });
+        /// 
+        ///     var lambda = new Aws.CloudWatch.EventTarget("lambda", new()
+        ///     {
+        ///         Rule = example.Name,
+        ///         TargetId = "SendToLambda",
+        ///         Arn = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.Arn),
+        ///     });
+        /// 
+        ///     var allowEventbridge = new Aws.Lambda.Permission("allow_eventbridge", new()
+        ///     {
+        ///         StatementId = "AllowExecutionFromEventBridge",
+        ///         Action = "lambda:InvokeFunction",
+        ///         Function = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.FunctionName),
+        ///         Principal = "events.amazonaws.com",
+        ///         Qualifier = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.Name),
+        ///         SourceArn = example.Arn,
         ///     });
         /// 
         /// });
@@ -62,9 +350,11 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Alias.
+        /// Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -74,10 +364,152 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     var example = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-lambda-function",
+        ///         Name = "production",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["aliasArn"] = example.Apply(getAliasResult =&gt; getAliasResult.Arn),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### API Gateway Integration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var apiHandler = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "api-handler",
+        ///         Name = "live",
+        ///     });
+        /// 
+        ///     var example = new Aws.ApiGateway.Integration("example", new()
+        ///     {
+        ///         RestApi = exampleAwsApiGatewayRestApi.Id,
+        ///         ResourceId = exampleAwsApiGatewayResource.Id,
+        ///         HttpMethod = exampleAwsApiGatewayMethod.HttpMethod,
+        ///         IntegrationHttpMethod = "POST",
+        ///         Type = "AWS_PROXY",
+        ///         Uri = apiHandler.Apply(getAliasResult =&gt; getAliasResult.InvokeArn),
+        ///     });
+        /// 
+        ///     // Grant API Gateway permission to invoke the alias
+        ///     var apiGateway = new Aws.Lambda.Permission("api_gateway", new()
+        ///     {
+        ///         StatementId = "AllowExecutionFromAPIGateway",
+        ///         Action = "lambda:InvokeFunction",
+        ///         Function = apiHandler.Apply(getAliasResult =&gt; getAliasResult.FunctionName),
+        ///         Principal = "apigateway.amazonaws.com",
+        ///         Qualifier = apiHandler.Apply(getAliasResult =&gt; getAliasResult.Name),
+        ///         SourceArn = $"{exampleAwsApiGatewayRestApi.ExecutionArn}/*/*",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Deployment Version Tracking
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get production alias details
         ///     var production = Aws.Lambda.GetAlias.Invoke(new()
         ///     {
-        ///         FunctionName = "my-lambda-func",
+        ///         FunctionName = "payment-processor",
         ///         Name = "production",
+        ///     });
+        /// 
+        ///     // Get staging alias details
+        ///     var staging = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "payment-processor",
+        ///         Name = "staging",
+        ///     });
+        /// 
+        ///     var versionDrift = Output.Tuple(production, staging).Apply(values =&gt;
+        ///     {
+        ///         var production = values.Item1;
+        ///         var staging = values.Item2;
+        ///         return production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) != staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion);
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["deploymentStatus"] = 
+        ///         {
+        ///             { "productionVersion", production.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
+        ///             { "stagingVersion", staging.Apply(getAliasResult =&gt; getAliasResult.FunctionVersion) },
+        ///             { "versionDrift", versionDrift },
+        ///             { "readyForPromotion", !versionDrift },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### EventBridge Rule Target
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Text.Json;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventProcessor = Aws.Lambda.GetAlias.Invoke(new()
+        ///     {
+        ///         FunctionName = "event-processor",
+        ///         Name = "stable",
+        ///     });
+        /// 
+        ///     var example = new Aws.CloudWatch.EventRule("example", new()
+        ///     {
+        ///         Name = "capture-events",
+        ///         Description = "Capture events for processing",
+        ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+        ///         {
+        ///             ["source"] = new[]
+        ///             {
+        ///                 "myapp.orders",
+        ///             },
+        ///             ["detail-type"] = new[]
+        ///             {
+        ///                 "Order Placed",
+        ///             },
+        ///         }),
+        ///     });
+        /// 
+        ///     var lambda = new Aws.CloudWatch.EventTarget("lambda", new()
+        ///     {
+        ///         Rule = example.Name,
+        ///         TargetId = "SendToLambda",
+        ///         Arn = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.Arn),
+        ///     });
+        /// 
+        ///     var allowEventbridge = new Aws.Lambda.Permission("allow_eventbridge", new()
+        ///     {
+        ///         StatementId = "AllowExecutionFromEventBridge",
+        ///         Action = "lambda:InvokeFunction",
+        ///         Function = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.FunctionName),
+        ///         Principal = "events.amazonaws.com",
+        ///         Qualifier = eventProcessor.Apply(getAliasResult =&gt; getAliasResult.Name),
+        ///         SourceArn = example.Arn,
         ///     });
         /// 
         /// });
@@ -98,6 +530,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name of the Lambda alias.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -124,6 +558,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name of the Lambda alias.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -149,7 +585,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Description of alias.
+        /// Description of the alias.
         /// </summary>
         public readonly string Description;
         public readonly string FunctionName;
@@ -162,7 +598,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
         /// </summary>
         public readonly string InvokeArn;
         public readonly string Name;

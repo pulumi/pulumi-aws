@@ -1705,7 +1705,7 @@ if not MYPY:
         """
         rules_string: NotRequired[pulumi.Input[builtins.str]]
         """
-        The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+        Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
         """
         stateful_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleArgsDict']]]]
         """
@@ -1727,7 +1727,7 @@ class RuleGroupRuleGroupRulesSourceArgs:
                  stateless_rules_and_custom_actions: Optional[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceRulesSourceListArgs'] rules_source_list: A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
-        :param pulumi.Input[builtins.str] rules_string: The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+        :param pulumi.Input[builtins.str] rules_string: Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleArgs']]] stateful_rules: Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs'] stateless_rules_and_custom_actions: A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
         """
@@ -1756,7 +1756,7 @@ class RuleGroupRuleGroupRulesSourceArgs:
     @pulumi.getter(name="rulesString")
     def rules_string(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+        Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
         """
         return pulumi.get(self, "rules_string")
 

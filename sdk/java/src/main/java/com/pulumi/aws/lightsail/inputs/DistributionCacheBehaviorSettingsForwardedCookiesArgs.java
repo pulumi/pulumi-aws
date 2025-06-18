@@ -17,14 +17,14 @@ public final class DistributionCacheBehaviorSettingsForwardedCookiesArgs extends
     public static final DistributionCacheBehaviorSettingsForwardedCookiesArgs Empty = new DistributionCacheBehaviorSettingsForwardedCookiesArgs();
 
     /**
-     * The specific cookies to forward to your distribution&#39;s origin.
+     * Specific cookies to forward to your distribution&#39;s origin.
      * 
      */
     @Import(name="cookiesAllowLists")
     private @Nullable Output<List<String>> cookiesAllowLists;
 
     /**
-     * @return The specific cookies to forward to your distribution&#39;s origin.
+     * @return Specific cookies to forward to your distribution&#39;s origin.
      * 
      */
     public Optional<Output<List<String>>> cookiesAllowLists() {
@@ -32,14 +32,14 @@ public final class DistributionCacheBehaviorSettingsForwardedCookiesArgs extends
     }
 
     /**
-     * Specifies which cookies to forward to the distribution&#39;s origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+     * Which cookies to forward to the distribution&#39;s origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
      * 
      */
     @Import(name="option")
     private @Nullable Output<String> option;
 
     /**
-     * @return Specifies which cookies to forward to the distribution&#39;s origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+     * @return Which cookies to forward to the distribution&#39;s origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
      * 
      */
     public Optional<Output<String>> option() {
@@ -72,7 +72,7 @@ public final class DistributionCacheBehaviorSettingsForwardedCookiesArgs extends
         }
 
         /**
-         * @param cookiesAllowLists The specific cookies to forward to your distribution&#39;s origin.
+         * @param cookiesAllowLists Specific cookies to forward to your distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DistributionCacheBehaviorSettingsForwardedCookiesArgs extends
         }
 
         /**
-         * @param cookiesAllowLists The specific cookies to forward to your distribution&#39;s origin.
+         * @param cookiesAllowLists Specific cookies to forward to your distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DistributionCacheBehaviorSettingsForwardedCookiesArgs extends
         }
 
         /**
-         * @param cookiesAllowLists The specific cookies to forward to your distribution&#39;s origin.
+         * @param cookiesAllowLists Specific cookies to forward to your distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DistributionCacheBehaviorSettingsForwardedCookiesArgs extends
         }
 
         /**
-         * @param option Specifies which cookies to forward to the distribution&#39;s origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+         * @param option Which cookies to forward to the distribution&#39;s origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DistributionCacheBehaviorSettingsForwardedCookiesArgs extends
         }
 
         /**
-         * @param option Specifies which cookies to forward to the distribution&#39;s origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+         * @param option Which cookies to forward to the distribution&#39;s origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
          * 
          * @return builder
          * 

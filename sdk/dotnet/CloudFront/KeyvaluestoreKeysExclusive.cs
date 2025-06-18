@@ -30,6 +30,12 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> KeyValueStoreArn { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+        /// </summary>
+        [Output("maxBatchSize")]
+        public Output<int> MaxBatchSize { get; private set; } = null!;
+
+        /// <summary>
         /// A list of all resource key value pairs associated with the KeyValueStore.
         /// See `resource_key_value_pair` below.
         /// </summary>
@@ -96,6 +102,12 @@ namespace Pulumi.Aws.CloudFront
         [Input("keyValueStoreArn", required: true)]
         public Input<string> KeyValueStoreArn { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
+
         [Input("resourceKeyValuePairs")]
         private InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs>? _resourceKeyValuePairs;
 
@@ -124,6 +136,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("keyValueStoreArn")]
         public Input<string>? KeyValueStoreArn { get; set; }
+
+        /// <summary>
+        /// Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        public Input<int>? MaxBatchSize { get; set; }
 
         [Input("resourceKeyValuePairs")]
         private InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairGetArgs>? _resourceKeyValuePairs;

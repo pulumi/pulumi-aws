@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Creates a domain entry resource
+    /// Manages a Lightsail domain entry (DNS record). Use this resource to define how DNS queries for your domain are handled.
     /// 
     /// &gt; **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
     /// 
@@ -24,14 +24,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Domain("test", new()
+    ///     var example = new Aws.LightSail.Domain("example", new()
     ///     {
-    ///         DomainName = "mydomain.com",
+    ///         DomainName = "example.com",
     ///     });
     /// 
-    ///     var testDomainEntry = new Aws.LightSail.DomainEntry("test", new()
+    ///     var exampleDomainEntry = new Aws.LightSail.DomainEntry("example", new()
     ///     {
-    ///         DomainName = domainTest.DomainName,
+    ///         DomainName = example.DomainName,
     ///         Name = "www",
     ///         Type = "A",
     ///         Target = "127.0.0.1",
@@ -42,29 +42,29 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
+    /// Using `pulumi import`, import Lightsail Domain Entry using the id attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+    /// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,example.com,A,127.0.0.1
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/domainEntry:DomainEntry")]
     public partial class DomainEntry : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Lightsail domain in which to create the entry
+        /// Name of the Lightsail domain in which to create the entry.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// If the entry should be an alias Defaults to `false`
+        /// Whether the entry should be an alias. Default: `false`.
         /// </summary>
         [Output("isAlias")]
         public Output<bool?> IsAlias { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the entry record
+        /// Name of the entry record.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -76,13 +76,15 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Target of the domain entry
+        /// Target of the domain entry.
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
 
         /// <summary>
-        /// Type of record
+        /// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -134,19 +136,19 @@ namespace Pulumi.Aws.LightSail
     public sealed class DomainEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Lightsail domain in which to create the entry
+        /// Name of the Lightsail domain in which to create the entry.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// If the entry should be an alias Defaults to `false`
+        /// Whether the entry should be an alias. Default: `false`.
         /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }
 
         /// <summary>
-        /// Name of the entry record
+        /// Name of the entry record.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -158,13 +160,15 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Target of the domain entry
+        /// Target of the domain entry.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
         /// <summary>
-        /// Type of record
+        /// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -178,19 +182,19 @@ namespace Pulumi.Aws.LightSail
     public sealed class DomainEntryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Lightsail domain in which to create the entry
+        /// Name of the Lightsail domain in which to create the entry.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// If the entry should be an alias Defaults to `false`
+        /// Whether the entry should be an alias. Default: `false`.
         /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }
 
         /// <summary>
-        /// Name of the entry record
+        /// Name of the entry record.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -202,13 +206,15 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Target of the domain entry
+        /// Target of the domain entry.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Type of record
+        /// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

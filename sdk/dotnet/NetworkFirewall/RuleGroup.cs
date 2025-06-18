@@ -472,6 +472,77 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
+    /// ### Example with S3 as source for the suricata rules
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var suricataRules = Aws.S3.GetObject.Invoke(new()
+    ///     {
+    ///         Bucket = suricataRulesAwsS3Bucket.Id,
+    ///         Key = "rules/custom.rules",
+    ///     });
+    /// 
+    ///     var s3RulesExample = new Aws.NetworkFirewall.RuleGroup("s3_rules_example", new()
+    ///     {
+    ///         Capacity = 1000,
+    ///         Name = "my-terraform-s3-rules",
+    ///         Type = "STATEFUL",
+    ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///         {
+    ///             RuleVariables = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesArgs
+    ///             {
+    ///                 IpSets = new[]
+    ///                 {
+    ///                     new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs
+    ///                     {
+    ///                         Key = "HOME_NET",
+    ///                         IpSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs
+    ///                         {
+    ///                             Definitions = new[]
+    ///                             {
+    ///                                 "10.0.0.0/16",
+    ///                                 "192.168.0.0/16",
+    ///                                 "172.16.0.0/12",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 PortSets = new[]
+    ///                 {
+    ///                     new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetArgs
+    ///                     {
+    ///                         Key = "HTTP_PORTS",
+    ///                         PortSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs
+    ///                         {
+    ///                             Definitions = new[]
+    ///                             {
+    ///                                 "443",
+    ///                                 "80",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///             {
+    ///                 RulesString = suricataRules.Apply(getObjectResult =&gt; getObjectResult.Body),
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ManagedBy", "terraform" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:

@@ -17,14 +17,18 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFunctionUrlArgs Empty = new GetFunctionUrlArgs();
 
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return The name (or ARN) of the Lambda function.
+     * @return Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> functionName() {
@@ -32,14 +36,14 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Alias name or `&#34;$LATEST&#34;`.
+     * Alias name or `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return Alias name or `&#34;$LATEST&#34;`.
+     * @return Alias name or `$LATEST`.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -88,7 +92,9 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -99,7 +105,9 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -109,7 +117,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 
@@ -120,7 +128,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 

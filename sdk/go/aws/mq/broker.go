@@ -12,14 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon MQ broker resource. This resources also manages users for the broker.
-//
-// > For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
-//
-// > **NOTE:** Amazon MQ currently places limits on **RabbitMQ** brokers. For example, a RabbitMQ broker cannot have: instances with an associated IP address of an ENI attached to the broker, an associated LDAP server to authenticate and authorize broker connections, storage type `EFS`, or audit logging. Although this resource allows you to create RabbitMQ users, RabbitMQ users cannot have console access or groups. Also, Amazon MQ does not return information about RabbitMQ users so drift detection is not possible.
-//
-// > **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below). Using `applyImmediately` can result in a brief downtime as the broker reboots.
-//
 // ## Example Usage
 //
 // ### Basic Example
@@ -50,8 +42,8 @@ import (
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
+//						Username: pulumi.String("example_user"),
+//						Password: pulumi.String("<password>"),
 //					},
 //				},
 //			})
@@ -65,8 +57,6 @@ import (
 // ```
 //
 // ### High-throughput Optimized Example
-//
-// This example shows the use of EBS storage for high-throughput optimized performance.
 //
 // ```go
 // package main
@@ -95,8 +85,8 @@ import (
 //				},
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
+//						Username: pulumi.String("example_user"),
+//						Password: pulumi.String("<password>"),
 //					},
 //				},
 //			})
@@ -135,12 +125,12 @@ import (
 //				DeploymentMode: pulumi.String("ACTIVE_STANDBY_MULTI_AZ"),
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
+//						Username: pulumi.String("example_user"),
+//						Password: pulumi.String("<password>"),
 //					},
 //					&mq.BrokerUserArgs{
-//						Username:        pulumi.String("ExampleReplicationUser"),
-//						Password:        pulumi.String("Example12345"),
+//						Username:        pulumi.String("example_replication_user"),
+//						Password:        pulumi.String("<password>"),
 //						ReplicationUser: pulumi.Bool(true),
 //					},
 //				},
@@ -162,12 +152,12 @@ import (
 //				DataReplicationPrimaryBrokerArn: pulumi.Any(primary.Arn),
 //				Users: mq.BrokerUserArray{
 //					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
+//						Username: pulumi.String("example_user"),
+//						Password: pulumi.String("<password>"),
 //					},
 //					&mq.BrokerUserArgs{
-//						Username:        pulumi.String("ExampleReplicationUser"),
-//						Password:        pulumi.String("Example12345"),
+//						Username:        pulumi.String("example_replication_user"),
+//						Password:        pulumi.String("<password>"),
 //						ReplicationUser: pulumi.Bool(true),
 //					},
 //				},
@@ -193,7 +183,7 @@ import (
 type Broker struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	// Whether to apply broker modifications immediately. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// ARN of the broker.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -205,9 +195,9 @@ type Broker struct {
 	BrokerName pulumi.StringOutput `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration BrokerConfigurationOutput `pulumi:"configuration"`
-	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	// Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
 	DataReplicationMode pulumi.StringOutput `pulumi:"dataReplicationMode"`
-	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	// ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
 	DataReplicationPrimaryBrokerArn pulumi.StringPtrOutput `pulumi:"dataReplicationPrimaryBrokerArn"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode pulumi.StringPtrOutput `pulumi:"deploymentMode"`
@@ -215,19 +205,19 @@ type Broker struct {
 	EncryptionOptions BrokerEncryptionOptionsPtrOutput `pulumi:"encryptionOptions"`
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringOutput `pulumi:"engineType"`
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+	// Version of the broker engine.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType pulumi.StringOutput `pulumi:"hostInstanceType"`
 	// List of information about allocated brokers (both active & standby).
 	Instances BrokerInstanceArrayOutput `pulumi:"instances"`
-	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata BrokerLdapServerMetadataPtrOutput `pulumi:"ldapServerMetadata"`
-	// Configuration block for the logging configuration of the broker. Detailed below.
+	// Configuration block for the logging configuration. Detailed below.
 	Logs BrokerLogsPtrOutput `pulumi:"logs"`
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimeOutput `pulumi:"maintenanceWindowStartTime"`
-	// (Optional) The data replication mode that will be applied after reboot.
+	// Data replication mode that will be applied after reboot.
 	PendingDataReplicationMode pulumi.StringOutput `pulumi:"pendingDataReplicationMode"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
@@ -235,13 +225,13 @@ type Broker struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	//
@@ -291,7 +281,7 @@ func GetBroker(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Broker resources.
 type brokerState struct {
-	// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	// Whether to apply broker modifications immediately. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// ARN of the broker.
 	Arn *string `pulumi:"arn"`
@@ -303,9 +293,9 @@ type brokerState struct {
 	BrokerName *string `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration *BrokerConfiguration `pulumi:"configuration"`
-	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	// Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
 	DataReplicationMode *string `pulumi:"dataReplicationMode"`
-	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	// ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
 	DataReplicationPrimaryBrokerArn *string `pulumi:"dataReplicationPrimaryBrokerArn"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode *string `pulumi:"deploymentMode"`
@@ -313,19 +303,19 @@ type brokerState struct {
 	EncryptionOptions *BrokerEncryptionOptions `pulumi:"encryptionOptions"`
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType *string `pulumi:"engineType"`
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+	// Version of the broker engine.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
 	// List of information about allocated brokers (both active & standby).
 	Instances []BrokerInstance `pulumi:"instances"`
-	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata *BrokerLdapServerMetadata `pulumi:"ldapServerMetadata"`
-	// Configuration block for the logging configuration of the broker. Detailed below.
+	// Configuration block for the logging configuration. Detailed below.
 	Logs *BrokerLogs `pulumi:"logs"`
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime *BrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
-	// (Optional) The data replication mode that will be applied after reboot.
+	// Data replication mode that will be applied after reboot.
 	PendingDataReplicationMode *string `pulumi:"pendingDataReplicationMode"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
@@ -333,13 +323,13 @@ type brokerState struct {
 	Region *string `pulumi:"region"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType *string `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	//
@@ -348,7 +338,7 @@ type brokerState struct {
 }
 
 type BrokerState struct {
-	// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	// Whether to apply broker modifications immediately. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrInput
 	// ARN of the broker.
 	Arn pulumi.StringPtrInput
@@ -360,9 +350,9 @@ type BrokerState struct {
 	BrokerName pulumi.StringPtrInput
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration BrokerConfigurationPtrInput
-	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	// Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
 	DataReplicationMode pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	// ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
 	DataReplicationPrimaryBrokerArn pulumi.StringPtrInput
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode pulumi.StringPtrInput
@@ -370,19 +360,19 @@ type BrokerState struct {
 	EncryptionOptions BrokerEncryptionOptionsPtrInput
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringPtrInput
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+	// Version of the broker engine.
 	EngineVersion pulumi.StringPtrInput
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType pulumi.StringPtrInput
 	// List of information about allocated brokers (both active & standby).
 	Instances BrokerInstanceArrayInput
-	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata BrokerLdapServerMetadataPtrInput
-	// Configuration block for the logging configuration of the broker. Detailed below.
+	// Configuration block for the logging configuration. Detailed below.
 	Logs BrokerLogsPtrInput
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimePtrInput
-	// (Optional) The data replication mode that will be applied after reboot.
+	// Data replication mode that will be applied after reboot.
 	PendingDataReplicationMode pulumi.StringPtrInput
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible pulumi.BoolPtrInput
@@ -390,13 +380,13 @@ type BrokerState struct {
 	Region pulumi.StringPtrInput
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayInput
-	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType pulumi.StringPtrInput
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds pulumi.StringArrayInput
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 	//
@@ -409,7 +399,7 @@ func (BrokerState) ElementType() reflect.Type {
 }
 
 type brokerArgs struct {
-	// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	// Whether to apply broker modifications immediately. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
@@ -419,9 +409,9 @@ type brokerArgs struct {
 	BrokerName *string `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration *BrokerConfiguration `pulumi:"configuration"`
-	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	// Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
 	DataReplicationMode *string `pulumi:"dataReplicationMode"`
-	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	// ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
 	DataReplicationPrimaryBrokerArn *string `pulumi:"dataReplicationPrimaryBrokerArn"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode *string `pulumi:"deploymentMode"`
@@ -429,13 +419,13 @@ type brokerArgs struct {
 	EncryptionOptions *BrokerEncryptionOptions `pulumi:"encryptionOptions"`
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType string `pulumi:"engineType"`
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+	// Version of the broker engine.
 	EngineVersion string `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType string `pulumi:"hostInstanceType"`
-	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata *BrokerLdapServerMetadata `pulumi:"ldapServerMetadata"`
-	// Configuration block for the logging configuration of the broker. Detailed below.
+	// Configuration block for the logging configuration. Detailed below.
 	Logs *BrokerLogs `pulumi:"logs"`
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime *BrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
@@ -445,7 +435,7 @@ type brokerArgs struct {
 	Region *string `pulumi:"region"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType *string `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -459,7 +449,7 @@ type brokerArgs struct {
 
 // The set of arguments for constructing a Broker resource.
 type BrokerArgs struct {
-	// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	// Whether to apply broker modifications immediately. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrInput
 	// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy pulumi.StringPtrInput
@@ -469,9 +459,9 @@ type BrokerArgs struct {
 	BrokerName pulumi.StringPtrInput
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
 	Configuration BrokerConfigurationPtrInput
-	// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+	// Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
 	DataReplicationMode pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+	// ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
 	DataReplicationPrimaryBrokerArn pulumi.StringPtrInput
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
 	DeploymentMode pulumi.StringPtrInput
@@ -479,13 +469,13 @@ type BrokerArgs struct {
 	EncryptionOptions BrokerEncryptionOptionsPtrInput
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringInput
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+	// Version of the broker engine.
 	EngineVersion pulumi.StringInput
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType pulumi.StringInput
-	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata BrokerLdapServerMetadataPtrInput
-	// Configuration block for the logging configuration of the broker. Detailed below.
+	// Configuration block for the logging configuration. Detailed below.
 	Logs BrokerLogsPtrInput
 	// Configuration block for the maintenance window start time. Detailed below.
 	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimePtrInput
@@ -495,7 +485,7 @@ type BrokerArgs struct {
 	Region pulumi.StringPtrInput
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayInput
-	// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType pulumi.StringPtrInput
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
 	SubnetIds pulumi.StringArrayInput
@@ -594,7 +584,7 @@ func (o BrokerOutput) ToBrokerOutputWithContext(ctx context.Context) BrokerOutpu
 	return o
 }
 
-// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+// Whether to apply broker modifications immediately. Default is `false`.
 func (o BrokerOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Broker) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
@@ -624,12 +614,12 @@ func (o BrokerOutput) Configuration() BrokerConfigurationOutput {
 	return o.ApplyT(func(v *Broker) BrokerConfigurationOutput { return v.Configuration }).(BrokerConfigurationOutput)
 }
 
-// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+// Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
 func (o BrokerOutput) DataReplicationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.DataReplicationMode }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `dataReplicationMode` is `CRDR`.
+// ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
 func (o BrokerOutput) DataReplicationPrimaryBrokerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringPtrOutput { return v.DataReplicationPrimaryBrokerArn }).(pulumi.StringPtrOutput)
 }
@@ -649,7 +639,7 @@ func (o BrokerOutput) EngineType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.EngineType }).(pulumi.StringOutput)
 }
 
-// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+// Version of the broker engine.
 func (o BrokerOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -664,12 +654,12 @@ func (o BrokerOutput) Instances() BrokerInstanceArrayOutput {
 	return o.ApplyT(func(v *Broker) BrokerInstanceArrayOutput { return v.Instances }).(BrokerInstanceArrayOutput)
 }
 
-// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 func (o BrokerOutput) LdapServerMetadata() BrokerLdapServerMetadataPtrOutput {
 	return o.ApplyT(func(v *Broker) BrokerLdapServerMetadataPtrOutput { return v.LdapServerMetadata }).(BrokerLdapServerMetadataPtrOutput)
 }
 
-// Configuration block for the logging configuration of the broker. Detailed below.
+// Configuration block for the logging configuration. Detailed below.
 func (o BrokerOutput) Logs() BrokerLogsPtrOutput {
 	return o.ApplyT(func(v *Broker) BrokerLogsPtrOutput { return v.Logs }).(BrokerLogsPtrOutput)
 }
@@ -679,7 +669,7 @@ func (o BrokerOutput) MaintenanceWindowStartTime() BrokerMaintenanceWindowStartT
 	return o.ApplyT(func(v *Broker) BrokerMaintenanceWindowStartTimeOutput { return v.MaintenanceWindowStartTime }).(BrokerMaintenanceWindowStartTimeOutput)
 }
 
-// (Optional) The data replication mode that will be applied after reboot.
+// Data replication mode that will be applied after reboot.
 func (o BrokerOutput) PendingDataReplicationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.PendingDataReplicationMode }).(pulumi.StringOutput)
 }
@@ -699,7 +689,7 @@ func (o BrokerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// Storage type of the broker. For `engineType` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 func (o BrokerOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }
@@ -714,7 +704,7 @@ func (o BrokerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BrokerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

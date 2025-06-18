@@ -15,15 +15,15 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     {
         public readonly ImmutableArray<Outputs.ConnectPeerConfigurationBgpConfiguration> BgpConfigurations;
         /// <summary>
-        /// A Connect peer core network address.
+        /// Connect peer core network address.
         /// </summary>
         public readonly string? CoreNetworkAddress;
         /// <summary>
-        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+        /// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         public readonly ImmutableArray<string> InsideCidrBlocks;
         /// <summary>
-        /// The Connect peer address.
+        /// Connect peer address.
         /// 
         /// The following arguments are optional:
         /// </summary>

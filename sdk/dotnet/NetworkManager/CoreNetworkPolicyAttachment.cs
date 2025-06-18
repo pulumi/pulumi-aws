@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
+    /// Manages a Network Manager Core Network Policy Attachment.
+    /// 
+    /// Use this resource to attach a Core Network Policy to an existing Core Network and execute the change set, which deploys changes globally based on the policy submitted (sets the policy to `LIVE`).
     /// 
     /// &gt; **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
     /// 
@@ -507,7 +509,7 @@ namespace Pulumi.Aws.NetworkManager
     public partial class CoreNetworkPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the core network that a policy will be attached to and made `LIVE`.
+        /// ID of the core network that a policy will be attached to and made `LIVE`.
         /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
@@ -571,7 +573,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class CoreNetworkPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the core network that a policy will be attached to and made `LIVE`.
+        /// ID of the core network that a policy will be attached to and made `LIVE`.
         /// </summary>
         [Input("coreNetworkId", required: true)]
         public Input<string> CoreNetworkId { get; set; } = null!;
@@ -591,7 +593,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class CoreNetworkPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the core network that a policy will be attached to and made `LIVE`.
+        /// ID of the core network that a policy will be attached to and made `LIVE`.
         /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }

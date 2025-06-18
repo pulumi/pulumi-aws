@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class FunctionVpcConfig
     {
         /// <summary>
-        /// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+        /// Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
         /// </summary>
         public readonly bool? Ipv6AllowedForDualStack;
         /// <summary>

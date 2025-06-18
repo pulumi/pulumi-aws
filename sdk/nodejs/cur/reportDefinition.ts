@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *         "SPLIT_COST_ALLOCATION_DATA",
  *     ],
  *     s3Bucket: "example-bucket-name",
+ *     s3Prefix: "example-cur-report",
  *     s3Region: "us-east-1",
  *     additionalArtifacts: [
  *         "REDSHIFT",
@@ -74,7 +75,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly additionalArtifacts!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
     public readonly additionalSchemaElements!: pulumi.Output<string[]>;
     /**
@@ -108,7 +109,7 @@ export class ReportDefinition extends pulumi.CustomResource {
     /**
      * Report path prefix. Limited to 256 characters.
      */
-    public readonly s3Prefix!: pulumi.Output<string | undefined>;
+    public readonly s3Prefix!: pulumi.Output<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
@@ -170,6 +171,9 @@ export class ReportDefinition extends pulumi.CustomResource {
             if ((!args || args.s3Bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Bucket'");
             }
+            if ((!args || args.s3Prefix === undefined) && !opts.urn) {
+                throw new Error("Missing required property 's3Prefix'");
+            }
             if ((!args || args.s3Region === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Region'");
             }
@@ -205,7 +209,7 @@ export interface ReportDefinitionState {
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
     additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -267,7 +271,7 @@ export interface ReportDefinitionArgs {
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
     additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -297,7 +301,7 @@ export interface ReportDefinitionArgs {
     /**
      * Report path prefix. Limited to 256 characters.
      */
-    s3Prefix?: pulumi.Input<string>;
+    s3Prefix: pulumi.Input<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */

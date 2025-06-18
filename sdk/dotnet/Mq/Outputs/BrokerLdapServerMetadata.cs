@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class BrokerLdapServerMetadata
     {
         /// <summary>
-        /// List of a fully qualified domain name of the LDAP server and an optional failover server.
+        /// List of fully qualified domain names of the LDAP server and optional failover server.
         /// </summary>
         public readonly ImmutableArray<string> Hosts;
         /// <summary>
-        /// Fully qualified name of the directory to search for a user’s groups.
+        /// Fully qualified name of the directory to search for a user's groups.
         /// </summary>
         public readonly string? RoleBase;
         /// <summary>
-        /// Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+        /// LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
         /// </summary>
         public readonly string? RoleName;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Mq.Outputs
         /// </summary>
         public readonly string? UserBase;
         /// <summary>
-        /// Specifies the name of the LDAP attribute for the user group membership.
+        /// Name of the LDAP attribute for the user group membership.
         /// </summary>
         public readonly string? UserRoleName;
         /// <summary>

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class DeviceAwsLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+        /// ARN of the subnet that the device is located in.
         /// </summary>
         [Input("subnetArn")]
         public Input<string>? SubnetArn { get; set; }
 
         /// <summary>
-        /// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        /// Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

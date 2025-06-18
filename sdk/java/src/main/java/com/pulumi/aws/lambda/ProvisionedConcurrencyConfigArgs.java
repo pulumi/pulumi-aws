@@ -34,14 +34,14 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * Amount of capacity to allocate. Must be greater than or equal to 1.
      * 
      */
     @Import(name="provisionedConcurrentExecutions", required=true)
     private Output<Integer> provisionedConcurrentExecutions;
 
     /**
-     * @return Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * @return Amount of capacity to allocate. Must be greater than or equal to 1.
      * 
      */
     public Output<Integer> provisionedConcurrentExecutions() {
@@ -83,14 +83,14 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      * 
      */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
     /**
-     * @return Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * @return Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      * 
      */
     public Optional<Output<Boolean>> skipDestroy() {
@@ -147,7 +147,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to `1`.
+         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to 1.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to `1`.
+         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to 1.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param skipDestroy Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+         * @param skipDestroy Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param skipDestroy Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+         * @param skipDestroy Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
          * 
          * @return builder
          * 

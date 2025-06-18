@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionEventInvokeConfigDestinationConfig {
     /**
-     * @return Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+     * @return Configuration block with destination configuration for failed asynchronous invocations. See below.
      * 
      */
     private @Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure;
     /**
-     * @return Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+     * @return Configuration block with destination configuration for successful asynchronous invocations. See below.
      * 
      */
     private @Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess;
 
     private FunctionEventInvokeConfigDestinationConfig() {}
     /**
-     * @return Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+     * @return Configuration block with destination configuration for failed asynchronous invocations. See below.
      * 
      */
     public Optional<FunctionEventInvokeConfigDestinationConfigOnFailure> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
     /**
-     * @return Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+     * @return Configuration block with destination configuration for successful asynchronous invocations. See below.
      * 
      */
     public Optional<FunctionEventInvokeConfigDestinationConfigOnSuccess> onSuccess() {

@@ -29,19 +29,19 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
+ * Manages an AWS Lambda Function. Use this resource to create serverless functions that run code in response to events without provisioning or managing servers.
  * 
- * For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). For a detailed example of setting up Lambda and API Gateway, see Serverless Applications with AWS Lambda and API Gateway.
  * 
- * &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete. To allow for successful deletion, the provider will wait for at least 45 minutes even if a shorter delete timeout is specified.
+ * &gt; **Note:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete. Pulumi AWS Provider version 2.31.0 and later automatically handles this increased timeout, however prior versions require setting the customizable deletion timeouts of those Pulumi resources to 45 minutes (`delete = &#34;45m&#34;`). AWS and HashiCorp are working together to reduce the amount of time required for resource deletion and updates can be tracked in this GitHub issue.
  * 
- * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+ * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
  * 
- * &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function&#39;s execution role for identity and access to AWS services and resources.
+ * &gt; **Tip:** To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function&#39;s execution role for identity and access to AWS services and resources.
  * 
  * ## Example Usage
  * 
- * ### Basic Example
+ * ### Container Image Function
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -51,16 +51,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.archive.ArchiveFunctions;
- * import com.pulumi.archive.inputs.GetFileArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
- * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.aws.lambda.inputs.FunctionImageConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,38 +67,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("lambda.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .name("example_container_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .packageType("Image")
+ *             .imageUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
+ *             .imageConfig(FunctionImageConfigArgs.builder()
+ *                 .entryPoints("/lambda-entrypoint.sh")
+ *                 .commands("app.handler")
  *                 .build())
- *             .build());
- * 
- *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
- *             .name("iam_for_lambda")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         final var lambda = ArchiveFunctions.getFile(GetFileArgs.builder()
- *             .type("zip")
- *             .sourceFile("lambda.js")
- *             .outputPath("lambda_function_payload.zip")
- *             .build());
- * 
- *         var testLambda = new Function("testLambda", FunctionArgs.builder()
- *             .code(new FileArchive("lambda_function_payload.zip"))
- *             .name("lambda_function_name")
- *             .role(iamForLambda.arn())
- *             .handler("index.test")
- *             .sourceCodeHash(lambda.outputBase64sha256())
- *             .runtime("nodejs18.x")
- *             .environment(FunctionEnvironmentArgs.builder()
- *                 .variables(Map.of("foo", "bar"))
- *                 .build())
+ *             .memorySize(512)
+ *             .timeout(30)
+ *             .architectures("arm64")
  *             .build());
  * 
  *     }
@@ -114,7 +87,9 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Lambda Layers
+ * ### Function with Lambda Layers
+ * 
+ * &gt; **Note:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the Pulumi AWS Provider. For version 2.x, use `arn` references.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -125,52 +100,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.LayerVersion;
+ * import com.pulumi.aws.lambda.LayerVersionArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LayerVersion("example");
- * 
- *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
- *             .layers(example.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Lambda Ephemeral Storage
- * 
- * Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEphemeralStorageArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionTracingConfigArgs;
  * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -185,30 +118,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("lambda.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
+ *         // Common dependencies layer
+ *         var example = new LayerVersion("example", LayerVersionArgs.builder()
+ *             .code(new FileArchive("layer.zip"))
+ *             .layerName("example_dependencies_layer")
+ *             .description("Common dependencies for Lambda functions")
+ *             .compatibleRuntimes(            
+ *                 "nodejs20.x",
+ *                 "python3.12")
+ *             .compatibleArchitectures(            
+ *                 "x86_64",
+ *                 "arm64")
  *             .build());
  * 
- *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
- *             .name("iam_for_lambda")
- *             .assumeRolePolicy(assumeRole.json())
- *             .build());
- * 
- *         var testLambda = new Function("testLambda", FunctionArgs.builder()
- *             .code(new FileArchive("lambda_function_payload.zip"))
- *             .name("lambda_function_name")
- *             .role(iamForLambda.arn())
- *             .handler("index.test")
- *             .runtime("nodejs18.x")
- *             .ephemeralStorage(FunctionEphemeralStorageArgs.builder()
- *                 .size(10240)
+ *         // Function using the layer
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_layered_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs20.x")
+ *             .layers(example.arn())
+ *             .tracingConfig(FunctionTracingConfigArgs.builder()
+ *                 .mode("Active")
  *                 .build())
  *             .build());
  * 
@@ -218,9 +150,65 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Lambda File Systems
+ * ### VPC Function with Enhanced Networking
  * 
- * Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEphemeralStorageArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionSnapStartArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_vpc_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("app.handler")
+ *             .runtime("python3.12")
+ *             .memorySize(1024)
+ *             .timeout(30)
+ *             .vpcConfig(FunctionVpcConfigArgs.builder()
+ *                 .subnetIds(                
+ *                     examplePrivate1.id(),
+ *                     examplePrivate2.id())
+ *                 .securityGroupIds(exampleLambda.id())
+ *                 .ipv6AllowedForDualStack(true)
+ *                 .build())
+ *             .ephemeralStorage(FunctionEphemeralStorageArgs.builder()
+ *                 .size(5120)
+ *                 .build())
+ *             .snapStart(FunctionSnapStartArgs.builder()
+ *                 .applyOn("PublishedVersions")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Function with EFS Integration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -241,98 +229,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.efs.inputs.AccessPointPosixUserArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
  * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // EFS file system
- *         var efsForLambda = new FileSystem("efsForLambda", FileSystemArgs.builder()
- *             .tags(Map.of("Name", "efs_for_lambda"))
- *             .build());
- * 
- *         // Mount target connects the file system to the subnet
- *         var alpha = new MountTarget("alpha", MountTargetArgs.builder()
- *             .fileSystemId(efsForLambda.id())
- *             .subnetId(subnetForLambda.id())
- *             .securityGroups(sgForLambda.id())
- *             .build());
- * 
- *         // EFS access point used by lambda file system
- *         var accessPointForLambda = new AccessPoint("accessPointForLambda", AccessPointArgs.builder()
- *             .fileSystemId(efsForLambda.id())
- *             .rootDirectory(AccessPointRootDirectoryArgs.builder()
- *                 .path("/lambda")
- *                 .creationInfo(AccessPointRootDirectoryCreationInfoArgs.builder()
- *                     .ownerGid(1000)
- *                     .ownerUid(1000)
- *                     .permissions("777")
- *                     .build())
- *                 .build())
- *             .posixUser(AccessPointPosixUserArgs.builder()
- *                 .gid(1000)
- *                 .uid(1000)
- *                 .build())
- *             .build());
- * 
- *         // A lambda function connected to an EFS file system
- *         var example = new Function("example", FunctionArgs.builder()
- *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
- *                 .arn(accessPointForLambda.arn())
- *                 .localMountPath("/mnt/efs")
- *                 .build())
- *             .vpcConfig(FunctionVpcConfigArgs.builder()
- *                 .subnetIds(subnetForLambda.id())
- *                 .securityGroupIds(sgForLambda.id())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(alpha)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Lambda retries
- * 
- * Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
- * 
- * ## CloudWatch Logging and Permissions
- * 
- * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.codegen.internal.KeyedValue;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -348,42 +248,294 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var lambdaFunctionName = config.get("lambdaFunctionName").orElse("lambda_function_name");
- *         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
- *         // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
- *         var example = new LogGroup("example", LogGroupArgs.builder()
- *             .name(String.format("/aws/lambda/%s", lambdaFunctionName))
- *             .retentionInDays(14)
+ *         // EFS file system for Lambda
+ *         var example = new FileSystem("example", FileSystemArgs.builder()
+ *             .encrypted(true)
+ *             .tags(Map.of("Name", "lambda-efs"))
  *             .build());
  * 
- *         // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
- *         final var lambdaLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions(                
- *                     "logs:CreateLogGroup",
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .resources("arn:aws:logs:*:*:*")
+ *         final var subnetIds = config.get("subnetIds").orElse(        
+ *             "subnet-12345678",
+ *             "subnet-87654321");
+ *         // Mount target in each subnet
+ *         for (var i = 0; i < subnetIds.length(); i++) {
+ *             new MountTarget("exampleMountTarget-" + i, MountTargetArgs.builder()
+ *                 .fileSystemId(example.id())
+ *                 .subnetId(subnetIds[range.value()])
+ *                 .securityGroups(efs.id())
+ *                 .build());
+ * 
+ *         
+ * }
+ *         // Access point for Lambda
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
+ *             .fileSystemId(example.id())
+ *             .rootDirectory(AccessPointRootDirectoryArgs.builder()
+ *                 .path("/lambda")
+ *                 .creationInfo(AccessPointRootDirectoryCreationInfoArgs.builder()
+ *                     .ownerGid(1000)
+ *                     .ownerUid(1000)
+ *                     .permissions("755")
+ *                     .build())
+ *                 .build())
+ *             .posixUser(AccessPointPosixUserArgs.builder()
+ *                 .gid(1000)
+ *                 .uid(1000)
  *                 .build())
  *             .build());
  * 
- *         var lambdaLoggingPolicy = new Policy("lambdaLoggingPolicy", PolicyArgs.builder()
+ *         // Lambda function with EFS
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_efs_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs20.x")
+ *             .vpcConfig(FunctionVpcConfigArgs.builder()
+ *                 .subnetIds(subnetIds)
+ *                 .securityGroupIds(lambda.id())
+ *                 .build())
+ *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
+ *                 .arn(exampleAccessPoint.arn())
+ *                 .localMountPath("/mnt/data")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleMountTarget)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Function with Advanced Logging
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
+ *             .name("/aws/lambda/example_function")
+ *             .retentionInDays(14)
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Environment", "production"),
+ *                 Map.entry("Application", "example")
+ *             ))
+ *             .build());
+ * 
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs20.x")
+ *             .loggingConfig(FunctionLoggingConfigArgs.builder()
+ *                 .logFormat("JSON")
+ *                 .applicationLogLevel("INFO")
+ *                 .systemLogLevel("WARN")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Function with Error Handling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionDeadLetterConfigArgs;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Main Lambda function
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("example_function")
+ *             .role(exampleAwsIamRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs20.x")
+ *             .deadLetterConfig(FunctionDeadLetterConfigArgs.builder()
+ *                 .targetArn(dlq.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Event invoke configuration for retries
+ *         var exampleFunctionEventInvokeConfig = new FunctionEventInvokeConfig("exampleFunctionEventInvokeConfig", FunctionEventInvokeConfigArgs.builder()
+ *             .functionName(example.name())
+ *             .maximumEventAgeInSeconds(60)
+ *             .maximumRetryAttempts(2)
+ *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
+ *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
+ *                     .destination(dlq.arn())
+ *                     .build())
+ *                 .onSuccess(FunctionEventInvokeConfigDestinationConfigOnSuccessArgs.builder()
+ *                     .destination(success.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### CloudWatch Logging and Permissions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var functionName = config.get("functionName").orElse("example_function");
+ *         // CloudWatch Log Group with retention
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
+ *             .name(String.format("/aws/lambda/%s", functionName))
+ *             .retentionInDays(14)
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Environment", "production"),
+ *                 Map.entry("Function", functionName)
+ *             ))
+ *             .build());
+ * 
+ *         // Lambda execution role
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
+ *             .name("lambda_execution_role")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "lambda.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         // CloudWatch Logs policy
+ *         var lambdaLogging = new Policy("lambdaLogging", PolicyArgs.builder()
  *             .name("lambda_logging")
  *             .path("/")
- *             .description("IAM policy for logging from a lambda")
- *             .policy(lambdaLogging.json())
+ *             .description("IAM policy for logging from Lambda")
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", jsonArray(
+ *                             "logs:CreateLogGroup", 
+ *                             "logs:CreateLogStream", 
+ *                             "logs:PutLogEvents"
+ *                         )),
+ *                         jsonProperty("Resource", jsonArray("arn:aws:logs:*:*:*"))
+ *                     )))
+ *                 )))
  *             .build());
  * 
+ *         // Attach logging policy to Lambda role
  *         var lambdaLogs = new RolePolicyAttachment("lambdaLogs", RolePolicyAttachmentArgs.builder()
- *             .role(iamForLambda.name())
- *             .policyArn(lambdaLoggingPolicy.arn())
+ *             .role(exampleRole.name())
+ *             .policyArn(lambdaLogging.arn())
  *             .build());
  * 
- *         var testLambda = new Function("testLambda", FunctionArgs.builder()
- *             .name(lambdaFunctionName)
+ *         // Lambda function with logging
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name(functionName)
+ *             .role(exampleRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("nodejs20.x")
  *             .loggingConfig(FunctionLoggingConfigArgs.builder()
- *                 .logFormat("Text")
+ *                 .logFormat("JSON")
+ *                 .applicationLogLevel("INFO")
+ *                 .systemLogLevel("WARN")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -410,49 +562,49 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+ * $ pulumi import aws:lambda/function:Function example example
  * ```
  * 
  */
 @ResourceType(type="aws:lambda/function:Function")
 public class Function extends com.pulumi.resources.CustomResource {
     /**
-     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     @Export(name="architectures", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> architectures;
 
     /**
-     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     public Output<List<String>> architectures() {
         return this.architectures;
     }
     /**
-     * Amazon Resource Name (ARN) identifying your Lambda Function.
+     * ARN identifying your Lambda Function.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifying your Lambda Function.
+     * @return ARN identifying your Lambda Function.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Export(name="code", refs={Archive.class}, tree="[0]")
     private Output</* @Nullable */ Archive> code;
 
     /**
-     * @return Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Output<Optional<Archive>> code() {
@@ -473,28 +625,28 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.codeSha256;
     }
     /**
-     * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+     * ARN of a code-signing configuration to enable code signing for this function.
      * 
      */
     @Export(name="codeSigningConfigArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> codeSigningConfigArn;
 
     /**
-     * @return To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+     * @return ARN of a code-signing configuration to enable code signing for this function.
      * 
      */
     public Output<Optional<String>> codeSigningConfigArn() {
         return Codegen.optional(this.codeSigningConfigArn);
     }
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for dead letter queue. See below.
      * 
      */
     @Export(name="deadLetterConfig", refs={FunctionDeadLetterConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionDeadLetterConfig> deadLetterConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for dead letter queue. See below.
      * 
      */
     public Output<Optional<FunctionDeadLetterConfig>> deadLetterConfig() {
@@ -515,84 +667,84 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for environment variables. See below.
      * 
      */
     @Export(name="environment", refs={FunctionEnvironment.class}, tree="[0]")
     private Output</* @Nullable */ FunctionEnvironment> environment;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for environment variables. See below.
      * 
      */
     public Output<Optional<FunctionEnvironment>> environment() {
         return Codegen.optional(this.environment);
     }
     /**
-     * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+     * Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
      * 
      */
     @Export(name="ephemeralStorage", refs={FunctionEphemeralStorage.class}, tree="[0]")
     private Output<FunctionEphemeralStorage> ephemeralStorage;
 
     /**
-     * @return The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+     * @return Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
      * 
      */
     public Output<FunctionEphemeralStorage> ephemeralStorage() {
         return this.ephemeralStorage;
     }
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for EFS file system. See below.
      * 
      */
     @Export(name="fileSystemConfig", refs={FunctionFileSystemConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionFileSystemConfig> fileSystemConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for EFS file system. See below.
      * 
      */
     public Output<Optional<FunctionFileSystemConfig>> fileSystemConfig() {
         return Codegen.optional(this.fileSystemConfig);
     }
     /**
-     * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+     * Function entry point in your code. Required if `package_type` is `Zip`.
      * 
      */
     @Export(name="handler", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> handler;
 
     /**
-     * @return Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+     * @return Function entry point in your code. Required if `package_type` is `Zip`.
      * 
      */
     public Output<Optional<String>> handler() {
         return Codegen.optional(this.handler);
     }
     /**
-     * Configuration block. Detailed below.
+     * Container image configuration values. See below.
      * 
      */
     @Export(name="imageConfig", refs={FunctionImageConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionImageConfig> imageConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Container image configuration values. See below.
      * 
      */
     public Output<Optional<FunctionImageConfig>> imageConfig() {
         return Codegen.optional(this.imageConfig);
     }
     /**
-     * ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Export(name="imageUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageUri;
 
     /**
-     * @return ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Output<Optional<String>> imageUri() {
@@ -613,14 +765,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.invokeArn;
     }
     /**
-     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     * @return ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {
@@ -641,42 +793,42 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.lastModified;
     }
     /**
-     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
      * 
      */
     @Export(name="layers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> layers;
 
     /**
-     * @return List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+     * @return List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
      * 
      */
     public Output<Optional<List<String>>> layers() {
         return Codegen.optional(this.layers);
     }
     /**
-     * Configuration block used to specify advanced logging settings. Detailed below.
+     * Configuration block for advanced logging settings. See below.
      * 
      */
     @Export(name="loggingConfig", refs={FunctionLoggingConfig.class}, tree="[0]")
     private Output<FunctionLoggingConfig> loggingConfig;
 
     /**
-     * @return Configuration block used to specify advanced logging settings. Detailed below.
+     * @return Configuration block for advanced logging settings. See below.
      * 
      */
     public Output<FunctionLoggingConfig> loggingConfig() {
         return this.loggingConfig;
     }
     /**
-     * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
      * 
      */
     @Export(name="memorySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> memorySize;
 
     /**
-     * @return Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+     * @return Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
      * 
      */
     public Output<Optional<Integer>> memorySize() {
@@ -767,57 +919,49 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
-     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
-     * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
-     * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction. Default is `false`.
      * 
      */
     @Export(name="replaceSecurityGroupsOnDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceSecurityGroupsOnDestroy;
 
     /**
-     * @return Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
-     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
-     * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
-     * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * @return Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> replaceSecurityGroupsOnDestroy() {
         return Codegen.optional(this.replaceSecurityGroupsOnDestroy);
     }
     /**
-     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
-     * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
      * 
      */
     @Export(name="replacementSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> replacementSecurityGroupIds;
 
     /**
-     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
-     * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
      * 
      */
     public Output<Optional<List<String>>> replacementSecurityGroupIds() {
         return Codegen.optional(this.replacementSecurityGroupIds);
     }
     /**
-     * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+     * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      * 
      */
     @Export(name="reservedConcurrentExecutions", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> reservedConcurrentExecutions;
 
     /**
-     * @return Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+     * @return Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      * 
      */
     public Output<Optional<Integer>> reservedConcurrentExecutions() {
         return Codegen.optional(this.reservedConcurrentExecutions);
     }
     /**
-     * Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
      * The following arguments are optional:
      * 
@@ -826,7 +970,7 @@ public class Function extends com.pulumi.resources.CustomResource {
     private Output<String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * @return ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
      * The following arguments are optional:
      * 
@@ -835,42 +979,42 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.role;
     }
     /**
-     * Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     @Export(name="runtime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * @return Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     public Output<Optional<String>> runtime() {
         return Codegen.optional(this.runtime);
     }
     /**
-     * S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Bucket;
 
     /**
-     * @return S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Output<Optional<String>> s3Bucket() {
         return Codegen.optional(this.s3Bucket);
     }
     /**
-     * S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
+     * S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
      * 
      */
     @Export(name="s3Key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Key;
 
     /**
-     * @return S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
+     * @return S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
      * 
      */
     public Output<Optional<String>> s3Key() {
@@ -919,42 +1063,42 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.signingProfileVersionArn;
     }
     /**
-     * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
      * 
      */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
     /**
-     * @return Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     * @return Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
     /**
-     * Snap start settings block. Detailed below.
+     * Configuration block for snap start settings. See below.
      * 
      */
     @Export(name="snapStart", refs={FunctionSnapStart.class}, tree="[0]")
     private Output</* @Nullable */ FunctionSnapStart> snapStart;
 
     /**
-     * @return Snap start settings block. Detailed below.
+     * @return Configuration block for snap start settings. See below.
      * 
      */
     public Output<Optional<FunctionSnapStart>> snapStart() {
         return Codegen.optional(this.snapStart);
     }
     /**
-     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
      * 
      */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
     /**
-     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * @return Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
      * 
      */
     public Output<String> sourceCodeHash() {
@@ -975,56 +1119,56 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.sourceCodeSize;
     }
     /**
-     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+     * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      * 
      */
     @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**
-     * @return Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+     * @return Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      * 
      */
     public Output<Optional<Integer>> timeout() {
         return Codegen.optional(this.timeout);
     }
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for X-Ray tracing. See below.
      * 
      */
     @Export(name="tracingConfig", refs={FunctionTracingConfig.class}, tree="[0]")
     private Output<FunctionTracingConfig> tracingConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for X-Ray tracing. See below.
      * 
      */
     public Output<FunctionTracingConfig> tracingConfig() {
@@ -1045,14 +1189,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.version;
     }
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for VPC. See below.
      * 
      */
     @Export(name="vpcConfig", refs={FunctionVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionVpcConfig> vpcConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for VPC. See below.
      * 
      */
     public Output<Optional<FunctionVpcConfig>> vpcConfig() {

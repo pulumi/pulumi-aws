@@ -98,6 +98,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+     * 
+     */
+    @Import(name="presharedKeyStorage")
+    private @Nullable Output<String> presharedKeyStorage;
+
+    /**
+     * @return Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+     * 
+     */
+    public Optional<Output<String>> presharedKeyStorage() {
+        return Optional.ofNullable(this.presharedKeyStorage);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -855,6 +870,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.localIpv4NetworkCidr = $.localIpv4NetworkCidr;
         this.localIpv6NetworkCidr = $.localIpv6NetworkCidr;
         this.outsideIpAddressType = $.outsideIpAddressType;
+        this.presharedKeyStorage = $.presharedKeyStorage;
         this.region = $.region;
         this.remoteIpv4NetworkCidr = $.remoteIpv4NetworkCidr;
         this.remoteIpv6NetworkCidr = $.remoteIpv6NetworkCidr;
@@ -1028,6 +1044,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder outsideIpAddressType(String outsideIpAddressType) {
             return outsideIpAddressType(Output.of(outsideIpAddressType));
+        }
+
+        /**
+         * @param presharedKeyStorage Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presharedKeyStorage(@Nullable Output<String> presharedKeyStorage) {
+            $.presharedKeyStorage = presharedKeyStorage;
+            return this;
+        }
+
+        /**
+         * @param presharedKeyStorage Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presharedKeyStorage(String presharedKeyStorage) {
+            return presharedKeyStorage(Output.of(presharedKeyStorage));
         }
 
         /**

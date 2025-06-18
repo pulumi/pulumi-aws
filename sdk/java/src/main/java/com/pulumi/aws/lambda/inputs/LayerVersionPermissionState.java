@@ -18,14 +18,14 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     public static final LayerVersionPermissionState Empty = new LayerVersionPermissionState();
 
     /**
-     * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+     * Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+     * @return Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
      * 
      */
     public Optional<Output<String>> action() {
@@ -33,14 +33,14 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name or ARN of the Lambda Layer, which you want to grant access to.
+     * Name or ARN of the Lambda Layer.
      * 
      */
     @Import(name="layerName")
     private @Nullable Output<String> layerName;
 
     /**
-     * @return The name or ARN of the Lambda Layer, which you want to grant access to.
+     * @return Name or ARN of the Lambda Layer.
      * 
      */
     public Optional<Output<String>> layerName() {
@@ -48,14 +48,14 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+     * AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
      * 
      */
     @Import(name="organizationId")
     private @Nullable Output<String> organizationId;
 
     /**
-     * @return An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+     * @return AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
      * 
      */
     public Optional<Output<String>> organizationId() {
@@ -78,14 +78,14 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+     * AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
     /**
-     * @return AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+     * @return AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
      * 
      */
     public Optional<Output<String>> principal() {
@@ -108,14 +108,14 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A unique identifier for the current revision of the policy.
+     * Unique identifier for the current revision of the policy.
      * 
      */
     @Import(name="revisionId")
     private @Nullable Output<String> revisionId;
 
     /**
-     * @return A unique identifier for the current revision of the policy.
+     * @return Unique identifier for the current revision of the policy.
      * 
      */
     public Optional<Output<String>> revisionId() {
@@ -123,14 +123,14 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+     * Whether to retain the permission when the resource is destroyed. Default is `false`.
      * 
      */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
     /**
-     * @return Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+     * @return Whether to retain the permission when the resource is destroyed. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> skipDestroy() {
@@ -138,14 +138,14 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+     * Unique identifier for the permission statement.
      * 
      */
     @Import(name="statementId")
     private @Nullable Output<String> statementId;
 
     /**
-     * @return The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+     * @return Unique identifier for the permission statement.
      * 
      */
     public Optional<Output<String>> statementId() {
@@ -153,14 +153,18 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+     * Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="versionNumber")
     private @Nullable Output<Integer> versionNumber;
 
     /**
-     * @return Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+     * @return Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> versionNumber() {
@@ -201,7 +205,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param action Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+         * @param action Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
          * 
          * @return builder
          * 
@@ -212,7 +216,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param action Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+         * @param action Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
          * 
          * @return builder
          * 
@@ -222,7 +226,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param layerName The name or ARN of the Lambda Layer, which you want to grant access to.
+         * @param layerName Name or ARN of the Lambda Layer.
          * 
          * @return builder
          * 
@@ -233,7 +237,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param layerName The name or ARN of the Lambda Layer, which you want to grant access to.
+         * @param layerName Name or ARN of the Lambda Layer.
          * 
          * @return builder
          * 
@@ -243,7 +247,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param organizationId An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+         * @param organizationId AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
          * 
          * @return builder
          * 
@@ -254,7 +258,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param organizationId An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+         * @param organizationId AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
          * 
          * @return builder
          * 
@@ -285,7 +289,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principal AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+         * @param principal AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
          * 
          * @return builder
          * 
@@ -296,7 +300,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principal AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+         * @param principal AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
          * 
          * @return builder
          * 
@@ -327,7 +331,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param revisionId A unique identifier for the current revision of the policy.
+         * @param revisionId Unique identifier for the current revision of the policy.
          * 
          * @return builder
          * 
@@ -338,7 +342,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param revisionId A unique identifier for the current revision of the policy.
+         * @param revisionId Unique identifier for the current revision of the policy.
          * 
          * @return builder
          * 
@@ -348,7 +352,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param skipDestroy Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+         * @param skipDestroy Whether to retain the permission when the resource is destroyed. Default is `false`.
          * 
          * @return builder
          * 
@@ -359,7 +363,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param skipDestroy Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+         * @param skipDestroy Whether to retain the permission when the resource is destroyed. Default is `false`.
          * 
          * @return builder
          * 
@@ -369,7 +373,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param statementId The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+         * @param statementId Unique identifier for the permission statement.
          * 
          * @return builder
          * 
@@ -380,7 +384,7 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param statementId The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+         * @param statementId Unique identifier for the permission statement.
          * 
          * @return builder
          * 
@@ -390,7 +394,9 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param versionNumber Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+         * @param versionNumber Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -401,7 +407,9 @@ public final class LayerVersionPermissionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param versionNumber Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+         * @param versionNumber Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

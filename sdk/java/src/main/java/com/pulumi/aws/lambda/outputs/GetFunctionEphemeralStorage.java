@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionEphemeralStorage {
+    /**
+     * @return Size of the Lambda function ephemeral storage (`/tmp`) in MB.
+     * 
+     */
     private Integer size;
 
     private GetFunctionEphemeralStorage() {}
+    /**
+     * @return Size of the Lambda function ephemeral storage (`/tmp`) in MB.
+     * 
+     */
     public Integer size() {
         return this.size;
     }

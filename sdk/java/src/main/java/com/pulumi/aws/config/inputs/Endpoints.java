@@ -655,6 +655,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String evs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String finspace;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2393,6 +2398,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> evs() {
+        return Optional.ofNullable(this.evs);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> finspace() {
         return Optional.ofNullable(this.finspace);
     }
@@ -3703,6 +3715,7 @@ public final class Endpoints {
         private @Nullable String eventbridge;
         private @Nullable String events;
         private @Nullable String evidently;
+        private @Nullable String evs;
         private @Nullable String finspace;
         private @Nullable String firehose;
         private @Nullable String fis;
@@ -4002,6 +4015,7 @@ public final class Endpoints {
     	      this.eventbridge = defaults.eventbridge;
     	      this.events = defaults.events;
     	      this.evidently = defaults.evidently;
+    	      this.evs = defaults.evs;
     	      this.finspace = defaults.finspace;
     	      this.firehose = defaults.firehose;
     	      this.fis = defaults.fis;
@@ -4938,6 +4952,12 @@ public final class Endpoints {
         public Builder evidently(@Nullable String evidently) {
 
             this.evidently = evidently;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder evs(@Nullable String evs) {
+
+            this.evs = evs;
             return this;
         }
         @CustomType.Setter
@@ -6078,6 +6098,7 @@ public final class Endpoints {
             _resultValue.eventbridge = eventbridge;
             _resultValue.events = events;
             _resultValue.evidently = evidently;
+            _resultValue.evs = evs;
             _resultValue.finspace = finspace;
             _resultValue.firehose = firehose;
             _resultValue.fis = fis;

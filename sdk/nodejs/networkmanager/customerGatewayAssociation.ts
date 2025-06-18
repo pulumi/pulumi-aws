@@ -5,8 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Associates a customer gateway with a device and optionally, with a link.
- * If you specify a link, it must be associated with the specified device.
+ * Manages a Network Manager Customer Gateway Association.
+ *
+ * Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
  *
  * ## Example Usage
  *
@@ -84,19 +85,21 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the customer gateway.
+     * ARN of the customer gateway.
      */
     public readonly customerGatewayArn!: pulumi.Output<string>;
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     public readonly deviceId!: pulumi.Output<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     *
+     * The following arguments are optional:
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * The ID of the link.
+     * ID of the link.
      */
     public readonly linkId!: pulumi.Output<string | undefined>;
 
@@ -143,19 +146,21 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
  */
 export interface CustomerGatewayAssociationState {
     /**
-     * The Amazon Resource Name (ARN) of the customer gateway.
+     * ARN of the customer gateway.
      */
     customerGatewayArn?: pulumi.Input<string>;
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     deviceId?: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     *
+     * The following arguments are optional:
      */
     globalNetworkId?: pulumi.Input<string>;
     /**
-     * The ID of the link.
+     * ID of the link.
      */
     linkId?: pulumi.Input<string>;
 }
@@ -165,19 +170,21 @@ export interface CustomerGatewayAssociationState {
  */
 export interface CustomerGatewayAssociationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the customer gateway.
+     * ARN of the customer gateway.
      */
     customerGatewayArn: pulumi.Input<string>;
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     deviceId: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     *
+     * The following arguments are optional:
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The ID of the link.
+     * ID of the link.
      */
     linkId?: pulumi.Input<string>;
 }

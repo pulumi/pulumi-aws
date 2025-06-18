@@ -292,6 +292,20 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
     public Output<Boolean> twoWayChannelEnabled() {
         return this.twoWayChannelEnabled;
     }
+    /**
+     * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+     * 
+     */
+    @Export(name="twoWayChannelRole", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> twoWayChannelRole;
+
+    /**
+     * @return IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+     * 
+     */
+    public Output<Optional<String>> twoWayChannelRole() {
+        return Codegen.optional(this.twoWayChannelRole);
+    }
 
     /**
      *

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.LightSail.Inputs
     {
         [Input("certificates", required: true)]
         private InputList<Inputs.ContainerServicePublicDomainNamesCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// Set of certificate configurations for the public domain names. Each element contains the following attributes:
+        /// </summary>
         public InputList<Inputs.ContainerServicePublicDomainNamesCertificateArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.ContainerServicePublicDomainNamesCertificateArgs>());

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about connections.
+ * Provides details about existing Network Manager connections.
  *
  * ## Example Usage
  *
@@ -65,7 +65,7 @@ export interface GetConnectionsResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * Retrieve information about connections.
+ * Provides details about existing Network Manager connections.
  *
  * ## Example Usage
  *

@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
+ * Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
  * 
  * ## Example Usage
  * 
@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.Bucket;
  * import com.pulumi.aws.lightsail.BucketArgs;
- * import com.pulumi.aws.lightsailBucketAccessKeyAccessKey;
- * import com.pulumi.aws.lightsailBucketAccessKeyAccessKeyArgs;
+ * import com.pulumi.aws.lightsail.BucketAccessKey;
+ * import com.pulumi.aws.lightsail.BucketAccessKeyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Bucket("test", BucketArgs.builder()
- *             .name("mytestbucket")
+ *         var example = new Bucket("example", BucketArgs.builder()
+ *             .name("example-bucket")
  *             .bundleId("small_1_0")
  *             .build());
  * 
- *         var testLightsailBucketAccessKeyAccessKey = new LightsailBucketAccessKeyAccessKey("testLightsailBucketAccessKeyAccessKey", LightsailBucketAccessKeyAccessKeyArgs.builder()
- *             .bucketName(testAwsLightsailBucketAccessKey.id())
+ *         var exampleBucketAccessKey = new BucketAccessKey("exampleBucketAccessKey", BucketAccessKeyArgs.builder()
+ *             .bucketName(example.id())
  *             .build());
  * 
  *     }
@@ -63,49 +63,49 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+ * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/bucketAccessKey:BucketAccessKey")
 public class BucketAccessKey extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the access key.
+     * Access key ID.
      * 
      */
     @Export(name="accessKeyId", refs={String.class}, tree="[0]")
     private Output<String> accessKeyId;
 
     /**
-     * @return The ID of the access key.
+     * @return Access key ID.
      * 
      */
     public Output<String> accessKeyId() {
         return this.accessKeyId;
     }
     /**
-     * The name of the bucket that the new access key will belong to, and grant access to.
+     * Name of the bucket that the access key will belong to and grant access to.
      * 
      */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
     /**
-     * @return The name of the bucket that the new access key will belong to, and grant access to.
+     * @return Name of the bucket that the access key will belong to and grant access to.
      * 
      */
     public Output<String> bucketName() {
         return this.bucketName;
     }
     /**
-     * The timestamp when the access key was created.
+     * Date and time when the access key was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the access key was created.
+     * @return Date and time when the access key was created.
      * 
      */
     public Output<String> createdAt() {
@@ -126,28 +126,28 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+     * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
     @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secretAccessKey;
 
     /**
-     * @return The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+     * @return Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
     public Output<String> secretAccessKey() {
         return this.secretAccessKey;
     }
     /**
-     * The status of the access key.
+     * Status of the access key.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the access key.
+     * @return Status of the access key.
      * 
      */
     public Output<String> status() {

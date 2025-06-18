@@ -16,14 +16,14 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
     public static final DeviceLocationArgs Empty = new DeviceLocationArgs();
 
     /**
-     * The physical address.
+     * Physical address.
      * 
      */
     @Import(name="address")
     private @Nullable Output<String> address;
 
     /**
-     * @return The physical address.
+     * @return Physical address.
      * 
      */
     public Optional<Output<String>> address() {
@@ -31,14 +31,14 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The latitude.
+     * Latitude.
      * 
      */
     @Import(name="latitude")
     private @Nullable Output<String> latitude;
 
     /**
-     * @return The latitude.
+     * @return Latitude.
      * 
      */
     public Optional<Output<String>> latitude() {
@@ -46,14 +46,14 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The longitude.
+     * Longitude.
      * 
      */
     @Import(name="longitude")
     private @Nullable Output<String> longitude;
 
     /**
-     * @return The longitude.
+     * @return Longitude.
      * 
      */
     public Optional<Output<String>> longitude() {
@@ -87,7 +87,7 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param address The physical address.
+         * @param address Physical address.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param address The physical address.
+         * @param address Physical address.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param latitude The latitude.
+         * @param latitude Latitude.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param latitude The latitude.
+         * @param latitude Latitude.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param longitude The longitude.
+         * @param longitude Longitude.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DeviceLocationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param longitude The longitude.
+         * @param longitude Longitude.
          * 
          * @return builder
          * 

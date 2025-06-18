@@ -17,14 +17,14 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetInvocationArgs Empty = new GetInvocationArgs();
 
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return Name of the lambda function.
+     * @return Name of the Lambda function.
      * 
      */
     public Output<String> functionName() {
@@ -32,14 +32,18 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * String in JSON format that is passed as payload to the lambda function.
+     * String in JSON format that is passed as payload to the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="input", required=true)
     private Output<String> input;
 
     /**
-     * @return String in JSON format that is passed as payload to the lambda function.
+     * @return String in JSON format that is passed as payload to the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> input() {
@@ -47,16 +51,14 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
+     * Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
+     * @return Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -106,7 +108,7 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName Name of the lambda function.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -117,7 +119,7 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName Name of the lambda function.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -127,7 +129,9 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param input String in JSON format that is passed as payload to the lambda function.
+         * @param input String in JSON format that is passed as payload to the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -138,7 +142,9 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param input String in JSON format that is passed as payload to the lambda function.
+         * @param input String in JSON format that is passed as payload to the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -148,8 +154,7 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Qualifier (a.k.a version) of the lambda function. Defaults
-         * to `$LATEST`.
+         * @param qualifier Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
          * 
@@ -160,8 +165,7 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Qualifier (a.k.a version) of the lambda function. Defaults
-         * to `$LATEST`.
+         * @param qualifier Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
          * 

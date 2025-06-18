@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetInstanceTypeOfferingsResult {
     /**
-     * @return Option for host instance type. See Broker Instance Options below.
+     * @return List of broker instance options. See Broker Instance Options below.
      * 
      */
     private List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions;
@@ -43,7 +43,7 @@ public final class GetInstanceTypeOfferingsResult {
 
     private GetInstanceTypeOfferingsResult() {}
     /**
-     * @return Option for host instance type. See Broker Instance Options below.
+     * @return List of broker instance options. See Broker Instance Options below.
      * 
      */
     public List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions() {

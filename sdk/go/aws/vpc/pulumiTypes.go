@@ -150,6 +150,961 @@ func (o EndpointServicePrivateDnsVerificationTimeoutsPtrOutput) Create() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type RouteServerEndpointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// RouteServerEndpointTimeoutsInput is an input type that accepts RouteServerEndpointTimeoutsArgs and RouteServerEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `RouteServerEndpointTimeoutsInput` via:
+//
+//	RouteServerEndpointTimeoutsArgs{...}
+type RouteServerEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToRouteServerEndpointTimeoutsOutput() RouteServerEndpointTimeoutsOutput
+	ToRouteServerEndpointTimeoutsOutputWithContext(context.Context) RouteServerEndpointTimeoutsOutput
+}
+
+type RouteServerEndpointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (RouteServerEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerEndpointTimeouts)(nil)).Elem()
+}
+
+func (i RouteServerEndpointTimeoutsArgs) ToRouteServerEndpointTimeoutsOutput() RouteServerEndpointTimeoutsOutput {
+	return i.ToRouteServerEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RouteServerEndpointTimeoutsArgs) ToRouteServerEndpointTimeoutsOutputWithContext(ctx context.Context) RouteServerEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerEndpointTimeoutsOutput)
+}
+
+func (i RouteServerEndpointTimeoutsArgs) ToRouteServerEndpointTimeoutsPtrOutput() RouteServerEndpointTimeoutsPtrOutput {
+	return i.ToRouteServerEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RouteServerEndpointTimeoutsArgs) ToRouteServerEndpointTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerEndpointTimeoutsOutput).ToRouteServerEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RouteServerEndpointTimeoutsPtrInput is an input type that accepts RouteServerEndpointTimeoutsArgs, RouteServerEndpointTimeoutsPtr and RouteServerEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RouteServerEndpointTimeoutsPtrInput` via:
+//
+//	        RouteServerEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteServerEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerEndpointTimeoutsPtrOutput() RouteServerEndpointTimeoutsPtrOutput
+	ToRouteServerEndpointTimeoutsPtrOutputWithContext(context.Context) RouteServerEndpointTimeoutsPtrOutput
+}
+
+type routeServerEndpointTimeoutsPtrType RouteServerEndpointTimeoutsArgs
+
+func RouteServerEndpointTimeoutsPtr(v *RouteServerEndpointTimeoutsArgs) RouteServerEndpointTimeoutsPtrInput {
+	return (*routeServerEndpointTimeoutsPtrType)(v)
+}
+
+func (*routeServerEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *routeServerEndpointTimeoutsPtrType) ToRouteServerEndpointTimeoutsPtrOutput() RouteServerEndpointTimeoutsPtrOutput {
+	return i.ToRouteServerEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *routeServerEndpointTimeoutsPtrType) ToRouteServerEndpointTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerEndpointTimeoutsPtrOutput)
+}
+
+type RouteServerEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RouteServerEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerEndpointTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerEndpointTimeoutsOutput) ToRouteServerEndpointTimeoutsOutput() RouteServerEndpointTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerEndpointTimeoutsOutput) ToRouteServerEndpointTimeoutsOutputWithContext(ctx context.Context) RouteServerEndpointTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerEndpointTimeoutsOutput) ToRouteServerEndpointTimeoutsPtrOutput() RouteServerEndpointTimeoutsPtrOutput {
+	return o.ToRouteServerEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerEndpointTimeoutsOutput) ToRouteServerEndpointTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerEndpointTimeouts) *RouteServerEndpointTimeouts {
+		return &v
+	}).(RouteServerEndpointTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type RouteServerEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerEndpointTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerEndpointTimeoutsPtrOutput) ToRouteServerEndpointTimeoutsPtrOutput() RouteServerEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerEndpointTimeoutsPtrOutput) ToRouteServerEndpointTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerEndpointTimeoutsPtrOutput) Elem() RouteServerEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *RouteServerEndpointTimeouts) RouteServerEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerEndpointTimeouts
+		return ret
+	}).(RouteServerEndpointTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPeerBgpOptions struct {
+	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+	PeerAsn int `pulumi:"peerAsn"`
+	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+	PeerLivenessDetection *string `pulumi:"peerLivenessDetection"`
+}
+
+// RouteServerPeerBgpOptionsInput is an input type that accepts RouteServerPeerBgpOptionsArgs and RouteServerPeerBgpOptionsOutput values.
+// You can construct a concrete instance of `RouteServerPeerBgpOptionsInput` via:
+//
+//	RouteServerPeerBgpOptionsArgs{...}
+type RouteServerPeerBgpOptionsInput interface {
+	pulumi.Input
+
+	ToRouteServerPeerBgpOptionsOutput() RouteServerPeerBgpOptionsOutput
+	ToRouteServerPeerBgpOptionsOutputWithContext(context.Context) RouteServerPeerBgpOptionsOutput
+}
+
+type RouteServerPeerBgpOptionsArgs struct {
+	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+	PeerAsn pulumi.IntInput `pulumi:"peerAsn"`
+	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+	PeerLivenessDetection pulumi.StringPtrInput `pulumi:"peerLivenessDetection"`
+}
+
+func (RouteServerPeerBgpOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerBgpOptions)(nil)).Elem()
+}
+
+func (i RouteServerPeerBgpOptionsArgs) ToRouteServerPeerBgpOptionsOutput() RouteServerPeerBgpOptionsOutput {
+	return i.ToRouteServerPeerBgpOptionsOutputWithContext(context.Background())
+}
+
+func (i RouteServerPeerBgpOptionsArgs) ToRouteServerPeerBgpOptionsOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPeerBgpOptionsOutput)
+}
+
+func (i RouteServerPeerBgpOptionsArgs) ToRouteServerPeerBgpOptionsPtrOutput() RouteServerPeerBgpOptionsPtrOutput {
+	return i.ToRouteServerPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i RouteServerPeerBgpOptionsArgs) ToRouteServerPeerBgpOptionsPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPeerBgpOptionsOutput).ToRouteServerPeerBgpOptionsPtrOutputWithContext(ctx)
+}
+
+// RouteServerPeerBgpOptionsPtrInput is an input type that accepts RouteServerPeerBgpOptionsArgs, RouteServerPeerBgpOptionsPtr and RouteServerPeerBgpOptionsPtrOutput values.
+// You can construct a concrete instance of `RouteServerPeerBgpOptionsPtrInput` via:
+//
+//	        RouteServerPeerBgpOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteServerPeerBgpOptionsPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerPeerBgpOptionsPtrOutput() RouteServerPeerBgpOptionsPtrOutput
+	ToRouteServerPeerBgpOptionsPtrOutputWithContext(context.Context) RouteServerPeerBgpOptionsPtrOutput
+}
+
+type routeServerPeerBgpOptionsPtrType RouteServerPeerBgpOptionsArgs
+
+func RouteServerPeerBgpOptionsPtr(v *RouteServerPeerBgpOptionsArgs) RouteServerPeerBgpOptionsPtrInput {
+	return (*routeServerPeerBgpOptionsPtrType)(v)
+}
+
+func (*routeServerPeerBgpOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPeerBgpOptions)(nil)).Elem()
+}
+
+func (i *routeServerPeerBgpOptionsPtrType) ToRouteServerPeerBgpOptionsPtrOutput() RouteServerPeerBgpOptionsPtrOutput {
+	return i.ToRouteServerPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *routeServerPeerBgpOptionsPtrType) ToRouteServerPeerBgpOptionsPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPeerBgpOptionsPtrOutput)
+}
+
+type RouteServerPeerBgpOptionsOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPeerBgpOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerBgpOptions)(nil)).Elem()
+}
+
+func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsOutput() RouteServerPeerBgpOptionsOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsPtrOutput() RouteServerPeerBgpOptionsPtrOutput {
+	return o.ToRouteServerPeerBgpOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerPeerBgpOptions) *RouteServerPeerBgpOptions {
+		return &v
+	}).(RouteServerPeerBgpOptionsPtrOutput)
+}
+
+// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+func (o RouteServerPeerBgpOptionsOutput) PeerAsn() pulumi.IntOutput {
+	return o.ApplyT(func(v RouteServerPeerBgpOptions) int { return v.PeerAsn }).(pulumi.IntOutput)
+}
+
+// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+func (o RouteServerPeerBgpOptionsOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerPeerBgpOptions) *string { return v.PeerLivenessDetection }).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPeerBgpOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPeerBgpOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPeerBgpOptions)(nil)).Elem()
+}
+
+func (o RouteServerPeerBgpOptionsPtrOutput) ToRouteServerPeerBgpOptionsPtrOutput() RouteServerPeerBgpOptionsPtrOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsPtrOutput) ToRouteServerPeerBgpOptionsPtrOutputWithContext(ctx context.Context) RouteServerPeerBgpOptionsPtrOutput {
+	return o
+}
+
+func (o RouteServerPeerBgpOptionsPtrOutput) Elem() RouteServerPeerBgpOptionsOutput {
+	return o.ApplyT(func(v *RouteServerPeerBgpOptions) RouteServerPeerBgpOptions {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerPeerBgpOptions
+		return ret
+	}).(RouteServerPeerBgpOptionsOutput)
+}
+
+// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+func (o RouteServerPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteServerPeerBgpOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PeerAsn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+func (o RouteServerPeerBgpOptionsPtrOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerPeerBgpOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PeerLivenessDetection
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPeerTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// RouteServerPeerTimeoutsInput is an input type that accepts RouteServerPeerTimeoutsArgs and RouteServerPeerTimeoutsOutput values.
+// You can construct a concrete instance of `RouteServerPeerTimeoutsInput` via:
+//
+//	RouteServerPeerTimeoutsArgs{...}
+type RouteServerPeerTimeoutsInput interface {
+	pulumi.Input
+
+	ToRouteServerPeerTimeoutsOutput() RouteServerPeerTimeoutsOutput
+	ToRouteServerPeerTimeoutsOutputWithContext(context.Context) RouteServerPeerTimeoutsOutput
+}
+
+type RouteServerPeerTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (RouteServerPeerTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerTimeouts)(nil)).Elem()
+}
+
+func (i RouteServerPeerTimeoutsArgs) ToRouteServerPeerTimeoutsOutput() RouteServerPeerTimeoutsOutput {
+	return i.ToRouteServerPeerTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RouteServerPeerTimeoutsArgs) ToRouteServerPeerTimeoutsOutputWithContext(ctx context.Context) RouteServerPeerTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPeerTimeoutsOutput)
+}
+
+func (i RouteServerPeerTimeoutsArgs) ToRouteServerPeerTimeoutsPtrOutput() RouteServerPeerTimeoutsPtrOutput {
+	return i.ToRouteServerPeerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RouteServerPeerTimeoutsArgs) ToRouteServerPeerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPeerTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPeerTimeoutsOutput).ToRouteServerPeerTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RouteServerPeerTimeoutsPtrInput is an input type that accepts RouteServerPeerTimeoutsArgs, RouteServerPeerTimeoutsPtr and RouteServerPeerTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RouteServerPeerTimeoutsPtrInput` via:
+//
+//	        RouteServerPeerTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteServerPeerTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerPeerTimeoutsPtrOutput() RouteServerPeerTimeoutsPtrOutput
+	ToRouteServerPeerTimeoutsPtrOutputWithContext(context.Context) RouteServerPeerTimeoutsPtrOutput
+}
+
+type routeServerPeerTimeoutsPtrType RouteServerPeerTimeoutsArgs
+
+func RouteServerPeerTimeoutsPtr(v *RouteServerPeerTimeoutsArgs) RouteServerPeerTimeoutsPtrInput {
+	return (*routeServerPeerTimeoutsPtrType)(v)
+}
+
+func (*routeServerPeerTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPeerTimeouts)(nil)).Elem()
+}
+
+func (i *routeServerPeerTimeoutsPtrType) ToRouteServerPeerTimeoutsPtrOutput() RouteServerPeerTimeoutsPtrOutput {
+	return i.ToRouteServerPeerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *routeServerPeerTimeoutsPtrType) ToRouteServerPeerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPeerTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPeerTimeoutsPtrOutput)
+}
+
+type RouteServerPeerTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPeerTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPeerTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerPeerTimeoutsOutput) ToRouteServerPeerTimeoutsOutput() RouteServerPeerTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerPeerTimeoutsOutput) ToRouteServerPeerTimeoutsOutputWithContext(ctx context.Context) RouteServerPeerTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerPeerTimeoutsOutput) ToRouteServerPeerTimeoutsPtrOutput() RouteServerPeerTimeoutsPtrOutput {
+	return o.ToRouteServerPeerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPeerTimeoutsOutput) ToRouteServerPeerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPeerTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerPeerTimeouts) *RouteServerPeerTimeouts {
+		return &v
+	}).(RouteServerPeerTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerPeerTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerPeerTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerPeerTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerPeerTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPeerTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPeerTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPeerTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerPeerTimeoutsPtrOutput) ToRouteServerPeerTimeoutsPtrOutput() RouteServerPeerTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerPeerTimeoutsPtrOutput) ToRouteServerPeerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPeerTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerPeerTimeoutsPtrOutput) Elem() RouteServerPeerTimeoutsOutput {
+	return o.ApplyT(func(v *RouteServerPeerTimeouts) RouteServerPeerTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerPeerTimeouts
+		return ret
+	}).(RouteServerPeerTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerPeerTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerPeerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerPeerTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerPeerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPropagationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// RouteServerPropagationTimeoutsInput is an input type that accepts RouteServerPropagationTimeoutsArgs and RouteServerPropagationTimeoutsOutput values.
+// You can construct a concrete instance of `RouteServerPropagationTimeoutsInput` via:
+//
+//	RouteServerPropagationTimeoutsArgs{...}
+type RouteServerPropagationTimeoutsInput interface {
+	pulumi.Input
+
+	ToRouteServerPropagationTimeoutsOutput() RouteServerPropagationTimeoutsOutput
+	ToRouteServerPropagationTimeoutsOutputWithContext(context.Context) RouteServerPropagationTimeoutsOutput
+}
+
+type RouteServerPropagationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (RouteServerPropagationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPropagationTimeouts)(nil)).Elem()
+}
+
+func (i RouteServerPropagationTimeoutsArgs) ToRouteServerPropagationTimeoutsOutput() RouteServerPropagationTimeoutsOutput {
+	return i.ToRouteServerPropagationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RouteServerPropagationTimeoutsArgs) ToRouteServerPropagationTimeoutsOutputWithContext(ctx context.Context) RouteServerPropagationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPropagationTimeoutsOutput)
+}
+
+func (i RouteServerPropagationTimeoutsArgs) ToRouteServerPropagationTimeoutsPtrOutput() RouteServerPropagationTimeoutsPtrOutput {
+	return i.ToRouteServerPropagationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RouteServerPropagationTimeoutsArgs) ToRouteServerPropagationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPropagationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPropagationTimeoutsOutput).ToRouteServerPropagationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RouteServerPropagationTimeoutsPtrInput is an input type that accepts RouteServerPropagationTimeoutsArgs, RouteServerPropagationTimeoutsPtr and RouteServerPropagationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RouteServerPropagationTimeoutsPtrInput` via:
+//
+//	        RouteServerPropagationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteServerPropagationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerPropagationTimeoutsPtrOutput() RouteServerPropagationTimeoutsPtrOutput
+	ToRouteServerPropagationTimeoutsPtrOutputWithContext(context.Context) RouteServerPropagationTimeoutsPtrOutput
+}
+
+type routeServerPropagationTimeoutsPtrType RouteServerPropagationTimeoutsArgs
+
+func RouteServerPropagationTimeoutsPtr(v *RouteServerPropagationTimeoutsArgs) RouteServerPropagationTimeoutsPtrInput {
+	return (*routeServerPropagationTimeoutsPtrType)(v)
+}
+
+func (*routeServerPropagationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPropagationTimeouts)(nil)).Elem()
+}
+
+func (i *routeServerPropagationTimeoutsPtrType) ToRouteServerPropagationTimeoutsPtrOutput() RouteServerPropagationTimeoutsPtrOutput {
+	return i.ToRouteServerPropagationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *routeServerPropagationTimeoutsPtrType) ToRouteServerPropagationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPropagationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerPropagationTimeoutsPtrOutput)
+}
+
+type RouteServerPropagationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPropagationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerPropagationTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerPropagationTimeoutsOutput) ToRouteServerPropagationTimeoutsOutput() RouteServerPropagationTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerPropagationTimeoutsOutput) ToRouteServerPropagationTimeoutsOutputWithContext(ctx context.Context) RouteServerPropagationTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerPropagationTimeoutsOutput) ToRouteServerPropagationTimeoutsPtrOutput() RouteServerPropagationTimeoutsPtrOutput {
+	return o.ToRouteServerPropagationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerPropagationTimeoutsOutput) ToRouteServerPropagationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPropagationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerPropagationTimeouts) *RouteServerPropagationTimeouts {
+		return &v
+	}).(RouteServerPropagationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerPropagationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerPropagationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerPropagationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerPropagationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type RouteServerPropagationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerPropagationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerPropagationTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerPropagationTimeoutsPtrOutput) ToRouteServerPropagationTimeoutsPtrOutput() RouteServerPropagationTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerPropagationTimeoutsPtrOutput) ToRouteServerPropagationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerPropagationTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerPropagationTimeoutsPtrOutput) Elem() RouteServerPropagationTimeoutsOutput {
+	return o.ApplyT(func(v *RouteServerPropagationTimeouts) RouteServerPropagationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerPropagationTimeouts
+		return ret
+	}).(RouteServerPropagationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerPropagationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerPropagationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerPropagationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerPropagationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteServerTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// RouteServerTimeoutsInput is an input type that accepts RouteServerTimeoutsArgs and RouteServerTimeoutsOutput values.
+// You can construct a concrete instance of `RouteServerTimeoutsInput` via:
+//
+//	RouteServerTimeoutsArgs{...}
+type RouteServerTimeoutsInput interface {
+	pulumi.Input
+
+	ToRouteServerTimeoutsOutput() RouteServerTimeoutsOutput
+	ToRouteServerTimeoutsOutputWithContext(context.Context) RouteServerTimeoutsOutput
+}
+
+type RouteServerTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (RouteServerTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerTimeouts)(nil)).Elem()
+}
+
+func (i RouteServerTimeoutsArgs) ToRouteServerTimeoutsOutput() RouteServerTimeoutsOutput {
+	return i.ToRouteServerTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RouteServerTimeoutsArgs) ToRouteServerTimeoutsOutputWithContext(ctx context.Context) RouteServerTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerTimeoutsOutput)
+}
+
+func (i RouteServerTimeoutsArgs) ToRouteServerTimeoutsPtrOutput() RouteServerTimeoutsPtrOutput {
+	return i.ToRouteServerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RouteServerTimeoutsArgs) ToRouteServerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerTimeoutsOutput).ToRouteServerTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RouteServerTimeoutsPtrInput is an input type that accepts RouteServerTimeoutsArgs, RouteServerTimeoutsPtr and RouteServerTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RouteServerTimeoutsPtrInput` via:
+//
+//	        RouteServerTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteServerTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerTimeoutsPtrOutput() RouteServerTimeoutsPtrOutput
+	ToRouteServerTimeoutsPtrOutputWithContext(context.Context) RouteServerTimeoutsPtrOutput
+}
+
+type routeServerTimeoutsPtrType RouteServerTimeoutsArgs
+
+func RouteServerTimeoutsPtr(v *RouteServerTimeoutsArgs) RouteServerTimeoutsPtrInput {
+	return (*routeServerTimeoutsPtrType)(v)
+}
+
+func (*routeServerTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerTimeouts)(nil)).Elem()
+}
+
+func (i *routeServerTimeoutsPtrType) ToRouteServerTimeoutsPtrOutput() RouteServerTimeoutsPtrOutput {
+	return i.ToRouteServerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *routeServerTimeoutsPtrType) ToRouteServerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerTimeoutsPtrOutput)
+}
+
+type RouteServerTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RouteServerTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerTimeoutsOutput) ToRouteServerTimeoutsOutput() RouteServerTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerTimeoutsOutput) ToRouteServerTimeoutsOutputWithContext(ctx context.Context) RouteServerTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerTimeoutsOutput) ToRouteServerTimeoutsPtrOutput() RouteServerTimeoutsPtrOutput {
+	return o.ToRouteServerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerTimeoutsOutput) ToRouteServerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerTimeouts) *RouteServerTimeouts {
+		return &v
+	}).(RouteServerTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type RouteServerTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerTimeoutsPtrOutput) ToRouteServerTimeoutsPtrOutput() RouteServerTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerTimeoutsPtrOutput) ToRouteServerTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerTimeoutsPtrOutput) Elem() RouteServerTimeoutsOutput {
+	return o.ApplyT(func(v *RouteServerTimeouts) RouteServerTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerTimeouts
+		return ret
+	}).(RouteServerTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouteServerVpcAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// RouteServerVpcAssociationTimeoutsInput is an input type that accepts RouteServerVpcAssociationTimeoutsArgs and RouteServerVpcAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `RouteServerVpcAssociationTimeoutsInput` via:
+//
+//	RouteServerVpcAssociationTimeoutsArgs{...}
+type RouteServerVpcAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToRouteServerVpcAssociationTimeoutsOutput() RouteServerVpcAssociationTimeoutsOutput
+	ToRouteServerVpcAssociationTimeoutsOutputWithContext(context.Context) RouteServerVpcAssociationTimeoutsOutput
+}
+
+type RouteServerVpcAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (RouteServerVpcAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (i RouteServerVpcAssociationTimeoutsArgs) ToRouteServerVpcAssociationTimeoutsOutput() RouteServerVpcAssociationTimeoutsOutput {
+	return i.ToRouteServerVpcAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RouteServerVpcAssociationTimeoutsArgs) ToRouteServerVpcAssociationTimeoutsOutputWithContext(ctx context.Context) RouteServerVpcAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerVpcAssociationTimeoutsOutput)
+}
+
+func (i RouteServerVpcAssociationTimeoutsArgs) ToRouteServerVpcAssociationTimeoutsPtrOutput() RouteServerVpcAssociationTimeoutsPtrOutput {
+	return i.ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RouteServerVpcAssociationTimeoutsArgs) ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerVpcAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerVpcAssociationTimeoutsOutput).ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RouteServerVpcAssociationTimeoutsPtrInput is an input type that accepts RouteServerVpcAssociationTimeoutsArgs, RouteServerVpcAssociationTimeoutsPtr and RouteServerVpcAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RouteServerVpcAssociationTimeoutsPtrInput` via:
+//
+//	        RouteServerVpcAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteServerVpcAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRouteServerVpcAssociationTimeoutsPtrOutput() RouteServerVpcAssociationTimeoutsPtrOutput
+	ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(context.Context) RouteServerVpcAssociationTimeoutsPtrOutput
+}
+
+type routeServerVpcAssociationTimeoutsPtrType RouteServerVpcAssociationTimeoutsArgs
+
+func RouteServerVpcAssociationTimeoutsPtr(v *RouteServerVpcAssociationTimeoutsArgs) RouteServerVpcAssociationTimeoutsPtrInput {
+	return (*routeServerVpcAssociationTimeoutsPtrType)(v)
+}
+
+func (*routeServerVpcAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *routeServerVpcAssociationTimeoutsPtrType) ToRouteServerVpcAssociationTimeoutsPtrOutput() RouteServerVpcAssociationTimeoutsPtrOutput {
+	return i.ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *routeServerVpcAssociationTimeoutsPtrType) ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerVpcAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteServerVpcAssociationTimeoutsPtrOutput)
+}
+
+type RouteServerVpcAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RouteServerVpcAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteServerVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerVpcAssociationTimeoutsOutput) ToRouteServerVpcAssociationTimeoutsOutput() RouteServerVpcAssociationTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerVpcAssociationTimeoutsOutput) ToRouteServerVpcAssociationTimeoutsOutputWithContext(ctx context.Context) RouteServerVpcAssociationTimeoutsOutput {
+	return o
+}
+
+func (o RouteServerVpcAssociationTimeoutsOutput) ToRouteServerVpcAssociationTimeoutsPtrOutput() RouteServerVpcAssociationTimeoutsPtrOutput {
+	return o.ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RouteServerVpcAssociationTimeoutsOutput) ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerVpcAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteServerVpcAssociationTimeouts) *RouteServerVpcAssociationTimeouts {
+		return &v
+	}).(RouteServerVpcAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerVpcAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerVpcAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerVpcAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteServerVpcAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type RouteServerVpcAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteServerVpcAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteServerVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (o RouteServerVpcAssociationTimeoutsPtrOutput) ToRouteServerVpcAssociationTimeoutsPtrOutput() RouteServerVpcAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerVpcAssociationTimeoutsPtrOutput) ToRouteServerVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) RouteServerVpcAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o RouteServerVpcAssociationTimeoutsPtrOutput) Elem() RouteServerVpcAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *RouteServerVpcAssociationTimeouts) RouteServerVpcAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RouteServerVpcAssociationTimeouts
+		return ret
+	}).(RouteServerVpcAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RouteServerVpcAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerVpcAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RouteServerVpcAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServerVpcAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type SecurityGroupVpcAssociationTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -912,6 +1867,18 @@ func (o GetSecurityGroupRulesFilterArrayOutput) Index(i pulumi.IntInput) GetSecu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsPtrInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerEndpointTimeoutsInput)(nil)).Elem(), RouteServerEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerEndpointTimeoutsPtrInput)(nil)).Elem(), RouteServerEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerBgpOptionsInput)(nil)).Elem(), RouteServerPeerBgpOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerBgpOptionsPtrInput)(nil)).Elem(), RouteServerPeerBgpOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerTimeoutsInput)(nil)).Elem(), RouteServerPeerTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerTimeoutsPtrInput)(nil)).Elem(), RouteServerPeerTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPropagationTimeoutsInput)(nil)).Elem(), RouteServerPropagationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPropagationTimeoutsPtrInput)(nil)).Elem(), RouteServerPropagationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerTimeoutsInput)(nil)).Elem(), RouteServerTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerTimeoutsPtrInput)(nil)).Elem(), RouteServerTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerVpcAssociationTimeoutsInput)(nil)).Elem(), RouteServerVpcAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerVpcAssociationTimeoutsPtrInput)(nil)).Elem(), RouteServerVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsPtrInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationInput)(nil)).Elem(), GetEndpointAssociationsAssociationArgs{})
@@ -926,6 +1893,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRulesFilterArrayInput)(nil)).Elem(), GetSecurityGroupRulesFilterArray{})
 	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsOutput{})
 	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(RouteServerEndpointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsOutput{})
+	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerPeerTimeoutsOutput{})
+	pulumi.RegisterOutputType(RouteServerPeerTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerPropagationTimeoutsOutput{})
+	pulumi.RegisterOutputType(RouteServerPropagationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerTimeoutsOutput{})
+	pulumi.RegisterOutputType(RouteServerTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(RouteServerVpcAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(RouteServerVpcAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationOutput{})

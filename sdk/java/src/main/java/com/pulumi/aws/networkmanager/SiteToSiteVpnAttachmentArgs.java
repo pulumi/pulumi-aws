@@ -18,14 +18,14 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
     public static final SiteToSiteVpnAttachmentArgs Empty = new SiteToSiteVpnAttachmentArgs();
 
     /**
-     * The ID of a core network for the VPN attachment.
+     * ID of a core network for the VPN attachment.
      * 
      */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network for the VPN attachment.
+     * @return ID of a core network for the VPN attachment.
      * 
      */
     public Output<String> coreNetworkId() {
@@ -48,7 +48,7 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ARN of the site-to-site VPN connection.
+     * ARN of the site-to-site VPN connection.
      * 
      * The following arguments are optional:
      * 
@@ -57,7 +57,7 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
     private Output<String> vpnConnectionArn;
 
     /**
-     * @return The ARN of the site-to-site VPN connection.
+     * @return ARN of the site-to-site VPN connection.
      * 
      * The following arguments are optional:
      * 
@@ -93,7 +93,7 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPN attachment.
+         * @param coreNetworkId ID of a core network for the VPN attachment.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPN attachment.
+         * @param coreNetworkId ID of a core network for the VPN attachment.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param vpnConnectionArn The ARN of the site-to-site VPN connection.
+         * @param vpnConnectionArn ARN of the site-to-site VPN connection.
          * 
          * The following arguments are optional:
          * 
@@ -148,7 +148,7 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param vpnConnectionArn The ARN of the site-to-site VPN connection.
+         * @param vpnConnectionArn ARN of the site-to-site VPN connection.
          * 
          * The following arguments are optional:
          * 

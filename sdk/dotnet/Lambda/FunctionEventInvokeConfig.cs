@@ -10,13 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
-    /// Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
+    /// Manages an AWS Lambda Function Event Invoke Config. Use this resource to configure error handling and destinations for asynchronous Lambda function invocations.
+    /// 
+    /// More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
     /// 
     /// ## Example Usage
     /// 
-    /// ### Destination Configuration
+    /// ### Complete Error Handling and Destinations
     /// 
-    /// &gt; **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+    /// &gt; **Note:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -26,18 +28,43 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // SQS queue for failed invocations
+    ///     var dlq = new Aws.Sqs.Queue("dlq", new()
+    ///     {
+    ///         Name = "lambda-dlq",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///             { "Purpose", "lambda-error-handling" },
+    ///         },
+    ///     });
+    /// 
+    ///     // SNS topic for successful invocations
+    ///     var success = new Aws.Sns.Topic("success", new()
+    ///     {
+    ///         Name = "lambda-success-notifications",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///             { "Purpose", "lambda-success-notifications" },
+    ///         },
+    ///     });
+    /// 
+    ///     // Complete event invoke configuration
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
-    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         MaximumEventAgeInSeconds = 300,
+    ///         MaximumRetryAttempts = 1,
     ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
     ///         {
     ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
     ///             {
-    ///                 Destination = exampleAwsSqsQueue.Arn,
+    ///                 Destination = dlq.Arn,
     ///             },
     ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
     ///             {
-    ///                 Destination = exampleAwsSnsTopic.Arn,
+    ///                 Destination = success.Arn,
     ///             },
     ///         },
     ///     });
@@ -45,46 +72,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
-    /// ### Error Handling Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
-    ///         MaximumEventAgeInSeconds = 60,
-    ///         MaximumRetryAttempts = 0,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Configuration for Alias Name
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaAlias.FunctionName,
-    ///         Qualifier = exampleAwsLambdaAlias.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Configuration for Function Latest Unpublished Version
+    /// ### Error Handling Only
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -97,13 +85,50 @@ namespace Pulumi.Aws.Lambda
     ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
     ///     {
     ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = "$LATEST",
+    ///         MaximumEventAgeInSeconds = 60,
+    ///         MaximumRetryAttempts = 0,
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Configuration for Function Published Version
+    /// ### Configuration for Lambda Alias
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.Alias("example", new()
+    ///     {
+    ///         Name = "production",
+    ///         Description = "Production alias",
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         FunctionVersion = exampleAwsLambdaFunction.Version,
+    ///     });
+    /// 
+    ///     var exampleFunctionEventInvokeConfig = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         Qualifier = example.Name,
+    ///         MaximumEventAgeInSeconds = 1800,
+    ///         MaximumRetryAttempts = 2,
+    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
+    ///         {
+    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
+    ///             {
+    ///                 Destination = productionDlq.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Configuration for Published Version
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -117,6 +142,88 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
     ///         Qualifier = exampleAwsLambdaFunction.Version,
+    ///         MaximumEventAgeInSeconds = 21600,
+    ///         MaximumRetryAttempts = 2,
+    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
+    ///         {
+    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
+    ///             {
+    ///                 Destination = versionDlq.Arn,
+    ///             },
+    ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
+    ///             {
+    ///                 Destination = versionSuccess.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Configuration for Latest Version
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         Qualifier = "$LATEST",
+    ///         MaximumEventAgeInSeconds = 120,
+    ///         MaximumRetryAttempts = 0,
+    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
+    ///         {
+    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
+    ///             {
+    ///                 Destination = devDlq.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Multiple Destination Types
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // S3 bucket for archiving successful events
+    ///     var lambdaSuccessArchive = new Aws.S3.Bucket("lambda_success_archive", new()
+    ///     {
+    ///         BucketName = $"lambda-success-archive-{bucketSuffix.Hex}",
+    ///     });
+    /// 
+    ///     // EventBridge custom bus for failed events
+    ///     var lambdaFailures = new Aws.CloudWatch.EventBus("lambda_failures", new()
+    ///     {
+    ///         Name = "lambda-failure-events",
+    ///     });
+    /// 
+    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
+    ///         {
+    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
+    ///             {
+    ///                 Destination = lambdaFailures.Arn,
+    ///             },
+    ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
+    ///             {
+    ///                 Destination = lambdaSuccessArchive.Arn,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -130,40 +237,40 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// Name with qualifier:
     /// 
-    /// __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+    /// For backwards compatibility, the following legacy `pulumi import` commands are also supported:
     /// 
-    /// ARN without qualifier (all versions and aliases):
+    /// Using ARN without qualifier:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
     /// ```
-    /// ARN with qualifier:
+    /// Using ARN with qualifier:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
     /// ```
     /// Name without qualifier (all versions and aliases):
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
     /// ```
     /// Name with qualifier:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+    /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")]
     public partial class FunctionEventInvokeConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration block with destination configuration. See below for details.
+        /// Configuration block with destination configuration. See below.
         /// </summary>
         [Output("destinationConfig")]
         public Output<Outputs.FunctionEventInvokeConfigDestinationConfig?> DestinationConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -241,13 +348,13 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionEventInvokeConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block with destination configuration. See below for details.
+        /// Configuration block with destination configuration. See below.
         /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.FunctionEventInvokeConfigDestinationConfigArgs>? DestinationConfig { get; set; }
 
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -287,13 +394,13 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionEventInvokeConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block with destination configuration. See below for details.
+        /// Configuration block with destination configuration. See below.
         /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.FunctionEventInvokeConfigDestinationConfigGetArgs>? DestinationConfig { get; set; }
 
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
         /// 
         /// The following arguments are optional:
         /// </summary>

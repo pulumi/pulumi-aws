@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerInstance {
+    /**
+     * @return URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engine_type`.
+     * 
+     */
     private String consoleUrl;
+    /**
+     * @return Broker&#39;s wire-level protocol endpoints.
+     * 
+     */
     private List<String> endpoints;
+    /**
+     * @return IP Address of the broker.
+     * 
+     */
     private String ipAddress;
 
     private GetBrokerInstance() {}
+    /**
+     * @return URL of the ActiveMQ Web Console or the RabbitMQ Management UI depending on `engine_type`.
+     * 
+     */
     public String consoleUrl() {
         return this.consoleUrl;
     }
+    /**
+     * @return Broker&#39;s wire-level protocol endpoints.
+     * 
+     */
     public List<String> endpoints() {
         return this.endpoints;
     }
+    /**
+     * @return IP Address of the broker.
+     * 
+     */
     public String ipAddress() {
         return this.ipAddress;
     }

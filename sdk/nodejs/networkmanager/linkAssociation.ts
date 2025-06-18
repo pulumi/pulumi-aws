@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Associates a link to a device.
- * A device can be associated to multiple links and a link can be associated to multiple devices.
- * The device and link must be in the same global network and the same site.
+ * Manages a Network Manager link association. Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
  *
  * ## Example Usage
  *
@@ -59,15 +57,15 @@ export class LinkAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     public readonly deviceId!: pulumi.Output<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * The ID of the link.
+     * ID of the link.
      */
     public readonly linkId!: pulumi.Output<string>;
 
@@ -112,15 +110,15 @@ export class LinkAssociation extends pulumi.CustomResource {
  */
 export interface LinkAssociationState {
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     deviceId?: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     globalNetworkId?: pulumi.Input<string>;
     /**
-     * The ID of the link.
+     * ID of the link.
      */
     linkId?: pulumi.Input<string>;
 }
@@ -130,15 +128,15 @@ export interface LinkAssociationState {
  */
 export interface LinkAssociationArgs {
     /**
-     * The ID of the device.
+     * ID of the device.
      */
     deviceId: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The ID of the link.
+     * ID of the link.
      */
     linkId: pulumi.Input<string>;
 }

@@ -34,14 +34,18 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="portInfos", required=true)
     private Output<List<InstancePublicPortsPortInfoArgs>> portInfos;
 
     /**
-     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<InstancePublicPortsPortInfoArgs>> portInfos() {
@@ -111,7 +115,9 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -122,7 +128,9 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -132,7 +140,9 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

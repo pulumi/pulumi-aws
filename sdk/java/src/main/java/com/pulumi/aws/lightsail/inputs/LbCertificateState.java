@@ -18,14 +18,14 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
     public static final LbCertificateState Empty = new LbCertificateState();
 
     /**
-     * The ARN of the lightsail certificate.
+     * ARN of the lightsail certificate.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the lightsail certificate.
+     * @return ARN of the lightsail certificate.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The timestamp when the instance was created.
+     * Timestamp when the instance was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The timestamp when the instance was created.
+     * @return Timestamp when the instance was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -48,36 +48,44 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * @return Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
+    /**
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * 
+     */
     @Import(name="domainValidationRecords")
     private @Nullable Output<List<LbCertificateDomainValidationRecordArgs>> domainValidationRecords;
 
+    /**
+     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * 
+     */
     public Optional<Output<List<LbCertificateDomainValidationRecordArgs>>> domainValidationRecords() {
         return Optional.ofNullable(this.domainValidationRecords);
     }
 
     /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
+     * Load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
     /**
-     * @return The load balancer name where you want to create the SSL/TLS certificate.
+     * @return Load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
     public Optional<Output<String>> lbName() {
@@ -85,14 +93,18 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The SSL/TLS certificate name.
+     * SSL/TLS certificate name.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The SSL/TLS certificate name.
+     * @return SSL/TLS certificate name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -129,9 +141,17 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
 
+    /**
+     * Support code for the certificate.
+     * 
+     */
     @Import(name="supportCode")
     private @Nullable Output<String> supportCode;
 
+    /**
+     * @return Support code for the certificate.
+     * 
+     */
     public Optional<Output<String>> supportCode() {
         return Optional.ofNullable(this.supportCode);
     }
@@ -169,7 +189,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the lightsail certificate.
+         * @param arn ARN of the lightsail certificate.
          * 
          * @return builder
          * 
@@ -180,7 +200,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the lightsail certificate.
+         * @param arn ARN of the lightsail certificate.
          * 
          * @return builder
          * 
@@ -190,7 +210,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createdAt The timestamp when the instance was created.
+         * @param createdAt Timestamp when the instance was created.
          * 
          * @return builder
          * 
@@ -201,7 +221,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createdAt The timestamp when the instance was created.
+         * @param createdAt Timestamp when the instance was created.
          * 
          * @return builder
          * 
@@ -211,7 +231,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
+         * @param domainName Domain name (e.g., example.com) for your SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -222,7 +242,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
+         * @param domainName Domain name (e.g., example.com) for your SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -231,21 +251,39 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainValidationRecords(@Nullable Output<List<LbCertificateDomainValidationRecordArgs>> domainValidationRecords) {
             $.domainValidationRecords = domainValidationRecords;
             return this;
         }
 
+        /**
+         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainValidationRecords(List<LbCertificateDomainValidationRecordArgs> domainValidationRecords) {
             return domainValidationRecords(Output.of(domainValidationRecords));
         }
 
+        /**
+         * @param domainValidationRecords Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainValidationRecords(LbCertificateDomainValidationRecordArgs... domainValidationRecords) {
             return domainValidationRecords(List.of(domainValidationRecords));
         }
 
         /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
+         * @param lbName Load balancer name where you want to create the SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -256,7 +294,7 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
+         * @param lbName Load balancer name where you want to create the SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -266,7 +304,9 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The SSL/TLS certificate name.
+         * @param name SSL/TLS certificate name.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -277,7 +317,9 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The SSL/TLS certificate name.
+         * @param name SSL/TLS certificate name.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -338,11 +380,23 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
 
+        /**
+         * @param supportCode Support code for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportCode(@Nullable Output<String> supportCode) {
             $.supportCode = supportCode;
             return this;
         }
 
+        /**
+         * @param supportCode Support code for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportCode(String supportCode) {
             return supportCode(Output.of(supportCode));
         }

@@ -15,14 +15,14 @@ public final class FunctionTracingConfigArgs extends com.pulumi.resources.Resour
     public static final FunctionTracingConfigArgs Empty = new FunctionTracingConfigArgs();
 
     /**
-     * Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with &#34;sampled=1&#34;. If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+     * X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with &#34;sampled=1&#34;. If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+     * @return X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
      * 
      */
     public Output<String> mode() {
@@ -54,7 +54,7 @@ public final class FunctionTracingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mode Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with &#34;sampled=1&#34;. If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+         * @param mode X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class FunctionTracingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mode Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with &#34;sampled=1&#34;. If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+         * @param mode X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
          * 
          * @return builder
          * 

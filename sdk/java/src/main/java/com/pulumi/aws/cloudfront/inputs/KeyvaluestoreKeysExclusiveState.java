@@ -38,6 +38,21 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
     }
 
     /**
+     * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * 
+     */
+    @Import(name="maxBatchSize")
+    private @Nullable Output<Integer> maxBatchSize;
+
+    /**
+     * @return Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * 
+     */
+    public Optional<Output<Integer>> maxBatchSize() {
+        return Optional.ofNullable(this.maxBatchSize);
+    }
+
+    /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resource_key_value_pair` below.
      * 
@@ -73,6 +88,7 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
 
     private KeyvaluestoreKeysExclusiveState(KeyvaluestoreKeysExclusiveState $) {
         this.keyValueStoreArn = $.keyValueStoreArn;
+        this.maxBatchSize = $.maxBatchSize;
         this.resourceKeyValuePairs = $.resourceKeyValuePairs;
         this.totalSizeInBytes = $.totalSizeInBytes;
     }
@@ -118,6 +134,27 @@ public final class KeyvaluestoreKeysExclusiveState extends com.pulumi.resources.
          */
         public Builder keyValueStoreArn(String keyValueStoreArn) {
             return keyValueStoreArn(Output.of(keyValueStoreArn));
+        }
+
+        /**
+         * @param maxBatchSize Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxBatchSize(@Nullable Output<Integer> maxBatchSize) {
+            $.maxBatchSize = maxBatchSize;
+            return this;
+        }
+
+        /**
+         * @param maxBatchSize Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxBatchSize(Integer maxBatchSize) {
+            return maxBatchSize(Output.of(maxBatchSize));
         }
 
         /**

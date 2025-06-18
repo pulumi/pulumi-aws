@@ -17,14 +17,14 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
     public static final CustomerGatewayAssociationArgs Empty = new CustomerGatewayAssociationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the customer gateway.
+     * ARN of the customer gateway.
      * 
      */
     @Import(name="customerGatewayArn", required=true)
     private Output<String> customerGatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the customer gateway.
+     * @return ARN of the customer gateway.
      * 
      */
     public Output<String> customerGatewayArn() {
@@ -32,14 +32,14 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the device.
+     * ID of the device.
      * 
      */
     @Import(name="deviceId", required=true)
     private Output<String> deviceId;
 
     /**
-     * @return The ID of the device.
+     * @return ID of the device.
      * 
      */
     public Output<String> deviceId() {
@@ -47,14 +47,18 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
@@ -62,14 +66,14 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the link.
+     * ID of the link.
      * 
      */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
     /**
-     * @return The ID of the link.
+     * @return ID of the link.
      * 
      */
     public Optional<Output<String>> linkId() {
@@ -104,7 +108,7 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param customerGatewayArn The Amazon Resource Name (ARN) of the customer gateway.
+         * @param customerGatewayArn ARN of the customer gateway.
          * 
          * @return builder
          * 
@@ -115,7 +119,7 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param customerGatewayArn The Amazon Resource Name (ARN) of the customer gateway.
+         * @param customerGatewayArn ARN of the customer gateway.
          * 
          * @return builder
          * 
@@ -125,7 +129,7 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -136,7 +140,7 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -146,7 +150,9 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -157,7 +163,9 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -167,7 +175,7 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 
@@ -178,7 +186,7 @@ public final class CustomerGatewayAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 

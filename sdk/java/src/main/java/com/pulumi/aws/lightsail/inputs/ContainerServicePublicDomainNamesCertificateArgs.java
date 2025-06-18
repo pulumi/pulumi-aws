@@ -15,16 +15,32 @@ public final class ContainerServicePublicDomainNamesCertificateArgs extends com.
 
     public static final ContainerServicePublicDomainNamesCertificateArgs Empty = new ContainerServicePublicDomainNamesCertificateArgs();
 
+    /**
+     * Name of the certificate.
+     * 
+     */
     @Import(name="certificateName", required=true)
     private Output<String> certificateName;
 
+    /**
+     * @return Name of the certificate.
+     * 
+     */
     public Output<String> certificateName() {
         return this.certificateName;
     }
 
+    /**
+     * List of domain names for the certificate.
+     * 
+     */
     @Import(name="domainNames", required=true)
     private Output<List<String>> domainNames;
 
+    /**
+     * @return List of domain names for the certificate.
+     * 
+     */
     public Output<List<String>> domainNames() {
         return this.domainNames;
     }
@@ -54,24 +70,54 @@ public final class ContainerServicePublicDomainNamesCertificateArgs extends com.
             $ = new ContainerServicePublicDomainNamesCertificateArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateName Name of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateName(Output<String> certificateName) {
             $.certificateName = certificateName;
             return this;
         }
 
+        /**
+         * @param certificateName Name of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateName(String certificateName) {
             return certificateName(Output.of(certificateName));
         }
 
+        /**
+         * @param domainNames List of domain names for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainNames(Output<List<String>> domainNames) {
             $.domainNames = domainNames;
             return this;
         }
 
+        /**
+         * @param domainNames List of domain names for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainNames(List<String> domainNames) {
             return domainNames(Output.of(domainNames));
         }
 
+        /**
+         * @param domainNames List of domain names for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainNames(String... domainNames) {
             return domainNames(List.of(domainNames));
         }

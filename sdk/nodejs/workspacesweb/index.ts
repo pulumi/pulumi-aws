@@ -10,10 +10,25 @@ export type BrowserSettings = import("./browserSettings").BrowserSettings;
 export const BrowserSettings: typeof import("./browserSettings").BrowserSettings = null as any;
 utilities.lazyLoad(exports, ["BrowserSettings"], () => require("./browserSettings"));
 
+export { DataProtectionSettingsArgs, DataProtectionSettingsState } from "./dataProtectionSettings";
+export type DataProtectionSettings = import("./dataProtectionSettings").DataProtectionSettings;
+export const DataProtectionSettings: typeof import("./dataProtectionSettings").DataProtectionSettings = null as any;
+utilities.lazyLoad(exports, ["DataProtectionSettings"], () => require("./dataProtectionSettings"));
+
+export { IpAccessSettingsArgs, IpAccessSettingsState } from "./ipAccessSettings";
+export type IpAccessSettings = import("./ipAccessSettings").IpAccessSettings;
+export const IpAccessSettings: typeof import("./ipAccessSettings").IpAccessSettings = null as any;
+utilities.lazyLoad(exports, ["IpAccessSettings"], () => require("./ipAccessSettings"));
+
 export { NetworkSettingsArgs, NetworkSettingsState } from "./networkSettings";
 export type NetworkSettings = import("./networkSettings").NetworkSettings;
 export const NetworkSettings: typeof import("./networkSettings").NetworkSettings = null as any;
 utilities.lazyLoad(exports, ["NetworkSettings"], () => require("./networkSettings"));
+
+export { UserAccessLoggingSettingsArgs, UserAccessLoggingSettingsState } from "./userAccessLoggingSettings";
+export type UserAccessLoggingSettings = import("./userAccessLoggingSettings").UserAccessLoggingSettings;
+export const UserAccessLoggingSettings: typeof import("./userAccessLoggingSettings").UserAccessLoggingSettings = null as any;
+utilities.lazyLoad(exports, ["UserAccessLoggingSettings"], () => require("./userAccessLoggingSettings"));
 
 export { UserSettingsArgs, UserSettingsState } from "./userSettings";
 export type UserSettings = import("./userSettings").UserSettings;
@@ -27,8 +42,14 @@ const _module = {
         switch (type) {
             case "aws:workspacesweb/browserSettings:BrowserSettings":
                 return new BrowserSettings(name, <any>undefined, { urn })
+            case "aws:workspacesweb/dataProtectionSettings:DataProtectionSettings":
+                return new DataProtectionSettings(name, <any>undefined, { urn })
+            case "aws:workspacesweb/ipAccessSettings:IpAccessSettings":
+                return new IpAccessSettings(name, <any>undefined, { urn })
             case "aws:workspacesweb/networkSettings:NetworkSettings":
                 return new NetworkSettings(name, <any>undefined, { urn })
+            case "aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings":
+                return new UserAccessLoggingSettings(name, <any>undefined, { urn })
             case "aws:workspacesweb/userSettings:UserSettings":
                 return new UserSettings(name, <any>undefined, { urn })
             default:
@@ -37,5 +58,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "workspacesweb/browserSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspacesweb/dataProtectionSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspacesweb/ipAccessSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "workspacesweb/networkSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspacesweb/userAccessLoggingSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "workspacesweb/userSettings", _module)

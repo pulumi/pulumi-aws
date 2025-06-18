@@ -32,6 +32,8 @@ __all__ = [
     'FileCacheLustreConfigurationLogConfigurationArgsDict',
     'FileCacheLustreConfigurationMetadataConfigurationArgs',
     'FileCacheLustreConfigurationMetadataConfigurationArgsDict',
+    'LustreFileSystemDataReadCacheConfigurationArgs',
+    'LustreFileSystemDataReadCacheConfigurationArgsDict',
     'LustreFileSystemLogConfigurationArgs',
     'LustreFileSystemLogConfigurationArgsDict',
     'LustreFileSystemMetadataConfigurationArgs',
@@ -655,6 +657,57 @@ class FileCacheLustreConfigurationMetadataConfigurationArgs:
 
 
 if not MYPY:
+    class LustreFileSystemDataReadCacheConfigurationArgsDict(TypedDict):
+        sizing_mode: pulumi.Input[builtins.str]
+        """
+        Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+        """
+        size: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
+        """
+elif False:
+    LustreFileSystemDataReadCacheConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LustreFileSystemDataReadCacheConfigurationArgs:
+    def __init__(__self__, *,
+                 sizing_mode: pulumi.Input[builtins.str],
+                 size: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] sizing_mode: Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+        :param pulumi.Input[builtins.int] size: Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
+        """
+        pulumi.set(__self__, "sizing_mode", sizing_mode)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter(name="sizingMode")
+    def sizing_mode(self) -> pulumi.Input[builtins.str]:
+        """
+        Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+        """
+        return pulumi.get(self, "sizing_mode")
+
+    @sizing_mode.setter
+    def sizing_mode(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "sizing_mode", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "size", value)
+
+
+if not MYPY:
     class LustreFileSystemLogConfigurationArgsDict(TypedDict):
         destination: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -710,11 +763,11 @@ if not MYPY:
     class LustreFileSystemMetadataConfigurationArgsDict(TypedDict):
         iops: NotRequired[pulumi.Input[builtins.int]]
         """
-        Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+        Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
         """
         mode: NotRequired[pulumi.Input[builtins.str]]
         """
-        Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+        Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 
         !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         """
@@ -727,8 +780,8 @@ class LustreFileSystemMetadataConfigurationArgs:
                  iops: Optional[pulumi.Input[builtins.int]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.int] iops: Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-        :param pulumi.Input[builtins.str] mode: Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+        :param pulumi.Input[builtins.int] iops: Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
+        :param pulumi.Input[builtins.str] mode: Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
                
                !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         """
@@ -741,7 +794,7 @@ class LustreFileSystemMetadataConfigurationArgs:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+        Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
         """
         return pulumi.get(self, "iops")
 
@@ -753,7 +806,7 @@ class LustreFileSystemMetadataConfigurationArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+        Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 
         !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         """

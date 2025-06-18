@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a transit gateway route table attachment.
+// Manages a Network Manager transit gateway route table attachment.
 //
 // ## Example Usage
 //
@@ -51,33 +51,35 @@ import (
 type TransitGatewayRouteTableAttachment struct {
 	pulumi.CustomResourceState
 
-	// Attachment Amazon Resource Name (ARN).
+	// Attachment ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The policy rule number associated with the attachment.
+	// Policy rule number associated with the attachment.
 	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
-	// The type of attachment.
+	// Type of attachment.
 	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
-	// The ARN of the core network.
+	// ARN of the core network.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// The ID of the core network.
+	// ID of the core network.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// The edge location for the peer.
+	// Edge location for the peer.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// The ID of the attachment account owner.
+	// ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The ID of the peer for the attachment.
+	// ID of the peer for the attachment.
 	PeeringId pulumi.StringOutput `pulumi:"peeringId"`
-	// The attachment resource ARN.
+	// Attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The name of the segment attachment.
+	// Name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
-	// The state of the attachment.
+	// State of the attachment.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ARN of the transit gateway route table for the attachment.
+	// ARN of the transit gateway route table for the attachment.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableArn pulumi.StringOutput `pulumi:"transitGatewayRouteTableArn"`
 }
 
@@ -117,64 +119,68 @@ func GetTransitGatewayRouteTableAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransitGatewayRouteTableAttachment resources.
 type transitGatewayRouteTableAttachmentState struct {
-	// Attachment Amazon Resource Name (ARN).
+	// Attachment ARN.
 	Arn *string `pulumi:"arn"`
-	// The policy rule number associated with the attachment.
+	// Policy rule number associated with the attachment.
 	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
-	// The type of attachment.
+	// Type of attachment.
 	AttachmentType *string `pulumi:"attachmentType"`
-	// The ARN of the core network.
+	// ARN of the core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// The ID of the core network.
+	// ID of the core network.
 	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// The edge location for the peer.
+	// Edge location for the peer.
 	EdgeLocation *string `pulumi:"edgeLocation"`
-	// The ID of the attachment account owner.
+	// ID of the attachment account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The ID of the peer for the attachment.
+	// ID of the peer for the attachment.
 	PeeringId *string `pulumi:"peeringId"`
-	// The attachment resource ARN.
+	// Attachment resource ARN.
 	ResourceArn *string `pulumi:"resourceArn"`
-	// The name of the segment attachment.
+	// Name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
-	// The state of the attachment.
+	// State of the attachment.
 	State *string `pulumi:"state"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ARN of the transit gateway route table for the attachment.
+	// ARN of the transit gateway route table for the attachment.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableArn *string `pulumi:"transitGatewayRouteTableArn"`
 }
 
 type TransitGatewayRouteTableAttachmentState struct {
-	// Attachment Amazon Resource Name (ARN).
+	// Attachment ARN.
 	Arn pulumi.StringPtrInput
-	// The policy rule number associated with the attachment.
+	// Policy rule number associated with the attachment.
 	AttachmentPolicyRuleNumber pulumi.IntPtrInput
-	// The type of attachment.
+	// Type of attachment.
 	AttachmentType pulumi.StringPtrInput
-	// The ARN of the core network.
+	// ARN of the core network.
 	CoreNetworkArn pulumi.StringPtrInput
-	// The ID of the core network.
+	// ID of the core network.
 	CoreNetworkId pulumi.StringPtrInput
-	// The edge location for the peer.
+	// Edge location for the peer.
 	EdgeLocation pulumi.StringPtrInput
-	// The ID of the attachment account owner.
+	// ID of the attachment account owner.
 	OwnerAccountId pulumi.StringPtrInput
-	// The ID of the peer for the attachment.
+	// ID of the peer for the attachment.
 	PeeringId pulumi.StringPtrInput
-	// The attachment resource ARN.
+	// Attachment resource ARN.
 	ResourceArn pulumi.StringPtrInput
-	// The name of the segment attachment.
+	// Name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
-	// The state of the attachment.
+	// State of the attachment.
 	State pulumi.StringPtrInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The ARN of the transit gateway route table for the attachment.
+	// ARN of the transit gateway route table for the attachment.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableArn pulumi.StringPtrInput
 }
 
@@ -183,21 +189,25 @@ func (TransitGatewayRouteTableAttachmentState) ElementType() reflect.Type {
 }
 
 type transitGatewayRouteTableAttachmentArgs struct {
-	// The ID of the peer for the attachment.
+	// ID of the peer for the attachment.
 	PeeringId string `pulumi:"peeringId"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The ARN of the transit gateway route table for the attachment.
+	// ARN of the transit gateway route table for the attachment.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableArn string `pulumi:"transitGatewayRouteTableArn"`
 }
 
 // The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
 type TransitGatewayRouteTableAttachmentArgs struct {
-	// The ID of the peer for the attachment.
+	// ID of the peer for the attachment.
 	PeeringId pulumi.StringInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The ARN of the transit gateway route table for the attachment.
+	// ARN of the transit gateway route table for the attachment.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableArn pulumi.StringInput
 }
 
@@ -288,57 +298,57 @@ func (o TransitGatewayRouteTableAttachmentOutput) ToTransitGatewayRouteTableAtta
 	return o
 }
 
-// Attachment Amazon Resource Name (ARN).
+// Attachment ARN.
 func (o TransitGatewayRouteTableAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The policy rule number associated with the attachment.
+// Policy rule number associated with the attachment.
 func (o TransitGatewayRouteTableAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
 }
 
-// The type of attachment.
+// Type of attachment.
 func (o TransitGatewayRouteTableAttachmentOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
 }
 
-// The ARN of the core network.
+// ARN of the core network.
 func (o TransitGatewayRouteTableAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// The ID of the core network.
+// ID of the core network.
 func (o TransitGatewayRouteTableAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// The edge location for the peer.
+// Edge location for the peer.
 func (o TransitGatewayRouteTableAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// The ID of the attachment account owner.
+// ID of the attachment account owner.
 func (o TransitGatewayRouteTableAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the peer for the attachment.
+// ID of the peer for the attachment.
 func (o TransitGatewayRouteTableAttachmentOutput) PeeringId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.PeeringId }).(pulumi.StringOutput)
 }
 
-// The attachment resource ARN.
+// Attachment resource ARN.
 func (o TransitGatewayRouteTableAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The name of the segment attachment.
+// Name of the segment attachment.
 func (o TransitGatewayRouteTableAttachmentOutput) SegmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
 }
 
-// The state of the attachment.
+// State of the attachment.
 func (o TransitGatewayRouteTableAttachmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
@@ -348,12 +358,14 @@ func (o TransitGatewayRouteTableAttachmentOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TransitGatewayRouteTableAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the transit gateway route table for the attachment.
+// ARN of the transit gateway route table for the attachment.
+//
+// The following arguments are optional:
 func (o TransitGatewayRouteTableAttachmentOutput) TransitGatewayRouteTableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.TransitGatewayRouteTableArn }).(pulumi.StringOutput)
 }

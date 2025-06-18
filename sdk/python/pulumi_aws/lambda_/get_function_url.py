@@ -78,7 +78,7 @@ class GetFunctionUrlResult:
     @pulumi.getter
     def cors(self) -> Sequence['outputs.GetFunctionUrlCorResult']:
         """
-        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
+        Cross-origin resource sharing (CORS) settings for the function URL. See below.
         """
         return pulumi.get(self, "cors")
 
@@ -179,22 +179,57 @@ def get_function_url(function_name: Optional[builtins.str] = None,
                      region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionUrlResult:
     """
-    Provides information about a Lambda function URL.
+    Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
 
     ## Example Usage
+
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function_url(function_name=function_name)
+    example = aws.lambda.get_function_url(function_name="my_lambda_function")
+    pulumi.export("functionUrl", example.function_url)
+    ```
+
+    ### With Qualifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.lambda.get_function_url(function_name=example_aws_lambda_function["functionName"],
+        qualifier="production")
+    # Use the URL in other resources
+    lambda_alias = aws.route53.Record("lambda_alias",
+        zone_id=example_aws_route53_zone["zoneId"],
+        name="api.example.com",
+        type=aws.route53.RecordType.CNAME,
+        ttl=300,
+        records=[std.replace(text=example.function_url,
+            search="https://",
+            replace="").result])
+    ```
+
+    ### Retrieve CORS Configuration
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.lambda.get_function_url(function_name="api_function")
+    cors_config = len(example.cors).apply(lambda length: example.cors[0] if length > 0 else None)
+    allowed_origins = cors_config["allowOrigins"] if cors_config != None else []
+    pulumi.export("corsAllowedOrigins", allowed_origins)
     ```
 
 
-    :param builtins.str function_name: The name (or ARN) of the Lambda function.
-    :param builtins.str qualifier: Alias name or `"$LATEST"`.
+    :param builtins.str function_name: Name or ARN of the Lambda function.
+           
+           The following arguments are optional:
+    :param builtins.str qualifier: Alias name or `$LATEST`.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -222,22 +257,57 @@ def get_function_url_output(function_name: Optional[pulumi.Input[builtins.str]] 
                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionUrlResult]:
     """
-    Provides information about a Lambda function URL.
+    Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
 
     ## Example Usage
+
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function_url(function_name=function_name)
+    example = aws.lambda.get_function_url(function_name="my_lambda_function")
+    pulumi.export("functionUrl", example.function_url)
+    ```
+
+    ### With Qualifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.lambda.get_function_url(function_name=example_aws_lambda_function["functionName"],
+        qualifier="production")
+    # Use the URL in other resources
+    lambda_alias = aws.route53.Record("lambda_alias",
+        zone_id=example_aws_route53_zone["zoneId"],
+        name="api.example.com",
+        type=aws.route53.RecordType.CNAME,
+        ttl=300,
+        records=[std.replace(text=example.function_url,
+            search="https://",
+            replace="").result])
+    ```
+
+    ### Retrieve CORS Configuration
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.lambda.get_function_url(function_name="api_function")
+    cors_config = len(example.cors).apply(lambda length: example.cors[0] if length > 0 else None)
+    allowed_origins = cors_config["allowOrigins"] if cors_config != None else []
+    pulumi.export("corsAllowedOrigins", allowed_origins)
     ```
 
 
-    :param builtins.str function_name: The name (or ARN) of the Lambda function.
-    :param builtins.str qualifier: Alias name or `"$LATEST"`.
+    :param builtins.str function_name: Name or ARN of the Lambda function.
+           
+           The following arguments are optional:
+    :param builtins.str qualifier: Alias name or `$LATEST`.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

@@ -913,6 +913,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        evs: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         finspace: NotRequired[pulumi.Input[builtins.str]]
         """
         Use this to override the default service endpoint URL
@@ -1719,6 +1723,7 @@ class ProviderEndpointArgs:
                  eventbridge: Optional[pulumi.Input[builtins.str]] = None,
                  events: Optional[pulumi.Input[builtins.str]] = None,
                  evidently: Optional[pulumi.Input[builtins.str]] = None,
+                 evs: Optional[pulumi.Input[builtins.str]] = None,
                  finspace: Optional[pulumi.Input[builtins.str]] = None,
                  firehose: Optional[pulumi.Input[builtins.str]] = None,
                  fis: Optional[pulumi.Input[builtins.str]] = None,
@@ -2016,6 +2021,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[builtins.str] eventbridge: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] events: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] evidently: Use this to override the default service endpoint URL
+        :param pulumi.Input[builtins.str] evs: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] finspace: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] firehose: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] fis: Use this to override the default service endpoint URL
@@ -2441,6 +2447,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "events", events)
         if evidently is not None:
             pulumi.set(__self__, "evidently", evidently)
+        if evs is not None:
+            pulumi.set(__self__, "evs", evs)
         if finspace is not None:
             pulumi.set(__self__, "finspace", finspace)
         if firehose is not None:
@@ -4313,6 +4321,18 @@ class ProviderEndpointArgs:
     @evidently.setter
     def evidently(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "evidently", value)
+
+    @property
+    @pulumi.getter
+    def evs(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "evs")
+
+    @evs.setter
+    def evs(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "evs", value)
 
     @property
     @pulumi.getter
