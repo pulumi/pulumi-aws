@@ -172,7 +172,7 @@ type launchConfigurationState struct {
 	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices []LaunchConfigurationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// The name attribute of the IAM instance profile to associate with launched instances.
-	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// The EC2 image ID to launch.
 	ImageId *string `pulumi:"imageId"`
 	// The size of instance to launch.
@@ -217,7 +217,7 @@ type LaunchConfigurationState struct {
 	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices LaunchConfigurationEphemeralBlockDeviceArrayInput
 	// The name attribute of the IAM instance profile to associate with launched instances.
-	IamInstanceProfile pulumi.StringPtrInput
+	IamInstanceProfile pulumi.Input
 	// The EC2 image ID to launch.
 	ImageId pulumi.StringPtrInput
 	// The size of instance to launch.
@@ -264,7 +264,7 @@ type launchConfigurationArgs struct {
 	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices []LaunchConfigurationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// The name attribute of the IAM instance profile to associate with launched instances.
-	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// The EC2 image ID to launch.
 	ImageId string `pulumi:"imageId"`
 	// The size of instance to launch.
@@ -308,7 +308,7 @@ type LaunchConfigurationArgs struct {
 	// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
 	EphemeralBlockDevices LaunchConfigurationEphemeralBlockDeviceArrayInput
 	// The name attribute of the IAM instance profile to associate with launched instances.
-	IamInstanceProfile pulumi.StringPtrInput
+	IamInstanceProfile pulumi.Input
 	// The EC2 image ID to launch.
 	ImageId pulumi.StringInput
 	// The size of instance to launch.

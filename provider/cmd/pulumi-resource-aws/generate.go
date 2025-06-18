@@ -27,12 +27,15 @@ import (
 	"os"
 	"strings"
 
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/minimalschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 const (
-	schemaJSON = "schema.json"
+	schemaJSON        = "schema.json"
+	schemaMinimalJSON = "schema-minimal.json"
 )
 
 type compressAndVersionSchemaFileOptions struct {
@@ -84,10 +87,37 @@ func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) erro
 	return nil
 }
 
+// Compute minimal schema and its embedded version from the actual schema.
+func computeMinimalSchema(version string) {
+	s, err := readPackageSpecFile(schemaJSON)
+	if err != nil {
+		log.Fatal(err)
+	}
+	minimalschema.NewMinimalSchema(*s).Write(schemaMinimalJSON)
+}
+
+func embedMinimalSchema(version string) {
+	if err := compressAndVersionSchemaFile(compressAndVersionSchemaFileOptions{
+		sourceFile: schemaMinimalJSON,
+		destFile:   strings.ReplaceAll(schemaMinimalJSON, ".json", "-embed.json"),
+		version:    version,
+		gzip:       true,
+	}); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func main() {
 	version, found := os.LookupEnv("VERSION")
 	if !found {
 		log.Fatal("VERSION environment variable is required but was not set")
+	}
+
+	// If called with PULUMI_AWS_MINIMAL_SCHEMA=true, process the minimal schema only and stop.
+	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
+		computeMinimalSchema(version)
+		embedMinimalSchema(version)
+		return
 	}
 
 	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file is not present.

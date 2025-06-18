@@ -7,6 +7,8 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+import {RestApi} from "./index";
+
 /**
  * Provides an HTTP Method Integration for an API Gateway Integration.
  *
@@ -425,7 +427,7 @@ export interface IntegrationState {
     /**
      * ID of the associated REST API.
      */
-    restApi?: pulumi.Input<string>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      */
@@ -511,7 +513,7 @@ export interface IntegrationArgs {
     /**
      * ID of the associated REST API.
      */
-    restApi: pulumi.Input<string>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      */

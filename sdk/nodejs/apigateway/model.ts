@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {RestApi} from "./index";
+
 /**
  * Provides a Model for a REST API Gateway.
  *
@@ -151,7 +153,7 @@ export interface ModelState {
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * Schema of the model in a JSON form
      */
@@ -181,7 +183,7 @@ export interface ModelArgs {
     /**
      * ID of the associated REST API
      */
-    restApi: pulumi.Input<string>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * Schema of the model in a JSON form
      */

@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {LogGroup} from "./index";
+
 /**
  * Provides a CloudWatch Logs subscription filter resource.
  *
@@ -151,7 +153,7 @@ export interface LogSubscriptionFilterState {
     /**
      * The name of the log group to associate the subscription filter with
      */
-    logGroup?: pulumi.Input<string>;
+    logGroup?: pulumi.Input<string | LogGroup>;
     /**
      * A name for the subscription filter
      */
@@ -185,7 +187,7 @@ export interface LogSubscriptionFilterArgs {
     /**
      * The name of the log group to associate the subscription filter with
      */
-    logGroup: pulumi.Input<string>;
+    logGroup: pulumi.Input<string | LogGroup>;
     /**
      * A name for the subscription filter
      */

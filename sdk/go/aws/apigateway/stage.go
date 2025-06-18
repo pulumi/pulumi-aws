@@ -171,7 +171,7 @@ type stageState struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// ID of the deployment that the stage points to
-	Deployment *string `pulumi:"deployment"`
+	Deployment interface{} `pulumi:"deployment"`
 	// Description of the stage.
 	Description *string `pulumi:"description"`
 	// Version of the associated API documentation.
@@ -186,7 +186,7 @@ type stageState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Name of the stage
 	StageName *string `pulumi:"stageName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,7 +215,7 @@ type StageState struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// ID of the deployment that the stage points to
-	Deployment pulumi.StringPtrInput
+	Deployment pulumi.Input
 	// Description of the stage.
 	Description pulumi.StringPtrInput
 	// Version of the associated API documentation.
@@ -230,7 +230,7 @@ type StageState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Name of the stage
 	StageName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -261,7 +261,7 @@ type stageArgs struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// ID of the deployment that the stage points to
-	Deployment string `pulumi:"deployment"`
+	Deployment interface{} `pulumi:"deployment"`
 	// Description of the stage.
 	Description *string `pulumi:"description"`
 	// Version of the associated API documentation.
@@ -269,7 +269,7 @@ type stageArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Name of the stage
 	StageName string `pulumi:"stageName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -293,7 +293,7 @@ type StageArgs struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// ID of the deployment that the stage points to
-	Deployment pulumi.StringInput
+	Deployment pulumi.Input
 	// Description of the stage.
 	Description pulumi.StringPtrInput
 	// Version of the associated API documentation.
@@ -301,7 +301,7 @@ type StageArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Name of the stage
 	StageName pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

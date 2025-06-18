@@ -256,7 +256,7 @@ type methodResponseState struct {
 	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
 	// The string identifier of the associated REST API.
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The method response's status code.
 	StatusCode *string `pulumi:"statusCode"`
 }
@@ -275,7 +275,7 @@ type MethodResponseState struct {
 	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapInput
 	// The string identifier of the associated REST API.
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// The method response's status code.
 	StatusCode pulumi.StringPtrInput
 }
@@ -298,7 +298,7 @@ type methodResponseArgs struct {
 	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
 	// The string identifier of the associated REST API.
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The method response's status code.
 	StatusCode string `pulumi:"statusCode"`
 }
@@ -318,7 +318,7 @@ type MethodResponseArgs struct {
 	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapInput
 	// The string identifier of the associated REST API.
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The method response's status code.
 	StatusCode pulumi.StringInput
 }

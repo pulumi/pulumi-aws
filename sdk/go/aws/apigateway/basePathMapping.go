@@ -101,7 +101,7 @@ type basePathMappingState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the API to connect.
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName *string `pulumi:"stageName"`
 }
@@ -116,7 +116,7 @@ type BasePathMappingState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the API to connect.
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName pulumi.StringPtrInput
 }
@@ -135,7 +135,7 @@ type basePathMappingArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the API to connect.
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName *string `pulumi:"stageName"`
 }
@@ -151,7 +151,7 @@ type BasePathMappingArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the API to connect.
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName pulumi.StringPtrInput
 }

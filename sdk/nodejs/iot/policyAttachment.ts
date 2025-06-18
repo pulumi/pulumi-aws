@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {Policy} from "./index";
+
 /**
  * Provides an IoT policy attachment.
  *
@@ -118,7 +120,7 @@ export interface PolicyAttachmentState {
     /**
      * The name of the policy to attach.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | Policy>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -136,7 +138,7 @@ export interface PolicyAttachmentArgs {
     /**
      * The name of the policy to attach.
      */
-    policy: pulumi.Input<string>;
+    policy: pulumi.Input<string | Policy>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -62,7 +62,7 @@ import (
 //			}
 //			_, err = elasticbeanstalk.NewApplicationVersion(ctx, "default", &elasticbeanstalk.ApplicationVersionArgs{
 //				Name:        pulumi.String("tf-test-version-label"),
-//				Application: pulumi.String("tf-test-name"),
+//				Application: pulumi.Any("tf-test-name"),
 //				Description: pulumi.String("application version"),
 //				Bucket:      _default.ID(),
 //				Key:         defaultBucketObjectv2.ID(),
@@ -144,11 +144,11 @@ func GetApplicationVersion(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ApplicationVersion resources.
 type applicationVersionState struct {
 	// Name of the Beanstalk Application the version is associated with.
-	Application *string `pulumi:"application"`
+	Application interface{} `pulumi:"application"`
 	// ARN assigned by AWS for this Elastic Beanstalk Application.
 	Arn *string `pulumi:"arn"`
 	// S3 bucket that contains the Application Version source bundle.
-	Bucket *string `pulumi:"bucket"`
+	Bucket interface{} `pulumi:"bucket"`
 	// Short description of the Application Version.
 	Description *string `pulumi:"description"`
 	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
@@ -171,11 +171,11 @@ type applicationVersionState struct {
 
 type ApplicationVersionState struct {
 	// Name of the Beanstalk Application the version is associated with.
-	Application pulumi.StringPtrInput
+	Application pulumi.Input
 	// ARN assigned by AWS for this Elastic Beanstalk Application.
 	Arn pulumi.StringPtrInput
 	// S3 bucket that contains the Application Version source bundle.
-	Bucket pulumi.StringPtrInput
+	Bucket pulumi.Input
 	// Short description of the Application Version.
 	Description pulumi.StringPtrInput
 	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
@@ -202,9 +202,9 @@ func (ApplicationVersionState) ElementType() reflect.Type {
 
 type applicationVersionArgs struct {
 	// Name of the Beanstalk Application the version is associated with.
-	Application string `pulumi:"application"`
+	Application interface{} `pulumi:"application"`
 	// S3 bucket that contains the Application Version source bundle.
-	Bucket string `pulumi:"bucket"`
+	Bucket interface{} `pulumi:"bucket"`
 	// Short description of the Application Version.
 	Description *string `pulumi:"description"`
 	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
@@ -226,9 +226,9 @@ type applicationVersionArgs struct {
 // The set of arguments for constructing a ApplicationVersion resource.
 type ApplicationVersionArgs struct {
 	// Name of the Beanstalk Application the version is associated with.
-	Application pulumi.StringInput
+	Application pulumi.Input
 	// S3 bucket that contains the Application Version source bundle.
-	Bucket pulumi.StringInput
+	Bucket pulumi.Input
 	// Short description of the Application Version.
 	Description pulumi.StringPtrInput
 	// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.

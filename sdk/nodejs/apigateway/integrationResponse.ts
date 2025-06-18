@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {RestApi} from "./index";
+
 /**
  * Provides an HTTP Method Integration Response for an API Gateway Resource.
  *
@@ -216,7 +218,7 @@ export interface IntegrationResponseState {
     /**
      * ID of the associated REST API.
      */
-    restApi?: pulumi.Input<string>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */
@@ -260,7 +262,7 @@ export interface IntegrationResponseArgs {
     /**
      * ID of the associated REST API.
      */
-    restApi: pulumi.Input<string>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */

@@ -231,7 +231,7 @@ type methodState struct {
 	// API resource ID
 	ResourceId *string `pulumi:"resourceId"`
 	// ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 }
 
 type MethodState struct {
@@ -261,7 +261,7 @@ type MethodState struct {
 	// API resource ID
 	ResourceId pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 }
 
 func (MethodState) ElementType() reflect.Type {
@@ -295,7 +295,7 @@ type methodArgs struct {
 	// API resource ID
 	ResourceId string `pulumi:"resourceId"`
 	// ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Method resource.
@@ -326,7 +326,7 @@ type MethodArgs struct {
 	// API resource ID
 	ResourceId pulumi.StringInput
 	// ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 }
 
 func (MethodArgs) ElementType() reflect.Type {

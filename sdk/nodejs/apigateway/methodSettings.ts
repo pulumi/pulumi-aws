@@ -7,6 +7,8 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+import {RestApi} from "./index";
+
 /**
  * Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
  *
@@ -201,7 +203,7 @@ export interface MethodSettingsState {
     /**
      * ID of the REST API
      */
-    restApi?: pulumi.Input<string>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * Settings block, see below.
      */
@@ -227,7 +229,7 @@ export interface MethodSettingsArgs {
     /**
      * ID of the REST API
      */
-    restApi: pulumi.Input<string>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * Settings block, see below.
      */

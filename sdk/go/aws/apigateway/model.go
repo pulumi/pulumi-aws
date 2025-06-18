@@ -129,7 +129,7 @@ type modelState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Schema of the model in a JSON form
 	Schema *string `pulumi:"schema"`
 }
@@ -144,7 +144,7 @@ type ModelState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Schema of the model in a JSON form
 	Schema pulumi.StringPtrInput
 }
@@ -163,7 +163,7 @@ type modelArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Schema of the model in a JSON form
 	Schema *string `pulumi:"schema"`
 }
@@ -179,7 +179,7 @@ type ModelArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Schema of the model in a JSON form
 	Schema pulumi.StringPtrInput
 }
