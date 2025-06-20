@@ -25,8 +25,10 @@ class StaticIpAttachmentArgs:
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StaticIpAttachment resource.
-        :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
-        :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
+        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail instance to attach the IP to.
+        :param pulumi.Input[builtins.str] static_ip_name: Name of the allocated static IP.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_name", instance_name)
@@ -38,7 +40,7 @@ class StaticIpAttachmentArgs:
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Lightsail instance to attach the IP to
+        Name of the Lightsail instance to attach the IP to.
         """
         return pulumi.get(self, "instance_name")
 
@@ -50,7 +52,9 @@ class StaticIpAttachmentArgs:
     @pulumi.getter(name="staticIpName")
     def static_ip_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the allocated static IP
+        Name of the allocated static IP.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "static_ip_name")
 
@@ -80,10 +84,12 @@ class _StaticIpAttachmentState:
                  static_ip_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticIpAttachment resources.
-        :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
-        :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
+        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail instance to attach the IP to.
+        :param pulumi.Input[builtins.str] ip_address: Allocated static IP address.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
+        :param pulumi.Input[builtins.str] static_ip_name: Name of the allocated static IP.
+               
+               The following arguments are optional:
         """
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
@@ -98,7 +104,7 @@ class _StaticIpAttachmentState:
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Lightsail instance to attach the IP to
+        Name of the Lightsail instance to attach the IP to.
         """
         return pulumi.get(self, "instance_name")
 
@@ -110,7 +116,7 @@ class _StaticIpAttachmentState:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The allocated static IP address
+        Allocated static IP address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -134,7 +140,9 @@ class _StaticIpAttachmentState:
     @pulumi.getter(name="staticIpName")
     def static_ip_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the allocated static IP
+        Name of the allocated static IP.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "static_ip_name")
 
@@ -154,9 +162,11 @@ class StaticIpAttachment(pulumi.CustomResource):
                  static_ip_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
+        Manages a static IP address attachment - relationship between a Lightsail static IP and Lightsail instance.
 
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+        Use this resource to attach a static IP address to a Lightsail instance to provide a consistent public IP address that persists across instance restarts.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 
         ## Example Usage
 
@@ -164,23 +174,32 @@ class StaticIpAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_static_ip = aws.lightsail.StaticIp("test", name="example")
-        test_instance = aws.lightsail.Instance("test",
+        example = aws.lightsail.StaticIp("example", name="example")
+        example_instance = aws.lightsail.Instance("example",
             name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="string",
-            bundle_id="string",
-            key_pair_name="some_key_name")
-        test = aws.lightsail.StaticIpAttachment("test",
-            static_ip_name=test_static_ip.id,
-            instance_name=test_instance.id)
+            availability_zone="us-east-1a",
+            blueprint_id="ubuntu_20_04",
+            bundle_id="nano_2_0")
+        example_static_ip_attachment = aws.lightsail.StaticIpAttachment("example",
+            static_ip_name=example.id,
+            instance_name=example_instance.id)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import `aws_lightsail_static_ip_attachment` using the static IP name. For example:
+
+        ```sh
+        $ pulumi import aws:lightsail/staticIpAttachment:StaticIpAttachment example example-static-ip
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
+        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail instance to attach the IP to.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
+        :param pulumi.Input[builtins.str] static_ip_name: Name of the allocated static IP.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -189,9 +208,11 @@ class StaticIpAttachment(pulumi.CustomResource):
                  args: StaticIpAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
+        Manages a static IP address attachment - relationship between a Lightsail static IP and Lightsail instance.
 
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+        Use this resource to attach a static IP address to a Lightsail instance to provide a consistent public IP address that persists across instance restarts.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 
         ## Example Usage
 
@@ -199,16 +220,23 @@ class StaticIpAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_static_ip = aws.lightsail.StaticIp("test", name="example")
-        test_instance = aws.lightsail.Instance("test",
+        example = aws.lightsail.StaticIp("example", name="example")
+        example_instance = aws.lightsail.Instance("example",
             name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="string",
-            bundle_id="string",
-            key_pair_name="some_key_name")
-        test = aws.lightsail.StaticIpAttachment("test",
-            static_ip_name=test_static_ip.id,
-            instance_name=test_instance.id)
+            availability_zone="us-east-1a",
+            blueprint_id="ubuntu_20_04",
+            bundle_id="nano_2_0")
+        example_static_ip_attachment = aws.lightsail.StaticIpAttachment("example",
+            static_ip_name=example.id,
+            instance_name=example_instance.id)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import `aws_lightsail_static_ip_attachment` using the static IP name. For example:
+
+        ```sh
+        $ pulumi import aws:lightsail/staticIpAttachment:StaticIpAttachment example example-static-ip
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,10 +295,12 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
-        :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
+        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail instance to attach the IP to.
+        :param pulumi.Input[builtins.str] ip_address: Allocated static IP address.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
+        :param pulumi.Input[builtins.str] static_ip_name: Name of the allocated static IP.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -286,7 +316,7 @@ class StaticIpAttachment(pulumi.CustomResource):
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the Lightsail instance to attach the IP to
+        Name of the Lightsail instance to attach the IP to.
         """
         return pulumi.get(self, "instance_name")
 
@@ -294,7 +324,7 @@ class StaticIpAttachment(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[builtins.str]:
         """
-        The allocated static IP address
+        Allocated static IP address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -310,7 +340,9 @@ class StaticIpAttachment(pulumi.CustomResource):
     @pulumi.getter(name="staticIpName")
     def static_ip_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the allocated static IP
+        Name of the allocated static IP.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "static_ip_name")
 

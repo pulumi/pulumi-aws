@@ -21,14 +21,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     public static final ContainerServiceState Empty = new ContainerServiceState();
 
     /**
-     * The Amazon Resource Name (ARN) of the container service.
+     * ARN of the container service.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the container service.
+     * @return ARN of the container service.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -36,36 +36,44 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * @return Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
+    /**
+     * Date and time when the container service was created.
+     * 
+     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
+    /**
+     * @return Date and time when the container service was created.
+     * 
+     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
     /**
-     * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+     * Whether to disable the container service. Defaults to `false`.
      * 
      */
     @Import(name="isDisabled")
     private @Nullable Output<Boolean> isDisabled;
 
     /**
-     * @return A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+     * @return Whether to disable the container service. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> isDisabled() {
@@ -73,16 +81,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name for the container service. Names must be of length 1 to 63, and be
-     * unique within each AWS Region in your Lightsail account.
+     * Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the container service. Names must be of length 1 to 63, and be
-     * unique within each AWS Region in your Lightsail account.
+     * @return Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -90,18 +96,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The power specification for the container service. The power specifies the amount of memory,
-     * the number of vCPUs, and the monthly price of each node of the container service.
-     * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+     * Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      * 
      */
     @Import(name="power")
     private @Nullable Output<String> power;
 
     /**
-     * @return The power specification for the container service. The power specifies the amount of memory,
-     * the number of vCPUs, and the monthly price of each node of the container service.
-     * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+     * @return Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      * 
      */
     public Optional<Output<String>> power() {
@@ -109,14 +111,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the power of the container service.
+     * Power ID of the container service.
      * 
      */
     @Import(name="powerId")
     private @Nullable Output<String> powerId;
 
     /**
-     * @return The ID of the power of the container service.
+     * @return Power ID of the container service.
      * 
      */
     public Optional<Output<String>> powerId() {
@@ -124,18 +126,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The principal ARN of the container service. The principal ARN can be used to create a trust
-     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-     * service permission to access resources in your standard AWS account.
+     * Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
      * 
      */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
     /**
-     * @return The principal ARN of the container service. The principal ARN can be used to create a trust
-     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-     * service permission to access resources in your standard AWS account.
+     * @return Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
      * 
      */
     public Optional<Output<String>> principalArn() {
@@ -143,16 +141,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The private domain name of the container service. The private domain name is accessible only
-     * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      * 
      */
     @Import(name="privateDomainName")
     private @Nullable Output<String> privateDomainName;
 
     /**
-     * @return The private domain name of the container service. The private domain name is accessible only
-     * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * @return Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      * 
      */
     public Optional<Output<String>> privateDomainName() {
@@ -160,14 +156,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
      * 
      */
     @Import(name="privateRegistryAccess")
     private @Nullable Output<ContainerServicePrivateRegistryAccessArgs> privateRegistryAccess;
 
     /**
-     * @return An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * @return Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
      * 
      */
     public Optional<Output<ContainerServicePrivateRegistryAccessArgs>> privateRegistryAccess() {
@@ -175,22 +171,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The public domain names to use with the container service, such as example.com
-     * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-     * specify are used when you create a deployment with a container configured as the public endpoint of your container
-     * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-     * Defined below.
+     * Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
      * 
      */
     @Import(name="publicDomainNames")
     private @Nullable Output<ContainerServicePublicDomainNamesArgs> publicDomainNames;
 
     /**
-     * @return The public domain names to use with the container service, such as example.com
-     * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-     * specify are used when you create a deployment with a container configured as the public endpoint of your container
-     * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-     * Defined below.
+     * @return Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
      * 
      */
     public Optional<Output<ContainerServicePublicDomainNamesArgs>> publicDomainNames() {
@@ -213,14 +201,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Lightsail resource type of the container service (i.e., ContainerService).
+     * Lightsail resource type of the container service (i.e., ContainerService).
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return The Lightsail resource type of the container service (i.e., ContainerService).
+     * @return Lightsail resource type of the container service (i.e., ContainerService).
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -228,16 +216,18 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The scale specification for the container service. The scale specifies the allocated compute
-     * nodes of the container service.
+     * Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="scale")
     private @Nullable Output<Integer> scale;
 
     /**
-     * @return The scale specification for the container service. The scale specifies the allocated compute
-     * nodes of the container service.
+     * @return Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> scale() {
@@ -245,14 +235,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The current state of the container service.
+     * Current state of the container service.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The current state of the container service.
+     * @return Current state of the container service.
      * 
      */
     public Optional<Output<String>> state() {
@@ -260,20 +250,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-     * configured with a provider
-     * `default_tags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-     * configured with a provider
-     * `default_tags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -281,16 +265,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -298,16 +280,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The publicly accessible URL of the container service. If no public endpoint is specified in the
-     * currentDeployment, this URL returns a 404 response.
+     * Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The publicly accessible URL of the container service. If no public endpoint is specified in the
-     * currentDeployment, this URL returns a 404 response.
+     * @return Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
      * 
      */
     public Optional<Output<String>> url() {
@@ -356,7 +336,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the container service.
+         * @param arn ARN of the container service.
          * 
          * @return builder
          * 
@@ -367,7 +347,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the container service.
+         * @param arn ARN of the container service.
          * 
          * @return builder
          * 
@@ -377,7 +357,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param availabilityZone The Availability Zone. Follows the format us-east-2a (case-sensitive).
+         * @param availabilityZone Availability Zone. Follows the format us-east-2a (case-sensitive).
          * 
          * @return builder
          * 
@@ -388,7 +368,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param availabilityZone The Availability Zone. Follows the format us-east-2a (case-sensitive).
+         * @param availabilityZone Availability Zone. Follows the format us-east-2a (case-sensitive).
          * 
          * @return builder
          * 
@@ -397,17 +377,29 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
             return availabilityZone(Output.of(availabilityZone));
         }
 
+        /**
+         * @param createdAt Date and time when the container service was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
+        /**
+         * @param createdAt Date and time when the container service was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
         /**
-         * @param isDisabled A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+         * @param isDisabled Whether to disable the container service. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -418,7 +410,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param isDisabled A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+         * @param isDisabled Whether to disable the container service. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -428,8 +420,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name for the container service. Names must be of length 1 to 63, and be
-         * unique within each AWS Region in your Lightsail account.
+         * @param name Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
          * 
          * @return builder
          * 
@@ -440,8 +431,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name for the container service. Names must be of length 1 to 63, and be
-         * unique within each AWS Region in your Lightsail account.
+         * @param name Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
          * 
          * @return builder
          * 
@@ -451,9 +441,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param power The power specification for the container service. The power specifies the amount of memory,
-         * the number of vCPUs, and the monthly price of each node of the container service.
-         * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+         * @param power Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
          * 
          * @return builder
          * 
@@ -464,9 +452,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param power The power specification for the container service. The power specifies the amount of memory,
-         * the number of vCPUs, and the monthly price of each node of the container service.
-         * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+         * @param power Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
          * 
          * @return builder
          * 
@@ -476,7 +462,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param powerId The ID of the power of the container service.
+         * @param powerId Power ID of the container service.
          * 
          * @return builder
          * 
@@ -487,7 +473,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param powerId The ID of the power of the container service.
+         * @param powerId Power ID of the container service.
          * 
          * @return builder
          * 
@@ -497,9 +483,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
-         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-         * service permission to access resources in your standard AWS account.
+         * @param principalArn Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
          * 
          * @return builder
          * 
@@ -510,9 +494,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
-         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-         * service permission to access resources in your standard AWS account.
+         * @param principalArn Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
          * 
          * @return builder
          * 
@@ -522,8 +504,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateDomainName The private domain name of the container service. The private domain name is accessible only
-         * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+         * @param privateDomainName Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
          * 
          * @return builder
          * 
@@ -534,8 +515,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateDomainName The private domain name of the container service. The private domain name is accessible only
-         * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+         * @param privateDomainName Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
          * 
          * @return builder
          * 
@@ -545,7 +525,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateRegistryAccess An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+         * @param privateRegistryAccess Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
          * 
          * @return builder
          * 
@@ -556,7 +536,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateRegistryAccess An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+         * @param privateRegistryAccess Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
          * 
          * @return builder
          * 
@@ -566,11 +546,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param publicDomainNames The public domain names to use with the container service, such as example.com
-         * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-         * specify are used when you create a deployment with a container configured as the public endpoint of your container
-         * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-         * Defined below.
+         * @param publicDomainNames Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
          * 
          * @return builder
          * 
@@ -581,11 +557,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param publicDomainNames The public domain names to use with the container service, such as example.com
-         * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-         * specify are used when you create a deployment with a container configured as the public endpoint of your container
-         * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-         * Defined below.
+         * @param publicDomainNames Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
          * 
          * @return builder
          * 
@@ -616,7 +588,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceType The Lightsail resource type of the container service (i.e., ContainerService).
+         * @param resourceType Lightsail resource type of the container service (i.e., ContainerService).
          * 
          * @return builder
          * 
@@ -627,7 +599,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceType The Lightsail resource type of the container service (i.e., ContainerService).
+         * @param resourceType Lightsail resource type of the container service (i.e., ContainerService).
          * 
          * @return builder
          * 
@@ -637,8 +609,9 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scale The scale specification for the container service. The scale specifies the allocated compute
-         * nodes of the container service.
+         * @param scale Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -649,8 +622,9 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scale The scale specification for the container service. The scale specifies the allocated compute
-         * nodes of the container service.
+         * @param scale Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -660,7 +634,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param state The current state of the container service.
+         * @param state Current state of the container service.
          * 
          * @return builder
          * 
@@ -671,7 +645,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param state The current state of the container service.
+         * @param state Current state of the container service.
          * 
          * @return builder
          * 
@@ -681,10 +655,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-         * configured with a provider
-         * `default_tags` configuration block
-         * present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -695,10 +666,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-         * configured with a provider
-         * `default_tags` configuration block
-         * present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -708,8 +676,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider
-         * `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -720,8 +687,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider
-         * `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -731,8 +697,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param url The publicly accessible URL of the container service. If no public endpoint is specified in the
-         * currentDeployment, this URL returns a 404 response.
+         * @param url Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
          * 
          * @return builder
          * 
@@ -743,8 +708,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param url The publicly accessible URL of the container service. If no public endpoint is specified in the
-         * currentDeployment, this URL returns a 404 response.
+         * @param url Publicly accessible URL of the container service. If no public endpoint is specified in the currentDeployment, this URL returns a 404 response.
          * 
          * @return builder
          * 

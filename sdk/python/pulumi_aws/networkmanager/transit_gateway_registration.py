@@ -24,8 +24,8 @@ class TransitGatewayRegistrationArgs:
                  transit_gateway_arn: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a TransitGatewayRegistration resource.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the Global Network to register to.
-        :param pulumi.Input[builtins.str] transit_gateway_arn: The ARN of the Transit Gateway to register.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the Global Network to register to.
+        :param pulumi.Input[builtins.str] transit_gateway_arn: ARN of the Transit Gateway to register.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
@@ -34,7 +34,7 @@ class TransitGatewayRegistrationArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the Global Network to register to.
+        ID of the Global Network to register to.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -46,7 +46,7 @@ class TransitGatewayRegistrationArgs:
     @pulumi.getter(name="transitGatewayArn")
     def transit_gateway_arn(self) -> pulumi.Input[builtins.str]:
         """
-        The ARN of the Transit Gateway to register.
+        ARN of the Transit Gateway to register.
         """
         return pulumi.get(self, "transit_gateway_arn")
 
@@ -62,8 +62,8 @@ class _TransitGatewayRegistrationState:
                  transit_gateway_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayRegistration resources.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the Global Network to register to.
-        :param pulumi.Input[builtins.str] transit_gateway_arn: The ARN of the Transit Gateway to register.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the Global Network to register to.
+        :param pulumi.Input[builtins.str] transit_gateway_arn: ARN of the Transit Gateway to register.
         """
         if global_network_id is not None:
             pulumi.set(__self__, "global_network_id", global_network_id)
@@ -74,7 +74,7 @@ class _TransitGatewayRegistrationState:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the Global Network to register to.
+        ID of the Global Network to register to.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -86,7 +86,7 @@ class _TransitGatewayRegistrationState:
     @pulumi.getter(name="transitGatewayArn")
     def transit_gateway_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the Transit Gateway to register.
+        ARN of the Transit Gateway to register.
         """
         return pulumi.get(self, "transit_gateway_arn")
 
@@ -105,9 +105,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
                  transit_gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Registers a transit gateway to a global network. The transit gateway can be in any AWS Region,
-        but it must be owned by the same AWS account that owns the global network.
-        You cannot register a transit gateway in more than one global network.
+        Manages a Network Manager transit gateway registration. Registers a transit gateway to a global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 
         ## Example Usage
 
@@ -132,8 +130,8 @@ class TransitGatewayRegistration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the Global Network to register to.
-        :param pulumi.Input[builtins.str] transit_gateway_arn: The ARN of the Transit Gateway to register.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the Global Network to register to.
+        :param pulumi.Input[builtins.str] transit_gateway_arn: ARN of the Transit Gateway to register.
         """
         ...
     @overload
@@ -142,9 +140,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
                  args: TransitGatewayRegistrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Registers a transit gateway to a global network. The transit gateway can be in any AWS Region,
-        but it must be owned by the same AWS account that owns the global network.
-        You cannot register a transit gateway in more than one global network.
+        Manages a Network Manager transit gateway registration. Registers a transit gateway to a global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 
         ## Example Usage
 
@@ -218,8 +214,8 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] global_network_id: The ID of the Global Network to register to.
-        :param pulumi.Input[builtins.str] transit_gateway_arn: The ARN of the Transit Gateway to register.
+        :param pulumi.Input[builtins.str] global_network_id: ID of the Global Network to register to.
+        :param pulumi.Input[builtins.str] transit_gateway_arn: ARN of the Transit Gateway to register.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,7 +229,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the Global Network to register to.
+        ID of the Global Network to register to.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -241,7 +237,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayArn")
     def transit_gateway_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the Transit Gateway to register.
+        ARN of the Transit Gateway to register.
         """
         return pulumi.get(self, "transit_gateway_arn")
 

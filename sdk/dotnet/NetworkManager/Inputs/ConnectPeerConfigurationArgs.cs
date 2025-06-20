@@ -21,7 +21,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         }
 
         /// <summary>
-        /// A Connect peer core network address.
+        /// Connect peer core network address.
         /// </summary>
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         private InputList<string>? _insideCidrBlocks;
 
         /// <summary>
-        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+        /// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         public InputList<string> InsideCidrBlocks
         {
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         }
 
         /// <summary>
-        /// The Connect peer address.
+        /// Connect peer address.
         /// 
         /// The following arguments are optional:
         /// </summary>

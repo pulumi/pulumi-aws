@@ -14,7 +14,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
+ * Manages a Network Manager Core Network Policy Attachment.
+ * 
+ * Use this resource to attach a Core Network Policy to an existing Core Network and execute the change set, which deploys changes globally based on the policy submitted (sets the policy to `LIVE`).
  * 
  * &gt; **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
  * 
@@ -465,14 +467,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment")
 public class CoreNetworkPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the core network that a policy will be attached to and made `LIVE`.
+     * ID of the core network that a policy will be attached to and made `LIVE`.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of the core network that a policy will be attached to and made `LIVE`.
+     * @return ID of the core network that a policy will be attached to and made `LIVE`.
      * 
      */
     public Output<String> coreNetworkId() {

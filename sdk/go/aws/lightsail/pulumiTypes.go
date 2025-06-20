@@ -14,10 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CertificateDomainValidationOption struct {
-	// A domain name for which the certificate should be issued.
-	DomainName          *string `pulumi:"domainName"`
-	ResourceRecordName  *string `pulumi:"resourceRecordName"`
-	ResourceRecordType  *string `pulumi:"resourceRecordType"`
+	// Domain name for which the certificate should be issued.
+	DomainName *string `pulumi:"domainName"`
+	// Name of the DNS record to create to validate the certificate.
+	ResourceRecordName *string `pulumi:"resourceRecordName"`
+	// Type of DNS record to create to validate the certificate.
+	ResourceRecordType *string `pulumi:"resourceRecordType"`
+	// Value of the DNS record to create to validate the certificate.
 	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
 }
 
@@ -33,10 +36,13 @@ type CertificateDomainValidationOptionInput interface {
 }
 
 type CertificateDomainValidationOptionArgs struct {
-	// A domain name for which the certificate should be issued.
-	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
-	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
-	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	// Domain name for which the certificate should be issued.
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// Name of the DNS record to create to validate the certificate.
+	ResourceRecordName pulumi.StringPtrInput `pulumi:"resourceRecordName"`
+	// Type of DNS record to create to validate the certificate.
+	ResourceRecordType pulumi.StringPtrInput `pulumi:"resourceRecordType"`
+	// Value of the DNS record to create to validate the certificate.
 	ResourceRecordValue pulumi.StringPtrInput `pulumi:"resourceRecordValue"`
 }
 
@@ -91,19 +97,22 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 	return o
 }
 
-// A domain name for which the certificate should be issued.
+// Domain name for which the certificate should be issued.
 func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// Name of the DNS record to create to validate the certificate.
 func (o CertificateDomainValidationOptionOutput) ResourceRecordName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordName }).(pulumi.StringPtrOutput)
 }
 
+// Type of DNS record to create to validate the certificate.
 func (o CertificateDomainValidationOptionOutput) ResourceRecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordType }).(pulumi.StringPtrOutput)
 }
 
+// Value of the DNS record to create to validate the certificate.
 func (o CertificateDomainValidationOptionOutput) ResourceRecordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordValue }).(pulumi.StringPtrOutput)
 }
@@ -129,15 +138,15 @@ func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ContainerServiceDeploymentVersionContainer struct {
-	// The launch command for the container. A list of string.
+	// Launch command for the container. A list of strings.
 	Commands []string `pulumi:"commands"`
-	// The name for the container.
+	// Name of the container.
 	ContainerName string `pulumi:"containerName"`
-	// A key-value map of the environment variables of the container.
+	// Key-value map of the environment variables of the container.
 	Environment map[string]string `pulumi:"environment"`
-	// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+	// Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
 	Image string `pulumi:"image"`
-	// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+	// Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
 	Ports map[string]string `pulumi:"ports"`
 }
 
@@ -153,15 +162,15 @@ type ContainerServiceDeploymentVersionContainerInput interface {
 }
 
 type ContainerServiceDeploymentVersionContainerArgs struct {
-	// The launch command for the container. A list of string.
+	// Launch command for the container. A list of strings.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The name for the container.
+	// Name of the container.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// A key-value map of the environment variables of the container.
+	// Key-value map of the environment variables of the container.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+	// Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
 	Image pulumi.StringInput `pulumi:"image"`
-	// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+	// Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
 	Ports pulumi.StringMapInput `pulumi:"ports"`
 }
 
@@ -216,27 +225,27 @@ func (o ContainerServiceDeploymentVersionContainerOutput) ToContainerServiceDepl
 	return o
 }
 
-// The launch command for the container. A list of string.
+// Launch command for the container. A list of strings.
 func (o ContainerServiceDeploymentVersionContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The name for the container.
+// Name of the container.
 func (o ContainerServiceDeploymentVersionContainerOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// A key-value map of the environment variables of the container.
+// Key-value map of the environment variables of the container.
 func (o ContainerServiceDeploymentVersionContainerOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
-// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+// Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
 func (o ContainerServiceDeploymentVersionContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+// Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
 func (o ContainerServiceDeploymentVersionContainerOutput) Ports() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) map[string]string { return v.Ports }).(pulumi.StringMapOutput)
 }
@@ -262,11 +271,11 @@ func (o ContainerServiceDeploymentVersionContainerArrayOutput) Index(i pulumi.In
 }
 
 type ContainerServiceDeploymentVersionPublicEndpoint struct {
-	// The name of the container for the endpoint.
+	// Name of the container for the endpoint.
 	ContainerName string `pulumi:"containerName"`
-	// The port of the container to which traffic is forwarded to.
+	// Port of the container to which traffic is forwarded to.
 	ContainerPort int `pulumi:"containerPort"`
-	// A configuration block that describes the health check configuration of the container. Detailed below.
+	// Configuration block that describes the health check configuration of the container. See below.
 	HealthCheck ContainerServiceDeploymentVersionPublicEndpointHealthCheck `pulumi:"healthCheck"`
 }
 
@@ -282,11 +291,11 @@ type ContainerServiceDeploymentVersionPublicEndpointInput interface {
 }
 
 type ContainerServiceDeploymentVersionPublicEndpointArgs struct {
-	// The name of the container for the endpoint.
+	// Name of the container for the endpoint.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The port of the container to which traffic is forwarded to.
+	// Port of the container to which traffic is forwarded to.
 	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
-	// A configuration block that describes the health check configuration of the container. Detailed below.
+	// Configuration block that describes the health check configuration of the container. See below.
 	HealthCheck ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput `pulumi:"healthCheck"`
 }
 
@@ -367,17 +376,17 @@ func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToContainerServic
 	}).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
 }
 
-// The name of the container for the endpoint.
+// Name of the container for the endpoint.
 func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The port of the container to which traffic is forwarded to.
+// Port of the container to which traffic is forwarded to.
 func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ContainerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) int { return v.ContainerPort }).(pulumi.IntOutput)
 }
 
-// A configuration block that describes the health check configuration of the container. Detailed below.
+// Configuration block that describes the health check configuration of the container. See below.
 func (o ContainerServiceDeploymentVersionPublicEndpointOutput) HealthCheck() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
 		return v.HealthCheck
@@ -408,7 +417,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) Elem() Contain
 	}).(ContainerServiceDeploymentVersionPublicEndpointOutput)
 }
 
-// The name of the container for the endpoint.
+// Name of the container for the endpoint.
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *string {
 		if v == nil {
@@ -418,7 +427,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port of the container to which traffic is forwarded to.
+// Port of the container to which traffic is forwarded to.
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *int {
 		if v == nil {
@@ -428,7 +437,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerPort(
 	}).(pulumi.IntPtrOutput)
 }
 
-// A configuration block that describes the health check configuration of the container. Detailed below.
+// Configuration block that describes the health check configuration of the container. See below.
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) HealthCheck() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
 		if v == nil {
@@ -439,17 +448,17 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) HealthCheck() 
 }
 
 type ContainerServiceDeploymentVersionPublicEndpointHealthCheck struct {
-	// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+	// Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
-	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+	// Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
 	IntervalSeconds *int `pulumi:"intervalSeconds"`
-	// The path on the container on which to perform the health check. Defaults to "/".
+	// Path on the container on which to perform the health check. Defaults to "/".
 	Path *string `pulumi:"path"`
-	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+	// HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
 	SuccessCodes *string `pulumi:"successCodes"`
-	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+	// Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
-	// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+	// Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
 	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
 }
 
@@ -465,17 +474,17 @@ type ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput interface {
 }
 
 type ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs struct {
-	// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+	// Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
-	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+	// Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
 	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
-	// The path on the container on which to perform the health check. Defaults to "/".
+	// Path on the container on which to perform the health check. Defaults to "/".
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+	// HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
 	SuccessCodes pulumi.StringPtrInput `pulumi:"successCodes"`
-	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+	// Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
-	// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+	// Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
 	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
 }
 
@@ -556,32 +565,32 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToCont
 	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput)
 }
 
-// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+// Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+// Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) IntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The path on the container on which to perform the health check. Defaults to "/".
+// Path on the container on which to perform the health check. Defaults to "/".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+// HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) SuccessCodes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string { return v.SuccessCodes }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+// Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+// Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
@@ -610,7 +619,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Ele
 	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput)
 }
 
-// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+// Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -620,7 +629,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Hea
 	}).(pulumi.IntPtrOutput)
 }
 
-// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+// Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) IntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -630,7 +639,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The path on the container on which to perform the health check. Defaults to "/".
+// Path on the container on which to perform the health check. Defaults to "/".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string {
 		if v == nil {
@@ -640,7 +649,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Pat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+// HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) SuccessCodes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string {
 		if v == nil {
@@ -650,7 +659,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Suc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+// Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -660,7 +669,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Tim
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+// Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -671,7 +680,7 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Unh
 }
 
 type ContainerServicePrivateRegistryAccess struct {
-	// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+	// Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 	EcrImagePullerRole *ContainerServicePrivateRegistryAccessEcrImagePullerRole `pulumi:"ecrImagePullerRole"`
 }
 
@@ -687,7 +696,7 @@ type ContainerServicePrivateRegistryAccessInput interface {
 }
 
 type ContainerServicePrivateRegistryAccessArgs struct {
-	// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+	// Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 	EcrImagePullerRole ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput `pulumi:"ecrImagePullerRole"`
 }
 
@@ -768,7 +777,7 @@ func (o ContainerServicePrivateRegistryAccessOutput) ToContainerServicePrivateRe
 	}).(ContainerServicePrivateRegistryAccessPtrOutput)
 }
 
-// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+// Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 func (o ContainerServicePrivateRegistryAccessOutput) EcrImagePullerRole() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
 		return v.EcrImagePullerRole
@@ -799,7 +808,7 @@ func (o ContainerServicePrivateRegistryAccessPtrOutput) Elem() ContainerServiceP
 	}).(ContainerServicePrivateRegistryAccessOutput)
 }
 
-// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+// Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 func (o ContainerServicePrivateRegistryAccessPtrOutput) EcrImagePullerRole() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
 	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
 		if v == nil {
@@ -810,11 +819,9 @@ func (o ContainerServicePrivateRegistryAccessPtrOutput) EcrImagePullerRole() Con
 }
 
 type ContainerServicePrivateRegistryAccessEcrImagePullerRole struct {
-	// A Boolean value that indicates whether to activate the role. The default is `false`.
+	// Whether to activate the role. Defaults to `false`.
 	IsActive *bool `pulumi:"isActive"`
-	// The principal ARN of the container service. The principal ARN can be used to create a trust
-	// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-	// service permission to access resources in your standard AWS account.
+	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 	PrincipalArn *string `pulumi:"principalArn"`
 }
 
@@ -830,11 +837,9 @@ type ContainerServicePrivateRegistryAccessEcrImagePullerRoleInput interface {
 }
 
 type ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs struct {
-	// A Boolean value that indicates whether to activate the role. The default is `false`.
+	// Whether to activate the role. Defaults to `false`.
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
-	// The principal ARN of the container service. The principal ARN can be used to create a trust
-	// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-	// service permission to access resources in your standard AWS account.
+	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 	PrincipalArn pulumi.StringPtrInput `pulumi:"principalArn"`
 }
 
@@ -915,14 +920,12 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToContain
 	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
 }
 
-// A Boolean value that indicates whether to activate the role. The default is `false`.
+// Whether to activate the role. Defaults to `false`.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
 
-// The principal ARN of the container service. The principal ARN can be used to create a trust
-// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-// service permission to access resources in your standard AWS account.
+// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) PrincipalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *string { return v.PrincipalArn }).(pulumi.StringPtrOutput)
 }
@@ -951,7 +954,7 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) Elem()
 	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput)
 }
 
-// A Boolean value that indicates whether to activate the role. The default is `false`.
+// Whether to activate the role. Defaults to `false`.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccessEcrImagePullerRole) *bool {
 		if v == nil {
@@ -961,9 +964,7 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) IsActi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The principal ARN of the container service. The principal ARN can be used to create a trust
-// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-// service permission to access resources in your standard AWS account.
+// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) PrincipalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccessEcrImagePullerRole) *string {
 		if v == nil {
@@ -974,6 +975,7 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) Princi
 }
 
 type ContainerServicePublicDomainNames struct {
+	// Set of certificate configurations for the public domain names. Each element contains the following attributes:
 	Certificates []ContainerServicePublicDomainNamesCertificate `pulumi:"certificates"`
 }
 
@@ -989,6 +991,7 @@ type ContainerServicePublicDomainNamesInput interface {
 }
 
 type ContainerServicePublicDomainNamesArgs struct {
+	// Set of certificate configurations for the public domain names. Each element contains the following attributes:
 	Certificates ContainerServicePublicDomainNamesCertificateArrayInput `pulumi:"certificates"`
 }
 
@@ -1069,6 +1072,7 @@ func (o ContainerServicePublicDomainNamesOutput) ToContainerServicePublicDomainN
 	}).(ContainerServicePublicDomainNamesPtrOutput)
 }
 
+// Set of certificate configurations for the public domain names. Each element contains the following attributes:
 func (o ContainerServicePublicDomainNamesOutput) Certificates() ContainerServicePublicDomainNamesCertificateArrayOutput {
 	return o.ApplyT(func(v ContainerServicePublicDomainNames) []ContainerServicePublicDomainNamesCertificate {
 		return v.Certificates
@@ -1099,6 +1103,7 @@ func (o ContainerServicePublicDomainNamesPtrOutput) Elem() ContainerServicePubli
 	}).(ContainerServicePublicDomainNamesOutput)
 }
 
+// Set of certificate configurations for the public domain names. Each element contains the following attributes:
 func (o ContainerServicePublicDomainNamesPtrOutput) Certificates() ContainerServicePublicDomainNamesCertificateArrayOutput {
 	return o.ApplyT(func(v *ContainerServicePublicDomainNames) []ContainerServicePublicDomainNamesCertificate {
 		if v == nil {
@@ -1109,8 +1114,10 @@ func (o ContainerServicePublicDomainNamesPtrOutput) Certificates() ContainerServ
 }
 
 type ContainerServicePublicDomainNamesCertificate struct {
-	CertificateName string   `pulumi:"certificateName"`
-	DomainNames     []string `pulumi:"domainNames"`
+	// Name of the certificate.
+	CertificateName string `pulumi:"certificateName"`
+	// List of domain names for the certificate.
+	DomainNames []string `pulumi:"domainNames"`
 }
 
 // ContainerServicePublicDomainNamesCertificateInput is an input type that accepts ContainerServicePublicDomainNamesCertificateArgs and ContainerServicePublicDomainNamesCertificateOutput values.
@@ -1125,8 +1132,10 @@ type ContainerServicePublicDomainNamesCertificateInput interface {
 }
 
 type ContainerServicePublicDomainNamesCertificateArgs struct {
-	CertificateName pulumi.StringInput      `pulumi:"certificateName"`
-	DomainNames     pulumi.StringArrayInput `pulumi:"domainNames"`
+	// Name of the certificate.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// List of domain names for the certificate.
+	DomainNames pulumi.StringArrayInput `pulumi:"domainNames"`
 }
 
 func (ContainerServicePublicDomainNamesCertificateArgs) ElementType() reflect.Type {
@@ -1180,10 +1189,12 @@ func (o ContainerServicePublicDomainNamesCertificateOutput) ToContainerServicePu
 	return o
 }
 
+// Name of the certificate.
 func (o ContainerServicePublicDomainNamesCertificateOutput) CertificateName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServicePublicDomainNamesCertificate) string { return v.CertificateName }).(pulumi.StringOutput)
 }
 
+// List of domain names for the certificate.
 func (o ContainerServicePublicDomainNamesCertificateOutput) DomainNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerServicePublicDomainNamesCertificate) []string { return v.DomainNames }).(pulumi.StringArrayOutput)
 }
@@ -1209,9 +1220,9 @@ func (o ContainerServicePublicDomainNamesCertificateArrayOutput) Index(i pulumi.
 }
 
 type DistributionCacheBehavior struct {
-	// The cache behavior for the specified path.
+	// Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
 	Behavior string `pulumi:"behavior"`
-	// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+	// Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
 	Path string `pulumi:"path"`
 }
 
@@ -1227,9 +1238,9 @@ type DistributionCacheBehaviorInput interface {
 }
 
 type DistributionCacheBehaviorArgs struct {
-	// The cache behavior for the specified path.
+	// Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
-	// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+	// Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -1284,12 +1295,12 @@ func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutputWithCo
 	return o
 }
 
-// The cache behavior for the specified path.
+// Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
 func (o DistributionCacheBehaviorOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.Behavior }).(pulumi.StringOutput)
 }
 
-// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+// Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
 func (o DistributionCacheBehaviorOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -1315,21 +1326,21 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 }
 
 type DistributionCacheBehaviorSettings struct {
-	// The HTTP methods that are processed and forwarded to the distribution's origin.
+	// HTTP methods that are processed and forwarded to the distribution's origin.
 	AllowedHttpMethods *string `pulumi:"allowedHttpMethods"`
-	// The HTTP method responses that are cached by your distribution.
+	// HTTP method responses that are cached by your distribution.
 	CachedHttpMethods *string `pulumi:"cachedHttpMethods"`
-	// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+	// Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
 	DefaultTtl *int `pulumi:"defaultTtl"`
-	// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+	// Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
 	ForwardedCookies *DistributionCacheBehaviorSettingsForwardedCookies `pulumi:"forwardedCookies"`
-	// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+	// Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
 	ForwardedHeaders *DistributionCacheBehaviorSettingsForwardedHeaders `pulumi:"forwardedHeaders"`
-	// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+	// Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
 	ForwardedQueryStrings *DistributionCacheBehaviorSettingsForwardedQueryStrings `pulumi:"forwardedQueryStrings"`
-	// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	// Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 	MaximumTtl *int `pulumi:"maximumTtl"`
-	// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	// Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 	MinimumTtl *int `pulumi:"minimumTtl"`
 }
 
@@ -1345,21 +1356,21 @@ type DistributionCacheBehaviorSettingsInput interface {
 }
 
 type DistributionCacheBehaviorSettingsArgs struct {
-	// The HTTP methods that are processed and forwarded to the distribution's origin.
+	// HTTP methods that are processed and forwarded to the distribution's origin.
 	AllowedHttpMethods pulumi.StringPtrInput `pulumi:"allowedHttpMethods"`
-	// The HTTP method responses that are cached by your distribution.
+	// HTTP method responses that are cached by your distribution.
 	CachedHttpMethods pulumi.StringPtrInput `pulumi:"cachedHttpMethods"`
-	// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+	// Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
-	// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+	// Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
 	ForwardedCookies DistributionCacheBehaviorSettingsForwardedCookiesPtrInput `pulumi:"forwardedCookies"`
-	// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+	// Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
 	ForwardedHeaders DistributionCacheBehaviorSettingsForwardedHeadersPtrInput `pulumi:"forwardedHeaders"`
-	// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+	// Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
 	ForwardedQueryStrings DistributionCacheBehaviorSettingsForwardedQueryStringsPtrInput `pulumi:"forwardedQueryStrings"`
-	// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	// Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 	MaximumTtl pulumi.IntPtrInput `pulumi:"maximumTtl"`
-	// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+	// Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
 }
 
@@ -1440,48 +1451,48 @@ func (o DistributionCacheBehaviorSettingsOutput) ToDistributionCacheBehaviorSett
 	}).(DistributionCacheBehaviorSettingsPtrOutput)
 }
 
-// The HTTP methods that are processed and forwarded to the distribution's origin.
+// HTTP methods that are processed and forwarded to the distribution's origin.
 func (o DistributionCacheBehaviorSettingsOutput) AllowedHttpMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *string { return v.AllowedHttpMethods }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP method responses that are cached by your distribution.
+// HTTP method responses that are cached by your distribution.
 func (o DistributionCacheBehaviorSettingsOutput) CachedHttpMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *string { return v.CachedHttpMethods }).(pulumi.StringPtrOutput)
 }
 
-// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+// Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
 func (o DistributionCacheBehaviorSettingsOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
-// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+// Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
 func (o DistributionCacheBehaviorSettingsOutput) ForwardedCookies() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedCookies {
 		return v.ForwardedCookies
 	}).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
 }
 
-// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+// Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
 func (o DistributionCacheBehaviorSettingsOutput) ForwardedHeaders() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedHeaders {
 		return v.ForwardedHeaders
 	}).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
 }
 
-// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+// Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
 func (o DistributionCacheBehaviorSettingsOutput) ForwardedQueryStrings() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedQueryStrings {
 		return v.ForwardedQueryStrings
 	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
 }
 
-// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+// Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 func (o DistributionCacheBehaviorSettingsOutput) MaximumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *int { return v.MaximumTtl }).(pulumi.IntPtrOutput)
 }
 
-// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+// Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 func (o DistributionCacheBehaviorSettingsOutput) MinimumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettings) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
 }
@@ -1510,7 +1521,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) Elem() DistributionCacheBeha
 	}).(DistributionCacheBehaviorSettingsOutput)
 }
 
-// The HTTP methods that are processed and forwarded to the distribution's origin.
+// HTTP methods that are processed and forwarded to the distribution's origin.
 func (o DistributionCacheBehaviorSettingsPtrOutput) AllowedHttpMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *string {
 		if v == nil {
@@ -1520,7 +1531,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) AllowedHttpMethods() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP method responses that are cached by your distribution.
+// HTTP method responses that are cached by your distribution.
 func (o DistributionCacheBehaviorSettingsPtrOutput) CachedHttpMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *string {
 		if v == nil {
@@ -1530,7 +1541,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) CachedHttpMethods() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+// Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
 func (o DistributionCacheBehaviorSettingsPtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *int {
 		if v == nil {
@@ -1540,7 +1551,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) DefaultTtl() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+// Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
 func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedCookies() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedCookies {
 		if v == nil {
@@ -1550,7 +1561,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedCookies() Distribut
 	}).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
 }
 
-// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+// Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
 func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedHeaders() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedHeaders {
 		if v == nil {
@@ -1560,7 +1571,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedHeaders() Distribut
 	}).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
 }
 
-// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+// Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
 func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedQueryStrings() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettingsForwardedQueryStrings {
 		if v == nil {
@@ -1570,7 +1581,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) ForwardedQueryStrings() Dist
 	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
 }
 
-// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+// Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 func (o DistributionCacheBehaviorSettingsPtrOutput) MaximumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *int {
 		if v == nil {
@@ -1580,7 +1591,7 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) MaximumTtl() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+// Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 func (o DistributionCacheBehaviorSettingsPtrOutput) MinimumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettings) *int {
 		if v == nil {
@@ -1591,9 +1602,9 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) MinimumTtl() pulumi.IntPtrOu
 }
 
 type DistributionCacheBehaviorSettingsForwardedCookies struct {
-	// The specific cookies to forward to your distribution's origin.
+	// Specific cookies to forward to your distribution's origin.
 	CookiesAllowLists []string `pulumi:"cookiesAllowLists"`
-	// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+	// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
 	Option *string `pulumi:"option"`
 }
 
@@ -1609,9 +1620,9 @@ type DistributionCacheBehaviorSettingsForwardedCookiesInput interface {
 }
 
 type DistributionCacheBehaviorSettingsForwardedCookiesArgs struct {
-	// The specific cookies to forward to your distribution's origin.
+	// Specific cookies to forward to your distribution's origin.
 	CookiesAllowLists pulumi.StringArrayInput `pulumi:"cookiesAllowLists"`
-	// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+	// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
 	Option pulumi.StringPtrInput `pulumi:"option"`
 }
 
@@ -1692,12 +1703,12 @@ func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) ToDistributionC
 	}).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
 }
 
-// The specific cookies to forward to your distribution's origin.
+// Specific cookies to forward to your distribution's origin.
 func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) CookiesAllowLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedCookies) []string { return v.CookiesAllowLists }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
 func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedCookies) *string { return v.Option }).(pulumi.StringPtrOutput)
 }
@@ -1726,7 +1737,7 @@ func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) Elem() Distr
 	}).(DistributionCacheBehaviorSettingsForwardedCookiesOutput)
 }
 
-// The specific cookies to forward to your distribution's origin.
+// Specific cookies to forward to your distribution's origin.
 func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) CookiesAllowLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedCookies) []string {
 		if v == nil {
@@ -1736,7 +1747,7 @@ func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) CookiesAllow
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
 func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedCookies) *string {
 		if v == nil {
@@ -1747,9 +1758,9 @@ func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) Option() pul
 }
 
 type DistributionCacheBehaviorSettingsForwardedHeaders struct {
-	// The specific headers to forward to your distribution's origin.
+	// Specific headers to forward to your distribution's origin.
 	HeadersAllowLists []string `pulumi:"headersAllowLists"`
-	// The headers that you want your distribution to forward to your origin and base caching on.
+	// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
 	Option *string `pulumi:"option"`
 }
 
@@ -1765,9 +1776,9 @@ type DistributionCacheBehaviorSettingsForwardedHeadersInput interface {
 }
 
 type DistributionCacheBehaviorSettingsForwardedHeadersArgs struct {
-	// The specific headers to forward to your distribution's origin.
+	// Specific headers to forward to your distribution's origin.
 	HeadersAllowLists pulumi.StringArrayInput `pulumi:"headersAllowLists"`
-	// The headers that you want your distribution to forward to your origin and base caching on.
+	// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
 	Option pulumi.StringPtrInput `pulumi:"option"`
 }
 
@@ -1848,12 +1859,12 @@ func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) ToDistributionC
 	}).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
 }
 
-// The specific headers to forward to your distribution's origin.
+// Specific headers to forward to your distribution's origin.
 func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) HeadersAllowLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedHeaders) []string { return v.HeadersAllowLists }).(pulumi.StringArrayOutput)
 }
 
-// The headers that you want your distribution to forward to your origin and base caching on.
+// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
 func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedHeaders) *string { return v.Option }).(pulumi.StringPtrOutput)
 }
@@ -1882,7 +1893,7 @@ func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) Elem() Distr
 	}).(DistributionCacheBehaviorSettingsForwardedHeadersOutput)
 }
 
-// The specific headers to forward to your distribution's origin.
+// Specific headers to forward to your distribution's origin.
 func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) HeadersAllowLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedHeaders) []string {
 		if v == nil {
@@ -1892,7 +1903,7 @@ func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) HeadersAllow
 	}).(pulumi.StringArrayOutput)
 }
 
-// The headers that you want your distribution to forward to your origin and base caching on.
+// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
 func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedHeaders) *string {
 		if v == nil {
@@ -1903,9 +1914,9 @@ func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) Option() pul
 }
 
 type DistributionCacheBehaviorSettingsForwardedQueryStrings struct {
-	// Indicates whether the distribution forwards and caches based on query strings.
+	// Whether the distribution forwards and caches based on query strings.
 	Option *bool `pulumi:"option"`
-	// The specific query strings that the distribution forwards to the origin.
+	// Specific query strings that the distribution forwards to the origin.
 	QueryStringsAllowedLists []string `pulumi:"queryStringsAllowedLists"`
 }
 
@@ -1921,9 +1932,9 @@ type DistributionCacheBehaviorSettingsForwardedQueryStringsInput interface {
 }
 
 type DistributionCacheBehaviorSettingsForwardedQueryStringsArgs struct {
-	// Indicates whether the distribution forwards and caches based on query strings.
+	// Whether the distribution forwards and caches based on query strings.
 	Option pulumi.BoolPtrInput `pulumi:"option"`
-	// The specific query strings that the distribution forwards to the origin.
+	// Specific query strings that the distribution forwards to the origin.
 	QueryStringsAllowedLists pulumi.StringArrayInput `pulumi:"queryStringsAllowedLists"`
 }
 
@@ -2004,12 +2015,12 @@ func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ToDistribu
 	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
 }
 
-// Indicates whether the distribution forwards and caches based on query strings.
+// Whether the distribution forwards and caches based on query strings.
 func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) Option() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedQueryStrings) *bool { return v.Option }).(pulumi.BoolPtrOutput)
 }
 
-// The specific query strings that the distribution forwards to the origin.
+// Specific query strings that the distribution forwards to the origin.
 func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) QueryStringsAllowedLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedQueryStrings) []string {
 		return v.QueryStringsAllowedLists
@@ -2040,7 +2051,7 @@ func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) Elem() 
 	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsOutput)
 }
 
-// Indicates whether the distribution forwards and caches based on query strings.
+// Whether the distribution forwards and caches based on query strings.
 func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) Option() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedQueryStrings) *bool {
 		if v == nil {
@@ -2050,7 +2061,7 @@ func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) Option(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The specific query strings that the distribution forwards to the origin.
+// Specific query strings that the distribution forwards to the origin.
 func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) QueryStringsAllowedLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionCacheBehaviorSettingsForwardedQueryStrings) []string {
 		if v == nil {
@@ -2061,7 +2072,7 @@ func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) QuerySt
 }
 
 type DistributionDefaultCacheBehavior struct {
-	// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+	// Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
 	Behavior string `pulumi:"behavior"`
 }
 
@@ -2077,7 +2088,7 @@ type DistributionDefaultCacheBehaviorInput interface {
 }
 
 type DistributionDefaultCacheBehaviorArgs struct {
-	// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+	// Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
 }
 
@@ -2158,7 +2169,7 @@ func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehavi
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
-// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+// Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
 func (o DistributionDefaultCacheBehaviorOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.Behavior }).(pulumi.StringOutput)
 }
@@ -2187,7 +2198,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Elem() DistributionDefaultCac
 	}).(DistributionDefaultCacheBehaviorOutput)
 }
 
-// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+// Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
 func (o DistributionDefaultCacheBehaviorPtrOutput) Behavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2198,9 +2209,9 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Behavior() pulumi.StringPtrOu
 }
 
 type DistributionLocation struct {
-	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+	// Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The AWS Region name.
+	// AWS Region name.
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -2216,9 +2227,9 @@ type DistributionLocationInput interface {
 }
 
 type DistributionLocationArgs struct {
-	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+	// Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
-	// The AWS Region name.
+	// AWS Region name.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -2273,12 +2284,12 @@ func (o DistributionLocationOutput) ToDistributionLocationOutputWithContext(ctx 
 	return o
 }
 
-// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+// Availability Zone. Follows the format us-east-2a (case-sensitive).
 func (o DistributionLocationOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLocation) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The AWS Region name.
+// AWS Region name.
 func (o DistributionLocationOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLocation) string { return v.RegionName }).(pulumi.StringOutput)
 }
@@ -2304,13 +2315,13 @@ func (o DistributionLocationArrayOutput) Index(i pulumi.IntInput) DistributionLo
 }
 
 type DistributionOrigin struct {
-	// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+	// Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
 	Name string `pulumi:"name"`
-	// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+	// Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
 	ProtocolPolicy *string `pulumi:"protocolPolicy"`
-	// The AWS Region name of the origin resource.
+	// AWS Region name of the origin resource.
 	RegionName string `pulumi:"regionName"`
-	// The resource type of the origin resource (e.g., Instance).
+	// Lightsail resource type (e.g., Distribution).
 	ResourceType *string `pulumi:"resourceType"`
 }
 
@@ -2326,13 +2337,13 @@ type DistributionOriginInput interface {
 }
 
 type DistributionOriginArgs struct {
-	// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+	// Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+	// Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
 	ProtocolPolicy pulumi.StringPtrInput `pulumi:"protocolPolicy"`
-	// The AWS Region name of the origin resource.
+	// AWS Region name of the origin resource.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
-	// The resource type of the origin resource (e.g., Instance).
+	// Lightsail resource type (e.g., Distribution).
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 }
 
@@ -2413,22 +2424,22 @@ func (o DistributionOriginOutput) ToDistributionOriginPtrOutputWithContext(ctx c
 	}).(DistributionOriginPtrOutput)
 }
 
-// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+// Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
 func (o DistributionOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+// Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
 func (o DistributionOriginOutput) ProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.ProtocolPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region name of the origin resource.
+// AWS Region name of the origin resource.
 func (o DistributionOriginOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.RegionName }).(pulumi.StringOutput)
 }
 
-// The resource type of the origin resource (e.g., Instance).
+// Lightsail resource type (e.g., Distribution).
 func (o DistributionOriginOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
@@ -2457,7 +2468,7 @@ func (o DistributionOriginPtrOutput) Elem() DistributionOriginOutput {
 	}).(DistributionOriginOutput)
 }
 
-// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+// Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
 func (o DistributionOriginPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOrigin) *string {
 		if v == nil {
@@ -2467,7 +2478,7 @@ func (o DistributionOriginPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+// Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
 func (o DistributionOriginPtrOutput) ProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOrigin) *string {
 		if v == nil {
@@ -2477,7 +2488,7 @@ func (o DistributionOriginPtrOutput) ProtocolPolicy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region name of the origin resource.
+// AWS Region name of the origin resource.
 func (o DistributionOriginPtrOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOrigin) *string {
 		if v == nil {
@@ -2487,7 +2498,7 @@ func (o DistributionOriginPtrOutput) RegionName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource type of the origin resource (e.g., Instance).
+// Lightsail resource type (e.g., Distribution).
 func (o DistributionOriginPtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOrigin) *string {
 		if v == nil {
@@ -2498,11 +2509,11 @@ func (o DistributionOriginPtrOutput) ResourceType() pulumi.StringPtrOutput {
 }
 
 type InstanceAddOn struct {
-	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+	// Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 	SnapshotTime string `pulumi:"snapshotTime"`
-	// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+	// Status of the add-on. Valid values: `Enabled`, `Disabled`.
 	Status string `pulumi:"status"`
-	// The add-on type. There is currently only one valid type `AutoSnapshot`.
+	// Add-on type. There is currently only one valid type `AutoSnapshot`.
 	Type string `pulumi:"type"`
 }
 
@@ -2518,11 +2529,11 @@ type InstanceAddOnInput interface {
 }
 
 type InstanceAddOnArgs struct {
-	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+	// Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 	SnapshotTime pulumi.StringInput `pulumi:"snapshotTime"`
-	// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+	// Status of the add-on. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringInput `pulumi:"status"`
-	// The add-on type. There is currently only one valid type `AutoSnapshot`.
+	// Add-on type. There is currently only one valid type `AutoSnapshot`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2603,17 +2614,17 @@ func (o InstanceAddOnOutput) ToInstanceAddOnPtrOutputWithContext(ctx context.Con
 	}).(InstanceAddOnPtrOutput)
 }
 
-// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+// Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 func (o InstanceAddOnOutput) SnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.SnapshotTime }).(pulumi.StringOutput)
 }
 
-// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+// Status of the add-on. Valid values: `Enabled`, `Disabled`.
 func (o InstanceAddOnOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The add-on type. There is currently only one valid type `AutoSnapshot`.
+// Add-on type. There is currently only one valid type `AutoSnapshot`.
 func (o InstanceAddOnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2642,7 +2653,7 @@ func (o InstanceAddOnPtrOutput) Elem() InstanceAddOnOutput {
 	}).(InstanceAddOnOutput)
 }
 
-// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+// Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 func (o InstanceAddOnPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAddOn) *string {
 		if v == nil {
@@ -2652,7 +2663,7 @@ func (o InstanceAddOnPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+// Status of the add-on. Valid values: `Enabled`, `Disabled`.
 func (o InstanceAddOnPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAddOn) *string {
 		if v == nil {
@@ -2662,7 +2673,7 @@ func (o InstanceAddOnPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The add-on type. There is currently only one valid type `AutoSnapshot`.
+// Add-on type. There is currently only one valid type `AutoSnapshot`.
 func (o InstanceAddOnPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAddOn) *string {
 		if v == nil {
@@ -2678,9 +2689,10 @@ type InstancePublicPortsPortInfo struct {
 	// Set of CIDR blocks.
 	Cidrs []string `pulumi:"cidrs"`
 	// First port in a range of open ports on an instance.
-	FromPort  int      `pulumi:"fromPort"`
+	FromPort int `pulumi:"fromPort"`
+	// Set of IPv6 CIDR blocks.
 	Ipv6Cidrs []string `pulumi:"ipv6Cidrs"`
-	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+	// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
 	Protocol string `pulumi:"protocol"`
 	// Last port in a range of open ports on an instance.
 	//
@@ -2705,9 +2717,10 @@ type InstancePublicPortsPortInfoArgs struct {
 	// Set of CIDR blocks.
 	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
 	// First port in a range of open ports on an instance.
-	FromPort  pulumi.IntInput         `pulumi:"fromPort"`
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// Set of IPv6 CIDR blocks.
 	Ipv6Cidrs pulumi.StringArrayInput `pulumi:"ipv6Cidrs"`
-	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+	// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Last port in a range of open ports on an instance.
 	//
@@ -2781,11 +2794,12 @@ func (o InstancePublicPortsPortInfoOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// Set of IPv6 CIDR blocks.
 func (o InstancePublicPortsPortInfoOutput) Ipv6Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.Ipv6Cidrs }).(pulumi.StringArrayOutput)
 }
 
-// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
 func (o InstancePublicPortsPortInfoOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -2818,7 +2832,7 @@ func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) Instanc
 }
 
 type LbCertificateDomainValidationRecord struct {
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
+	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName          *string `pulumi:"domainName"`
 	ResourceRecordName  *string `pulumi:"resourceRecordName"`
 	ResourceRecordType  *string `pulumi:"resourceRecordType"`
@@ -2837,7 +2851,7 @@ type LbCertificateDomainValidationRecordInput interface {
 }
 
 type LbCertificateDomainValidationRecordArgs struct {
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
+	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
 	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
 	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
@@ -2895,7 +2909,7 @@ func (o LbCertificateDomainValidationRecordOutput) ToLbCertificateDomainValidati
 	return o
 }
 
-// The domain name (e.g., example.com) for your SSL/TLS certificate.
+// Domain name (e.g., example.com) for your SSL/TLS certificate.
 func (o LbCertificateDomainValidationRecordOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }

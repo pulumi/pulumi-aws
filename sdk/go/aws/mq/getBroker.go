@@ -11,49 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a MQ Broker.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			brokerId := ""
-//			if param := cfg.Get("brokerId"); param != "" {
-//				brokerId = param
-//			}
-//			brokerName := ""
-//			if param := cfg.Get("brokerName"); param != "" {
-//				brokerName = param
-//			}
-//			_, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-//				BrokerId: pulumi.StringRef(brokerId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-//				BrokerName: pulumi.StringRef(brokerName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
 func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.InvokeOption) (*LookupBrokerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBrokerResult
@@ -66,41 +24,62 @@ func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getBroker.
 type LookupBrokerArgs struct {
-	// Unique id of the mq broker.
+	// Unique ID of the MQ broker.
 	BrokerId *string `pulumi:"brokerId"`
-	// Unique name of the mq broker.
+	// Unique name of the MQ broker.
 	BrokerName *string `pulumi:"brokerName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	// > **Note:** Either `brokerId` or `brokerName` must be specified.
+	Region *string `pulumi:"region"`
+	// Map of tags assigned to the broker.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getBroker.
 type LookupBrokerResult struct {
-	Arn                     string                      `pulumi:"arn"`
-	AuthenticationStrategy  string                      `pulumi:"authenticationStrategy"`
-	AutoMinorVersionUpgrade bool                        `pulumi:"autoMinorVersionUpgrade"`
-	BrokerId                string                      `pulumi:"brokerId"`
-	BrokerName              string                      `pulumi:"brokerName"`
-	Configuration           GetBrokerConfiguration      `pulumi:"configuration"`
-	DeploymentMode          string                      `pulumi:"deploymentMode"`
-	EncryptionOptions       []GetBrokerEncryptionOption `pulumi:"encryptionOptions"`
-	EngineType              string                      `pulumi:"engineType"`
-	EngineVersion           string                      `pulumi:"engineVersion"`
-	HostInstanceType        string                      `pulumi:"hostInstanceType"`
+	// ARN of the broker.
+	Arn string `pulumi:"arn"`
+	// Authentication strategy used to secure the broker.
+	AuthenticationStrategy string `pulumi:"authenticationStrategy"`
+	// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
+	AutoMinorVersionUpgrade bool   `pulumi:"autoMinorVersionUpgrade"`
+	BrokerId                string `pulumi:"brokerId"`
+	BrokerName              string `pulumi:"brokerName"`
+	// Configuration block for broker configuration. See Configuration below.
+	Configuration GetBrokerConfiguration `pulumi:"configuration"`
+	// Deployment mode of the broker.
+	DeploymentMode string `pulumi:"deploymentMode"`
+	// Configuration block containing encryption options. See Encryption Options below.
+	EncryptionOptions []GetBrokerEncryptionOption `pulumi:"encryptionOptions"`
+	// Type of broker engine.
+	EngineType string `pulumi:"engineType"`
+	// Version of the broker engine.
+	EngineVersion string `pulumi:"engineVersion"`
+	// Broker's instance type.
+	HostInstanceType string `pulumi:"hostInstanceType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string                              `pulumi:"id"`
-	Instances                  []GetBrokerInstance                 `pulumi:"instances"`
-	LdapServerMetadatas        []GetBrokerLdapServerMetadata       `pulumi:"ldapServerMetadatas"`
-	Logs                       GetBrokerLogs                       `pulumi:"logs"`
+	Id string `pulumi:"id"`
+	// List of information about allocated brokers (both active & standby). See Instances below.
+	Instances []GetBrokerInstance `pulumi:"instances"`
+	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+	LdapServerMetadatas []GetBrokerLdapServerMetadata `pulumi:"ldapServerMetadatas"`
+	// Configuration block for the logging configuration of the broker. See Logs below.
+	Logs GetBrokerLogs `pulumi:"logs"`
+	// Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
 	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
-	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
-	Region                     string                              `pulumi:"region"`
-	SecurityGroups             []string                            `pulumi:"securityGroups"`
-	StorageType                string                              `pulumi:"storageType"`
-	SubnetIds                  []string                            `pulumi:"subnetIds"`
-	Tags                       map[string]string                   `pulumi:"tags"`
-	Users                      []GetBrokerUser                     `pulumi:"users"`
+	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	Region             string `pulumi:"region"`
+	// List of security group IDs assigned to the broker.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Storage type of the broker.
+	StorageType string `pulumi:"storageType"`
+	// List of subnet IDs in which to launch the broker.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Map of tags assigned to the broker.
+	Tags map[string]string `pulumi:"tags"`
+	// Configuration block for broker users. See User below.
+	Users []GetBrokerUser `pulumi:"users"`
 }
 
 func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts ...pulumi.InvokeOption) LookupBrokerResultOutput {
@@ -114,13 +93,15 @@ func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts .
 
 // A collection of arguments for invoking getBroker.
 type LookupBrokerOutputArgs struct {
-	// Unique id of the mq broker.
+	// Unique ID of the MQ broker.
 	BrokerId pulumi.StringPtrInput `pulumi:"brokerId"`
-	// Unique name of the mq broker.
+	// Unique name of the MQ broker.
 	BrokerName pulumi.StringPtrInput `pulumi:"brokerName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > **Note:** Either `brokerId` or `brokerName` must be specified.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	// Map of tags assigned to the broker.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupBrokerOutputArgs) ElementType() reflect.Type {
@@ -142,14 +123,17 @@ func (o LookupBrokerResultOutput) ToLookupBrokerResultOutputWithContext(ctx cont
 	return o
 }
 
+// ARN of the broker.
 func (o LookupBrokerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Authentication strategy used to secure the broker.
 func (o LookupBrokerResultOutput) AuthenticationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.AuthenticationStrategy }).(pulumi.StringOutput)
 }
 
+// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
 func (o LookupBrokerResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBrokerResult) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
@@ -162,26 +146,32 @@ func (o LookupBrokerResultOutput) BrokerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.BrokerName }).(pulumi.StringOutput)
 }
 
+// Configuration block for broker configuration. See Configuration below.
 func (o LookupBrokerResultOutput) Configuration() GetBrokerConfigurationOutput {
 	return o.ApplyT(func(v LookupBrokerResult) GetBrokerConfiguration { return v.Configuration }).(GetBrokerConfigurationOutput)
 }
 
+// Deployment mode of the broker.
 func (o LookupBrokerResultOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.DeploymentMode }).(pulumi.StringOutput)
 }
 
+// Configuration block containing encryption options. See Encryption Options below.
 func (o LookupBrokerResultOutput) EncryptionOptions() GetBrokerEncryptionOptionArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerEncryptionOption { return v.EncryptionOptions }).(GetBrokerEncryptionOptionArrayOutput)
 }
 
+// Type of broker engine.
 func (o LookupBrokerResultOutput) EngineType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.EngineType }).(pulumi.StringOutput)
 }
 
+// Version of the broker engine.
 func (o LookupBrokerResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
+// Broker's instance type.
 func (o LookupBrokerResultOutput) HostInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.HostInstanceType }).(pulumi.StringOutput)
 }
@@ -191,22 +181,27 @@ func (o LookupBrokerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of information about allocated brokers (both active & standby). See Instances below.
 func (o LookupBrokerResultOutput) Instances() GetBrokerInstanceArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerInstance { return v.Instances }).(GetBrokerInstanceArrayOutput)
 }
 
+// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
 func (o LookupBrokerResultOutput) LdapServerMetadatas() GetBrokerLdapServerMetadataArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerLdapServerMetadata { return v.LdapServerMetadatas }).(GetBrokerLdapServerMetadataArrayOutput)
 }
 
+// Configuration block for the logging configuration of the broker. See Logs below.
 func (o LookupBrokerResultOutput) Logs() GetBrokerLogsOutput {
 	return o.ApplyT(func(v LookupBrokerResult) GetBrokerLogs { return v.Logs }).(GetBrokerLogsOutput)
 }
 
+// Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
 func (o LookupBrokerResultOutput) MaintenanceWindowStartTime() GetBrokerMaintenanceWindowStartTimeOutput {
 	return o.ApplyT(func(v LookupBrokerResult) GetBrokerMaintenanceWindowStartTime { return v.MaintenanceWindowStartTime }).(GetBrokerMaintenanceWindowStartTimeOutput)
 }
 
+// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 func (o LookupBrokerResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBrokerResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
@@ -215,22 +210,27 @@ func (o LookupBrokerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// List of security group IDs assigned to the broker.
 func (o LookupBrokerResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// Storage type of the broker.
 func (o LookupBrokerResultOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
+// List of subnet IDs in which to launch the broker.
 func (o LookupBrokerResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// Map of tags assigned to the broker.
 func (o LookupBrokerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBrokerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Configuration block for broker users. See User below.
 func (o LookupBrokerResultOutput) Users() GetBrokerUserArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerUser { return v.Users }).(GetBrokerUserArrayOutput)
 }

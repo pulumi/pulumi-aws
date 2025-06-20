@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerEngineTypesBrokerEngineTypeEngineVersion {
+    /**
+     * @return Name of the engine version.
+     * 
+     */
     private String name;
 
     private GetBrokerEngineTypesBrokerEngineTypeEngineVersion() {}
+    /**
+     * @return Name of the engine version.
+     * 
+     */
     public String name() {
         return this.name;
     }

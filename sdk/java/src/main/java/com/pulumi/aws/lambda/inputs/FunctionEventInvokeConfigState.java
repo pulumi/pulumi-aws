@@ -18,14 +18,14 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
     public static final FunctionEventInvokeConfigState Empty = new FunctionEventInvokeConfigState();
 
     /**
-     * Configuration block with destination configuration. See below for details.
+     * Configuration block with destination configuration. See below.
      * 
      */
     @Import(name="destinationConfig")
     private @Nullable Output<FunctionEventInvokeConfigDestinationConfigArgs> destinationConfig;
 
     /**
-     * @return Configuration block with destination configuration. See below for details.
+     * @return Configuration block with destination configuration. See below.
      * 
      */
     public Optional<Output<FunctionEventInvokeConfigDestinationConfigArgs>> destinationConfig() {
@@ -33,7 +33,7 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
     }
 
     /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      * The following arguments are optional:
      * 
@@ -42,7 +42,7 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
     private @Nullable Output<String> functionName;
 
     /**
-     * @return Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * @return Name or ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      * The following arguments are optional:
      * 
@@ -141,7 +141,7 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinationConfig Configuration block with destination configuration. See below for details.
+         * @param destinationConfig Configuration block with destination configuration. See below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinationConfig Configuration block with destination configuration. See below for details.
+         * @param destinationConfig Configuration block with destination configuration. See below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
         }
 
         /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * @param functionName Name or ARN of the Lambda Function, omitting any version or alias qualifier.
          * 
          * The following arguments are optional:
          * 
@@ -175,7 +175,7 @@ public final class FunctionEventInvokeConfigState extends com.pulumi.resources.R
         }
 
         /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * @param functionName Name or ARN of the Lambda Function, omitting any version or alias qualifier.
          * 
          * The following arguments are optional:
          * 

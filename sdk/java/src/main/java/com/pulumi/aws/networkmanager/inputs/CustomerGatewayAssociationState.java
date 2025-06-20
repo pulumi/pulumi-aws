@@ -16,14 +16,14 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
     public static final CustomerGatewayAssociationState Empty = new CustomerGatewayAssociationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the customer gateway.
+     * ARN of the customer gateway.
      * 
      */
     @Import(name="customerGatewayArn")
     private @Nullable Output<String> customerGatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the customer gateway.
+     * @return ARN of the customer gateway.
      * 
      */
     public Optional<Output<String>> customerGatewayArn() {
@@ -31,14 +31,14 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the device.
+     * ID of the device.
      * 
      */
     @Import(name="deviceId")
     private @Nullable Output<String> deviceId;
 
     /**
-     * @return The ID of the device.
+     * @return ID of the device.
      * 
      */
     public Optional<Output<String>> deviceId() {
@@ -46,14 +46,18 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> globalNetworkId() {
@@ -61,14 +65,14 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the link.
+     * ID of the link.
      * 
      */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
     /**
-     * @return The ID of the link.
+     * @return ID of the link.
      * 
      */
     public Optional<Output<String>> linkId() {
@@ -103,7 +107,7 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param customerGatewayArn The Amazon Resource Name (ARN) of the customer gateway.
+         * @param customerGatewayArn ARN of the customer gateway.
          * 
          * @return builder
          * 
@@ -114,7 +118,7 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param customerGatewayArn The Amazon Resource Name (ARN) of the customer gateway.
+         * @param customerGatewayArn ARN of the customer gateway.
          * 
          * @return builder
          * 
@@ -124,7 +128,7 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -135,7 +139,7 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -145,7 +149,9 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -156,7 +162,9 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -166,7 +174,7 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 
@@ -177,7 +185,7 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 

@@ -14,16 +14,19 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class ConnectPeerConfigurationBgpConfiguration
     {
         /// <summary>
-        /// A Connect peer core network address.
+        /// Connect peer core network address.
         /// </summary>
         public readonly string? CoreNetworkAddress;
         public readonly int? CoreNetworkAsn;
         /// <summary>
-        /// The Connect peer address.
+        /// Connect peer address.
         /// 
         /// The following arguments are optional:
         /// </summary>
         public readonly string? PeerAddress;
+        /// <summary>
+        /// Peer ASN.
+        /// </summary>
         public readonly int? PeerAsn;
 
         [OutputConstructor]

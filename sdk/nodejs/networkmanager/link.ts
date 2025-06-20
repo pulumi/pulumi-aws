@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates a link for a site.
+ * Manages a Network Manager link. Use this resource to create a link for a site.
  *
  * ## Example Usage
  *
@@ -64,27 +64,29 @@ export class Link extends pulumi.CustomResource {
     }
 
     /**
-     * Link Amazon Resource Name (ARN).
+     * Link ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The upload speed and download speed in Mbps. Documented below.
+     * Upload speed and download speed in Mbps. See below.
      */
     public readonly bandwidth!: pulumi.Output<outputs.networkmanager.LinkBandwidth>;
     /**
-     * A description of the link.
+     * Description of the link.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * The provider of the link.
+     * Provider of the link.
      */
     public readonly providerName!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the site.
+     * ID of the site.
+     *
+     * The following arguments are optional:
      */
     public readonly siteId!: pulumi.Output<string>;
     /**
@@ -92,11 +94,11 @@ export class Link extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the link.
+     * Type of the link.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -153,27 +155,29 @@ export class Link extends pulumi.CustomResource {
  */
 export interface LinkState {
     /**
-     * Link Amazon Resource Name (ARN).
+     * Link ARN.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The upload speed and download speed in Mbps. Documented below.
+     * Upload speed and download speed in Mbps. See below.
      */
     bandwidth?: pulumi.Input<inputs.networkmanager.LinkBandwidth>;
     /**
-     * A description of the link.
+     * Description of the link.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     globalNetworkId?: pulumi.Input<string>;
     /**
-     * The provider of the link.
+     * Provider of the link.
      */
     providerName?: pulumi.Input<string>;
     /**
-     * The ID of the site.
+     * ID of the site.
+     *
+     * The following arguments are optional:
      */
     siteId?: pulumi.Input<string>;
     /**
@@ -181,11 +185,11 @@ export interface LinkState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the link.
+     * Type of the link.
      */
     type?: pulumi.Input<string>;
 }
@@ -195,23 +199,25 @@ export interface LinkState {
  */
 export interface LinkArgs {
     /**
-     * The upload speed and download speed in Mbps. Documented below.
+     * Upload speed and download speed in Mbps. See below.
      */
     bandwidth: pulumi.Input<inputs.networkmanager.LinkBandwidth>;
     /**
-     * A description of the link.
+     * Description of the link.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The provider of the link.
+     * Provider of the link.
      */
     providerName?: pulumi.Input<string>;
     /**
-     * The ID of the site.
+     * ID of the site.
+     *
+     * The following arguments are optional:
      */
     siteId: pulumi.Input<string>;
     /**
@@ -219,7 +225,7 @@ export interface LinkArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the link.
+     * Type of the link.
      */
     type?: pulumi.Input<string>;
 }

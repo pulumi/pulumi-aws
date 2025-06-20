@@ -12,8 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates a customer gateway with a device and optionally, with a link.
-// If you specify a link, it must be associated with the specified device.
+// Manages a Network Manager Customer Gateway Association.
+//
+// Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
 //
 // ## Example Usage
 //
@@ -106,13 +107,15 @@ import (
 type CustomerGatewayAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the customer gateway.
+	// ARN of the customer gateway.
 	CustomerGatewayArn pulumi.StringOutput `pulumi:"customerGatewayArn"`
-	// The ID of the device.
+	// ID of the device.
 	DeviceId pulumi.StringOutput `pulumi:"deviceId"`
-	// The ID of the global network.
+	// ID of the global network.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// The ID of the link.
+	// ID of the link.
 	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
 }
 
@@ -155,24 +158,28 @@ func GetCustomerGatewayAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerGatewayAssociation resources.
 type customerGatewayAssociationState struct {
-	// The Amazon Resource Name (ARN) of the customer gateway.
+	// ARN of the customer gateway.
 	CustomerGatewayArn *string `pulumi:"customerGatewayArn"`
-	// The ID of the device.
+	// ID of the device.
 	DeviceId *string `pulumi:"deviceId"`
-	// The ID of the global network.
+	// ID of the global network.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// The ID of the link.
+	// ID of the link.
 	LinkId *string `pulumi:"linkId"`
 }
 
 type CustomerGatewayAssociationState struct {
-	// The Amazon Resource Name (ARN) of the customer gateway.
+	// ARN of the customer gateway.
 	CustomerGatewayArn pulumi.StringPtrInput
-	// The ID of the device.
+	// ID of the device.
 	DeviceId pulumi.StringPtrInput
-	// The ID of the global network.
+	// ID of the global network.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId pulumi.StringPtrInput
-	// The ID of the link.
+	// ID of the link.
 	LinkId pulumi.StringPtrInput
 }
 
@@ -181,25 +188,29 @@ func (CustomerGatewayAssociationState) ElementType() reflect.Type {
 }
 
 type customerGatewayAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the customer gateway.
+	// ARN of the customer gateway.
 	CustomerGatewayArn string `pulumi:"customerGatewayArn"`
-	// The ID of the device.
+	// ID of the device.
 	DeviceId string `pulumi:"deviceId"`
-	// The ID of the global network.
+	// ID of the global network.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// The ID of the link.
+	// ID of the link.
 	LinkId *string `pulumi:"linkId"`
 }
 
 // The set of arguments for constructing a CustomerGatewayAssociation resource.
 type CustomerGatewayAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the customer gateway.
+	// ARN of the customer gateway.
 	CustomerGatewayArn pulumi.StringInput
-	// The ID of the device.
+	// ID of the device.
 	DeviceId pulumi.StringInput
-	// The ID of the global network.
+	// ID of the global network.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId pulumi.StringInput
-	// The ID of the link.
+	// ID of the link.
 	LinkId pulumi.StringPtrInput
 }
 
@@ -290,22 +301,24 @@ func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the customer gateway.
+// ARN of the customer gateway.
 func (o CustomerGatewayAssociationOutput) CustomerGatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.CustomerGatewayArn }).(pulumi.StringOutput)
 }
 
-// The ID of the device.
+// ID of the device.
 func (o CustomerGatewayAssociationOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
 }
 
-// The ID of the global network.
+// ID of the global network.
+//
+// The following arguments are optional:
 func (o CustomerGatewayAssociationOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// The ID of the link.
+// ID of the link.
 func (o CustomerGatewayAssociationOutput) LinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGatewayAssociation) pulumi.StringPtrOutput { return v.LinkId }).(pulumi.StringPtrOutput)
 }

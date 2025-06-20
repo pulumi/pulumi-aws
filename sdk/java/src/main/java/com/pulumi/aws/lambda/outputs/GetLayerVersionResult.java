@@ -26,7 +26,7 @@ public final class GetLayerVersionResult {
     private String codeSha256;
     private @Nullable String compatibleArchitecture;
     /**
-     * @return A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
+     * @return List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
      * 
      */
     private List<String> compatibleArchitectures;
@@ -69,7 +69,7 @@ public final class GetLayerVersionResult {
      */
     private String signingJobArn;
     /**
-     * @return The ARN for a signing profile version.
+     * @return ARN for a signing profile version.
      * 
      */
     private String signingProfileVersionArn;
@@ -88,7 +88,7 @@ public final class GetLayerVersionResult {
      */
     private Integer sourceCodeSize;
     /**
-     * @return This Lambda Layer version.
+     * @return Lambda Layer version.
      * 
      */
     private Integer version;
@@ -112,7 +112,7 @@ public final class GetLayerVersionResult {
         return Optional.ofNullable(this.compatibleArchitecture);
     }
     /**
-     * @return A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
+     * @return List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
      * 
      */
     public List<String> compatibleArchitectures() {
@@ -177,7 +177,7 @@ public final class GetLayerVersionResult {
         return this.signingJobArn;
     }
     /**
-     * @return The ARN for a signing profile version.
+     * @return ARN for a signing profile version.
      * 
      */
     public String signingProfileVersionArn() {
@@ -202,7 +202,7 @@ public final class GetLayerVersionResult {
         return this.sourceCodeSize;
     }
     /**
-     * @return This Lambda Layer version.
+     * @return Lambda Layer version.
      * 
      */
     public Integer version() {

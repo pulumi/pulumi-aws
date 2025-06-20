@@ -88,16 +88,12 @@ public class Resource extends com.pulumi.resources.CustomResource {
     /**
      * Flag to enable AWS LakeFormation hybrid access permission mode.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     @Export(name="hybridAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hybridAccessEnabled;
 
     /**
      * @return Flag to enable AWS LakeFormation hybrid access permission mode.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
     public Output<Boolean> hybridAccessEnabled() {
@@ -159,9 +155,21 @@ public class Resource extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> useServiceLinkedRole() {
         return Codegen.optional(this.useServiceLinkedRole);
     }
+    /**
+     * Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
     @Export(name="withFederation", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> withFederation;
 
+    /**
+     * @return Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
     public Output<Boolean> withFederation() {
         return this.withFederation;
     }

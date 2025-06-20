@@ -29,11 +29,13 @@ class CertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[builtins.str] domain_name: A domain name for which the certificate should be issued.
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] domain_name: Domain name for which the certificate should be issued.
+        :param pulumi.Input[builtins.str] name: Name of the certificate.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -50,7 +52,7 @@ class CertificateArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A domain name for which the certificate should be issued.
+        Domain name for which the certificate should be issued.
         """
         return pulumi.get(self, "domain_name")
 
@@ -62,7 +64,9 @@ class CertificateArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Lightsail load balancer.
+        Name of the certificate.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -98,7 +102,7 @@ class CertificateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -121,15 +125,17 @@ class _CertificateState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[builtins.str] arn: The ARN of the lightsail certificate.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the instance was created.
-        :param pulumi.Input[builtins.str] domain_name: A domain name for which the certificate should be issued.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] arn: ARN of the certificate.
+        :param pulumi.Input[builtins.str] created_at: Date and time when the certificate was created.
+        :param pulumi.Input[builtins.str] domain_name: Domain name for which the certificate should be issued.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
+        :param pulumi.Input[builtins.str] name: Name of the certificate.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -154,7 +160,7 @@ class _CertificateState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the lightsail certificate.
+        ARN of the certificate.
         """
         return pulumi.get(self, "arn")
 
@@ -166,7 +172,7 @@ class _CertificateState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The timestamp when the instance was created.
+        Date and time when the certificate was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -178,7 +184,7 @@ class _CertificateState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A domain name for which the certificate should be issued.
+        Domain name for which the certificate should be issued.
         """
         return pulumi.get(self, "domain_name")
 
@@ -190,7 +196,7 @@ class _CertificateState:
     @pulumi.getter(name="domainValidationOptions")
     def domain_validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         """
         return pulumi.get(self, "domain_validation_options")
 
@@ -202,7 +208,9 @@ class _CertificateState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Lightsail load balancer.
+        Name of the certificate.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -238,7 +246,7 @@ class _CertificateState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -250,7 +258,7 @@ class _CertificateState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -272,7 +280,7 @@ class Certificate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a lightsail certificate.
+        Manages a Lightsail certificate. Use this resource to create and manage SSL/TLS certificates for securing custom domains with your Lightsail resources.
 
         ## Example Usage
 
@@ -280,10 +288,10 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Certificate("test",
-            name="test",
-            domain_name="testdomain.com",
-            subject_alternative_names=["www.testdomain.com"])
+        example = aws.lightsail.Certificate("example",
+            name="example-certificate",
+            domain_name="example.com",
+            subject_alternative_names=["www.example.com"])
         ```
 
         ## Import
@@ -291,16 +299,18 @@ class Certificate(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        $ pulumi import aws:lightsail/certificate:Certificate example example-certificate
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] domain_name: A domain name for which the certificate should be issued.
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] domain_name: Domain name for which the certificate should be issued.
+        :param pulumi.Input[builtins.str] name: Name of the certificate.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -309,7 +319,7 @@ class Certificate(pulumi.CustomResource):
                  args: Optional[CertificateArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a lightsail certificate.
+        Manages a Lightsail certificate. Use this resource to create and manage SSL/TLS certificates for securing custom domains with your Lightsail resources.
 
         ## Example Usage
 
@@ -317,10 +327,10 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Certificate("test",
-            name="test",
-            domain_name="testdomain.com",
-            subject_alternative_names=["www.testdomain.com"])
+        example = aws.lightsail.Certificate("example",
+            name="example-certificate",
+            domain_name="example.com",
+            subject_alternative_names=["www.example.com"])
         ```
 
         ## Import
@@ -328,7 +338,7 @@ class Certificate(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        $ pulumi import aws:lightsail/certificate:Certificate example example-certificate
         ```
 
         :param str resource_name: The name of the resource.
@@ -395,15 +405,17 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: The ARN of the lightsail certificate.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the instance was created.
-        :param pulumi.Input[builtins.str] domain_name: A domain name for which the certificate should be issued.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] arn: ARN of the certificate.
+        :param pulumi.Input[builtins.str] created_at: Date and time when the certificate was created.
+        :param pulumi.Input[builtins.str] domain_name: Domain name for which the certificate should be issued.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
+        :param pulumi.Input[builtins.str] name: Name of the certificate.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -424,7 +436,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the lightsail certificate.
+        ARN of the certificate.
         """
         return pulumi.get(self, "arn")
 
@@ -432,7 +444,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
         """
-        The timestamp when the instance was created.
+        Date and time when the certificate was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -440,7 +452,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[builtins.str]:
         """
-        A domain name for which the certificate should be issued.
+        Domain name for which the certificate should be issued.
         """
         return pulumi.get(self, "domain_name")
 
@@ -448,7 +460,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainValidationOptions")
     def domain_validation_options(self) -> pulumi.Output[Sequence['outputs.CertificateDomainValidationOption']]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         """
         return pulumi.get(self, "domain_validation_options")
 
@@ -456,7 +468,9 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the Lightsail load balancer.
+        Name of the certificate.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -480,7 +494,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -488,7 +502,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

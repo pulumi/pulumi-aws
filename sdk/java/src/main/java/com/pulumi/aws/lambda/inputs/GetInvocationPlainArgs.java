@@ -16,14 +16,14 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetInvocationPlainArgs Empty = new GetInvocationPlainArgs();
 
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
      * 
      */
     @Import(name="functionName", required=true)
     private String functionName;
 
     /**
-     * @return Name of the lambda function.
+     * @return Name of the Lambda function.
      * 
      */
     public String functionName() {
@@ -31,14 +31,18 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * String in JSON format that is passed as payload to the lambda function.
+     * String in JSON format that is passed as payload to the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="input", required=true)
     private String input;
 
     /**
-     * @return String in JSON format that is passed as payload to the lambda function.
+     * @return String in JSON format that is passed as payload to the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String input() {
@@ -46,16 +50,14 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
+     * Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable String qualifier;
 
     /**
-     * @return Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
+     * @return Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     public Optional<String> qualifier() {
@@ -105,7 +107,7 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param functionName Name of the lambda function.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -116,7 +118,9 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param input String in JSON format that is passed as payload to the lambda function.
+         * @param input String in JSON format that is passed as payload to the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -127,8 +131,7 @@ public final class GetInvocationPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param qualifier Qualifier (a.k.a version) of the lambda function. Defaults
-         * to `$LATEST`.
+         * @param qualifier Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
          * 

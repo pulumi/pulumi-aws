@@ -19,14 +19,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     public static final DeviceState Empty = new DeviceState();
 
     /**
-     * The Amazon Resource Name (ARN) of the device.
+     * ARN of the device.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the device.
+     * @return ARN of the device.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS location of the device. Documented below.
+     * AWS location of the device. Documented below.
      * 
      */
     @Import(name="awsLocation")
     private @Nullable Output<DeviceAwsLocationArgs> awsLocation;
 
     /**
-     * @return The AWS location of the device. Documented below.
+     * @return AWS location of the device. Documented below.
      * 
      */
     public Optional<Output<DeviceAwsLocationArgs>> awsLocation() {
@@ -49,14 +49,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the device.
+     * Description of the device.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the device.
+     * @return Description of the device.
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,18 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> globalNetworkId() {
@@ -79,14 +83,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location of the device. Documented below.
+     * Location of the device. Documented below.
      * 
      */
     @Import(name="location")
     private @Nullable Output<DeviceLocationArgs> location;
 
     /**
-     * @return The location of the device. Documented below.
+     * @return Location of the device. Documented below.
      * 
      */
     public Optional<Output<DeviceLocationArgs>> location() {
@@ -94,14 +98,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The model of device.
+     * Model of device.
      * 
      */
     @Import(name="model")
     private @Nullable Output<String> model;
 
     /**
-     * @return The model of device.
+     * @return Model of device.
      * 
      */
     public Optional<Output<String>> model() {
@@ -109,14 +113,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The serial number of the device.
+     * Serial number of the device.
      * 
      */
     @Import(name="serialNumber")
     private @Nullable Output<String> serialNumber;
 
     /**
-     * @return The serial number of the device.
+     * @return Serial number of the device.
      * 
      */
     public Optional<Output<String>> serialNumber() {
@@ -124,14 +128,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the site.
+     * ID of the site.
      * 
      */
     @Import(name="siteId")
     private @Nullable Output<String> siteId;
 
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
      * 
      */
     public Optional<Output<String>> siteId() {
@@ -154,14 +158,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -169,14 +173,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of device.
+     * Type of device.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of device.
+     * @return Type of device.
      * 
      */
     public Optional<Output<String>> type() {
@@ -184,14 +188,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The vendor of the device.
+     * Vendor of the device.
      * 
      */
     @Import(name="vendor")
     private @Nullable Output<String> vendor;
 
     /**
-     * @return The vendor of the device.
+     * @return Vendor of the device.
      * 
      */
     public Optional<Output<String>> vendor() {
@@ -234,7 +238,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the device.
+         * @param arn ARN of the device.
          * 
          * @return builder
          * 
@@ -245,7 +249,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the device.
+         * @param arn ARN of the device.
          * 
          * @return builder
          * 
@@ -255,7 +259,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsLocation The AWS location of the device. Documented below.
+         * @param awsLocation AWS location of the device. Documented below.
          * 
          * @return builder
          * 
@@ -266,7 +270,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsLocation The AWS location of the device. Documented below.
+         * @param awsLocation AWS location of the device. Documented below.
          * 
          * @return builder
          * 
@@ -276,7 +280,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the device.
+         * @param description Description of the device.
          * 
          * @return builder
          * 
@@ -287,7 +291,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the device.
+         * @param description Description of the device.
          * 
          * @return builder
          * 
@@ -297,7 +301,9 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -308,7 +314,9 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -318,7 +326,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location of the device. Documented below.
+         * @param location Location of the device. Documented below.
          * 
          * @return builder
          * 
@@ -329,7 +337,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location of the device. Documented below.
+         * @param location Location of the device. Documented below.
          * 
          * @return builder
          * 
@@ -339,7 +347,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param model The model of device.
+         * @param model Model of device.
          * 
          * @return builder
          * 
@@ -350,7 +358,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param model The model of device.
+         * @param model Model of device.
          * 
          * @return builder
          * 
@@ -360,7 +368,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serialNumber The serial number of the device.
+         * @param serialNumber Serial number of the device.
          * 
          * @return builder
          * 
@@ -371,7 +379,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serialNumber The serial number of the device.
+         * @param serialNumber Serial number of the device.
          * 
          * @return builder
          * 
@@ -381,7 +389,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteId The ID of the site.
+         * @param siteId ID of the site.
          * 
          * @return builder
          * 
@@ -392,7 +400,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteId The ID of the site.
+         * @param siteId ID of the site.
          * 
          * @return builder
          * 
@@ -423,7 +431,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -434,7 +442,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -444,7 +452,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of device.
+         * @param type Type of device.
          * 
          * @return builder
          * 
@@ -455,7 +463,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of device.
+         * @param type Type of device.
          * 
          * @return builder
          * 
@@ -465,7 +473,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vendor The vendor of the device.
+         * @param vendor Vendor of the device.
          * 
          * @return builder
          * 
@@ -476,7 +484,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vendor The vendor of the device.
+         * @param vendor Vendor of the device.
          * 
          * @return builder
          * 

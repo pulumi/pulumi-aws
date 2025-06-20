@@ -40,6 +40,11 @@ export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
+export { WorkspaceConfigurationArgs, WorkspaceConfigurationState } from "./workspaceConfiguration";
+export type WorkspaceConfiguration = import("./workspaceConfiguration").WorkspaceConfiguration;
+export const WorkspaceConfiguration: typeof import("./workspaceConfiguration").WorkspaceConfiguration = null as any;
+utilities.lazyLoad(exports, ["WorkspaceConfiguration"], () => require("./workspaceConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -53,6 +58,8 @@ const _module = {
                 return new Scraper(name, <any>undefined, { urn })
             case "aws:amp/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "aws:amp/workspaceConfiguration:WorkspaceConfiguration":
+                return new WorkspaceConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -62,3 +69,4 @@ pulumi.runtime.registerResourceModule("aws", "amp/alertManagerDefinition", _modu
 pulumi.runtime.registerResourceModule("aws", "amp/ruleGroupNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/scraper", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/workspace", _module)
+pulumi.runtime.registerResourceModule("aws", "amp/workspaceConfiguration", _module)

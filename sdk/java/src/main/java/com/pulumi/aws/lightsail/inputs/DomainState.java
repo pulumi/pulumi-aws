@@ -16,14 +16,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     public static final DomainState Empty = new DomainState();
 
     /**
-     * The ARN of the Lightsail domain
+     * ARN of the Lightsail domain.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail domain
+     * @return ARN of the Lightsail domain.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,18 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Lightsail domain to manage
+     * Name of the Lightsail domain to manage.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The name of the Lightsail domain to manage
+     * @return Name of the Lightsail domain to manage.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -87,7 +91,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail domain
+         * @param arn ARN of the Lightsail domain.
          * 
          * @return builder
          * 
@@ -98,7 +102,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail domain
+         * @param arn ARN of the Lightsail domain.
          * 
          * @return builder
          * 
@@ -108,7 +112,9 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The name of the Lightsail domain to manage
+         * @param domainName Name of the Lightsail domain to manage.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -119,7 +125,9 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The name of the Lightsail domain to manage
+         * @param domainName Name of the Lightsail domain to manage.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

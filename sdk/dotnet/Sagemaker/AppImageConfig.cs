@@ -42,6 +42,25 @@ namespace Pulumi.Aws.Sagemaker
     /// });
     /// ```
     /// 
+    /// ### Using Code Editor with empty configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
+    ///     {
+    ///         AppImageConfigName = "example",
+    ///         CodeEditorAppImageConfig = null,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Default File System Config
     /// 
     /// ```csharp
@@ -95,13 +114,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        /// The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         /// </summary>
         [Output("codeEditorAppImageConfig")]
         public Output<Outputs.AppImageConfigCodeEditorAppImageConfig?> CodeEditorAppImageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        /// The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         /// </summary>
         [Output("jupyterLabImageConfig")]
         public Output<Outputs.AppImageConfigJupyterLabImageConfig?> JupyterLabImageConfig { get; private set; } = null!;
@@ -120,6 +139,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -183,13 +204,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> AppImageConfigName { get; set; } = null!;
 
         /// <summary>
-        /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        /// The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         /// </summary>
         [Input("codeEditorAppImageConfig")]
         public Input<Inputs.AppImageConfigCodeEditorAppImageConfigArgs>? CodeEditorAppImageConfig { get; set; }
 
         /// <summary>
-        /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        /// The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         /// </summary>
         [Input("jupyterLabImageConfig")]
         public Input<Inputs.AppImageConfigJupyterLabImageConfigArgs>? JupyterLabImageConfig { get; set; }
@@ -211,6 +232,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -239,13 +262,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        /// The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         /// </summary>
         [Input("codeEditorAppImageConfig")]
         public Input<Inputs.AppImageConfigCodeEditorAppImageConfigGetArgs>? CodeEditorAppImageConfig { get; set; }
 
         /// <summary>
-        /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        /// The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         /// </summary>
         [Input("jupyterLabImageConfig")]
         public Input<Inputs.AppImageConfigJupyterLabImageConfigGetArgs>? JupyterLabImageConfig { get; set; }
@@ -267,6 +290,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         /// </summary>
         public InputMap<string> Tags
         {

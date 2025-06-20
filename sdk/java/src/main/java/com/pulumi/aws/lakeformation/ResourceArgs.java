@@ -39,16 +39,12 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Flag to enable AWS LakeFormation hybrid access permission mode.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     @Import(name="hybridAccessEnabled")
     private @Nullable Output<Boolean> hybridAccessEnabled;
 
     /**
      * @return Flag to enable AWS LakeFormation hybrid access permission mode.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
     public Optional<Output<Boolean>> hybridAccessEnabled() {
@@ -100,9 +96,21 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.useServiceLinkedRole);
     }
 
+    /**
+     * Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
     @Import(name="withFederation")
     private @Nullable Output<Boolean> withFederation;
 
+    /**
+     * @return Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
     public Optional<Output<Boolean>> withFederation() {
         return Optional.ofNullable(this.withFederation);
     }
@@ -164,8 +172,6 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
          * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-         * 
          * @return builder
          * 
          */
@@ -176,8 +182,6 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
-         * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
          * 
          * @return builder
          * 
@@ -249,11 +253,27 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
             return useServiceLinkedRole(Output.of(useServiceLinkedRole));
         }
 
+        /**
+         * @param withFederation Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withFederation(@Nullable Output<Boolean> withFederation) {
             $.withFederation = withFederation;
             return this;
         }
 
+        /**
+         * @param withFederation Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withFederation(Boolean withFederation) {
             return withFederation(Output.of(withFederation));
         }

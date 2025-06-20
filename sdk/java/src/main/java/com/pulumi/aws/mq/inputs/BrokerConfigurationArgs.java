@@ -17,14 +17,14 @@ public final class BrokerConfigurationArgs extends com.pulumi.resources.Resource
     public static final BrokerConfigurationArgs Empty = new BrokerConfigurationArgs();
 
     /**
-     * The Configuration ID.
+     * Configuration ID.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The Configuration ID.
+     * @return Configuration ID.
      * 
      */
     public Optional<Output<String>> id() {
@@ -72,7 +72,7 @@ public final class BrokerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id The Configuration ID.
+         * @param id Configuration ID.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BrokerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id The Configuration ID.
+         * @param id Configuration ID.
          * 
          * @return builder
          * 

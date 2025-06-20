@@ -17,14 +17,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
     public static final ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs Empty = new ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs();
 
     /**
-     * The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+     * Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
      * 
      */
     @Import(name="healthyThreshold")
     private @Nullable Output<Integer> healthyThreshold;
 
     /**
-     * @return The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+     * @return Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
      * 
      */
     public Optional<Output<Integer>> healthyThreshold() {
@@ -32,14 +32,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
     }
 
     /**
-     * The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+     * Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
      * 
      */
     @Import(name="intervalSeconds")
     private @Nullable Output<Integer> intervalSeconds;
 
     /**
-     * @return The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+     * @return Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
      * 
      */
     public Optional<Output<Integer>> intervalSeconds() {
@@ -47,14 +47,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
     }
 
     /**
-     * The path on the container on which to perform the health check. Defaults to &#34;/&#34;.
+     * Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The path on the container on which to perform the health check. Defaults to &#34;/&#34;.
+     * @return Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
      * 
      */
     public Optional<Output<String>> path() {
@@ -62,14 +62,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
     }
 
     /**
-     * The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
+     * HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
      * 
      */
     @Import(name="successCodes")
     private @Nullable Output<String> successCodes;
 
     /**
-     * @return The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
+     * @return HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
      * 
      */
     public Optional<Output<String>> successCodes() {
@@ -77,14 +77,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
     }
 
     /**
-     * The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+     * Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
      * 
      */
     @Import(name="timeoutSeconds")
     private @Nullable Output<Integer> timeoutSeconds;
 
     /**
-     * @return The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+     * @return Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
      * 
      */
     public Optional<Output<Integer>> timeoutSeconds() {
@@ -92,14 +92,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
     }
 
     /**
-     * The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+     * Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
      * 
      */
     @Import(name="unhealthyThreshold")
     private @Nullable Output<Integer> unhealthyThreshold;
 
     /**
-     * @return The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+     * @return Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
      * 
      */
     public Optional<Output<Integer>> unhealthyThreshold() {
@@ -136,7 +136,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param healthyThreshold The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+         * @param healthyThreshold Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param healthyThreshold The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+         * @param healthyThreshold Number of consecutive health check successes required before moving the container to the Healthy state. Defaults to 2.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param intervalSeconds The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+         * @param intervalSeconds Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param intervalSeconds The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+         * @param intervalSeconds Approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param path The path on the container on which to perform the health check. Defaults to &#34;/&#34;.
+         * @param path Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param path The path on the container on which to perform the health check. Defaults to &#34;/&#34;.
+         * @param path Path on the container on which to perform the health check. Defaults to &#34;/&#34;.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param successCodes The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
+         * @param successCodes HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param successCodes The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
+         * @param successCodes HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param timeoutSeconds The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+         * @param timeoutSeconds Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param timeoutSeconds The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+         * @param timeoutSeconds Amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param unhealthyThreshold The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+         * @param unhealthyThreshold Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
         }
 
         /**
-         * @param unhealthyThreshold The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+         * @param unhealthyThreshold Number of consecutive health check failures required before moving the container to the Unhealthy state. Defaults to 2.
          * 
          * @return builder
          * 

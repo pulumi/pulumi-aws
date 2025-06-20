@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputMap<double>? _additionalVersionWeights;
 
         /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
+        /// Map that defines the proportion of events that should be sent to different versions of a Lambda function.
         /// </summary>
         public InputMap<double> AdditionalVersionWeights
         {

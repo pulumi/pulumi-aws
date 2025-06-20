@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a lightsail certificate.
+// Manages a Lightsail certificate. Use this resource to create and manage SSL/TLS certificates for securing custom domains with your Lightsail resources.
 //
 // ## Example Usage
 //
@@ -27,11 +27,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewCertificate(ctx, "test", &lightsail.CertificateArgs{
-//				Name:       pulumi.String("test"),
-//				DomainName: pulumi.String("testdomain.com"),
+//			_, err := lightsail.NewCertificate(ctx, "example", &lightsail.CertificateArgs{
+//				Name:       pulumi.String("example-certificate"),
+//				DomainName: pulumi.String("example.com"),
 //				SubjectAlternativeNames: pulumi.StringArray{
-//					pulumi.String("www.testdomain.com"),
+//					pulumi.String("www.example.com"),
 //				},
 //			})
 //			if err != nil {
@@ -48,28 +48,30 @@ import (
 // Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 //
 // ```sh
-// $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+// $ pulumi import aws:lightsail/certificate:Certificate example example-certificate
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the lightsail certificate.
+	// ARN of the certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The timestamp when the instance was created.
+	// Date and time when the certificate was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// A domain name for which the certificate should be issued.
+	// Domain name for which the certificate should be issued.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
-	// The name of the Lightsail load balancer.
+	// Name of the certificate.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -103,44 +105,48 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// The ARN of the lightsail certificate.
+	// ARN of the certificate.
 	Arn *string `pulumi:"arn"`
-	// The timestamp when the instance was created.
+	// Date and time when the certificate was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// A domain name for which the certificate should be issued.
+	// Domain name for which the certificate should be issued.
 	DomainName *string `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
-	// The name of the Lightsail load balancer.
+	// Name of the certificate.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CertificateState struct {
-	// The ARN of the lightsail certificate.
+	// ARN of the certificate.
 	Arn pulumi.StringPtrInput
-	// The timestamp when the instance was created.
+	// Date and time when the certificate was created.
 	CreatedAt pulumi.StringPtrInput
-	// A domain name for which the certificate should be issued.
+	// Domain name for which the certificate should be issued.
 	DomainName pulumi.StringPtrInput
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
-	// The name of the Lightsail load balancer.
+	// Name of the certificate.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -149,29 +155,33 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// A domain name for which the certificate should be issued.
+	// Domain name for which the certificate should be issued.
 	DomainName *string `pulumi:"domainName"`
-	// The name of the Lightsail load balancer.
+	// Name of the certificate.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// A domain name for which the certificate should be issued.
+	// Domain name for which the certificate should be issued.
 	DomainName pulumi.StringPtrInput
-	// The name of the Lightsail load balancer.
+	// Name of the certificate.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -262,27 +272,29 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// The ARN of the lightsail certificate.
+// ARN of the certificate.
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The timestamp when the instance was created.
+// Date and time when the certificate was created.
 func (o CertificateOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A domain name for which the certificate should be issued.
+// Domain name for which the certificate should be issued.
 func (o CertificateOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 func (o CertificateOutput) DomainValidationOptions() CertificateDomainValidationOptionArrayOutput {
 	return o.ApplyT(func(v *Certificate) CertificateDomainValidationOptionArrayOutput { return v.DomainValidationOptions }).(CertificateDomainValidationOptionArrayOutput)
 }
 
-// The name of the Lightsail load balancer.
+// Name of the certificate.
+//
+// The following arguments are optional:
 func (o CertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -297,12 +309,12 @@ func (o CertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

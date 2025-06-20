@@ -31,11 +31,13 @@ class AppImageConfigArgs:
         """
         The set of arguments for constructing a AppImageConfig resource.
         :param pulumi.Input[builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
-        :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
+        :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         if code_editor_app_image_config is not None:
@@ -65,7 +67,7 @@ class AppImageConfigArgs:
     @pulumi.getter(name="codeEditorAppImageConfig")
     def code_editor_app_image_config(self) -> Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]:
         """
-        The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         """
         return pulumi.get(self, "code_editor_app_image_config")
 
@@ -77,7 +79,7 @@ class AppImageConfigArgs:
     @pulumi.getter(name="jupyterLabImageConfig")
     def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
         """
-        The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         """
         return pulumi.get(self, "jupyter_lab_image_config")
 
@@ -114,6 +116,8 @@ class AppImageConfigArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         """
         return pulumi.get(self, "tags")
 
@@ -137,11 +141,13 @@ class _AppImageConfigState:
         Input properties used for looking up and filtering AppImageConfig resources.
         :param pulumi.Input[builtins.str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
-        :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
+        :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if app_image_config_name is not None:
@@ -189,7 +195,7 @@ class _AppImageConfigState:
     @pulumi.getter(name="codeEditorAppImageConfig")
     def code_editor_app_image_config(self) -> Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]:
         """
-        The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         """
         return pulumi.get(self, "code_editor_app_image_config")
 
@@ -201,7 +207,7 @@ class _AppImageConfigState:
     @pulumi.getter(name="jupyterLabImageConfig")
     def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
         """
-        The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         """
         return pulumi.get(self, "jupyter_lab_image_config")
 
@@ -238,6 +244,8 @@ class _AppImageConfigState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         """
         return pulumi.get(self, "tags")
 
@@ -291,6 +299,17 @@ class AppImageConfig(pulumi.CustomResource):
             })
         ```
 
+        ### Using Code Editor with empty configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            code_editor_app_image_config={})
+        ```
+
         ### Default File System Config
 
         ```python
@@ -318,11 +337,13 @@ class AppImageConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         """
         ...
     @overload
@@ -348,6 +369,17 @@ class AppImageConfig(pulumi.CustomResource):
                     "name": "example",
                 }],
             })
+        ```
+
+        ### Using Code Editor with empty configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.sagemaker.AppImageConfig("test",
+            app_image_config_name="example",
+            code_editor_app_image_config={})
         ```
 
         ### Default File System Config
@@ -441,11 +473,13 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -482,7 +516,7 @@ class AppImageConfig(pulumi.CustomResource):
     @pulumi.getter(name="codeEditorAppImageConfig")
     def code_editor_app_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigCodeEditorAppImageConfig']]:
         """
-        The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         """
         return pulumi.get(self, "code_editor_app_image_config")
 
@@ -490,7 +524,7 @@ class AppImageConfig(pulumi.CustomResource):
     @pulumi.getter(name="jupyterLabImageConfig")
     def jupyter_lab_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigJupyterLabImageConfig']]:
         """
-        The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         """
         return pulumi.get(self, "jupyter_lab_image_config")
 
@@ -515,6 +549,8 @@ class AppImageConfig(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
         """
         return pulumi.get(self, "tags")
 

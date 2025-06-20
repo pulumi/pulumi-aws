@@ -25,19 +25,21 @@ public final class BrokerUser {
      */
     private @Nullable List<String> groups;
     /**
-     * @return Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+     * @return Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
      * 
      */
     private String password;
     /**
-     * @return Whether to set set replication user. Defaults to `false`.
+     * @return Whether to set replication user. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     private @Nullable Boolean replicationUser;
     /**
      * @return Username of the user.
      * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+     * The following arguments are optional:
      * 
      */
     private String username;
@@ -58,14 +60,16 @@ public final class BrokerUser {
         return this.groups == null ? List.of() : this.groups;
     }
     /**
-     * @return Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+     * @return Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
      * 
      */
     public String password() {
         return this.password;
     }
     /**
-     * @return Whether to set set replication user. Defaults to `false`.
+     * @return Whether to set replication user. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     public Optional<Boolean> replicationUser() {
@@ -74,7 +78,7 @@ public final class BrokerUser {
     /**
      * @return Username of the user.
      * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+     * The following arguments are optional:
      * 
      */
     public String username() {

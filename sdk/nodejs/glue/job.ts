@@ -14,20 +14,117 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Python Job
+ * ### Python Glue Job
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Job("example", {
- *     name: "example",
+ * // IAM role for Glue jobs
+ * const glueJobRole = new aws.iam.Role("glue_job_role", {
+ *     name: "glue-job-role",
+ *     assumeRolePolicy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 Service: "glue.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const etlJob = new aws.glue.Job("etl_job", {
+ *     name: "example-etl-job",
+ *     description: "An example Glue ETL job",
+ *     roleArn: glueJobRole.arn,
  *     glueVersion: "5.0",
- *     roleArn: exampleAwsIamRole.arn,
+ *     maxRetries: 0,
+ *     timeout: 2880,
+ *     numberOfWorkers: 2,
+ *     workerType: "G.1X",
+ *     connections: [example.name],
+ *     executionClass: "STANDARD",
  *     command: {
- *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.py`,
+ *         scriptLocation: `s3://${glueScripts.bucket}/jobs/etl_job.py`,
+ *         name: "glueetl",
  *         pythonVersion: "3",
  *     },
+ *     notificationProperty: {
+ *         notifyDelayAfter: 3,
+ *     },
+ *     defaultArguments: {
+ *         "--job-language": "python",
+ *         "--continuous-log-logGroup": "/aws-glue/jobs",
+ *         "--enable-continuous-cloudwatch-log": "true",
+ *         "--enable-continuous-log-filter": "true",
+ *         "--enable-metrics": "",
+ *         "--enable-auto-scaling": "true",
+ *     },
+ *     executionProperty: {
+ *         maxConcurrentRuns: 1,
+ *     },
+ *     tags: {
+ *         ManagedBy: "AWS",
+ *     },
+ * });
+ * const glueEtlScript = new aws.s3.BucketObjectv2("glue_etl_script", {
+ *     bucket: glueScripts.id,
+ *     key: "jobs/etl_job.py",
+ *     source: new pulumi.asset.FileAsset("jobs/etl_job.py"),
+ * });
+ * ```
+ *
+ * ### Pythonshell Job
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // IAM role for Glue jobs
+ * const glueJobRole = new aws.iam.Role("glue_job_role", {
+ *     name: "glue-job-role",
+ *     assumeRolePolicy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 Service: "glue.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const pythonShellJob = new aws.glue.Job("python_shell_job", {
+ *     name: "example-python-shell-job",
+ *     description: "An example Python shell job",
+ *     roleArn: glueJobRole.arn,
+ *     maxCapacity: 0.0625,
+ *     maxRetries: 0,
+ *     timeout: 2880,
+ *     connections: [example.name],
+ *     command: {
+ *         scriptLocation: `s3://${glueScripts.bucket}/jobs/shell_job.py`,
+ *         name: "pythonshell",
+ *         pythonVersion: "3.9",
+ *     },
+ *     defaultArguments: {
+ *         "--job-language": "python",
+ *         "--continuous-log-logGroup": "/aws-glue/jobs",
+ *         "--enable-continuous-cloudwatch-log": "true",
+ *         "library-set": "analytics",
+ *     },
+ *     executionProperty: {
+ *         maxConcurrentRuns: 1,
+ *     },
+ *     tags: {
+ *         ManagedBy: "AWS",
+ *     },
+ * });
+ * const pythonShellScript = new aws.s3.BucketObjectv2("python_shell_script", {
+ *     bucket: glueScripts.id,
+ *     key: "jobs/shell_job.py",
+ *     source: new pulumi.asset.FileAsset("jobs/shell_job.py"),
  * });
  * ```
  *

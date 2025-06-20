@@ -34,7 +34,7 @@ class LayerVersionArgs:
                  source_code_hash: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LayerVersion resource.
-        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer
+        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer.
                
                The following arguments are optional:
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
@@ -47,7 +47,7 @@ class LayerVersionArgs:
         :param pulumi.Input[builtins.str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         """
         pulumi.set(__self__, "layer_name", layer_name)
         if code is not None:
@@ -77,7 +77,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="layerName")
     def layer_name(self) -> pulumi.Input[builtins.str]:
         """
-        Unique name for your Lambda Layer
+        Unique name for your Lambda Layer.
 
         The following arguments are optional:
         """
@@ -211,7 +211,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         """
         return pulumi.get(self, "source_code_hash")
 
@@ -253,7 +253,7 @@ class _LayerVersionState:
         :param pulumi.Input[builtins.str] created_date: Date this resource was created.
         :param pulumi.Input[builtins.str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[builtins.str] layer_arn: ARN of the Lambda Layer without version.
-        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer
+        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
@@ -264,7 +264,7 @@ class _LayerVersionState:
         :param pulumi.Input[builtins.str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[builtins.str] signing_profile_version_arn: ARN for a signing profile version.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         :param pulumi.Input[builtins.int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[builtins.str] version: Lambda Layer version.
         """
@@ -409,7 +409,7 @@ class _LayerVersionState:
     @pulumi.getter(name="layerName")
     def layer_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Unique name for your Lambda Layer
+        Unique name for your Lambda Layer.
 
         The following arguments are optional:
         """
@@ -519,7 +519,7 @@ class _LayerVersionState:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         """
         return pulumi.get(self, "source_code_hash")
 
@@ -572,32 +572,76 @@ class LayerVersion(pulumi.CustomResource):
                  source_code_hash: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
+        Manages an AWS Lambda Layer Version. Use this resource to share code and dependencies across multiple Lambda functions.
 
         For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
-        > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
+        > **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version, even when running `pulumi destroy`. Layer versions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
 
         ## Example Usage
+
+        ### Basic Layer
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer = aws.lambda_.LayerVersion("lambda_layer",
+        example = aws.lambda_.LayerVersion("example",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
             layer_name="lambda_layer_name",
             compatible_runtimes=["nodejs20.x"])
         ```
 
+        ### Layer with S3 Source
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.LayerVersion("example",
+            s3_bucket=lambda_layer_zip["bucket"],
+            s3_key=lambda_layer_zip["key"],
+            layer_name="lambda_layer_name",
+            compatible_runtimes=[
+                "nodejs20.x",
+                "python3.12",
+            ],
+            compatible_architectures=[
+                "x86_64",
+                "arm64",
+            ])
+        ```
+
+        ### Layer with Multiple Runtimes and Architectures
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.lambda_.LayerVersion("example",
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="multi_runtime_layer",
+            description="Shared utilities for Lambda functions",
+            license_info="MIT",
+            source_code_hash=std.filebase64sha256(input="lambda_layer_payload.zip").result,
+            compatible_runtimes=[
+                "nodejs18.x",
+                "nodejs20.x",
+                "python3.11",
+                "python3.12",
+            ],
+            compatible_architectures=[
+                "x86_64",
+                "arm64",
+            ])
+        ```
+
         ## Specifying the Deployment Package
 
-        AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
-        See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
+        AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
 
-        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
-        indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
-        package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
+        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
 
         For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
 
@@ -606,7 +650,7 @@ class LayerVersion(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Layers using `arn`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1
         ```
 
         :param str resource_name: The name of the resource.
@@ -615,7 +659,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] compatible_architectures: List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] compatible_runtimes: List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         :param pulumi.Input[builtins.str] description: Description of what your Lambda Layer does.
-        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer
+        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
@@ -624,7 +668,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         """
         ...
     @overload
@@ -633,32 +677,76 @@ class LayerVersion(pulumi.CustomResource):
                  args: LayerVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
+        Manages an AWS Lambda Layer Version. Use this resource to share code and dependencies across multiple Lambda functions.
 
         For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 
-        > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
+        > **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version, even when running `pulumi destroy`. Layer versions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
 
         ## Example Usage
+
+        ### Basic Layer
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer = aws.lambda_.LayerVersion("lambda_layer",
+        example = aws.lambda_.LayerVersion("example",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
             layer_name="lambda_layer_name",
             compatible_runtimes=["nodejs20.x"])
         ```
 
+        ### Layer with S3 Source
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.LayerVersion("example",
+            s3_bucket=lambda_layer_zip["bucket"],
+            s3_key=lambda_layer_zip["key"],
+            layer_name="lambda_layer_name",
+            compatible_runtimes=[
+                "nodejs20.x",
+                "python3.12",
+            ],
+            compatible_architectures=[
+                "x86_64",
+                "arm64",
+            ])
+        ```
+
+        ### Layer with Multiple Runtimes and Architectures
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.lambda_.LayerVersion("example",
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="multi_runtime_layer",
+            description="Shared utilities for Lambda functions",
+            license_info="MIT",
+            source_code_hash=std.filebase64sha256(input="lambda_layer_payload.zip").result,
+            compatible_runtimes=[
+                "nodejs18.x",
+                "nodejs20.x",
+                "python3.11",
+                "python3.12",
+            ],
+            compatible_architectures=[
+                "x86_64",
+                "arm64",
+            ])
+        ```
+
         ## Specifying the Deployment Package
 
-        AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
-        See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
+        AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
 
-        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
-        indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
-        package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
+        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
 
         For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
 
@@ -667,7 +755,7 @@ class LayerVersion(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Layers using `arn`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1
         ```
 
         :param str resource_name: The name of the resource.
@@ -773,7 +861,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_date: Date this resource was created.
         :param pulumi.Input[builtins.str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[builtins.str] layer_arn: ARN of the Lambda Layer without version.
-        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer
+        :param pulumi.Input[builtins.str] layer_name: Unique name for your Lambda Layer.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
@@ -784,7 +872,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[builtins.str] signing_profile_version_arn: ARN for a signing profile version.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[builtins.str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         :param pulumi.Input[builtins.int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[builtins.str] version: Lambda Layer version.
         """
@@ -882,7 +970,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="layerName")
     def layer_name(self) -> pulumi.Output[builtins.str]:
         """
-        Unique name for your Lambda Layer
+        Unique name for your Lambda Layer.
 
         The following arguments are optional:
         """
@@ -956,7 +1044,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> pulumi.Output[builtins.str]:
         """
-        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
         """
         return pulumi.get(self, "source_code_hash")
 

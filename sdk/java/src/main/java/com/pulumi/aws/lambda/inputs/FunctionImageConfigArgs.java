@@ -17,14 +17,14 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
     public static final FunctionImageConfigArgs Empty = new FunctionImageConfigArgs();
 
     /**
-     * Parameters that you want to pass in with `entry_point`.
+     * Parameters to pass to the container image.
      * 
      */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
     /**
-     * @return Parameters that you want to pass in with `entry_point`.
+     * @return Parameters to pass to the container image.
      * 
      */
     public Optional<Output<List<String>>> commands() {
@@ -32,14 +32,14 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Entry point to your application, which is typically the location of the runtime executable.
+     * Entry point to your application.
      * 
      */
     @Import(name="entryPoints")
     private @Nullable Output<List<String>> entryPoints;
 
     /**
-     * @return Entry point to your application, which is typically the location of the runtime executable.
+     * @return Entry point to your application.
      * 
      */
     public Optional<Output<List<String>>> entryPoints() {
@@ -47,14 +47,14 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Working directory.
+     * Working directory for the container image.
      * 
      */
     @Import(name="workingDirectory")
     private @Nullable Output<String> workingDirectory;
 
     /**
-     * @return Working directory.
+     * @return Working directory for the container image.
      * 
      */
     public Optional<Output<String>> workingDirectory() {
@@ -88,7 +88,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param commands Parameters that you want to pass in with `entry_point`.
+         * @param commands Parameters to pass to the container image.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param commands Parameters that you want to pass in with `entry_point`.
+         * @param commands Parameters to pass to the container image.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param commands Parameters that you want to pass in with `entry_point`.
+         * @param commands Parameters to pass to the container image.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param entryPoints Entry point to your application, which is typically the location of the runtime executable.
+         * @param entryPoints Entry point to your application.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param entryPoints Entry point to your application, which is typically the location of the runtime executable.
+         * @param entryPoints Entry point to your application.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param entryPoints Entry point to your application, which is typically the location of the runtime executable.
+         * @param entryPoints Entry point to your application.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param workingDirectory Working directory.
+         * @param workingDirectory Working directory for the container image.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class FunctionImageConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param workingDirectory Working directory.
+         * @param workingDirectory Working directory for the container image.
          * 
          * @return builder
          * 

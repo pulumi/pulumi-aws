@@ -16,14 +16,14 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
     public static final Disk_attachmentState Empty = new Disk_attachmentState();
 
     /**
-     * The name of the Lightsail Disk.
+     * Name of the Lightsail disk.
      * 
      */
     @Import(name="diskName")
     private @Nullable Output<String> diskName;
 
     /**
-     * @return The name of the Lightsail Disk.
+     * @return Name of the Lightsail disk.
      * 
      */
     public Optional<Output<String>> diskName() {
@@ -31,14 +31,14 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The disk path to expose to the instance.
+     * Disk path to expose to the instance.
      * 
      */
     @Import(name="diskPath")
     private @Nullable Output<String> diskPath;
 
     /**
-     * @return The disk path to expose to the instance.
+     * @return Disk path to expose to the instance.
      * 
      */
     public Optional<Output<String>> diskPath() {
@@ -46,14 +46,14 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the Lightsail Instance to attach to.
+     * Name of the Lightsail instance to attach to.
      * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
-     * @return The name of the Lightsail Instance to attach to.
+     * @return Name of the Lightsail instance to attach to.
      * 
      */
     public Optional<Output<String>> instanceName() {
@@ -103,7 +103,7 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param diskName The name of the Lightsail Disk.
+         * @param diskName Name of the Lightsail disk.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param diskName The name of the Lightsail Disk.
+         * @param diskName Name of the Lightsail disk.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param diskPath The disk path to expose to the instance.
+         * @param diskPath Disk path to expose to the instance.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param diskPath The disk path to expose to the instance.
+         * @param diskPath Disk path to expose to the instance.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param instanceName The name of the Lightsail Instance to attach to.
+         * @param instanceName Name of the Lightsail instance to attach to.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param instanceName The name of the Lightsail Instance to attach to.
+         * @param instanceName Name of the Lightsail instance to attach to.
          * 
          * @return builder
          * 

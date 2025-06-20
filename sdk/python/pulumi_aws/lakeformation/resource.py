@@ -32,11 +32,12 @@ class ResourceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
-               
-               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+               
+               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         pulumi.set(__self__, "arn", arn)
         if hybrid_access_enabled is not None:
@@ -69,8 +70,6 @@ class ResourceArgs:
     def hybrid_access_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Flag to enable AWS LakeFormation hybrid access permission mode.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 
@@ -117,6 +116,11 @@ class ResourceArgs:
     @property
     @pulumi.getter(name="withFederation")
     def with_federation(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
         return pulumi.get(self, "with_federation")
 
     @with_federation.setter
@@ -140,12 +144,13 @@ class _ResourceState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
-               
-               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         :param pulumi.Input[builtins.str] last_modified: Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+               
+               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -181,8 +186,6 @@ class _ResourceState:
     def hybrid_access_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Flag to enable AWS LakeFormation hybrid access permission mode.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 
@@ -241,6 +244,11 @@ class _ResourceState:
     @property
     @pulumi.getter(name="withFederation")
     def with_federation(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
         return pulumi.get(self, "with_federation")
 
     @with_federation.setter
@@ -285,11 +293,12 @@ class Resource(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
-               
-               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+               
+               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         ...
     @overload
@@ -382,12 +391,13 @@ class Resource(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
-               
-               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         :param pulumi.Input[builtins.str] last_modified: Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[builtins.bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        :param pulumi.Input[builtins.bool] with_federation: Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+               
+               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -417,8 +427,6 @@ class Resource(pulumi.CustomResource):
     def hybrid_access_enabled(self) -> pulumi.Output[builtins.bool]:
         """
         Flag to enable AWS LakeFormation hybrid access permission mode.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "hybrid_access_enabled")
 
@@ -457,5 +465,10 @@ class Resource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="withFederation")
     def with_federation(self) -> pulumi.Output[builtins.bool]:
+        """
+        Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
         return pulumi.get(self, "with_federation")
 

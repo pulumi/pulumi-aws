@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class FunctionVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+        /// Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
         /// </summary>
         [Input("ipv6AllowedForDualStack")]
         public Input<bool>? Ipv6AllowedForDualStack { get; set; }

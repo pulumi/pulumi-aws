@@ -19,12 +19,16 @@ public final class GetCodeSigningConfigArgs extends com.pulumi.resources.InvokeA
     /**
      * ARN of the code signing configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
      * @return ARN of the code signing configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> arn() {
@@ -74,6 +78,8 @@ public final class GetCodeSigningConfigArgs extends com.pulumi.resources.InvokeA
         /**
          * @param arn ARN of the code signing configuration.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class GetCodeSigningConfigArgs extends com.pulumi.resources.InvokeA
 
         /**
          * @param arn ARN of the code signing configuration.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

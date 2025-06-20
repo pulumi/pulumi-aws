@@ -27,11 +27,13 @@ class BucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
-        :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
-        :param pulumi.Input[builtins.bool] force_delete: Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
-        :param pulumi.Input[builtins.str] name: The name for the bucket.
+        :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        :param pulumi.Input[builtins.str] name: Name for the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         if force_delete is not None:
@@ -47,7 +49,7 @@ class BucketArgs:
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         """
         return pulumi.get(self, "bundle_id")
 
@@ -59,7 +61,7 @@ class BucketArgs:
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         """
         return pulumi.get(self, "force_delete")
 
@@ -71,7 +73,9 @@ class BucketArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name for the bucket.
+        Name for the bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -95,7 +99,7 @@ class BucketArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -120,16 +124,19 @@ class _BucketState:
                  url: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Bucket resources.
-        :param pulumi.Input[builtins.str] arn: The ARN of the lightsail bucket.
-        :param pulumi.Input[builtins.str] availability_zone: The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the bucket was created.
-        :param pulumi.Input[builtins.bool] force_delete: Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
-        :param pulumi.Input[builtins.str] name: The name for the bucket.
+        :param pulumi.Input[builtins.str] arn: ARN of the Lightsail bucket.
+        :param pulumi.Input[builtins.str] availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
+        :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[builtins.str] created_at: Date and time when the bucket was created.
+        :param pulumi.Input[builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        :param pulumi.Input[builtins.str] name: Name for the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] support_code: The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] support_code: Support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] url: URL of the bucket.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -158,7 +165,7 @@ class _BucketState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the lightsail bucket.
+        ARN of the Lightsail bucket.
         """
         return pulumi.get(self, "arn")
 
@@ -170,7 +177,7 @@ class _BucketState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        Availability Zone. Follows the format us-east-2a (case-sensitive).
         """
         return pulumi.get(self, "availability_zone")
 
@@ -182,7 +189,7 @@ class _BucketState:
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         """
         return pulumi.get(self, "bundle_id")
 
@@ -194,7 +201,7 @@ class _BucketState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The timestamp when the bucket was created.
+        Date and time when the bucket was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -206,7 +213,7 @@ class _BucketState:
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         """
         return pulumi.get(self, "force_delete")
 
@@ -218,7 +225,9 @@ class _BucketState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name for the bucket.
+        Name for the bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -242,7 +251,7 @@ class _BucketState:
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        Support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
@@ -254,7 +263,7 @@ class _BucketState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -266,7 +275,7 @@ class _BucketState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -277,6 +286,9 @@ class _BucketState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        URL of the bucket.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -297,7 +309,7 @@ class Bucket(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a lightsail bucket.
+        Manages a Lightsail bucket. Use this resource to create and manage object storage buckets for storing files, images, and other data in Lightsail.
 
         ## Example Usage
 
@@ -305,8 +317,8 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test",
-            name="mytestbucket",
+        example = aws.lightsail.Bucket("example",
+            name="example-bucket",
             bundle_id="small_1_0")
         ```
 
@@ -315,16 +327,18 @@ class Bucket(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        $ pulumi import aws:lightsail/bucket:Bucket example example-bucket
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
-        :param pulumi.Input[builtins.bool] force_delete: Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
-        :param pulumi.Input[builtins.str] name: The name for the bucket.
+        :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        :param pulumi.Input[builtins.str] name: Name for the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -333,7 +347,7 @@ class Bucket(pulumi.CustomResource):
                  args: BucketArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a lightsail bucket.
+        Manages a Lightsail bucket. Use this resource to create and manage object storage buckets for storing files, images, and other data in Lightsail.
 
         ## Example Usage
 
@@ -341,8 +355,8 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test",
-            name="mytestbucket",
+        example = aws.lightsail.Bucket("example",
+            name="example-bucket",
             bundle_id="small_1_0")
         ```
 
@@ -351,7 +365,7 @@ class Bucket(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        $ pulumi import aws:lightsail/bucket:Bucket example example-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -424,16 +438,19 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: The ARN of the lightsail bucket.
-        :param pulumi.Input[builtins.str] availability_zone: The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the bucket was created.
-        :param pulumi.Input[builtins.bool] force_delete: Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
-        :param pulumi.Input[builtins.str] name: The name for the bucket.
+        :param pulumi.Input[builtins.str] arn: ARN of the Lightsail bucket.
+        :param pulumi.Input[builtins.str] availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
+        :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[builtins.str] created_at: Date and time when the bucket was created.
+        :param pulumi.Input[builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        :param pulumi.Input[builtins.str] name: Name for the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] support_code: The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] support_code: Support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] url: URL of the bucket.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -456,7 +473,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the lightsail bucket.
+        ARN of the Lightsail bucket.
         """
         return pulumi.get(self, "arn")
 
@@ -464,7 +481,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[builtins.str]:
         """
-        The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        Availability Zone. Follows the format us-east-2a (case-sensitive).
         """
         return pulumi.get(self, "availability_zone")
 
@@ -472,7 +489,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         """
         return pulumi.get(self, "bundle_id")
 
@@ -480,7 +497,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
         """
-        The timestamp when the bucket was created.
+        Date and time when the bucket was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -488,7 +505,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         """
         return pulumi.get(self, "force_delete")
 
@@ -496,7 +513,9 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name for the bucket.
+        Name for the bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -512,7 +531,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[builtins.str]:
         """
-        The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        Support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
@@ -520,7 +539,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -528,12 +547,15 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[builtins.str]:
+        """
+        URL of the bucket.
+        """
         return pulumi.get(self, "url")
 

@@ -18,14 +18,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final ConnectionArgs Empty = new ConnectionArgs();
 
     /**
-     * The ID of the second device in the connection.
+     * ID of the second device in the connection.
      * 
      */
     @Import(name="connectedDeviceId", required=true)
     private Output<String> connectedDeviceId;
 
     /**
-     * @return The ID of the second device in the connection.
+     * @return ID of the second device in the connection.
      * 
      */
     public Output<String> connectedDeviceId() {
@@ -33,14 +33,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the link for the second device.
+     * ID of the link for the second device.
      * 
      */
     @Import(name="connectedLinkId")
     private @Nullable Output<String> connectedLinkId;
 
     /**
-     * @return The ID of the link for the second device.
+     * @return ID of the link for the second device.
      * 
      */
     public Optional<Output<String>> connectedLinkId() {
@@ -48,14 +48,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the connection.
+     * Description of the connection.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the connection.
+     * @return Description of the connection.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the first device in the connection.
+     * ID of the first device in the connection.
      * 
      */
     @Import(name="deviceId", required=true)
     private Output<String> deviceId;
 
     /**
-     * @return The ID of the first device in the connection.
+     * @return ID of the first device in the connection.
      * 
      */
     public Output<String> deviceId() {
@@ -78,14 +78,18 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
@@ -93,14 +97,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the link for the first device.
+     * ID of the link for the first device.
      * 
      */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
     /**
-     * @return The ID of the link for the first device.
+     * @return ID of the link for the first device.
      * 
      */
     public Optional<Output<String>> linkId() {
@@ -153,7 +157,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedDeviceId The ID of the second device in the connection.
+         * @param connectedDeviceId ID of the second device in the connection.
          * 
          * @return builder
          * 
@@ -164,7 +168,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedDeviceId The ID of the second device in the connection.
+         * @param connectedDeviceId ID of the second device in the connection.
          * 
          * @return builder
          * 
@@ -174,7 +178,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedLinkId The ID of the link for the second device.
+         * @param connectedLinkId ID of the link for the second device.
          * 
          * @return builder
          * 
@@ -185,7 +189,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedLinkId The ID of the link for the second device.
+         * @param connectedLinkId ID of the link for the second device.
          * 
          * @return builder
          * 
@@ -195,7 +199,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the connection.
+         * @param description Description of the connection.
          * 
          * @return builder
          * 
@@ -206,7 +210,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the connection.
+         * @param description Description of the connection.
          * 
          * @return builder
          * 
@@ -216,7 +220,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceId The ID of the first device in the connection.
+         * @param deviceId ID of the first device in the connection.
          * 
          * @return builder
          * 
@@ -227,7 +231,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceId The ID of the first device in the connection.
+         * @param deviceId ID of the first device in the connection.
          * 
          * @return builder
          * 
@@ -237,7 +241,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -248,7 +254,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -258,7 +266,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkId The ID of the link for the first device.
+         * @param linkId ID of the link for the first device.
          * 
          * @return builder
          * 
@@ -269,7 +277,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkId The ID of the link for the first device.
+         * @param linkId ID of the link for the first device.
          * 
          * @return builder
          * 

@@ -18,7 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a Lightsail load balancer resource.
+ * Manages a Lightsail load balancer resource.
+ * 
+ * Use this resource to distribute incoming traffic across multiple Lightsail instances to improve application availability and performance.
  * 
  * ## Example Usage
  * 
@@ -45,8 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb("test", LbArgs.builder()
- *             .name("test-load-balancer")
+ *         var example = new Lb("example", LbArgs.builder()
+ *             .name("example-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
@@ -63,125 +65,137 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+ * $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/lb:Lb")
 public class Lb extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Lightsail load balancer.
+     * ARN of the Lightsail load balancer.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail load balancer.
+     * @return ARN of the Lightsail load balancer.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The timestamp when the load balancer was created.
+     * Timestamp when the load balancer was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the load balancer was created.
+     * @return Timestamp when the load balancer was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The DNS name of the load balancer.
+     * DNS name of the load balancer.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
-     * @return The DNS name of the load balancer.
+     * @return DNS name of the load balancer.
      * 
      */
     public Output<String> dnsName() {
         return this.dnsName;
     }
     /**
-     * The health check path of the load balancer. Default value &#34;/&#34;.
+     * Health check path of the load balancer. Default value `/`.
      * 
      */
     @Export(name="healthCheckPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> healthCheckPath;
 
     /**
-     * @return The health check path of the load balancer. Default value &#34;/&#34;.
+     * @return Health check path of the load balancer. Default value `/`.
      * 
      */
     public Output<Optional<String>> healthCheckPath() {
         return Codegen.optional(this.healthCheckPath);
     }
     /**
-     * The instance port the load balancer will connect.
+     * Instance port the load balancer will connect to.
      * 
      */
     @Export(name="instancePort", refs={Integer.class}, tree="[0]")
     private Output<Integer> instancePort;
 
     /**
-     * @return The instance port the load balancer will connect.
+     * @return Instance port the load balancer will connect to.
      * 
      */
     public Output<Integer> instancePort() {
         return this.instancePort;
     }
+    /**
+     * IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+     * 
+     */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
+    /**
+     * @return IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+     * 
+     */
     public Output<Optional<String>> ipAddressType() {
         return Codegen.optional(this.ipAddressType);
     }
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the Lightsail load balancer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return Name of the Lightsail load balancer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The protocol of the load balancer.
+     * Protocol of the load balancer.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return The protocol of the load balancer.
+     * @return Protocol of the load balancer.
      * 
      */
     public Output<String> protocol() {
         return this.protocol;
     }
     /**
-     * The public ports of the load balancer.
+     * Public ports of the load balancer.
      * 
      */
     @Export(name="publicPorts", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> publicPorts;
 
     /**
-     * @return The public ports of the load balancer.
+     * @return Public ports of the load balancer.
      * 
      */
     public Output<List<Integer>> publicPorts() {
@@ -202,42 +216,42 @@ public class Lb extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     /**
-     * @return The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * @return Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     public Output<String> supportCode() {
         return this.supportCode;
     }
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

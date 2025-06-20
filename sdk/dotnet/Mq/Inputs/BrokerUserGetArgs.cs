@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Mq.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        /// Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
         /// </summary>
         public Input<string>? Password
         {
@@ -47,7 +47,9 @@ namespace Pulumi.Aws.Mq.Inputs
         }
 
         /// <summary>
-        /// Whether to set set replication user. Defaults to `false`.
+        /// Whether to set replication user. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         /// </summary>
         [Input("replicationUser")]
         public Input<bool>? ReplicationUser { get; set; }
@@ -55,7 +57,7 @@ namespace Pulumi.Aws.Mq.Inputs
         /// <summary>
         /// Username of the user.
         /// 
-        /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+        /// The following arguments are optional:
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

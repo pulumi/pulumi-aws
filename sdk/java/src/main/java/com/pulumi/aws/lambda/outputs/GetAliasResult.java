@@ -16,7 +16,7 @@ public final class GetAliasResult {
      */
     private String arn;
     /**
-     * @return Description of alias.
+     * @return Description of the alias.
      * 
      */
     private String description;
@@ -32,7 +32,7 @@ public final class GetAliasResult {
      */
     private String id;
     /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
+     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     private String invokeArn;
@@ -48,7 +48,7 @@ public final class GetAliasResult {
         return this.arn;
     }
     /**
-     * @return Description of alias.
+     * @return Description of the alias.
      * 
      */
     public String description() {
@@ -72,7 +72,7 @@ public final class GetAliasResult {
         return this.id;
     }
     /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration&#39;s `uri`.
+     * @return ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`.
      * 
      */
     public String invokeArn() {

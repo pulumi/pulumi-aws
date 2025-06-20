@@ -15,14 +15,14 @@ public final class FunctionDeadLetterConfigArgs extends com.pulumi.resources.Res
     public static final FunctionDeadLetterConfigArgs Empty = new FunctionDeadLetterConfigArgs();
 
     /**
-     * ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+     * ARN of an SNS topic or SQS queue to notify when an invocation fails.
      * 
      */
     @Import(name="targetArn", required=true)
     private Output<String> targetArn;
 
     /**
-     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails.
      * 
      */
     public Output<String> targetArn() {
@@ -54,7 +54,7 @@ public final class FunctionDeadLetterConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targetArn ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+         * @param targetArn ARN of an SNS topic or SQS queue to notify when an invocation fails.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class FunctionDeadLetterConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targetArn ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+         * @param targetArn ARN of an SNS topic or SQS queue to notify when an invocation fails.
          * 
          * @return builder
          * 

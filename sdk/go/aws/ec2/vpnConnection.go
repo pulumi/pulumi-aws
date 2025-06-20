@@ -217,6 +217,10 @@ type VpnConnection struct {
 	LocalIpv6NetworkCidr pulumi.StringOutput `pulumi:"localIpv6NetworkCidr"`
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType pulumi.StringOutput `pulumi:"outsideIpAddressType"`
+	// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
+	PresharedKeyArn pulumi.StringOutput `pulumi:"presharedKeyArn"`
+	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+	PresharedKeyStorage pulumi.StringOutput `pulumi:"presharedKeyStorage"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -413,6 +417,10 @@ type vpnConnectionState struct {
 	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
+	// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
+	PresharedKeyArn *string `pulumi:"presharedKeyArn"`
+	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+	PresharedKeyStorage *string `pulumi:"presharedKeyStorage"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -562,6 +570,10 @@ type VpnConnectionState struct {
 	LocalIpv6NetworkCidr pulumi.StringPtrInput
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType pulumi.StringPtrInput
+	// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
+	PresharedKeyArn pulumi.StringPtrInput
+	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+	PresharedKeyStorage pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -707,6 +719,8 @@ type vpnConnectionArgs struct {
 	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
+	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+	PresharedKeyStorage *string `pulumi:"presharedKeyStorage"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -821,6 +835,8 @@ type VpnConnectionArgs struct {
 	LocalIpv6NetworkCidr pulumi.StringPtrInput
 	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 	OutsideIpAddressType pulumi.StringPtrInput
+	// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+	PresharedKeyStorage pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -1053,6 +1069,16 @@ func (o VpnConnectionOutput) LocalIpv6NetworkCidr() pulumi.StringOutput {
 // Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
 func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.OutsideIpAddressType }).(pulumi.StringOutput)
+}
+
+// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
+func (o VpnConnectionOutput) PresharedKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.PresharedKeyArn }).(pulumi.StringOutput)
+}
+
+// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+func (o VpnConnectionOutput) PresharedKeyStorage() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.PresharedKeyStorage }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -141,7 +141,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly accessLogs!: pulumi.Output<outputs.alb.LoadBalancerAccessLogs | undefined>;
     /**
-     * ARN of the load balancer (matches `id`).
+     * ARN of the load balancer.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -166,6 +166,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly desyncMitigationMode!: pulumi.Output<string | undefined>;
     /**
      * DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
@@ -386,7 +387,7 @@ export interface LoadBalancerState {
      */
     accessLogs?: pulumi.Input<inputs.alb.LoadBalancerAccessLogs>;
     /**
-     * ARN of the load balancer (matches `id`).
+     * ARN of the load balancer.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -411,6 +412,7 @@ export interface LoadBalancerState {
     desyncMitigationMode?: pulumi.Input<string>;
     /**
      * DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     dnsName?: pulumi.Input<string>;
     /**

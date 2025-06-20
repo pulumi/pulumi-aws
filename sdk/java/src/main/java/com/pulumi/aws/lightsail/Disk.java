@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Lightsail Disk resource.
+ * Manages a Lightsail disk. Use this resource to create additional block storage that can be attached to Lightsail instances for extra storage capacity.
  * 
  * ## Example Usage
  * 
@@ -54,8 +54,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new Disk("test", DiskArgs.builder()
- *             .name("test")
+ *         var example = new Disk("example", DiskArgs.builder()
+ *             .name("example-disk")
  *             .sizeInGb(8)
  *             .availabilityZone(available.names()[0])
  *             .build());
@@ -71,63 +71,63 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/disk:Disk test test
+ * $ pulumi import aws:lightsail/disk:Disk example example-disk
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/disk:Disk")
 public class Disk extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Lightsail disk.
+     * ARN of the disk.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail disk.
+     * @return ARN of the disk.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Availability Zone in which to create your disk.
+     * Availability Zone in which to create the disk.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your disk.
+     * @return Availability Zone in which to create the disk.
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * The timestamp when the disk was created.
+     * Date and time when the disk was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the disk was created.
+     * @return Date and time when the disk was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The name of the disk.
+     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the disk.
+     * @return Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      * 
      */
     public Output<String> name() {
@@ -148,56 +148,60 @@ public class Disk extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The size of the disk in GB.
+     * Size of the disk in GB.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="sizeInGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInGb;
 
     /**
-     * @return The size of the disk in GB.
+     * @return Size of the disk in GB.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> sizeInGb() {
         return this.sizeInGb;
     }
     /**
-     * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     /**
-     * @return The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * @return Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
      * 
      */
     public Output<String> supportCode() {
         return this.supportCode;
     }
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

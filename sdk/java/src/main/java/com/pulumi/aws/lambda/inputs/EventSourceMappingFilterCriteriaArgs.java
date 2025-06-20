@@ -17,14 +17,14 @@ public final class EventSourceMappingFilterCriteriaArgs extends com.pulumi.resou
     public static final EventSourceMappingFilterCriteriaArgs Empty = new EventSourceMappingFilterCriteriaArgs();
 
     /**
-     * A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+     * Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<EventSourceMappingFilterCriteriaFilterArgs>> filters;
 
     /**
-     * @return A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+     * @return Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
      * 
      */
     public Optional<Output<List<EventSourceMappingFilterCriteriaFilterArgs>>> filters() {
@@ -56,7 +56,7 @@ public final class EventSourceMappingFilterCriteriaArgs extends com.pulumi.resou
         }
 
         /**
-         * @param filters A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         * @param filters Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class EventSourceMappingFilterCriteriaArgs extends com.pulumi.resou
         }
 
         /**
-         * @param filters A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         * @param filters Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class EventSourceMappingFilterCriteriaArgs extends com.pulumi.resou
         }
 
         /**
-         * @param filters A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         * @param filters Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
          * 
          * @return builder
          * 

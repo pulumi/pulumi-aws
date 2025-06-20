@@ -10,12 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
-    /// Resource for managing an AWS Lambda Runtime Management Config.
+    /// Manages an AWS Lambda Runtime Management Config. Use this resource to control how Lambda updates the runtime for your function.
     /// 
     /// Refer to the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) for supported runtimes.
     /// 
-    /// &gt; Deletion of this resource returns the runtime update mode to `Auto` (the default behavior).
-    /// To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
+    /// &gt; **Note:** Deletion of this resource returns the runtime update mode to `Auto` (the default behavior). To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
     /// 
     /// ## Example Usage
     /// 
@@ -31,14 +30,14 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.RuntimeManagementConfig("example", new()
     ///     {
-    ///         FunctionName = test.FunctionName,
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
     ///         UpdateRuntimeOn = "FunctionUpdate",
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### `Manual` Update
+    /// ### Manual Update
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.RuntimeManagementConfig("example", new()
     ///     {
-    ///         FunctionName = test.FunctionName,
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
     ///         UpdateRuntimeOn = "Manual",
     ///         RuntimeVersionArn = "arn:aws:lambda:us-east-1::runtime:abcd1234",
     ///     });
@@ -58,14 +57,14 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
-    /// &gt; Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
+    /// &gt; **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `function_name` and `qualifier`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example my-function,$LATEST
+    /// $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig")]

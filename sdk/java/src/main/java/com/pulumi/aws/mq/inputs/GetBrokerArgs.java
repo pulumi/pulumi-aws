@@ -17,14 +17,14 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetBrokerArgs Empty = new GetBrokerArgs();
 
     /**
-     * Unique id of the mq broker.
+     * Unique ID of the MQ broker.
      * 
      */
     @Import(name="brokerId")
     private @Nullable Output<String> brokerId;
 
     /**
-     * @return Unique id of the mq broker.
+     * @return Unique ID of the MQ broker.
      * 
      */
     public Optional<Output<String>> brokerId() {
@@ -32,14 +32,14 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Unique name of the mq broker.
+     * Unique name of the MQ broker.
      * 
      */
     @Import(name="brokerName")
     private @Nullable Output<String> brokerName;
 
     /**
-     * @return Unique name of the mq broker.
+     * @return Unique name of the MQ broker.
      * 
      */
     public Optional<Output<String>> brokerName() {
@@ -48,6 +48,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
      * 
      */
     @Import(name="region")
@@ -55,15 +56,24 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
      * 
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Map of tags assigned to the broker.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags assigned to the broker.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -96,7 +106,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerId Unique id of the mq broker.
+         * @param brokerId Unique ID of the MQ broker.
          * 
          * @return builder
          * 
@@ -107,7 +117,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerId Unique id of the mq broker.
+         * @param brokerId Unique ID of the MQ broker.
          * 
          * @return builder
          * 
@@ -117,7 +127,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerName Unique name of the mq broker.
+         * @param brokerName Unique name of the MQ broker.
          * 
          * @return builder
          * 
@@ -128,7 +138,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param brokerName Unique name of the mq broker.
+         * @param brokerName Unique name of the MQ broker.
          * 
          * @return builder
          * 
@@ -139,6 +149,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
          * 
          * @return builder
          * 
@@ -150,6 +161,7 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
          * 
          * @return builder
          * 
@@ -158,11 +170,23 @@ public final class GetBrokerArgs extends com.pulumi.resources.InvokeArgs {
             return region(Output.of(region));
         }
 
+        /**
+         * @param tags Map of tags assigned to the broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

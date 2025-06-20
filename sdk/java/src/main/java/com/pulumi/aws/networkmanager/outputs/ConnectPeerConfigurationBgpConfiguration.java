@@ -13,23 +13,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectPeerConfigurationBgpConfiguration {
     /**
-     * @return A Connect peer core network address.
+     * @return Connect peer core network address.
      * 
      */
     private @Nullable String coreNetworkAddress;
     private @Nullable Integer coreNetworkAsn;
     /**
-     * @return The Connect peer address.
+     * @return Connect peer address.
      * 
      * The following arguments are optional:
      * 
      */
     private @Nullable String peerAddress;
+    /**
+     * @return Peer ASN.
+     * 
+     */
     private @Nullable Integer peerAsn;
 
     private ConnectPeerConfigurationBgpConfiguration() {}
     /**
-     * @return A Connect peer core network address.
+     * @return Connect peer core network address.
      * 
      */
     public Optional<String> coreNetworkAddress() {
@@ -39,7 +43,7 @@ public final class ConnectPeerConfigurationBgpConfiguration {
         return Optional.ofNullable(this.coreNetworkAsn);
     }
     /**
-     * @return The Connect peer address.
+     * @return Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -47,6 +51,10 @@ public final class ConnectPeerConfigurationBgpConfiguration {
     public Optional<String> peerAddress() {
         return Optional.ofNullable(this.peerAddress);
     }
+    /**
+     * @return Peer ASN.
+     * 
+     */
     public Optional<Integer> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }

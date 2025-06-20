@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Attaches a Lightsail Instance to a Lightsail Load Balancer.
+    /// Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
     /// 
     /// ## Example Usage
     /// 
@@ -38,9 +38,9 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var test = new Aws.LightSail.Lb("test", new()
+    ///     var example = new Aws.LightSail.Lb("example", new()
     ///     {
-    ///         Name = "test-load-balancer",
+    ///         Name = "example-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -49,18 +49,18 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testInstance = new Aws.LightSail.Instance("test", new()
+    ///     var exampleInstance = new Aws.LightSail.Instance("example", new()
     ///     {
-    ///         Name = "test-instance",
+    ///         Name = "example-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_3_0",
     ///     });
     /// 
-    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("test", new()
+    ///     var exampleLbAttachment = new Aws.LightSail.LbAttachment("example", new()
     ///     {
-    ///         LbName = test.Name,
-    ///         InstanceName = testInstance.Name,
+    ///         LbName = example.Name,
+    ///         InstanceName = exampleInstance.Name,
     ///     });
     /// 
     /// });
@@ -71,20 +71,22 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+    /// $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbAttachment:LbAttachment")]
     public partial class LbAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the instance to attach to the load balancer.
+        /// Name of the instance to attach to the load balancer.
         /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the Lightsail load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
@@ -142,13 +144,15 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the instance to attach to the load balancer.
+        /// Name of the instance to attach to the load balancer.
         /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the Lightsail load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
@@ -168,13 +172,15 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the instance to attach to the load balancer.
+        /// Name of the instance to attach to the load balancer.
         /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the Lightsail load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }

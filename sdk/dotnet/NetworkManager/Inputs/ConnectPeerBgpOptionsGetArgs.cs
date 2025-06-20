@@ -12,6 +12,9 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class ConnectPeerBgpOptionsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Peer ASN.
+        /// </summary>
         [Input("peerAsn")]
         public Input<int>? PeerAsn { get; set; }
 

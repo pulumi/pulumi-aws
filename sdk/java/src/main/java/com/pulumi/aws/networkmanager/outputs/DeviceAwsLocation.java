@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeviceAwsLocation {
     /**
-     * @return The Amazon Resource Name (ARN) of the subnet that the device is located in.
+     * @return ARN of the subnet that the device is located in.
      * 
      */
     private @Nullable String subnetArn;
     /**
-     * @return The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+     * @return Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
      * 
      */
     private @Nullable String zone;
 
     private DeviceAwsLocation() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the subnet that the device is located in.
+     * @return ARN of the subnet that the device is located in.
      * 
      */
     public Optional<String> subnetArn() {
         return Optional.ofNullable(this.subnetArn);
     }
     /**
-     * @return The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+     * @return Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
      * 
      */
     public Optional<String> zone() {

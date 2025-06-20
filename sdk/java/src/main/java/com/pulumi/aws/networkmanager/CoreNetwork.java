@@ -20,7 +20,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a core network resource.
+ * Manages a Network Manager Core Network.
+ * 
+ * Use this resource to create and manage a core network within a global network.
  * 
  * ## Example Usage
  * 
@@ -536,14 +538,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/coreNetwork:CoreNetwork")
 public class CoreNetwork extends com.pulumi.resources.CustomResource {
     /**
-     * Core Network Amazon Resource Name (ARN).
+     * Core Network ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Core Network Amazon Resource Name (ARN).
+     * @return Core Network ARN.
      * 
      */
     public Output<String> arn() {
@@ -564,28 +566,28 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.basePolicyDocument);
     }
     /**
-     * A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+     * List of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      */
     @Export(name="basePolicyRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> basePolicyRegions;
 
     /**
-     * @return A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+     * @return List of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      */
     public Output<Optional<List<String>>> basePolicyRegions() {
         return Codegen.optional(this.basePolicyRegions);
     }
     /**
-     * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      * 
      */
     @Export(name="createBasePolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createBasePolicy;
 
     /**
-     * @return Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     * @return Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      * 
      */
     public Output<Optional<Boolean>> createBasePolicy() {
@@ -634,14 +636,18 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
         return this.edges;
     }
     /**
-     * The ID of the global network that a core network will be a part of.
+     * ID of the global network that a core network will be a part of.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network that a core network will be a part of.
+     * @return ID of the global network that a core network will be a part of.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
@@ -690,14 +696,14 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
+// Manages public ports for a Lightsail instance. Use this resource to open ports for a specific Amazon Lightsail instance and specify the IP addresses allowed to connect to the instance through the ports and the protocol.
 //
 // > See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
 //
@@ -25,6 +25,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -32,22 +33,44 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("yak_sail"),
-//				AvailabilityZone: pulumi.Any(available.Names[0]),
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//				Filters: []aws.GetAvailabilityZonesFilter{
+//					{
+//						Name: "opt-in-status",
+//						Values: []string{
+//							"opt-in-not-required",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
+//				Name:             pulumi.String("example-instance"),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_3_0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewInstancePublicPorts(ctx, "test", &lightsail.InstancePublicPortsArgs{
-//				InstanceName: test.Name,
+//			_, err = lightsail.NewInstancePublicPorts(ctx, "example", &lightsail.InstancePublicPortsArgs{
+//				InstanceName: example.Name,
 //				PortInfos: lightsail.InstancePublicPortsPortInfoArray{
 //					&lightsail.InstancePublicPortsPortInfoArgs{
 //						Protocol: pulumi.String("tcp"),
 //						FromPort: pulumi.Int(80),
 //						ToPort:   pulumi.Int(80),
+//					},
+//					&lightsail.InstancePublicPortsPortInfoArgs{
+//						Protocol: pulumi.String("tcp"),
+//						FromPort: pulumi.Int(443),
+//						ToPort:   pulumi.Int(443),
+//						Cidrs: pulumi.StringArray{
+//							pulumi.String("192.168.1.0/24"),
+//						},
 //					},
 //				},
 //			})
@@ -64,7 +87,9 @@ type InstancePublicPorts struct {
 
 	// Name of the Lightsail Instance.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	//
+	// The following arguments are optional:
 	PortInfos InstancePublicPortsPortInfoArrayOutput `pulumi:"portInfos"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -108,7 +133,9 @@ func GetInstancePublicPorts(ctx *pulumi.Context,
 type instancePublicPortsState struct {
 	// Name of the Lightsail Instance.
 	InstanceName *string `pulumi:"instanceName"`
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	//
+	// The following arguments are optional:
 	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -117,7 +144,9 @@ type instancePublicPortsState struct {
 type InstancePublicPortsState struct {
 	// Name of the Lightsail Instance.
 	InstanceName pulumi.StringPtrInput
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	//
+	// The following arguments are optional:
 	PortInfos InstancePublicPortsPortInfoArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -130,7 +159,9 @@ func (InstancePublicPortsState) ElementType() reflect.Type {
 type instancePublicPortsArgs struct {
 	// Name of the Lightsail Instance.
 	InstanceName string `pulumi:"instanceName"`
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	//
+	// The following arguments are optional:
 	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -140,7 +171,9 @@ type instancePublicPortsArgs struct {
 type InstancePublicPortsArgs struct {
 	// Name of the Lightsail Instance.
 	InstanceName pulumi.StringInput
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	//
+	// The following arguments are optional:
 	PortInfos InstancePublicPortsPortInfoArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -238,7 +271,9 @@ func (o InstancePublicPortsOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstancePublicPorts) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+//
+// The following arguments are optional:
 func (o InstancePublicPortsOutput) PortInfos() InstancePublicPortsPortInfoArrayOutput {
 	return o.ApplyT(func(v *InstancePublicPorts) InstancePublicPortsPortInfoArrayOutput { return v.PortInfos }).(InstancePublicPortsPortInfoArrayOutput)
 }

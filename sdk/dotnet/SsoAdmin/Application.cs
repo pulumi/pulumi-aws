@@ -89,7 +89,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> ApplicationAccount { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the application.
+        /// (**Deprecated** Reference `arn` instead) ARN of the application.
         /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
@@ -99,6 +99,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Output("applicationProviderArn")]
         public Output<string> ApplicationProviderArn { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the application.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
@@ -279,7 +285,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? ApplicationAccount { get; set; }
 
         /// <summary>
-        /// ARN of the application.
+        /// (**Deprecated** Reference `arn` instead) ARN of the application.
         /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
@@ -289,6 +295,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("applicationProviderArn")]
         public Input<string>? ApplicationProviderArn { get; set; }
+
+        /// <summary>
+        /// ARN of the application.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.

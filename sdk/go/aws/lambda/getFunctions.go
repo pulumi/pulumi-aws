@@ -11,9 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data resource to get a list of Lambda Functions.
+// Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
 //
 // ## Example Usage
+//
+// ### List All Functions
 //
 // ```go
 // package main
@@ -27,9 +29,67 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.GetFunctions(ctx, &lambda.GetFunctionsArgs{}, nil)
+//			all, err := lambda.GetFunctions(ctx, &lambda.GetFunctionsArgs{}, nil)
 //			if err != nil {
 //				return err
+//			}
+//			ctx.Export("functionCount", len(all.FunctionNames))
+//			ctx.Export("allFunctionNames", all.FunctionNames)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Use Function List for Bulk Operations
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get all Lambda functions
+//			all, err := lambda.GetFunctions(ctx, &lambda.GetFunctionsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Create CloudWatch alarms for all functions
+//			var lambdaErrors []*cloudwatch.MetricAlarm
+//			for index := 0; index < int(len(all.FunctionNames)); index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := cloudwatch.NewMetricAlarm(ctx, fmt.Sprintf("lambda_errors-%v", key0), &cloudwatch.MetricAlarmArgs{
+//					Name:               pulumi.Sprintf("%v-errors", all.FunctionNames[val0]),
+//					ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//					EvaluationPeriods:  pulumi.Int(2),
+//					MetricName:         pulumi.String("Errors"),
+//					Namespace:          pulumi.String("AWS/Lambda"),
+//					Period:             pulumi.Int(300),
+//					Statistic:          pulumi.String("Sum"),
+//					Threshold:          pulumi.Float64(5),
+//					AlarmDescription:   pulumi.String("This metric monitors lambda errors"),
+//					Dimensions: pulumi.StringMap{
+//						"FunctionName": pulumi.String(all.FunctionNames[val0]),
+//					},
+//					Tags: pulumi.StringMap{
+//						"Environment": pulumi.String("monitoring"),
+//						"Purpose":     pulumi.String("lambda-error-tracking"),
+//					},
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				lambdaErrors = append(lambdaErrors, __res)
 //			}
 //			return nil
 //		})
@@ -54,9 +114,9 @@ type GetFunctionsArgs struct {
 
 // A collection of values returned by getFunctions.
 type GetFunctionsResult struct {
-	// A list of Lambda Function ARNs.
+	// List of Lambda Function ARNs.
 	FunctionArns []string `pulumi:"functionArns"`
-	// A list of Lambda Function names.
+	// List of Lambda Function names.
 	FunctionNames []string `pulumi:"functionNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -97,12 +157,12 @@ func (o GetFunctionsResultOutput) ToGetFunctionsResultOutputWithContext(ctx cont
 	return o
 }
 
-// A list of Lambda Function ARNs.
+// List of Lambda Function ARNs.
 func (o GetFunctionsResultOutput) FunctionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionsResult) []string { return v.FunctionArns }).(pulumi.StringArrayOutput)
 }
 
-// A list of Lambda Function names.
+// List of Lambda Function names.
 func (o GetFunctionsResultOutput) FunctionNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionsResult) []string { return v.FunctionNames }).(pulumi.StringArrayOutput)
 }

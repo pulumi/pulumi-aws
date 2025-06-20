@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about a site.
+ * Provides details about an existing Network Manager site.
  *
  * ## Example Usage
  *
@@ -77,7 +77,7 @@ export interface GetSiteResult {
     readonly tags: {[key: string]: string};
 }
 /**
- * Retrieve information about a site.
+ * Provides details about an existing Network Manager site.
  *
  * ## Example Usage
  *

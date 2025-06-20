@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionTracingConfig {
+    /**
+     * @return Tracing mode. Valid values: `Active`, `PassThrough`.
+     * 
+     */
     private String mode;
 
     private GetFunctionTracingConfig() {}
+    /**
+     * @return Tracing mode. Valid values: `Active`, `PassThrough`.
+     * 
+     */
     public String mode() {
         return this.mode;
     }

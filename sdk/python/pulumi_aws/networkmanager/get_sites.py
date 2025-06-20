@@ -84,7 +84,7 @@ def get_sites(global_network_id: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesResult:
     """
-    Retrieve information about sites.
+    Provides details about existing Network Manager sites.
 
     ## Example Usage
 
@@ -117,7 +117,7 @@ def get_sites_output(global_network_id: Optional[pulumi.Input[builtins.str]] = N
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesResult]:
     """
-    Retrieve information about sites.
+    Provides details about existing Network Manager sites.
 
     ## Example Usage
 

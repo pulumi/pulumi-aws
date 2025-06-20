@@ -11,13 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to invoke custom lambda functions as data source.
-// The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-// invocation type.
+// Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
 //
-// > **NOTE:** The `lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+// The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
 //
-// > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+// > **Note:** The `lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+//
+// > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+//
+// ## Example Usage
 func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...pulumi.InvokeOption) (*LookupInvocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInvocationResult
@@ -30,12 +32,13 @@ func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...p
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationArgs struct {
-	// Name of the lambda function.
+	// Name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
-	// String in JSON format that is passed as payload to the lambda function.
+	// String in JSON format that is passed as payload to the Lambda function.
+	//
+	// The following arguments are optional:
 	Input string `pulumi:"input"`
-	// Qualifier (a.k.a version) of the lambda function. Defaults
-	// to `$LATEST`.
+	// Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -49,7 +52,7 @@ type LookupInvocationResult struct {
 	Input     string  `pulumi:"input"`
 	Qualifier *string `pulumi:"qualifier"`
 	Region    string  `pulumi:"region"`
-	// String result of the lambda function invocation.
+	// String result of the Lambda function invocation.
 	Result string `pulumi:"result"`
 }
 
@@ -64,12 +67,13 @@ func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationOutputArgs struct {
-	// Name of the lambda function.
+	// Name of the Lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// String in JSON format that is passed as payload to the lambda function.
+	// String in JSON format that is passed as payload to the Lambda function.
+	//
+	// The following arguments are optional:
 	Input pulumi.StringInput `pulumi:"input"`
-	// Qualifier (a.k.a version) of the lambda function. Defaults
-	// to `$LATEST`.
+	// Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -115,7 +119,7 @@ func (o LookupInvocationResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// String result of the lambda function invocation.
+// String result of the Lambda function invocation.
 func (o LookupInvocationResultOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.Result }).(pulumi.StringOutput)
 }

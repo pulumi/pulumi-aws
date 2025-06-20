@@ -12,7 +12,7 @@ namespace Pulumi.Aws.NetworkManager
     public static class GetDevices
     {
         /// <summary>
-        /// Retrieve information about devices.
+        /// Provides details about existing Network Manager devices.
         /// 
         /// ## Example Usage
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevicesResult>("aws:networkmanager/getDevices:getDevices", args ?? new GetDevicesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about devices.
+        /// Provides details about existing Network Manager devices.
         /// 
         /// ## Example Usage
         /// 
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicesResult>("aws:networkmanager/getDevices:getDevices", args ?? new GetDevicesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about devices.
+        /// Provides details about existing Network Manager devices.
         /// 
         /// ## Example Usage
         /// 

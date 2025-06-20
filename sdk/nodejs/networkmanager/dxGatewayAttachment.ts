@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Network Manager Direct Connect (DX) Gateway Attachment.
+ * Manages a Network Manager Direct Connect Gateway Attachment.
+ *
+ * Use this resource to create and manage a Direct Connect Gateway attachment to a Cloud WAN core network.
  *
  * ## Example Usage
  *
@@ -61,6 +63,9 @@ export class DxGatewayAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === DxGatewayAttachment.__pulumiType;
     }
 
+    /**
+     * ARN of the attachment.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Policy rule number associated with the attachment.
@@ -105,7 +110,7 @@ export class DxGatewayAttachment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.networkmanager.DxGatewayAttachmentTimeouts | undefined>;
@@ -170,6 +175,9 @@ export class DxGatewayAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DxGatewayAttachment resources.
  */
 export interface DxGatewayAttachmentState {
+    /**
+     * ARN of the attachment.
+     */
     arn?: pulumi.Input<string>;
     /**
      * Policy rule number associated with the attachment.
@@ -214,7 +222,7 @@ export interface DxGatewayAttachmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.networkmanager.DxGatewayAttachmentTimeouts>;

@@ -14,11 +14,13 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Lambda Function Recursion Config.
+ * Manages an AWS Lambda Function Recursion Config. Use this resource to control how Lambda handles recursive function invocations to prevent infinite loops.
  * 
- * &gt; Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
+ * &gt; **Note:** Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
  * 
  * ## Example Usage
+ * 
+ * ### Allow Recursive Invocations
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -28,8 +30,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
  * import com.pulumi.aws.lambda.FunctionRecursionConfig;
  * import com.pulumi.aws.lambda.FunctionRecursionConfigArgs;
+ * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,9 +48,72 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionRecursionConfig("example", FunctionRecursionConfigArgs.builder()
- *             .functionName("SomeFunction")
+ *         // Lambda function that may need to call itself
+ *         var example = new Function("example", FunctionArgs.builder()
+ *             .code(new FileArchive("function.zip"))
+ *             .name("recursive_processor")
+ *             .role(lambdaRole.arn())
+ *             .handler("index.handler")
+ *             .runtime("python3.12")
+ *             .build());
+ * 
+ *         // Allow the function to invoke itself recursively
+ *         var exampleFunctionRecursionConfig = new FunctionRecursionConfig("exampleFunctionRecursionConfig", FunctionRecursionConfigArgs.builder()
+ *             .functionName(example.name())
  *             .recursiveLoop("Allow")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Production Safety Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.FunctionRecursionConfig;
+ * import com.pulumi.aws.lambda.FunctionRecursionConfigArgs;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Production function with recursion protection
+ *         var productionProcessor = new Function("productionProcessor", FunctionArgs.builder()
+ *             .code(new FileArchive("processor.zip"))
+ *             .name("production-data-processor")
+ *             .role(lambdaRole.arn())
+ *             .handler("app.handler")
+ *             .runtime("nodejs20.x")
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Environment", "production"),
+ *                 Map.entry("Purpose", "data-processing")
+ *             ))
+ *             .build());
+ * 
+ *         // Prevent infinite loops in production
+ *         var example = new FunctionRecursionConfig("example", FunctionRecursionConfigArgs.builder()
+ *             .functionName(productionProcessor.name())
+ *             .recursiveLoop("Terminate")
  *             .build());
  * 
  *     }
@@ -56,24 +124,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import AWS Lambda Function Recursion Config using the `function_name`. For example:
+ * For backwards compatibility, the following legacy `pulumi import` command is also supported:
  * 
  * ```sh
- * $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example SomeFunction
+ * $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
  * ```
  * 
  */
 @ResourceType(type="aws:lambda/functionRecursionConfig:FunctionRecursionConfig")
 public class FunctionRecursionConfig extends com.pulumi.resources.CustomResource {
     /**
-     * Lambda function name.
+     * Name of the Lambda function.
      * 
      */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
-     * @return Lambda function name.
+     * @return Name of the Lambda function.
      * 
      */
     public Output<String> functionName() {
@@ -82,12 +150,16 @@ public class FunctionRecursionConfig extends com.pulumi.resources.CustomResource
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="recursiveLoop", refs={String.class}, tree="[0]")
     private Output<String> recursiveLoop;
 
     /**
      * @return Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> recursiveLoop() {

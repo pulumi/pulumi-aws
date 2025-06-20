@@ -28,10 +28,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
+ * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the region. For example:
  *
  * ```sh
- * $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+ * $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example us-west-2
  * ```
  */
 export class ClassificationExportConfiguration extends pulumi.CustomResource {
@@ -69,7 +69,7 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for a S3 Destination. Defined below
      */
-    public readonly s3Destination!: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination | undefined>;
+    public readonly s3Destination!: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination>;
 
     /**
      * Create a ClassificationExportConfiguration resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClassificationExportConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ClassificationExportConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClassificationExportConfigurationArgs | ClassificationExportConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -88,6 +88,9 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
             resourceInputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {
             const args = argsOrState as ClassificationExportConfigurationArgs | undefined;
+            if ((!args || args.s3Destination === undefined) && !opts.urn) {
+                throw new Error("Missing required property 's3Destination'");
+            }
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
@@ -121,5 +124,5 @@ export interface ClassificationExportConfigurationArgs {
     /**
      * Configuration block for a S3 Destination. Defined below
      */
-    s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
+    s3Destination: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
 }

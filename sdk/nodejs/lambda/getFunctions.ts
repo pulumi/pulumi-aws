@@ -5,15 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data resource to get a list of Lambda Functions.
+ * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
  *
  * ## Example Usage
+ *
+ * ### List All Functions
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.lambda.getFunctions({});
+ * export const functionCount = all.then(all => all.functionNames).length;
+ * export const allFunctionNames = all.then(all => all.functionNames);
+ * ```
+ *
+ * ### Use Function List for Bulk Operations
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get all Lambda functions
+ * const all = aws.lambda.getFunctions({});
+ * // Create CloudWatch alarms for all functions
+ * const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
+ * all.then(all => all.functionNames).length.apply(rangeBody => {
+ *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
+ *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range.value}`, {
+ *             name: all.then(all => `${all.functionNames[range.value]}-errors`),
+ *             comparisonOperator: "GreaterThanThreshold",
+ *             evaluationPeriods: 2,
+ *             metricName: "Errors",
+ *             namespace: "AWS/Lambda",
+ *             period: 300,
+ *             statistic: "Sum",
+ *             threshold: 5,
+ *             alarmDescription: "This metric monitors lambda errors",
+ *             dimensions: {
+ *                 FunctionName: all.then(all => all.functionNames[range.value]),
+ *             },
+ *             tags: {
+ *                 Environment: "monitoring",
+ *                 Purpose: "lambda-error-tracking",
+ *             },
+ *         }));
+ *     }
+ * });
+ * ```
+ *
+ * ### Create Function Inventory
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const all = await aws.lambda.getFunctions({});
+ *     // Get detailed information for each function
+ *     const details = .map(__index => (await aws.lambda.getFunction({
+ *         functionName: all.functionNames[__index],
+ *     })));
+ *     const functionInventory = .map(([i, name]) => ({
+ *         name: name,
+ *         arn: all.functionArns[i],
+ *         runtime: details.apply(details => details[i].runtime),
+ *         memorySize: details.apply(details => details[i].memorySize),
+ *         timeout: details.apply(details => details[i].timeout),
+ *         handler: details.apply(details => details[i].handler),
+ *     }));
+ *     return {
+ *         functionInventory: functionInventory,
+ *     };
+ * }
  * ```
  */
 export function getFunctions(args?: GetFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionsResult> {
@@ -39,11 +103,11 @@ export interface GetFunctionsArgs {
  */
 export interface GetFunctionsResult {
     /**
-     * A list of Lambda Function ARNs.
+     * List of Lambda Function ARNs.
      */
     readonly functionArns: string[];
     /**
-     * A list of Lambda Function names.
+     * List of Lambda Function names.
      */
     readonly functionNames: string[];
     /**
@@ -53,15 +117,79 @@ export interface GetFunctionsResult {
     readonly region: string;
 }
 /**
- * Data resource to get a list of Lambda Functions.
+ * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
  *
  * ## Example Usage
+ *
+ * ### List All Functions
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.lambda.getFunctions({});
+ * export const functionCount = all.then(all => all.functionNames).length;
+ * export const allFunctionNames = all.then(all => all.functionNames);
+ * ```
+ *
+ * ### Use Function List for Bulk Operations
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get all Lambda functions
+ * const all = aws.lambda.getFunctions({});
+ * // Create CloudWatch alarms for all functions
+ * const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
+ * all.then(all => all.functionNames).length.apply(rangeBody => {
+ *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
+ *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range.value}`, {
+ *             name: all.then(all => `${all.functionNames[range.value]}-errors`),
+ *             comparisonOperator: "GreaterThanThreshold",
+ *             evaluationPeriods: 2,
+ *             metricName: "Errors",
+ *             namespace: "AWS/Lambda",
+ *             period: 300,
+ *             statistic: "Sum",
+ *             threshold: 5,
+ *             alarmDescription: "This metric monitors lambda errors",
+ *             dimensions: {
+ *                 FunctionName: all.then(all => all.functionNames[range.value]),
+ *             },
+ *             tags: {
+ *                 Environment: "monitoring",
+ *                 Purpose: "lambda-error-tracking",
+ *             },
+ *         }));
+ *     }
+ * });
+ * ```
+ *
+ * ### Create Function Inventory
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const all = await aws.lambda.getFunctions({});
+ *     // Get detailed information for each function
+ *     const details = .map(__index => (await aws.lambda.getFunction({
+ *         functionName: all.functionNames[__index],
+ *     })));
+ *     const functionInventory = .map(([i, name]) => ({
+ *         name: name,
+ *         arn: all.functionArns[i],
+ *         runtime: details.apply(details => details[i].runtime),
+ *         memorySize: details.apply(details => details[i].memorySize),
+ *         timeout: details.apply(details => details[i].timeout),
+ *         handler: details.apply(details => details[i].handler),
+ *     }));
+ *     return {
+ *         functionInventory: functionInventory,
+ *     };
+ * }
  * ```
  */
 export function getFunctionsOutput(args?: GetFunctionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionsResult> {

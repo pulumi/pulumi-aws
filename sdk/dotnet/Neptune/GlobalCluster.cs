@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Neptune
     public partial class GlobalCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Global Cluster Amazon Resource Name (ARN)
+        /// Global Cluster ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -133,13 +133,12 @@ namespace Pulumi.Aws.Neptune
 
         /// <summary>
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        /// * **NOTE:** Upgrading major versions is not supported.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The global cluster identifier.
+        /// Global cluster identifier.
         /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string> GlobalClusterIdentifier { get; private set; } = null!;
@@ -163,7 +162,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
         /// </summary>
         [Output("sourceDbClusterIdentifier")]
         public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
@@ -172,7 +171,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -237,13 +236,12 @@ namespace Pulumi.Aws.Neptune
 
         /// <summary>
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        /// * **NOTE:** Upgrading major versions is not supported.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The global cluster identifier.
+        /// Global cluster identifier.
         /// </summary>
         [Input("globalClusterIdentifier", required: true)]
         public Input<string> GlobalClusterIdentifier { get; set; } = null!;
@@ -255,13 +253,13 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -275,7 +273,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class GlobalClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Global Cluster Amazon Resource Name (ARN)
+        /// Global Cluster ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -294,13 +292,12 @@ namespace Pulumi.Aws.Neptune
 
         /// <summary>
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        /// * **NOTE:** Upgrading major versions is not supported.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The global cluster identifier.
+        /// Global cluster identifier.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
@@ -330,7 +327,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
@@ -339,7 +336,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

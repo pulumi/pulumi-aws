@@ -258,6 +258,21 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.twoWayChannelEnabled);
     }
 
+    /**
+     * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+     * 
+     */
+    @Import(name="twoWayChannelRole")
+    private @Nullable Output<String> twoWayChannelRole;
+
+    /**
+     * @return IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+     * 
+     */
+    public Optional<Output<String>> twoWayChannelRole() {
+        return Optional.ofNullable(this.twoWayChannelRole);
+    }
+
     private Smsvoicev2PhoneNumberState() {}
 
     private Smsvoicev2PhoneNumberState(Smsvoicev2PhoneNumberState $) {
@@ -278,6 +293,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         this.timeouts = $.timeouts;
         this.twoWayChannelArn = $.twoWayChannelArn;
         this.twoWayChannelEnabled = $.twoWayChannelEnabled;
+        this.twoWayChannelRole = $.twoWayChannelRole;
     }
 
     public static Builder builder() {
@@ -639,6 +655,27 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
          */
         public Builder twoWayChannelEnabled(Boolean twoWayChannelEnabled) {
             return twoWayChannelEnabled(Output.of(twoWayChannelEnabled));
+        }
+
+        /**
+         * @param twoWayChannelRole IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder twoWayChannelRole(@Nullable Output<String> twoWayChannelRole) {
+            $.twoWayChannelRole = twoWayChannelRole;
+            return this;
+        }
+
+        /**
+         * @param twoWayChannelRole IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder twoWayChannelRole(String twoWayChannelRole) {
+            return twoWayChannelRole(Output.of(twoWayChannelRole));
         }
 
         public Smsvoicev2PhoneNumberState build() {

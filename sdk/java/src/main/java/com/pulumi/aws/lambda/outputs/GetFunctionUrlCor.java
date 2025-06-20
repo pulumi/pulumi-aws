@@ -13,29 +13,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionUrlCor {
+    /**
+     * @return Whether credentials are included in the CORS request.
+     * 
+     */
     private Boolean allowCredentials;
+    /**
+     * @return List of headers that are specified in the Access-Control-Request-Headers header.
+     * 
+     */
     private List<String> allowHeaders;
+    /**
+     * @return List of HTTP methods that are allowed when calling the function URL.
+     * 
+     */
     private List<String> allowMethods;
+    /**
+     * @return List of origins that are allowed to make requests to the function URL.
+     * 
+     */
     private List<String> allowOrigins;
+    /**
+     * @return List of headers in the response that you want to expose to the origin that called the function URL.
+     * 
+     */
     private List<String> exposeHeaders;
+    /**
+     * @return Maximum amount of time, in seconds, that web browsers can cache results of a preflight request.
+     * 
+     */
     private Integer maxAge;
 
     private GetFunctionUrlCor() {}
+    /**
+     * @return Whether credentials are included in the CORS request.
+     * 
+     */
     public Boolean allowCredentials() {
         return this.allowCredentials;
     }
+    /**
+     * @return List of headers that are specified in the Access-Control-Request-Headers header.
+     * 
+     */
     public List<String> allowHeaders() {
         return this.allowHeaders;
     }
+    /**
+     * @return List of HTTP methods that are allowed when calling the function URL.
+     * 
+     */
     public List<String> allowMethods() {
         return this.allowMethods;
     }
+    /**
+     * @return List of origins that are allowed to make requests to the function URL.
+     * 
+     */
     public List<String> allowOrigins() {
         return this.allowOrigins;
     }
+    /**
+     * @return List of headers in the response that you want to expose to the origin that called the function URL.
+     * 
+     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders;
     }
+    /**
+     * @return Maximum amount of time, in seconds, that web browsers can cache results of a preflight request.
+     * 
+     */
     public Integer maxAge() {
         return this.maxAge;
     }

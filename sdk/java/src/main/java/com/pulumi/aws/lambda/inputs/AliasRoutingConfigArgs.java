@@ -18,14 +18,14 @@ public final class AliasRoutingConfigArgs extends com.pulumi.resources.ResourceA
     public static final AliasRoutingConfigArgs Empty = new AliasRoutingConfigArgs();
 
     /**
-     * A map that defines the proportion of events that should be sent to different versions of a lambda function.
+     * Map that defines the proportion of events that should be sent to different versions of a Lambda function.
      * 
      */
     @Import(name="additionalVersionWeights")
     private @Nullable Output<Map<String,Double>> additionalVersionWeights;
 
     /**
-     * @return A map that defines the proportion of events that should be sent to different versions of a lambda function.
+     * @return Map that defines the proportion of events that should be sent to different versions of a Lambda function.
      * 
      */
     public Optional<Output<Map<String,Double>>> additionalVersionWeights() {
@@ -57,7 +57,7 @@ public final class AliasRoutingConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param additionalVersionWeights A map that defines the proportion of events that should be sent to different versions of a lambda function.
+         * @param additionalVersionWeights Map that defines the proportion of events that should be sent to different versions of a Lambda function.
          * 
          * @return builder
          * 
@@ -68,7 +68,7 @@ public final class AliasRoutingConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param additionalVersionWeights A map that defines the proportion of events that should be sent to different versions of a lambda function.
+         * @param additionalVersionWeights Map that defines the proportion of events that should be sent to different versions of a Lambda function.
          * 
          * @return builder
          * 

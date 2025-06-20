@@ -16,14 +16,14 @@ public final class TransitGatewayRegistrationState extends com.pulumi.resources.
     public static final TransitGatewayRegistrationState Empty = new TransitGatewayRegistrationState();
 
     /**
-     * The ID of the Global Network to register to.
+     * ID of the Global Network to register to.
      * 
      */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the Global Network to register to.
+     * @return ID of the Global Network to register to.
      * 
      */
     public Optional<Output<String>> globalNetworkId() {
@@ -31,14 +31,14 @@ public final class TransitGatewayRegistrationState extends com.pulumi.resources.
     }
 
     /**
-     * The ARN of the Transit Gateway to register.
+     * ARN of the Transit Gateway to register.
      * 
      */
     @Import(name="transitGatewayArn")
     private @Nullable Output<String> transitGatewayArn;
 
     /**
-     * @return The ARN of the Transit Gateway to register.
+     * @return ARN of the Transit Gateway to register.
      * 
      */
     public Optional<Output<String>> transitGatewayArn() {
@@ -71,7 +71,7 @@ public final class TransitGatewayRegistrationState extends com.pulumi.resources.
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network to register to.
+         * @param globalNetworkId ID of the Global Network to register to.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TransitGatewayRegistrationState extends com.pulumi.resources.
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network to register to.
+         * @param globalNetworkId ID of the Global Network to register to.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class TransitGatewayRegistrationState extends com.pulumi.resources.
         }
 
         /**
-         * @param transitGatewayArn The ARN of the Transit Gateway to register.
+         * @param transitGatewayArn ARN of the Transit Gateway to register.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TransitGatewayRegistrationState extends com.pulumi.resources.
         }
 
         /**
-         * @param transitGatewayArn The ARN of the Transit Gateway to register.
+         * @param transitGatewayArn ARN of the Transit Gateway to register.
          * 
          * @return builder
          * 

@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates a device in a global network. If you specify both a site ID and a location,
- * the location of the site is used for visualization in the Network Manager console.
+ * Manages a Network Manager Device.
+ *
+ * Use this resource to create a device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.
  *
  * ## Example Usage
  *
@@ -60,35 +61,37 @@ export class Device extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the device.
+     * ARN of the device.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The AWS location of the device. Documented below.
+     * AWS location of the device. Documented below.
      */
     public readonly awsLocation!: pulumi.Output<outputs.networkmanager.DeviceAwsLocation | undefined>;
     /**
-     * A description of the device.
+     * Description of the device.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     *
+     * The following arguments are optional:
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * The location of the device. Documented below.
+     * Location of the device. Documented below.
      */
     public readonly location!: pulumi.Output<outputs.networkmanager.DeviceLocation | undefined>;
     /**
-     * The model of device.
+     * Model of device.
      */
     public readonly model!: pulumi.Output<string | undefined>;
     /**
-     * The serial number of the device.
+     * Serial number of the device.
      */
     public readonly serialNumber!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the site.
+     * ID of the site.
      */
     public readonly siteId!: pulumi.Output<string | undefined>;
     /**
@@ -96,15 +99,15 @@ export class Device extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of device.
+     * Type of device.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * The vendor of the device.
+     * Vendor of the device.
      */
     public readonly vendor!: pulumi.Output<string | undefined>;
 
@@ -161,35 +164,37 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceState {
     /**
-     * The Amazon Resource Name (ARN) of the device.
+     * ARN of the device.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The AWS location of the device. Documented below.
+     * AWS location of the device. Documented below.
      */
     awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation>;
     /**
-     * A description of the device.
+     * Description of the device.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     *
+     * The following arguments are optional:
      */
     globalNetworkId?: pulumi.Input<string>;
     /**
-     * The location of the device. Documented below.
+     * Location of the device. Documented below.
      */
     location?: pulumi.Input<inputs.networkmanager.DeviceLocation>;
     /**
-     * The model of device.
+     * Model of device.
      */
     model?: pulumi.Input<string>;
     /**
-     * The serial number of the device.
+     * Serial number of the device.
      */
     serialNumber?: pulumi.Input<string>;
     /**
-     * The ID of the site.
+     * ID of the site.
      */
     siteId?: pulumi.Input<string>;
     /**
@@ -197,15 +202,15 @@ export interface DeviceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of device.
+     * Type of device.
      */
     type?: pulumi.Input<string>;
     /**
-     * The vendor of the device.
+     * Vendor of the device.
      */
     vendor?: pulumi.Input<string>;
 }
@@ -215,31 +220,33 @@ export interface DeviceState {
  */
 export interface DeviceArgs {
     /**
-     * The AWS location of the device. Documented below.
+     * AWS location of the device. Documented below.
      */
     awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation>;
     /**
-     * A description of the device.
+     * Description of the device.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     *
+     * The following arguments are optional:
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The location of the device. Documented below.
+     * Location of the device. Documented below.
      */
     location?: pulumi.Input<inputs.networkmanager.DeviceLocation>;
     /**
-     * The model of device.
+     * Model of device.
      */
     model?: pulumi.Input<string>;
     /**
-     * The serial number of the device.
+     * Serial number of the device.
      */
     serialNumber?: pulumi.Input<string>;
     /**
-     * The ID of the site.
+     * ID of the site.
      */
     siteId?: pulumi.Input<string>;
     /**
@@ -247,11 +254,11 @@ export interface DeviceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of device.
+     * Type of device.
      */
     type?: pulumi.Input<string>;
     /**
-     * The vendor of the device.
+     * Vendor of the device.
      */
     vendor?: pulumi.Input<string>;
 }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _metrics;
 
         /// <summary>
-        /// A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+        /// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
         /// </summary>
         public InputList<string> Metrics
         {

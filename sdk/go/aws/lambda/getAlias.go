@@ -11,9 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a Lambda Alias.
+// Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
 //
 // ## Example Usage
+//
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -27,10 +29,176 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.LookupAlias(ctx, &lambda.LookupAliasArgs{
-//				FunctionName: "my-lambda-func",
+//			example, err := lambda.LookupAlias(ctx, &lambda.LookupAliasArgs{
+//				FunctionName: "my-lambda-function",
 //				Name:         "production",
 //			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("aliasArn", example.Arn)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### API Gateway Integration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			apiHandler, err := lambda.LookupAlias(ctx, &lambda.LookupAliasArgs{
+//				FunctionName: "api-handler",
+//				Name:         "live",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewIntegration(ctx, "example", &apigateway.IntegrationArgs{
+//				RestApi:               pulumi.Any(exampleAwsApiGatewayRestApi.Id),
+//				ResourceId:            pulumi.Any(exampleAwsApiGatewayResource.Id),
+//				HttpMethod:            pulumi.Any(exampleAwsApiGatewayMethod.HttpMethod),
+//				IntegrationHttpMethod: pulumi.String("POST"),
+//				Type:                  pulumi.String("AWS_PROXY"),
+//				Uri:                   pulumi.String(apiHandler.InvokeArn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Grant API Gateway permission to invoke the alias
+//			_, err = lambda.NewPermission(ctx, "api_gateway", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("AllowExecutionFromAPIGateway"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    pulumi.String(apiHandler.FunctionName),
+//				Principal:   pulumi.String("apigateway.amazonaws.com"),
+//				Qualifier:   pulumi.String(apiHandler.Name),
+//				SourceArn:   pulumi.Sprintf("%v/*/*", exampleAwsApiGatewayRestApi.ExecutionArn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Deployment Version Tracking
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get production alias details
+//			production, err := lambda.LookupAlias(ctx, &lambda.LookupAliasArgs{
+//				FunctionName: "payment-processor",
+//				Name:         "production",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Get staging alias details
+//			staging, err := lambda.LookupAlias(ctx, &lambda.LookupAliasArgs{
+//				FunctionName: "payment-processor",
+//				Name:         "staging",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			versionDrift := production.FunctionVersion != staging.FunctionVersion
+//			ctx.Export("deploymentStatus", pulumi.Map{
+//				"productionVersion": production.FunctionVersion,
+//				"stagingVersion":    staging.FunctionVersion,
+//				"versionDrift":      versionDrift,
+//				"readyForPromotion": pulumi.Bool(!versionDrift),
+//			})
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### EventBridge Rule Target
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			eventProcessor, err := lambda.LookupAlias(ctx, &lambda.LookupAliasArgs{
+//				FunctionName: "event-processor",
+//				Name:         "stable",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"source": []string{
+//					"myapp.orders",
+//				},
+//				"detail-type": []string{
+//					"Order Placed",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			example, err := cloudwatch.NewEventRule(ctx, "example", &cloudwatch.EventRuleArgs{
+//				Name:         pulumi.String("capture-events"),
+//				Description:  pulumi.String("Capture events for processing"),
+//				EventPattern: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "lambda", &cloudwatch.EventTargetArgs{
+//				Rule:     example.Name,
+//				TargetId: pulumi.String("SendToLambda"),
+//				Arn:      pulumi.String(eventProcessor.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewPermission(ctx, "allow_eventbridge", &lambda.PermissionArgs{
+//				StatementId: pulumi.String("AllowExecutionFromEventBridge"),
+//				Action:      pulumi.String("lambda:InvokeFunction"),
+//				Function:    pulumi.String(eventProcessor.FunctionName),
+//				Principal:   pulumi.String("events.amazonaws.com"),
+//				Qualifier:   pulumi.String(eventProcessor.Name),
+//				SourceArn:   example.Arn,
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -54,6 +222,8 @@ type LookupAliasArgs struct {
 	// Name of the aliased Lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Name of the Lambda alias.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -63,14 +233,14 @@ type LookupAliasArgs struct {
 type LookupAliasResult struct {
 	// ARN identifying the Lambda function alias.
 	Arn string `pulumi:"arn"`
-	// Description of alias.
+	// Description of the alias.
 	Description  string `pulumi:"description"`
 	FunctionName string `pulumi:"functionName"`
 	// Lambda function version which the alias uses.
 	FunctionVersion string `pulumi:"functionVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	InvokeArn string `pulumi:"invokeArn"`
 	Name      string `pulumi:"name"`
 	Region    string `pulumi:"region"`
@@ -90,6 +260,8 @@ type LookupAliasOutputArgs struct {
 	// Name of the aliased Lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Name of the Lambda alias.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -119,7 +291,7 @@ func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of alias.
+// Description of the alias.
 func (o LookupAliasResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -138,7 +310,7 @@ func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 func (o LookupAliasResultOutput) InvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.InvokeArn }).(pulumi.StringOutput)
 }

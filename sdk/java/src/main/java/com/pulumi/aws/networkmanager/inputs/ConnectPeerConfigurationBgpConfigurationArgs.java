@@ -17,14 +17,14 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
     public static final ConnectPeerConfigurationBgpConfigurationArgs Empty = new ConnectPeerConfigurationBgpConfigurationArgs();
 
     /**
-     * A Connect peer core network address.
+     * Connect peer core network address.
      * 
      */
     @Import(name="coreNetworkAddress")
     private @Nullable Output<String> coreNetworkAddress;
 
     /**
-     * @return A Connect peer core network address.
+     * @return Connect peer core network address.
      * 
      */
     public Optional<Output<String>> coreNetworkAddress() {
@@ -39,7 +39,7 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
     }
 
     /**
-     * The Connect peer address.
+     * Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -48,7 +48,7 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
     private @Nullable Output<String> peerAddress;
 
     /**
-     * @return The Connect peer address.
+     * @return Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -57,9 +57,17 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         return Optional.ofNullable(this.peerAddress);
     }
 
+    /**
+     * Peer ASN.
+     * 
+     */
     @Import(name="peerAsn")
     private @Nullable Output<Integer> peerAsn;
 
+    /**
+     * @return Peer ASN.
+     * 
+     */
     public Optional<Output<Integer>> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }
@@ -92,7 +100,7 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -103,7 +111,7 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -122,7 +130,7 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 
@@ -135,7 +143,7 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 
@@ -146,11 +154,23 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
             return peerAddress(Output.of(peerAddress));
         }
 
+        /**
+         * @param peerAsn Peer ASN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peerAsn(@Nullable Output<Integer> peerAsn) {
             $.peerAsn = peerAsn;
             return this;
         }
 
+        /**
+         * @param peerAsn Peer ASN.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peerAsn(Integer peerAsn) {
             return peerAsn(Output.of(peerAsn));
         }

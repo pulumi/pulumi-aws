@@ -126,6 +126,7 @@ const (
 	directoryserviceMod         = "DirectoryService"         // Directory Services
 	docdbMod                    = "DocDB"                    // Document DB
 	drsMod                      = "Drs"                      // Elastic Disaster Recovery (DRS)
+	dsqlMod                     = "Dsql"                     // Amazon Aurora DSQL
 	dynamodbMod                 = "DynamoDB"                 // DynamoDB
 	dxMod                       = "DirectConnect"            // Direct Connect
 	dmsMod                      = "Dms"                      // Data Migraiton Services
@@ -258,6 +259,7 @@ const (
 	transferMod                 = "Transfer"                 // Transfer Service
 	verifiedpermissionsMod      = "VerifiedPermissions"      // Verified Permissions
 	verifiedaccessMod           = "VerifiedAccess"           // Verified Access
+	vpcMod                      = "Vpc"                      // VPC
 	vpclatticeMod               = "VpcLattice"               // VPC Lattice
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
@@ -356,6 +358,7 @@ var moduleMap = map[string]string{
 	"dlm":                             dlmMod,
 	"dms":                             dmsMod,
 	"docdb":                           docdbMod,
+	"dsql":                            dsqlMod,
 	"drs":                             drsMod,
 	"dx":                              dxMod,
 	"dynamodb":                        dynamodbMod,
@@ -2079,6 +2082,11 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_vpc_endpoint_security_group_association":     {Tok: awsResource(ec2Mod, "SecurityGroupAssociation")},
 			"aws_vpc_ipv4_cidr_block_association":             {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
 			"aws_vpc_network_performance_metric_subscription": {Tok: awsResource(ec2Mod, "VpcNetworkPerformanceMetricSubscription")},
+			"aws_vpc_route_server":                            {Tok: awsResource(vpcMod, "RouteServer")},
+			"aws_vpc_route_server_endpoint":                   {Tok: awsResource(vpcMod, "RouteServerEndpoint")},
+			"aws_vpc_route_server_peer":                       {Tok: awsResource(vpcMod, "RouteServerPeer")},
+			"aws_vpc_route_server_propagation":                {Tok: awsResource(vpcMod, "RouteServerPropagation")},
+			"aws_vpc_route_server_vpc_association":            {Tok: awsResource(vpcMod, "RouteServerVpcAssociation")},
 			"aws_vpn_connection":                              {Tok: awsResource(ec2Mod, "VpnConnection")},
 			"aws_vpn_connection_route":                        {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
 			"aws_vpn_gateway":                                 {Tok: awsResource(ec2Mod, "VpnGateway")},
@@ -5856,6 +5864,13 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		return attrWithSeparator(state, ",", "apiKey", "scope"), nil
 	}
 
+	prov.Resources["aws_s3control_directory_bucket_access_point_scope"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "name", "accountId"), nil
+	}
+	prov.Resources["aws_vpc_route_server_vpc_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "routeServerId", "vpcId"), nil
+	}
+
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
 		"aws_cloudwatch_log_delivery_source":             {"name"},
@@ -5871,15 +5886,28 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_workspacesweb_network_settings":             {"networkSettingsArn"},
 		"aws_workspacesweb_browser_settings":             {"browserSettingsArn"},
 		"aws_workspacesweb_user_settings":                {"userSettingsArn"},
+		"aws_workspacesweb_data_protection_settings":     {"dataProtectionSettingsArn"},
+		"aws_workspacesweb_user_access_logging_settings": {"userAccessLoggingSettingsArn"},
+		"aws_workspacesweb_ip_access_settings":           {"ipAccessSettingsArn"},
 		"aws_quicksight_account_settings":                {"awsAccountId"},
 		"aws_notificationscontacts_email_contact":        {"arn"},
 		"aws_notifications_notification_configuration":   {"arn"},
 		"aws_notifications_notification_hub":             {"notificationHubRegion"},
 		"aws_notifications_event_rule":                   {"arn"},
 		"aws_notifications_channel_association":          {"notificationConfigurationArn", "arn"},
+		"aws_prometheus_workspace_configuration":         {"workspaceId"},
+		"aws_vpc_route_server":                           {"routeServerId"},
+		"aws_vpc_route_server_propagation":               {"routeServerPropagationId"},
+		"aws_vpc_route_server_endpoint":                  {"routeServerEndpointId"},
+		"aws_vpc_route_server_peer":                      {"routeServerPeerId"},
+		"aws_dsql_cluster_peering":                       {"identifier"},
+		"aws_dsql_cluster":                               {"identifier"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
+		if _, ok := prov.Resources[tfResourceID]; !ok {
+			prov.Resources[tfResourceID] = &info.Resource{}
+		}
 		prov.Resources[tfResourceID].ComputeID = func(
 			ctx context.Context, state resource.PropertyMap,
 		) (resource.ID, error) {

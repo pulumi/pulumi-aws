@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ssm.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
+        /// User-defined criteria that maps to Key. A list of instance IDs or tag values.
         /// </summary>
         public InputList<string> Values
         {

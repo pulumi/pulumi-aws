@@ -18,14 +18,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     public static final DiskState Empty = new DiskState();
 
     /**
-     * The ARN of the Lightsail disk.
+     * ARN of the disk.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail disk.
+     * @return ARN of the disk.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Availability Zone in which to create your disk.
+     * Availability Zone in which to create the disk.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your disk.
+     * @return Availability Zone in which to create the disk.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -48,14 +48,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timestamp when the disk was created.
+     * Date and time when the disk was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The timestamp when the disk was created.
+     * @return Date and time when the disk was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -63,14 +63,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the disk.
+     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the disk.
+     * @return Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,14 +93,18 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The size of the disk in GB.
+     * Size of the disk in GB.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="sizeInGb")
     private @Nullable Output<Integer> sizeInGb;
 
     /**
-     * @return The size of the disk in GB.
+     * @return Size of the disk in GB.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> sizeInGb() {
@@ -108,14 +112,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
      * 
      */
     @Import(name="supportCode")
     private @Nullable Output<String> supportCode;
 
     /**
-     * @return The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * @return Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
      * 
      */
     public Optional<Output<String>> supportCode() {
@@ -123,14 +127,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -138,14 +142,14 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -185,7 +189,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail disk.
+         * @param arn ARN of the disk.
          * 
          * @return builder
          * 
@@ -196,7 +200,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail disk.
+         * @param arn ARN of the disk.
          * 
          * @return builder
          * 
@@ -206,7 +210,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your disk.
+         * @param availabilityZone Availability Zone in which to create the disk.
          * 
          * @return builder
          * 
@@ -217,7 +221,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your disk.
+         * @param availabilityZone Availability Zone in which to create the disk.
          * 
          * @return builder
          * 
@@ -227,7 +231,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The timestamp when the disk was created.
+         * @param createdAt Date and time when the disk was created.
          * 
          * @return builder
          * 
@@ -238,7 +242,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The timestamp when the disk was created.
+         * @param createdAt Date and time when the disk was created.
          * 
          * @return builder
          * 
@@ -248,7 +252,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the disk.
+         * @param name Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
          * 
          * @return builder
          * 
@@ -259,7 +263,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the disk.
+         * @param name Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
          * 
          * @return builder
          * 
@@ -290,7 +294,9 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The size of the disk in GB.
+         * @param sizeInGb Size of the disk in GB.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -301,7 +307,9 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The size of the disk in GB.
+         * @param sizeInGb Size of the disk in GB.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -311,7 +319,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportCode The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+         * @param supportCode Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
          * 
          * @return builder
          * 
@@ -322,7 +330,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportCode The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+         * @param supportCode Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
          * 
          * @return builder
          * 
@@ -332,7 +340,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -343,7 +351,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -353,7 +361,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -364,7 +372,7 @@ public final class DiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

@@ -87,6 +87,8 @@ type Smsvoicev2PhoneNumber struct {
 	TwoWayChannelArn pulumi.StringPtrOutput `pulumi:"twoWayChannelArn"`
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled pulumi.BoolOutput `pulumi:"twoWayChannelEnabled"`
+	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+	TwoWayChannelRole pulumi.StringPtrOutput `pulumi:"twoWayChannelRole"`
 }
 
 // NewSmsvoicev2PhoneNumber registers a new resource with the given unique name, arguments, and options.
@@ -163,6 +165,8 @@ type smsvoicev2PhoneNumberState struct {
 	TwoWayChannelArn *string `pulumi:"twoWayChannelArn"`
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
+	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+	TwoWayChannelRole *string `pulumi:"twoWayChannelRole"`
 }
 
 type Smsvoicev2PhoneNumberState struct {
@@ -198,6 +202,8 @@ type Smsvoicev2PhoneNumberState struct {
 	TwoWayChannelArn pulumi.StringPtrInput
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled pulumi.BoolPtrInput
+	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+	TwoWayChannelRole pulumi.StringPtrInput
 }
 
 func (Smsvoicev2PhoneNumberState) ElementType() reflect.Type {
@@ -229,6 +235,8 @@ type smsvoicev2PhoneNumberArgs struct {
 	TwoWayChannelArn *string `pulumi:"twoWayChannelArn"`
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled *bool `pulumi:"twoWayChannelEnabled"`
+	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+	TwoWayChannelRole *string `pulumi:"twoWayChannelRole"`
 }
 
 // The set of arguments for constructing a Smsvoicev2PhoneNumber resource.
@@ -257,6 +265,8 @@ type Smsvoicev2PhoneNumberArgs struct {
 	TwoWayChannelArn pulumi.StringPtrInput
 	// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 	TwoWayChannelEnabled pulumi.BoolPtrInput
+	// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+	TwoWayChannelRole pulumi.StringPtrInput
 }
 
 func (Smsvoicev2PhoneNumberArgs) ElementType() reflect.Type {
@@ -427,6 +437,11 @@ func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelArn() pulumi.StringPtrOutput {
 // By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
 func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.BoolOutput { return v.TwoWayChannelEnabled }).(pulumi.BoolOutput)
+}
+
+// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+func (o Smsvoicev2PhoneNumberOutput) TwoWayChannelRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringPtrOutput { return v.TwoWayChannelRole }).(pulumi.StringPtrOutput)
 }
 
 type Smsvoicev2PhoneNumberArrayOutput struct{ *pulumi.OutputState }

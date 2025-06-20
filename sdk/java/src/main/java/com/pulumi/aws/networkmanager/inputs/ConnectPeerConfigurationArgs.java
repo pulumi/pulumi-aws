@@ -25,14 +25,14 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A Connect peer core network address.
+     * Connect peer core network address.
      * 
      */
     @Import(name="coreNetworkAddress")
     private @Nullable Output<String> coreNetworkAddress;
 
     /**
-     * @return A Connect peer core network address.
+     * @return Connect peer core network address.
      * 
      */
     public Optional<Output<String>> coreNetworkAddress() {
@@ -40,14 +40,14 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Optional<Output<List<String>>> insideCidrBlocks() {
@@ -55,7 +55,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The Connect peer address.
+     * Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -64,7 +64,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
     private @Nullable Output<String> peerAddress;
 
     /**
-     * @return The Connect peer address.
+     * @return Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -122,7 +122,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 
@@ -187,7 +187,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 

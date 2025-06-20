@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionCacheBehaviorSettingsForwardedHeaders {
     /**
-     * @return The specific headers to forward to your distribution&#39;s origin.
+     * @return Specific headers to forward to your distribution&#39;s origin.
      * 
      */
     private @Nullable List<String> headersAllowLists;
     /**
-     * @return The headers that you want your distribution to forward to your origin and base caching on.
+     * @return Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
      * 
      */
     private @Nullable String option;
 
     private DistributionCacheBehaviorSettingsForwardedHeaders() {}
     /**
-     * @return The specific headers to forward to your distribution&#39;s origin.
+     * @return Specific headers to forward to your distribution&#39;s origin.
      * 
      */
     public List<String> headersAllowLists() {
         return this.headersAllowLists == null ? List.of() : this.headersAllowLists;
     }
     /**
-     * @return The headers that you want your distribution to forward to your origin and base caching on.
+     * @return Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
      * 
      */
     public Optional<String> option() {

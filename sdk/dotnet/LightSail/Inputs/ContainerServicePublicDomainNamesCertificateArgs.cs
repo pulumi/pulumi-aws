@@ -12,11 +12,18 @@ namespace Pulumi.Aws.LightSail.Inputs
 
     public sealed class ContainerServicePublicDomainNamesCertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the certificate.
+        /// </summary>
         [Input("certificateName", required: true)]
         public Input<string> CertificateName { get; set; } = null!;
 
         [Input("domainNames", required: true)]
         private InputList<string>? _domainNames;
+
+        /// <summary>
+        /// List of domain names for the certificate.
+        /// </summary>
         public InputList<string> DomainNames
         {
             get => _domainNames ?? (_domainNames = new InputList<string>());

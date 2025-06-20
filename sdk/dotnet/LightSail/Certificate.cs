@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Provides a lightsail certificate.
+    /// Manages a Lightsail certificate. Use this resource to create and manage SSL/TLS certificates for securing custom domains with your Lightsail resources.
     /// 
     /// ## Example Usage
     /// 
@@ -22,13 +22,13 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Certificate("test", new()
+    ///     var example = new Aws.LightSail.Certificate("example", new()
     ///     {
-    ///         Name = "test",
-    ///         DomainName = "testdomain.com",
+    ///         Name = "example-certificate",
+    ///         DomainName = "example.com",
     ///         SubjectAlternativeNames = new[]
     ///         {
-    ///             "www.testdomain.com",
+    ///             "www.example.com",
     ///         },
     ///     });
     /// 
@@ -40,38 +40,40 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+    /// $ pulumi import aws:lightsail/certificate:Certificate example example-certificate
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the lightsail certificate.
+        /// ARN of the certificate.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the instance was created.
+        /// Date and time when the certificate was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// A domain name for which the certificate should be issued.
+        /// Domain name for which the certificate should be issued.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         /// </summary>
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the certificate.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -89,13 +91,13 @@ namespace Pulumi.Aws.LightSail
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -147,13 +149,15 @@ namespace Pulumi.Aws.LightSail
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A domain name for which the certificate should be issued.
+        /// Domain name for which the certificate should be issued.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the certificate.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -180,7 +184,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -197,19 +201,19 @@ namespace Pulumi.Aws.LightSail
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the lightsail certificate.
+        /// ARN of the certificate.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The timestamp when the instance was created.
+        /// Date and time when the certificate was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// A domain name for which the certificate should be issued.
+        /// Domain name for which the certificate should be issued.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -218,7 +222,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         /// </summary>
         public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {
@@ -227,7 +231,9 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the certificate.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -254,7 +260,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -266,7 +272,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

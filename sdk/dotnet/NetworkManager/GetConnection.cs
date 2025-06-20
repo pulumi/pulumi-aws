@@ -12,7 +12,7 @@ namespace Pulumi.Aws.NetworkManager
     public static class GetConnection
     {
         /// <summary>
-        /// Retrieve information about a connection.
+        /// Provides details about an existing Network Manager connection.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:networkmanager/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a connection.
+        /// Provides details about an existing Network Manager connection.
         /// 
         /// ## Example Usage
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:networkmanager/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a connection.
+        /// Provides details about an existing Network Manager connection.
         /// 
         /// ## Example Usage
         /// 

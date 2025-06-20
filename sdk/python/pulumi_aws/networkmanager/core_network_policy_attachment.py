@@ -24,7 +24,7 @@ class CoreNetworkPolicyAttachmentArgs:
                  policy_document: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a CoreNetworkPolicyAttachment resource.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of the core network that a policy will be attached to and made `LIVE`.
+        :param pulumi.Input[builtins.str] core_network_id: ID of the core network that a policy will be attached to and made `LIVE`.
         :param pulumi.Input[builtins.str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
@@ -34,7 +34,7 @@ class CoreNetworkPolicyAttachmentArgs:
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the core network that a policy will be attached to and made `LIVE`.
+        ID of the core network that a policy will be attached to and made `LIVE`.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -63,7 +63,7 @@ class _CoreNetworkPolicyAttachmentState:
                  state: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering CoreNetworkPolicyAttachment resources.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of the core network that a policy will be attached to and made `LIVE`.
+        :param pulumi.Input[builtins.str] core_network_id: ID of the core network that a policy will be attached to and made `LIVE`.
         :param pulumi.Input[builtins.str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         :param pulumi.Input[builtins.str] state: Current state of a core network.
         """
@@ -78,7 +78,7 @@ class _CoreNetworkPolicyAttachmentState:
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the core network that a policy will be attached to and made `LIVE`.
+        ID of the core network that a policy will be attached to and made `LIVE`.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -121,7 +121,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
+        Manages a Network Manager Core Network Policy Attachment.
+
+        Use this resource to attach a Core Network Policy to an existing Core Network and execute the change set, which deploys changes globally based on the policy submitted (sets the policy to `LIVE`).
 
         > **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
 
@@ -378,7 +380,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of the core network that a policy will be attached to and made `LIVE`.
+        :param pulumi.Input[builtins.str] core_network_id: ID of the core network that a policy will be attached to and made `LIVE`.
         :param pulumi.Input[builtins.str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         """
         ...
@@ -388,7 +390,9 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
                  args: CoreNetworkPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
+        Manages a Network Manager Core Network Policy Attachment.
+
+        Use this resource to attach a Core Network Policy to an existing Core Network and execute the change set, which deploys changes globally based on the policy submitted (sets the policy to `LIVE`).
 
         > **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
 
@@ -696,7 +700,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of the core network that a policy will be attached to and made `LIVE`.
+        :param pulumi.Input[builtins.str] core_network_id: ID of the core network that a policy will be attached to and made `LIVE`.
         :param pulumi.Input[builtins.str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         :param pulumi.Input[builtins.str] state: Current state of a core network.
         """
@@ -713,7 +717,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the core network that a policy will be attached to and made `LIVE`.
+        ID of the core network that a policy will be attached to and made `LIVE`.
         """
         return pulumi.get(self, "core_network_id")
 

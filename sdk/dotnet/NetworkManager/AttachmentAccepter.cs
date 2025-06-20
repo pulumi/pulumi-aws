@@ -10,11 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS Network Manager Attachment Accepter.
+    /// Manages an AWS Network Manager Attachment Accepter.
+    /// 
+    /// Use this resource to accept cross-account attachments in AWS Network Manager. When an attachment is created in one account and needs to be accepted by another account that owns the core network, this resource handles the acceptance process.
     /// 
     /// ## Example Usage
     /// 
-    /// ### Example with VPC attachment
+    /// ### VPC Attachment
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -24,16 +26,16 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
+    ///     var example = new Aws.NetworkManager.AttachmentAccepter("example", new()
     ///     {
-    ///         AttachmentId = vpc.Id,
-    ///         AttachmentType = vpc.AttachmentType,
+    ///         AttachmentId = exampleAwsNetworkmanagerVpcAttachment.Id,
+    ///         AttachmentType = exampleAwsNetworkmanagerVpcAttachment.AttachmentType,
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Example with site-to-site VPN attachment
+    /// ### Site-to-Site VPN Attachment
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -43,10 +45,67 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
+    ///     var example = new Aws.NetworkManager.AttachmentAccepter("example", new()
     ///     {
-    ///         AttachmentId = vpn.Id,
-    ///         AttachmentType = vpn.AttachmentType,
+    ///         AttachmentId = exampleAwsNetworkmanagerSiteToSiteVpnAttachment.Id,
+    ///         AttachmentType = exampleAwsNetworkmanagerSiteToSiteVpnAttachment.AttachmentType,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Connect Attachment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.AttachmentAccepter("example", new()
+    ///     {
+    ///         AttachmentId = exampleAwsNetworkmanagerConnectAttachment.Id,
+    ///         AttachmentType = exampleAwsNetworkmanagerConnectAttachment.AttachmentType,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Transit Gateway Route Table Attachment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.AttachmentAccepter("example", new()
+    ///     {
+    ///         AttachmentId = exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.Id,
+    ///         AttachmentType = exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.AttachmentType,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Direct Connect Gateway Attachment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.NetworkManager.AttachmentAccepter("example", new()
+    ///     {
+    ///         AttachmentId = exampleAwsNetworkmanagerDxGatewayAttachment.Id,
+    ///         AttachmentType = exampleAwsNetworkmanagerDxGatewayAttachment.AttachmentType,
     ///     });
     /// 
     /// });
@@ -56,67 +115,67 @@ namespace Pulumi.Aws.NetworkManager
     public partial class AttachmentAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the attachment.
+        /// ID of the attachment.
         /// </summary>
         [Output("attachmentId")]
         public Output<string> AttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The policy rule number associated with the attachment.
+        /// Policy rule number associated with the attachment.
         /// </summary>
         [Output("attachmentPolicyRuleNumber")]
         public Output<int> AttachmentPolicyRuleNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        /// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
         /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of a core network.
+        /// ARN of the core network.
         /// </summary>
         [Output("coreNetworkArn")]
         public Output<string> CoreNetworkArn { get; private set; } = null!;
 
         /// <summary>
-        /// The id of a core network.
+        /// ID of the core network.
         /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+        /// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
         /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+        /// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
         /// </summary>
         [Output("edgeLocations")]
         public Output<ImmutableArray<string>> EdgeLocations { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the attachment account owner.
+        /// ID of the attachment account owner.
         /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The attachment resource ARN.
+        /// Attachment resource ARN.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the segment attachment.
+        /// Name of the segment attachment.
         /// </summary>
         [Output("segmentName")]
         public Output<string> SegmentName { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the attachment.
+        /// State of the attachment.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -168,13 +227,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class AttachmentAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the attachment.
+        /// ID of the attachment.
         /// </summary>
         [Input("attachmentId", required: true)]
         public Input<string> AttachmentId { get; set; } = null!;
 
         /// <summary>
-        /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        /// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
         /// </summary>
         [Input("attachmentType", required: true)]
         public Input<string> AttachmentType { get; set; } = null!;
@@ -188,37 +247,37 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class AttachmentAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the attachment.
+        /// ID of the attachment.
         /// </summary>
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 
         /// <summary>
-        /// The policy rule number associated with the attachment.
+        /// Policy rule number associated with the attachment.
         /// </summary>
         [Input("attachmentPolicyRuleNumber")]
         public Input<int>? AttachmentPolicyRuleNumber { get; set; }
 
         /// <summary>
-        /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        /// Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
         /// </summary>
         [Input("attachmentType")]
         public Input<string>? AttachmentType { get; set; }
 
         /// <summary>
-        /// The ARN of a core network.
+        /// ARN of the core network.
         /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
         /// <summary>
-        /// The id of a core network.
+        /// ID of the core network.
         /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }
 
         /// <summary>
-        /// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+        /// Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
         /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
@@ -227,7 +286,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<string>? _edgeLocations;
 
         /// <summary>
-        /// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+        /// Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
         /// </summary>
         public InputList<string> EdgeLocations
         {
@@ -236,25 +295,25 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The ID of the attachment account owner.
+        /// ID of the attachment account owner.
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
         /// <summary>
-        /// The attachment resource ARN.
+        /// Attachment resource ARN.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
-        /// The name of the segment attachment.
+        /// Name of the segment attachment.
         /// </summary>
         [Input("segmentName")]
         public Input<string>? SegmentName { get; set; }
 
         /// <summary>
-        /// The state of the attachment.
+        /// State of the attachment.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

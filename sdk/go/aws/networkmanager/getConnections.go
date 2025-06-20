@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about connections.
+// Provides details about existing Network Manager connections.
 //
 // ## Example Usage
 //

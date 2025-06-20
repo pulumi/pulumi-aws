@@ -18,14 +18,14 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
     public static final SiteState Empty = new SiteState();
 
     /**
-     * Site Amazon Resource Name (ARN)
+     * Site ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Site Amazon Resource Name (ARN)
+     * @return Site ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,18 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Global Network to create the site in.
+     * ID of the Global Network to create the site in.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the Global Network to create the site in.
+     * @return ID of the Global Network to create the site in.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> globalNetworkId() {
@@ -63,14 +67,14 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The site location as documented below.
+     * Site location. See below.
      * 
      */
     @Import(name="location")
     private @Nullable Output<SiteLocationArgs> location;
 
     /**
-     * @return The site location as documented below.
+     * @return Site location. See below.
      * 
      */
     public Optional<Output<SiteLocationArgs>> location() {
@@ -93,14 +97,14 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -137,7 +141,7 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Site Amazon Resource Name (ARN)
+         * @param arn Site ARN.
          * 
          * @return builder
          * 
@@ -148,7 +152,7 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Site Amazon Resource Name (ARN)
+         * @param arn Site ARN.
          * 
          * @return builder
          * 
@@ -179,7 +183,9 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network to create the site in.
+         * @param globalNetworkId ID of the Global Network to create the site in.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -190,7 +196,9 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network to create the site in.
+         * @param globalNetworkId ID of the Global Network to create the site in.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -200,7 +208,7 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The site location as documented below.
+         * @param location Site location. See below.
          * 
          * @return builder
          * 
@@ -211,7 +219,7 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The site location as documented below.
+         * @param location Site location. See below.
          * 
          * @return builder
          * 
@@ -242,7 +250,7 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -253,7 +261,7 @@ public final class SiteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

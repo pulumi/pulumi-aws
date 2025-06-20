@@ -19,14 +19,14 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
     public static final LinkArgs Empty = new LinkArgs();
 
     /**
-     * The upload speed and download speed in Mbps. Documented below.
+     * Upload speed and download speed in Mbps. See below.
      * 
      */
     @Import(name="bandwidth", required=true)
     private Output<LinkBandwidthArgs> bandwidth;
 
     /**
-     * @return The upload speed and download speed in Mbps. Documented below.
+     * @return Upload speed and download speed in Mbps. See below.
      * 
      */
     public Output<LinkBandwidthArgs> bandwidth() {
@@ -34,14 +34,14 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the link.
+     * Description of the link.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the link.
+     * @return Description of the link.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
      * 
      */
     public Output<String> globalNetworkId() {
@@ -64,14 +64,14 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The provider of the link.
+     * Provider of the link.
      * 
      */
     @Import(name="providerName")
     private @Nullable Output<String> providerName;
 
     /**
-     * @return The provider of the link.
+     * @return Provider of the link.
      * 
      */
     public Optional<Output<String>> providerName() {
@@ -79,14 +79,18 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the site.
+     * ID of the site.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="siteId", required=true)
     private Output<String> siteId;
 
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> siteId() {
@@ -109,14 +113,14 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the link.
+     * Type of the link.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the link.
+     * @return Type of the link.
      * 
      */
     public Optional<Output<String>> type() {
@@ -154,7 +158,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bandwidth The upload speed and download speed in Mbps. Documented below.
+         * @param bandwidth Upload speed and download speed in Mbps. See below.
          * 
          * @return builder
          * 
@@ -165,7 +169,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bandwidth The upload speed and download speed in Mbps. Documented below.
+         * @param bandwidth Upload speed and download speed in Mbps. See below.
          * 
          * @return builder
          * 
@@ -175,7 +179,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the link.
+         * @param description Description of the link.
          * 
          * @return builder
          * 
@@ -186,7 +190,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the link.
+         * @param description Description of the link.
          * 
          * @return builder
          * 
@@ -196,7 +200,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -207,7 +211,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -217,7 +221,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerName The provider of the link.
+         * @param providerName Provider of the link.
          * 
          * @return builder
          * 
@@ -228,7 +232,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerName The provider of the link.
+         * @param providerName Provider of the link.
          * 
          * @return builder
          * 
@@ -238,7 +242,9 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteId The ID of the site.
+         * @param siteId ID of the site.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -249,7 +255,9 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteId The ID of the site.
+         * @param siteId ID of the site.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -280,7 +288,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the link.
+         * @param type Type of the link.
          * 
          * @return builder
          * 
@@ -291,7 +299,7 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the link.
+         * @param type Type of the link.
          * 
          * @return builder
          * 

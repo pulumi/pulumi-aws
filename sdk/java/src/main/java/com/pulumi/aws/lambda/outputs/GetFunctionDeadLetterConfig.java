@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionDeadLetterConfig {
+    /**
+     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails.
+     * 
+     */
     private String targetArn;
 
     private GetFunctionDeadLetterConfig() {}
+    /**
+     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails.
+     * 
+     */
     public String targetArn() {
         return this.targetArn;
     }

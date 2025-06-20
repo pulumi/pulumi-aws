@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionLoggingConfigResult
     {
+        /// <summary>
+        /// Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+        /// </summary>
         public readonly string ApplicationLogLevel;
+        /// <summary>
+        /// Format for your function's logs. Valid values: `Text`, `JSON`.
+        /// </summary>
         public readonly string LogFormat;
+        /// <summary>
+        /// CloudWatch log group your function sends logs to.
+        /// </summary>
         public readonly string LogGroup;
+        /// <summary>
+        /// Detail level of the Lambda platform event logs sent to CloudWatch.
+        /// </summary>
         public readonly string SystemLogLevel;
 
         [OutputConstructor]

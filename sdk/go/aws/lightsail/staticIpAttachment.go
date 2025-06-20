@@ -12,9 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
+// Manages a static IP address attachment - relationship between a Lightsail static IP and Lightsail instance.
 //
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+// Use this resource to attach a static IP address to a Lightsail instance to provide a consistent public IP address that persists across instance restarts.
+//
+// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 //
 // ## Example Usage
 //
@@ -30,25 +32,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStaticIp, err := lightsail.NewStaticIp(ctx, "test", &lightsail.StaticIpArgs{
+//			example, err := lightsail.NewStaticIp(ctx, "example", &lightsail.StaticIpArgs{
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
+//			exampleInstance, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
 //				Name:             pulumi.String("example"),
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("string"),
-//				BundleId:         pulumi.String("string"),
-//				KeyPairName:      pulumi.String("some_key_name"),
+//				AvailabilityZone: pulumi.String("us-east-1a"),
+//				BlueprintId:      pulumi.String("ubuntu_20_04"),
+//				BundleId:         pulumi.String("nano_2_0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewStaticIpAttachment(ctx, "test", &lightsail.StaticIpAttachmentArgs{
-//				StaticIpName: testStaticIp.ID(),
-//				InstanceName: testInstance.ID(),
+//			_, err = lightsail.NewStaticIpAttachment(ctx, "example", &lightsail.StaticIpAttachmentArgs{
+//				StaticIpName: example.ID(),
+//				InstanceName: exampleInstance.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -58,16 +59,26 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Using `pulumi import`, import `aws_lightsail_static_ip_attachment` using the static IP name. For example:
+//
+// ```sh
+// $ pulumi import aws:lightsail/staticIpAttachment:StaticIpAttachment example example-static-ip
+// ```
 type StaticIpAttachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the Lightsail instance to attach the IP to
+	// Name of the Lightsail instance to attach the IP to.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// The allocated static IP address
+	// Allocated static IP address.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the allocated static IP
+	// Name of the allocated static IP.
+	//
+	// The following arguments are optional:
 	StaticIpName pulumi.StringOutput `pulumi:"staticIpName"`
 }
 
@@ -107,24 +118,28 @@ func GetStaticIpAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticIpAttachment resources.
 type staticIpAttachmentState struct {
-	// The name of the Lightsail instance to attach the IP to
+	// Name of the Lightsail instance to attach the IP to.
 	InstanceName *string `pulumi:"instanceName"`
-	// The allocated static IP address
+	// Allocated static IP address.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the allocated static IP
+	// Name of the allocated static IP.
+	//
+	// The following arguments are optional:
 	StaticIpName *string `pulumi:"staticIpName"`
 }
 
 type StaticIpAttachmentState struct {
-	// The name of the Lightsail instance to attach the IP to
+	// Name of the Lightsail instance to attach the IP to.
 	InstanceName pulumi.StringPtrInput
-	// The allocated static IP address
+	// Allocated static IP address.
 	IpAddress pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the allocated static IP
+	// Name of the allocated static IP.
+	//
+	// The following arguments are optional:
 	StaticIpName pulumi.StringPtrInput
 }
 
@@ -133,21 +148,25 @@ func (StaticIpAttachmentState) ElementType() reflect.Type {
 }
 
 type staticIpAttachmentArgs struct {
-	// The name of the Lightsail instance to attach the IP to
+	// Name of the Lightsail instance to attach the IP to.
 	InstanceName string `pulumi:"instanceName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the allocated static IP
+	// Name of the allocated static IP.
+	//
+	// The following arguments are optional:
 	StaticIpName string `pulumi:"staticIpName"`
 }
 
 // The set of arguments for constructing a StaticIpAttachment resource.
 type StaticIpAttachmentArgs struct {
-	// The name of the Lightsail instance to attach the IP to
+	// Name of the Lightsail instance to attach the IP to.
 	InstanceName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the allocated static IP
+	// Name of the allocated static IP.
+	//
+	// The following arguments are optional:
 	StaticIpName pulumi.StringInput
 }
 
@@ -238,12 +257,12 @@ func (o StaticIpAttachmentOutput) ToStaticIpAttachmentOutputWithContext(ctx cont
 	return o
 }
 
-// The name of the Lightsail instance to attach the IP to
+// Name of the Lightsail instance to attach the IP to.
 func (o StaticIpAttachmentOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// The allocated static IP address
+// Allocated static IP address.
 func (o StaticIpAttachmentOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -253,7 +272,9 @@ func (o StaticIpAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the allocated static IP
+// Name of the allocated static IP.
+//
+// The following arguments are optional:
 func (o StaticIpAttachmentOutput) StaticIpName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.StaticIpName }).(pulumi.StringOutput)
 }

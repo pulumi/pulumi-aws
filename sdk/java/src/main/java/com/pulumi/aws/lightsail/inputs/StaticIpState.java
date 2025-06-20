@@ -16,14 +16,14 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
     public static final StaticIpState Empty = new StaticIpState();
 
     /**
-     * The ARN of the Lightsail static IP
+     * ARN of the Lightsail static IP.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail static IP
+     * @return ARN of the Lightsail static IP.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,14 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The allocated static IP address
+     * Allocated static IP address.
      * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
-     * @return The allocated static IP address
+     * @return Allocated static IP address.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -46,14 +46,18 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for the allocated static IP
+     * Name for the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the allocated static IP
+     * @return Name for the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -76,14 +80,14 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The support code.
+     * Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     @Import(name="supportCode")
     private @Nullable Output<String> supportCode;
 
     /**
-     * @return The support code.
+     * @return Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     public Optional<Output<String>> supportCode() {
@@ -119,7 +123,7 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail static IP
+         * @param arn ARN of the Lightsail static IP.
          * 
          * @return builder
          * 
@@ -130,7 +134,7 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Lightsail static IP
+         * @param arn ARN of the Lightsail static IP.
          * 
          * @return builder
          * 
@@ -140,7 +144,7 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress The allocated static IP address
+         * @param ipAddress Allocated static IP address.
          * 
          * @return builder
          * 
@@ -151,7 +155,7 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress The allocated static IP address
+         * @param ipAddress Allocated static IP address.
          * 
          * @return builder
          * 
@@ -161,7 +165,9 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the allocated static IP
+         * @param name Name for the allocated static IP.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -172,7 +178,9 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the allocated static IP
+         * @param name Name for the allocated static IP.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -203,7 +211,7 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportCode The support code.
+         * @param supportCode Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
          * 
          * @return builder
          * 
@@ -214,7 +222,7 @@ public final class StaticIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportCode The support code.
+         * @param supportCode Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
          * 
          * @return builder
          * 

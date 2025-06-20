@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Creates a connection between two devices.
-    /// The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
+    /// Manages a Network Manager Connection.
+    /// 
+    /// Use this resource to create a connection between two devices in your global network.
     /// 
     /// ## Example Usage
     /// 
@@ -45,43 +46,45 @@ namespace Pulumi.Aws.NetworkManager
     public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
+        /// ARN of the connection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the second device in the connection.
+        /// ID of the second device in the connection.
         /// </summary>
         [Output("connectedDeviceId")]
         public Output<string> ConnectedDeviceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the link for the second device.
+        /// ID of the link for the second device.
         /// </summary>
         [Output("connectedLinkId")]
         public Output<string?> ConnectedLinkId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the connection.
+        /// Description of the connection.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the first device in the connection.
+        /// ID of the first device in the connection.
         /// </summary>
         [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the link for the first device.
+        /// ID of the link for the first device.
         /// </summary>
         [Output("linkId")]
         public Output<string?> LinkId { get; private set; } = null!;
@@ -93,7 +96,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -145,37 +148,39 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the second device in the connection.
+        /// ID of the second device in the connection.
         /// </summary>
         [Input("connectedDeviceId", required: true)]
         public Input<string> ConnectedDeviceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the link for the second device.
+        /// ID of the link for the second device.
         /// </summary>
         [Input("connectedLinkId")]
         public Input<string>? ConnectedLinkId { get; set; }
 
         /// <summary>
-        /// A description of the connection.
+        /// Description of the connection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the first device in the connection.
+        /// ID of the first device in the connection.
         /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the link for the first device.
+        /// ID of the link for the first device.
         /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
@@ -201,43 +206,45 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
+        /// ARN of the connection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ID of the second device in the connection.
+        /// ID of the second device in the connection.
         /// </summary>
         [Input("connectedDeviceId")]
         public Input<string>? ConnectedDeviceId { get; set; }
 
         /// <summary>
-        /// The ID of the link for the second device.
+        /// ID of the link for the second device.
         /// </summary>
         [Input("connectedLinkId")]
         public Input<string>? ConnectedLinkId { get; set; }
 
         /// <summary>
-        /// A description of the connection.
+        /// Description of the connection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the first device in the connection.
+        /// ID of the first device in the connection.
         /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
         /// <summary>
-        /// The ID of the link for the first device.
+        /// ID of the link for the first device.
         /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
@@ -258,7 +265,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

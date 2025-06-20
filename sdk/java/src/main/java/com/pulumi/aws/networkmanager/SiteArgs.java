@@ -34,14 +34,18 @@ public final class SiteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Global Network to create the site in.
+     * ID of the Global Network to create the site in.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalNetworkId", required=true)
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the Global Network to create the site in.
+     * @return ID of the Global Network to create the site in.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
@@ -49,14 +53,14 @@ public final class SiteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The site location as documented below.
+     * Site location. See below.
      * 
      */
     @Import(name="location")
     private @Nullable Output<SiteLocationArgs> location;
 
     /**
-     * @return The site location as documented below.
+     * @return Site location. See below.
      * 
      */
     public Optional<Output<SiteLocationArgs>> location() {
@@ -127,7 +131,9 @@ public final class SiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network to create the site in.
+         * @param globalNetworkId ID of the Global Network to create the site in.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -138,7 +144,9 @@ public final class SiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the Global Network to create the site in.
+         * @param globalNetworkId ID of the Global Network to create the site in.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -148,7 +156,7 @@ public final class SiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The site location as documented below.
+         * @param location Site location. See below.
          * 
          * @return builder
          * 
@@ -159,7 +167,7 @@ public final class SiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The site location as documented below.
+         * @param location Site location. See below.
          * 
          * @return builder
          * 

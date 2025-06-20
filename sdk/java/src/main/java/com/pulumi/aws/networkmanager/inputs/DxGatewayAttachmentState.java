@@ -19,9 +19,17 @@ public final class DxGatewayAttachmentState extends com.pulumi.resources.Resourc
 
     public static final DxGatewayAttachmentState Empty = new DxGatewayAttachmentState();
 
+    /**
+     * ARN of the attachment.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -181,14 +189,14 @@ public final class DxGatewayAttachmentState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -238,11 +246,23 @@ public final class DxGatewayAttachmentState extends com.pulumi.resources.Resourc
             $ = new DxGatewayAttachmentState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -474,7 +494,7 @@ public final class DxGatewayAttachmentState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -485,7 +505,7 @@ public final class DxGatewayAttachmentState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

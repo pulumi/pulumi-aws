@@ -17,7 +17,7 @@ public final class AssociationTarget {
      */
     private String key;
     /**
-     * @return A list of instance IDs or tag values. AWS currently limits this list size to one value.
+     * @return User-defined criteria that maps to Key. A list of instance IDs or tag values.
      * 
      */
     private List<String> values;
@@ -31,7 +31,7 @@ public final class AssociationTarget {
         return this.key;
     }
     /**
-     * @return A list of instance IDs or tag values. AWS currently limits this list size to one value.
+     * @return User-defined criteria that maps to Key. A list of instance IDs or tag values.
      * 
      */
     public List<String> values() {

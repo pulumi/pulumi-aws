@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult
     {
+        /// <summary>
+        /// Name of the engine version.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

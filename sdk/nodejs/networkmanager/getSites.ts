@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about sites.
+ * Provides details about existing Network Manager sites.
  *
  * ## Example Usage
  *
@@ -59,7 +59,7 @@ export interface GetSitesResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * Retrieve information about sites.
+ * Provides details about existing Network Manager sites.
  *
  * ## Example Usage
  *

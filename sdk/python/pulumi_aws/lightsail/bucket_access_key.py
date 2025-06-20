@@ -24,7 +24,7 @@ class BucketAccessKeyArgs:
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAccessKey resource.
-        :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
+        :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -35,7 +35,7 @@ class BucketAccessKeyArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the bucket that the new access key will belong to, and grant access to.
+        Name of the bucket that the access key will belong to and grant access to.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -67,12 +67,12 @@ class _BucketAccessKeyState:
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketAccessKey resources.
-        :param pulumi.Input[builtins.str] access_key_id: The ID of the access key.
-        :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the access key was created.
+        :param pulumi.Input[builtins.str] access_key_id: Access key ID.
+        :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
+        :param pulumi.Input[builtins.str] created_at: Date and time when the access key was created.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] secret_access_key: The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-        :param pulumi.Input[builtins.str] status: The status of the access key.
+        :param pulumi.Input[builtins.str] secret_access_key: Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+        :param pulumi.Input[builtins.str] status: Status of the access key.
         """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
@@ -91,7 +91,7 @@ class _BucketAccessKeyState:
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the access key.
+        Access key ID.
         """
         return pulumi.get(self, "access_key_id")
 
@@ -103,7 +103,7 @@ class _BucketAccessKeyState:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the bucket that the new access key will belong to, and grant access to.
+        Name of the bucket that the access key will belong to and grant access to.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -115,7 +115,7 @@ class _BucketAccessKeyState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The timestamp when the access key was created.
+        Date and time when the access key was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -139,7 +139,7 @@ class _BucketAccessKeyState:
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+        Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         """
         return pulumi.get(self, "secret_access_key")
 
@@ -151,7 +151,7 @@ class _BucketAccessKeyState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The status of the access key.
+        Status of the access key.
         """
         return pulumi.get(self, "status")
 
@@ -170,7 +170,7 @@ class BucketAccessKey(pulumi.CustomResource):
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
+        Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
 
         ## Example Usage
 
@@ -178,10 +178,10 @@ class BucketAccessKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test",
-            name="mytestbucket",
+        example = aws.lightsail.Bucket("example",
+            name="example-bucket",
             bundle_id="small_1_0")
-        test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
+        example_bucket_access_key = aws.lightsail.BucketAccessKey("example", bucket_name=example.id)
         ```
 
         ## Import
@@ -189,12 +189,12 @@ class BucketAccessKey(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+        $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
+        :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -204,7 +204,7 @@ class BucketAccessKey(pulumi.CustomResource):
                  args: BucketAccessKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
+        Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
 
         ## Example Usage
 
@@ -212,10 +212,10 @@ class BucketAccessKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test",
-            name="mytestbucket",
+        example = aws.lightsail.Bucket("example",
+            name="example-bucket",
             bundle_id="small_1_0")
-        test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
+        example_bucket_access_key = aws.lightsail.BucketAccessKey("example", bucket_name=example.id)
         ```
 
         ## Import
@@ -223,7 +223,7 @@ class BucketAccessKey(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+        $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,12 +283,12 @@ class BucketAccessKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] access_key_id: The ID of the access key.
-        :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the access key was created.
+        :param pulumi.Input[builtins.str] access_key_id: Access key ID.
+        :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
+        :param pulumi.Input[builtins.str] created_at: Date and time when the access key was created.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] secret_access_key: The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
-        :param pulumi.Input[builtins.str] status: The status of the access key.
+        :param pulumi.Input[builtins.str] secret_access_key: Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+        :param pulumi.Input[builtins.str] status: Status of the access key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,7 +306,7 @@ class BucketAccessKey(pulumi.CustomResource):
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the access key.
+        Access key ID.
         """
         return pulumi.get(self, "access_key_id")
 
@@ -314,7 +314,7 @@ class BucketAccessKey(pulumi.CustomResource):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the bucket that the new access key will belong to, and grant access to.
+        Name of the bucket that the access key will belong to and grant access to.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -322,7 +322,7 @@ class BucketAccessKey(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
         """
-        The timestamp when the access key was created.
+        Date and time when the access key was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -338,7 +338,7 @@ class BucketAccessKey(pulumi.CustomResource):
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> pulumi.Output[builtins.str]:
         """
-        The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+        Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         """
         return pulumi.get(self, "secret_access_key")
 
@@ -346,7 +346,7 @@ class BucketAccessKey(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        The status of the access key.
+        Status of the access key.
         """
         return pulumi.get(self, "status")
 

@@ -14,13 +14,11 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Creates a domain resource for the specified domain (e.g., example.com).
- * You cannot register a new domain name using Lightsail. You must register
- * a domain name using Amazon Route 53 or another domain name registrar.
- * If you have already registered your domain, you can enter its name in
- * this parameter to manage the DNS records for that domain.
+ * Manages a Lightsail domain for DNS management. Use this resource to manage DNS records for a domain that you have already registered with a domain registrar.
  * 
- * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ * &gt; **Note:** You cannot register a new domain name using Lightsail. Register your domain using Amazon Route 53 or another domain name registrar before using this resource.
+ * 
+ * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
  * 
  * ## Example Usage
  * 
@@ -47,8 +45,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var domainTest = new Domain("domainTest", DomainArgs.builder()
- *             .domainName("mydomain.com")
+ *         var example = new Domain("example", DomainArgs.builder()
+ *             .domainName("example.com")
  *             .build());
  * 
  *     }
@@ -61,28 +59,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lightsail/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Lightsail domain
+     * ARN of the Lightsail domain.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail domain
+     * @return ARN of the Lightsail domain.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of the Lightsail domain to manage
+     * Name of the Lightsail domain to manage.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return The name of the Lightsail domain to manage
+     * @return Name of the Lightsail domain to manage.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> domainName() {

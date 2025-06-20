@@ -22,7 +22,7 @@ public final class GetInvocationResult {
     private @Nullable String qualifier;
     private String region;
     /**
-     * @return String result of the lambda function invocation.
+     * @return String result of the Lambda function invocation.
      * 
      */
     private String result;
@@ -48,7 +48,7 @@ public final class GetInvocationResult {
         return this.region;
     }
     /**
-     * @return String result of the lambda function invocation.
+     * @return String result of the Lambda function invocation.
      * 
      */
     public String result() {

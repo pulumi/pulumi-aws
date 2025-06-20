@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a link.
+// Provides details about an existing Network Manager link.
 //
 // ## Example Usage
 //

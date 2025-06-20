@@ -92,13 +92,19 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationAccount!: pulumi.Output<string>;
     /**
-     * ARN of the application.
+     * (**Deprecated** Reference `arn` instead) ARN of the application.
+     *
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future verion of the provider.
      */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
      * ARN of the application provider.
      */
     public readonly applicationProviderArn!: pulumi.Output<string>;
+    /**
+     * ARN of the application.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
@@ -154,6 +160,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationAccount"] = state ? state.applicationAccount : undefined;
             resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
             resourceInputs["applicationProviderArn"] = state ? state.applicationProviderArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["clientToken"] = state ? state.clientToken : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
@@ -182,6 +189,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationAccount"] = undefined /*out*/;
             resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -198,13 +206,19 @@ export interface ApplicationState {
      */
     applicationAccount?: pulumi.Input<string>;
     /**
-     * ARN of the application.
+     * (**Deprecated** Reference `arn` instead) ARN of the application.
+     *
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future verion of the provider.
      */
     applicationArn?: pulumi.Input<string>;
     /**
      * ARN of the application provider.
      */
     applicationProviderArn?: pulumi.Input<string>;
+    /**
+     * ARN of the application.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */

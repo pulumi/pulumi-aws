@@ -592,6 +592,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Evidently *string `pulumi:"evidently"`
 	// Use this to override the default service endpoint URL
+	Evs *string `pulumi:"evs"`
+	// Use this to override the default service endpoint URL
 	Finspace *string `pulumi:"finspace"`
 	// Use this to override the default service endpoint URL
 	Firehose *string `pulumi:"firehose"`
@@ -1197,6 +1199,8 @@ type EndpointsArgs struct {
 	Events pulumi.StringPtrInput `pulumi:"events"`
 	// Use this to override the default service endpoint URL
 	Evidently pulumi.StringPtrInput `pulumi:"evidently"`
+	// Use this to override the default service endpoint URL
+	Evs pulumi.StringPtrInput `pulumi:"evs"`
 	// Use this to override the default service endpoint URL
 	Finspace pulumi.StringPtrInput `pulumi:"finspace"`
 	// Use this to override the default service endpoint URL
@@ -2224,6 +2228,11 @@ func (o EndpointsOutput) Events() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Evidently() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Evidently }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Evs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Evs }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

@@ -28,6 +28,12 @@ __all__ = [
     'ScraperSourceEksArgsDict',
     'ScraperTimeoutsArgs',
     'ScraperTimeoutsArgsDict',
+    'WorkspaceConfigurationLimitsPerLabelSetArgs',
+    'WorkspaceConfigurationLimitsPerLabelSetArgsDict',
+    'WorkspaceConfigurationLimitsPerLabelSetLimitsArgs',
+    'WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict',
+    'WorkspaceConfigurationTimeoutsArgs',
+    'WorkspaceConfigurationTimeoutsArgsDict',
     'WorkspaceLoggingConfigurationArgs',
     'WorkspaceLoggingConfigurationArgsDict',
 ]
@@ -302,6 +308,140 @@ class ScraperTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class WorkspaceConfigurationLimitsPerLabelSetArgsDict(TypedDict):
+        label_set: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]
+        """
+        Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+        """
+        limits: NotRequired[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict']]
+        """
+        Configuration block for the limits to apply to the specified label set. Detailed below.
+        """
+elif False:
+    WorkspaceConfigurationLimitsPerLabelSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceConfigurationLimitsPerLabelSetArgs:
+    def __init__(__self__, *,
+                 label_set: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]],
+                 limits: Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] label_set: Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+        :param pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs'] limits: Configuration block for the limits to apply to the specified label set. Detailed below.
+        """
+        pulumi.set(__self__, "label_set", label_set)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+
+    @property
+    @pulumi.getter(name="labelSet")
+    def label_set(self) -> pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]:
+        """
+        Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+        """
+        return pulumi.get(self, "label_set")
+
+    @label_set.setter
+    def label_set(self, value: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "label_set", value)
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']]:
+        """
+        Configuration block for the limits to apply to the specified label set. Detailed below.
+        """
+        return pulumi.get(self, "limits")
+
+    @limits.setter
+    def limits(self, value: Optional[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgs']]):
+        pulumi.set(self, "limits", value)
+
+
+if not MYPY:
+    class WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict(TypedDict):
+        max_series: pulumi.Input[builtins.int]
+        """
+        Maximum number of active time series that can be ingested for metrics matching the label set.
+        """
+elif False:
+    WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceConfigurationLimitsPerLabelSetLimitsArgs:
+    def __init__(__self__, *,
+                 max_series: pulumi.Input[builtins.int]):
+        """
+        :param pulumi.Input[builtins.int] max_series: Maximum number of active time series that can be ingested for metrics matching the label set.
+        """
+        pulumi.set(__self__, "max_series", max_series)
+
+    @property
+    @pulumi.getter(name="maxSeries")
+    def max_series(self) -> pulumi.Input[builtins.int]:
+        """
+        Maximum number of active time series that can be ingested for metrics matching the label set.
+        """
+        return pulumi.get(self, "max_series")
+
+    @max_series.setter
+    def max_series(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "max_series", value)
+
+
+if not MYPY:
+    class WorkspaceConfigurationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    WorkspaceConfigurationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceConfigurationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[builtins.str]] = None,
+                 update: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create", value)
 
     @property
     @pulumi.getter

@@ -10,15 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Provides a Lightsail Database. Amazon Lightsail is a service to provide easy virtual private servers
-    /// with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
-    /// for more information.
+    /// Manages a Lightsail database. Use this resource to create and manage fully managed database instances with automated backups, monitoring, and maintenance in Lightsail.
     /// 
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic mysql blueprint
+    /// ### Basic MySQL Blueprint
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -28,13 +26,13 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var example = new Aws.LightSail.Database("example", new()
     ///     {
-    ///         RelationalDatabaseName = "test",
+    ///         RelationalDatabaseName = "example-database",
     ///         AvailabilityZone = "us-east-1a",
-    ///         MasterDatabaseName = "testdatabasename",
-    ///         MasterPassword = "testdatabasepassword",
-    ///         MasterUsername = "test",
+    ///         MasterDatabaseName = "exampledb",
+    ///         MasterPassword = "examplepassword123",
+    ///         MasterUsername = "exampleuser",
     ///         BlueprintId = "mysql_8_0",
     ///         BundleId = "micro_1_0",
     ///     });
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// 
-    /// ### Basic postrgres blueprint
+    /// ### Basic PostgreSQL Blueprint
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -52,13 +50,13 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var example = new Aws.LightSail.Database("example", new()
     ///     {
-    ///         RelationalDatabaseName = "test",
+    ///         RelationalDatabaseName = "example-database",
     ///         AvailabilityZone = "us-east-1a",
-    ///         MasterDatabaseName = "testdatabasename",
-    ///         MasterPassword = "testdatabasepassword",
-    ///         MasterUsername = "test",
+    ///         MasterDatabaseName = "exampledb",
+    ///         MasterPassword = "examplepassword123",
+    ///         MasterUsername = "exampleuser",
     ///         BlueprintId = "postgres_12",
     ///         BundleId = "micro_1_0",
     ///     });
@@ -66,9 +64,9 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// 
-    /// ### Custom backup and maintenance windows
+    /// ### Custom Backup and Maintenance Windows
     /// 
-    /// Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
+    /// Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintenance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -78,13 +76,13 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var example = new Aws.LightSail.Database("example", new()
     ///     {
-    ///         RelationalDatabaseName = "test",
+    ///         RelationalDatabaseName = "example-database",
     ///         AvailabilityZone = "us-east-1a",
-    ///         MasterDatabaseName = "testdatabasename",
-    ///         MasterPassword = "testdatabasepassword",
-    ///         MasterUsername = "test",
+    ///         MasterDatabaseName = "exampledb",
+    ///         MasterPassword = "examplepassword123",
+    ///         MasterUsername = "exampleuser",
     ///         BlueprintId = "postgres_12",
     ///         BundleId = "micro_1_0",
     ///         PreferredBackupWindow = "16:00-16:30",
@@ -106,18 +104,18 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var example = new Aws.LightSail.Database("example", new()
     ///     {
-    ///         RelationalDatabaseName = "test",
+    ///         RelationalDatabaseName = "example-database",
     ///         AvailabilityZone = "us-east-1a",
-    ///         MasterDatabaseName = "testdatabasename",
-    ///         MasterPassword = "testdatabasepassword",
-    ///         MasterUsername = "test",
+    ///         MasterDatabaseName = "exampledb",
+    ///         MasterPassword = "examplepassword123",
+    ///         MasterUsername = "exampleuser",
     ///         BlueprintId = "postgres_12",
     ///         BundleId = "micro_1_0",
     ///         PreferredBackupWindow = "16:00-16:30",
     ///         PreferredMaintenanceWindow = "Tue:17:00-Tue:17:30",
-    ///         FinalSnapshotName = "MyFinalSnapshot",
+    ///         FinalSnapshotName = "example-final-snapshot",
     ///     });
     /// 
     /// });
@@ -125,7 +123,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Apply Immediately
     /// 
-    /// To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
+    /// To enable applying changes immediately instead of waiting for a maintenance window, use the `apply_immediately` argument.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -135,13 +133,13 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var example = new Aws.LightSail.Database("example", new()
     ///     {
-    ///         RelationalDatabaseName = "test",
+    ///         RelationalDatabaseName = "example-database",
     ///         AvailabilityZone = "us-east-1a",
-    ///         MasterDatabaseName = "testdatabasename",
-    ///         MasterPassword = "testdatabasepassword",
-    ///         MasterUsername = "test",
+    ///         MasterDatabaseName = "exampledb",
+    ///         MasterPassword = "examplepassword123",
+    ///         MasterUsername = "exampleuser",
     ///         BlueprintId = "postgres_12",
     ///         BundleId = "micro_1_0",
     ///         ApplyImmediately = true,
@@ -150,7 +148,7 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// 
-    /// ## Blueprint Ids
+    /// ## Blueprint IDs
     /// 
     /// A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
     /// 
@@ -165,7 +163,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Suffix
     /// 
-    /// A Blueprint ID has a sufix of the engine version.
+    /// A Blueprint ID has a suffix of the engine version.
     /// 
     /// ## Bundles
     /// 
@@ -189,7 +187,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ### Infixes (Optional for HA Database)
     /// 
-    /// A Bundle Id can have the following infix added in order to use the HA option of the selected bundle.
+    /// A Bundle ID can have the following infix added in order to use the HA option of the selected bundle.
     /// 
     /// - `ha_`
     /// 
@@ -202,140 +200,140 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import Lightsail Databases using their name. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/database:Database foo 'bar'
+    /// $ pulumi import aws:lightsail/database:Database example example-database
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/database:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        /// Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Lightsail instance (matches `id`).
+        /// ARN of the database (matches `id`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        /// Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        /// Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         /// </summary>
         [Output("backupRetentionEnabled")]
         public Output<bool?> BackupRetentionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        /// Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         /// </summary>
         [Output("blueprintId")]
         public Output<string> BlueprintId { get; private set; } = null!;
 
         /// <summary>
-        /// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        /// Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         /// </summary>
         [Output("bundleId")]
         public Output<string> BundleId { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate associated with the database.
+        /// Certificate associated with the database.
         /// </summary>
         [Output("caCertificateIdentifier")]
         public Output<string> CaCertificateIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The number of vCPUs for the database.
+        /// Number of vCPUs for the database.
         /// </summary>
         [Output("cpuCount")]
         public Output<int> CpuCount { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the instance was created.
+        /// Date and time when the database was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the disk for the database.
+        /// Size of the disk for the database.
         /// </summary>
         [Output("diskSize")]
         public Output<double> DiskSize { get; private set; } = null!;
 
         /// <summary>
-        /// The database software (for example, MySQL).
+        /// Database software (for example, MySQL).
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The database engine version (for example, 5.7.23).
+        /// Database engine version (for example, 5.7.23).
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        /// Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         /// </summary>
         [Output("finalSnapshotName")]
         public Output<string?> FinalSnapshotName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the master database created when the Lightsail database resource is created.
+        /// Name of the master database created when the Lightsail database resource is created.
         /// </summary>
         [Output("masterDatabaseName")]
         public Output<string> MasterDatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The master endpoint fqdn for the database.
+        /// Master endpoint FQDN for the database.
         /// </summary>
         [Output("masterEndpointAddress")]
         public Output<string> MasterEndpointAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The master endpoint network port for the database.
+        /// Master endpoint network port for the database.
         /// </summary>
         [Output("masterEndpointPort")]
         public Output<int> MasterEndpointPort { get; private set; } = null!;
 
         /// <summary>
-        /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+        /// Password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
         [Output("masterPassword")]
         public Output<string> MasterPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The master user name for your new database.
+        /// Master user name for your database.
         /// </summary>
         [Output("masterUsername")]
         public Output<string> MasterUsername { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        /// Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        /// Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        /// Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of RAM in GB for the database.
+        /// Amount of RAM in GB for the database.
         /// </summary>
         [Output("ramSize")]
         public Output<double> RamSize { get; private set; } = null!;
@@ -347,37 +345,39 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("relationalDatabaseName")]
         public Output<string> RelationalDatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+        /// Secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
         /// </summary>
         [Output("secondaryAvailabilityZone")]
         public Output<string> SecondaryAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        /// Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         /// </summary>
         [Output("skipFinalSnapshot")]
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
         public Output<string> SupportCode { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -433,43 +433,43 @@ namespace Pulumi.Aws.LightSail
     public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        /// Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        /// Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        /// Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         /// </summary>
         [Input("backupRetentionEnabled")]
         public Input<bool>? BackupRetentionEnabled { get; set; }
 
         /// <summary>
-        /// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        /// Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         /// </summary>
         [Input("blueprintId", required: true)]
         public Input<string> BlueprintId { get; set; } = null!;
 
         /// <summary>
-        /// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        /// Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         /// </summary>
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        /// Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         /// </summary>
         [Input("finalSnapshotName")]
         public Input<string>? FinalSnapshotName { get; set; }
 
         /// <summary>
-        /// The name of the master database created when the Lightsail database resource is created.
+        /// Name of the master database created when the Lightsail database resource is created.
         /// </summary>
         [Input("masterDatabaseName", required: true)]
         public Input<string> MasterDatabaseName { get; set; } = null!;
@@ -478,7 +478,7 @@ namespace Pulumi.Aws.LightSail
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+        /// Password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -491,25 +491,25 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// The master user name for your new database.
+        /// Master user name for your database.
         /// </summary>
         [Input("masterUsername", required: true)]
         public Input<string> MasterUsername { get; set; } = null!;
 
         /// <summary>
-        /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        /// Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        /// Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        /// Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -521,13 +521,15 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("relationalDatabaseName", required: true)]
         public Input<string> RelationalDatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        /// Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
@@ -536,7 +538,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -553,97 +555,97 @@ namespace Pulumi.Aws.LightSail
     public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        /// Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// The ARN of the Lightsail instance (matches `id`).
+        /// ARN of the database (matches `id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        /// Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        /// Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         /// </summary>
         [Input("backupRetentionEnabled")]
         public Input<bool>? BackupRetentionEnabled { get; set; }
 
         /// <summary>
-        /// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        /// Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         /// </summary>
         [Input("blueprintId")]
         public Input<string>? BlueprintId { get; set; }
 
         /// <summary>
-        /// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        /// Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         /// </summary>
         [Input("bundleId")]
         public Input<string>? BundleId { get; set; }
 
         /// <summary>
-        /// The certificate associated with the database.
+        /// Certificate associated with the database.
         /// </summary>
         [Input("caCertificateIdentifier")]
         public Input<string>? CaCertificateIdentifier { get; set; }
 
         /// <summary>
-        /// The number of vCPUs for the database.
+        /// Number of vCPUs for the database.
         /// </summary>
         [Input("cpuCount")]
         public Input<int>? CpuCount { get; set; }
 
         /// <summary>
-        /// The timestamp when the instance was created.
+        /// Date and time when the database was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The size of the disk for the database.
+        /// Size of the disk for the database.
         /// </summary>
         [Input("diskSize")]
         public Input<double>? DiskSize { get; set; }
 
         /// <summary>
-        /// The database software (for example, MySQL).
+        /// Database software (for example, MySQL).
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The database engine version (for example, 5.7.23).
+        /// Database engine version (for example, 5.7.23).
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        /// Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         /// </summary>
         [Input("finalSnapshotName")]
         public Input<string>? FinalSnapshotName { get; set; }
 
         /// <summary>
-        /// The name of the master database created when the Lightsail database resource is created.
+        /// Name of the master database created when the Lightsail database resource is created.
         /// </summary>
         [Input("masterDatabaseName")]
         public Input<string>? MasterDatabaseName { get; set; }
 
         /// <summary>
-        /// The master endpoint fqdn for the database.
+        /// Master endpoint FQDN for the database.
         /// </summary>
         [Input("masterEndpointAddress")]
         public Input<string>? MasterEndpointAddress { get; set; }
 
         /// <summary>
-        /// The master endpoint network port for the database.
+        /// Master endpoint network port for the database.
         /// </summary>
         [Input("masterEndpointPort")]
         public Input<int>? MasterEndpointPort { get; set; }
@@ -652,7 +654,7 @@ namespace Pulumi.Aws.LightSail
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+        /// Password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -665,31 +667,31 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// The master user name for your new database.
+        /// Master user name for your database.
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        /// Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        /// Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        /// Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
-        /// The amount of RAM in GB for the database.
+        /// Amount of RAM in GB for the database.
         /// </summary>
         [Input("ramSize")]
         public Input<double>? RamSize { get; set; }
@@ -701,25 +703,27 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("relationalDatabaseName")]
         public Input<string>? RelationalDatabaseName { get; set; }
 
         /// <summary>
-        /// Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
+        /// Secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
         /// </summary>
         [Input("secondaryAvailabilityZone")]
         public Input<string>? SecondaryAvailabilityZone { get; set; }
 
         /// <summary>
-        /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        /// Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
         public Input<string>? SupportCode { get; set; }
@@ -728,7 +732,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -740,7 +744,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

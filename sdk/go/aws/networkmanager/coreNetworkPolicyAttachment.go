@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
+// Manages a Network Manager Core Network Policy Attachment.
+//
+// Use this resource to attach a Core Network Policy to an existing Core Network and execute the change set, which deploys changes globally based on the policy submitted (sets the policy to `LIVE`).
 //
 // > **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
 //
@@ -542,7 +544,7 @@ import (
 type CoreNetworkPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// The ID of the core network that a policy will be attached to and made `LIVE`.
+	// ID of the core network that a policy will be attached to and made `LIVE`.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
@@ -586,7 +588,7 @@ func GetCoreNetworkPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CoreNetworkPolicyAttachment resources.
 type coreNetworkPolicyAttachmentState struct {
-	// The ID of the core network that a policy will be attached to and made `LIVE`.
+	// ID of the core network that a policy will be attached to and made `LIVE`.
 	CoreNetworkId *string `pulumi:"coreNetworkId"`
 	// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	PolicyDocument *string `pulumi:"policyDocument"`
@@ -595,7 +597,7 @@ type coreNetworkPolicyAttachmentState struct {
 }
 
 type CoreNetworkPolicyAttachmentState struct {
-	// The ID of the core network that a policy will be attached to and made `LIVE`.
+	// ID of the core network that a policy will be attached to and made `LIVE`.
 	CoreNetworkId pulumi.StringPtrInput
 	// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	PolicyDocument pulumi.StringPtrInput
@@ -608,7 +610,7 @@ func (CoreNetworkPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type coreNetworkPolicyAttachmentArgs struct {
-	// The ID of the core network that a policy will be attached to and made `LIVE`.
+	// ID of the core network that a policy will be attached to and made `LIVE`.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	PolicyDocument string `pulumi:"policyDocument"`
@@ -616,7 +618,7 @@ type coreNetworkPolicyAttachmentArgs struct {
 
 // The set of arguments for constructing a CoreNetworkPolicyAttachment resource.
 type CoreNetworkPolicyAttachmentArgs struct {
-	// The ID of the core network that a policy will be attached to and made `LIVE`.
+	// ID of the core network that a policy will be attached to and made `LIVE`.
 	CoreNetworkId pulumi.StringInput
 	// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	PolicyDocument pulumi.StringInput
@@ -709,7 +711,7 @@ func (o CoreNetworkPolicyAttachmentOutput) ToCoreNetworkPolicyAttachmentOutputWi
 	return o
 }
 
-// The ID of the core network that a policy will be attached to and made `LIVE`.
+// ID of the core network that a policy will be attached to and made `LIVE`.
 func (o CoreNetworkPolicyAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CoreNetworkPolicyAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }

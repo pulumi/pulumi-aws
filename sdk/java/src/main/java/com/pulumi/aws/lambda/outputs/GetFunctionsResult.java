@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionsResult {
     /**
-     * @return A list of Lambda Function ARNs.
+     * @return List of Lambda Function ARNs.
      * 
      */
     private List<String> functionArns;
     /**
-     * @return A list of Lambda Function names.
+     * @return List of Lambda Function names.
      * 
      */
     private List<String> functionNames;
@@ -30,14 +30,14 @@ public final class GetFunctionsResult {
 
     private GetFunctionsResult() {}
     /**
-     * @return A list of Lambda Function ARNs.
+     * @return List of Lambda Function ARNs.
      * 
      */
     public List<String> functionArns() {
         return this.functionArns;
     }
     /**
-     * @return A list of Lambda Function names.
+     * @return List of Lambda Function names.
      * 
      */
     public List<String> functionNames() {

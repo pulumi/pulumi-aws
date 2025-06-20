@@ -18,14 +18,14 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
     public static final TransitGatewayRouteTableAttachmentArgs Empty = new TransitGatewayRouteTableAttachmentArgs();
 
     /**
-     * The ID of the peer for the attachment.
+     * ID of the peer for the attachment.
      * 
      */
     @Import(name="peeringId", required=true)
     private Output<String> peeringId;
 
     /**
-     * @return The ID of the peer for the attachment.
+     * @return ID of the peer for the attachment.
      * 
      */
     public Output<String> peeringId() {
@@ -48,14 +48,18 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
     }
 
     /**
-     * The ARN of the transit gateway route table for the attachment.
+     * ARN of the transit gateway route table for the attachment.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="transitGatewayRouteTableArn", required=true)
     private Output<String> transitGatewayRouteTableArn;
 
     /**
-     * @return The ARN of the transit gateway route table for the attachment.
+     * @return ARN of the transit gateway route table for the attachment.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayRouteTableArn() {
@@ -89,7 +93,7 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param peeringId The ID of the peer for the attachment.
+         * @param peeringId ID of the peer for the attachment.
          * 
          * @return builder
          * 
@@ -100,7 +104,7 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param peeringId The ID of the peer for the attachment.
+         * @param peeringId ID of the peer for the attachment.
          * 
          * @return builder
          * 
@@ -131,7 +135,9 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param transitGatewayRouteTableArn The ARN of the transit gateway route table for the attachment.
+         * @param transitGatewayRouteTableArn ARN of the transit gateway route table for the attachment.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -142,7 +148,9 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param transitGatewayRouteTableArn The ARN of the transit gateway route table for the attachment.
+         * @param transitGatewayRouteTableArn ARN of the transit gateway route table for the attachment.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

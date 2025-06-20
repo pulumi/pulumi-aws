@@ -220,6 +220,18 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OutsideIpAddressType { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+        /// </summary>
+        [Output("presharedKeyArn")]
+        public Output<string> PresharedKeyArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+        /// </summary>
+        [Output("presharedKeyStorage")]
+        public Output<string> PresharedKeyStorage { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -684,6 +696,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("outsideIpAddressType")]
         public Input<string>? OutsideIpAddressType { get; set; }
+
+        /// <summary>
+        /// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+        /// </summary>
+        [Input("presharedKeyStorage")]
+        public Input<string>? PresharedKeyStorage { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1166,6 +1184,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("outsideIpAddressType")]
         public Input<string>? OutsideIpAddressType { get; set; }
+
+        /// <summary>
+        /// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+        /// </summary>
+        [Input("presharedKeyArn")]
+        public Input<string>? PresharedKeyArn { get; set; }
+
+        /// <summary>
+        /// Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+        /// </summary>
+        [Input("presharedKeyStorage")]
+        public Input<string>? PresharedKeyStorage { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

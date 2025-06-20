@@ -17,14 +17,14 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
     public static final EventSourceMappingDocumentDbEventSourceConfigArgs Empty = new EventSourceMappingDocumentDbEventSourceConfigArgs();
 
     /**
-     * The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+     * Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
      * 
      */
     @Import(name="collectionName")
     private @Nullable Output<String> collectionName;
 
     /**
-     * @return The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+     * @return Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
      * 
      */
     public Optional<Output<String>> collectionName() {
@@ -32,14 +32,14 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
     }
 
     /**
-     * The name of the database to consume within the DocumentDB cluster.
+     * Name of the database to consume within the DocumentDB cluster.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of the database to consume within the DocumentDB cluster.
+     * @return Name of the database to consume within the DocumentDB cluster.
      * 
      */
     public Output<String> databaseName() {
@@ -88,7 +88,7 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
         }
 
         /**
-         * @param collectionName The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+         * @param collectionName Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
         }
 
         /**
-         * @param collectionName The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+         * @param collectionName Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
         }
 
         /**
-         * @param databaseName The name of the database to consume within the DocumentDB cluster.
+         * @param databaseName Name of the database to consume within the DocumentDB cluster.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
         }
 
         /**
-         * @param databaseName The name of the database to consume within the DocumentDB cluster.
+         * @param databaseName Name of the database to consume within the DocumentDB cluster.
          * 
          * @return builder
          * 

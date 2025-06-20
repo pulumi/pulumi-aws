@@ -25,8 +25,10 @@ class LbHttpsRedirectionPolicyArgs:
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LbHttpsRedirectionPolicy resource.
-        :param pulumi.Input[builtins.bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-        :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
+        :param pulumi.Input[builtins.bool] enabled: Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
+        :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -38,7 +40,7 @@ class LbHttpsRedirectionPolicyArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
         """
-        The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         """
         return pulumi.get(self, "enabled")
 
@@ -50,7 +52,9 @@ class LbHttpsRedirectionPolicyArgs:
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the load balancer to which you want to enable http to https redirection.
+        Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "lb_name")
 
@@ -79,8 +83,10 @@ class _LbHttpsRedirectionPolicyState:
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbHttpsRedirectionPolicy resources.
-        :param pulumi.Input[builtins.bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-        :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
+        :param pulumi.Input[builtins.bool] enabled: Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
+        :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if enabled is not None:
@@ -94,7 +100,7 @@ class _LbHttpsRedirectionPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         """
         return pulumi.get(self, "enabled")
 
@@ -106,7 +112,9 @@ class _LbHttpsRedirectionPolicyState:
     @pulumi.getter(name="lbName")
     def lb_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the load balancer to which you want to enable http to https redirection.
+        Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "lb_name")
 
@@ -138,7 +146,9 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
+        Manages HTTPS redirection for a Lightsail Load Balancer.
+
+        Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
 
         ## Example Usage
 
@@ -146,22 +156,22 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_lb_certificate = aws.lightsail.LbCertificate("test",
-            name="test-load-balancer-certificate",
-            lb_name=test.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("test",
-            lb_name=test.name,
-            certificate_name=test_lb_certificate.name)
-        test_lb_https_redirection_policy = aws.lightsail.LbHttpsRedirectionPolicy("test",
-            lb_name=test.name,
+        example_lb_certificate = aws.lightsail.LbCertificate("example",
+            name="example-load-balancer-certificate",
+            lb_name=example.id,
+            domain_name="example.com")
+        example_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("example",
+            lb_name=example.name,
+            certificate_name=example_lb_certificate.name)
+        example_lb_https_redirection_policy = aws.lightsail.LbHttpsRedirectionPolicy("example",
+            lb_name=example.name,
             enabled=True)
         ```
 
@@ -170,13 +180,15 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+        $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-        :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
+        :param pulumi.Input[builtins.bool] enabled: Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
+        :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -186,7 +198,9 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
                  args: LbHttpsRedirectionPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
+        Manages HTTPS redirection for a Lightsail Load Balancer.
+
+        Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
 
         ## Example Usage
 
@@ -194,22 +208,22 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_lb_certificate = aws.lightsail.LbCertificate("test",
-            name="test-load-balancer-certificate",
-            lb_name=test.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("test",
-            lb_name=test.name,
-            certificate_name=test_lb_certificate.name)
-        test_lb_https_redirection_policy = aws.lightsail.LbHttpsRedirectionPolicy("test",
-            lb_name=test.name,
+        example_lb_certificate = aws.lightsail.LbCertificate("example",
+            name="example-load-balancer-certificate",
+            lb_name=example.id,
+            domain_name="example.com")
+        example_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("example",
+            lb_name=example.name,
+            certificate_name=example_lb_certificate.name)
+        example_lb_https_redirection_policy = aws.lightsail.LbHttpsRedirectionPolicy("example",
+            lb_name=example.name,
             enabled=True)
         ```
 
@@ -218,7 +232,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+        $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,8 +289,10 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-        :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
+        :param pulumi.Input[builtins.bool] enabled: Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
+        :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -292,7 +308,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         """
         return pulumi.get(self, "enabled")
 
@@ -300,7 +316,9 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the load balancer to which you want to enable http to https redirection.
+        Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "lb_name")
 

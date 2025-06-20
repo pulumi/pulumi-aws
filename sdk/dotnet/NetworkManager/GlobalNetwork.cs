@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Provides a global network resource.
+    /// Manages a Network Manager Global Network.
+    /// 
+    /// Use this resource to create and manage a global network, which is a single private network that acts as the high-level container for your network objects.
     /// 
     /// ## Example Usage
     /// 
@@ -42,7 +44,7 @@ namespace Pulumi.Aws.NetworkManager
     public partial class GlobalNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Global Network Amazon Resource Name (ARN)
+        /// Global Network ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -60,7 +62,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -138,7 +140,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class GlobalNetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Global Network Amazon Resource Name (ARN)
+        /// Global Network ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -165,7 +167,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

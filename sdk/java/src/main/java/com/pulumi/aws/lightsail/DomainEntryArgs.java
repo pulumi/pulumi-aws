@@ -18,14 +18,14 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
     public static final DomainEntryArgs Empty = new DomainEntryArgs();
 
     /**
-     * The name of the Lightsail domain in which to create the entry
+     * Name of the Lightsail domain in which to create the entry.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The name of the Lightsail domain in which to create the entry
+     * @return Name of the Lightsail domain in which to create the entry.
      * 
      */
     public Output<String> domainName() {
@@ -33,14 +33,14 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If the entry should be an alias Defaults to `false`
+     * Whether the entry should be an alias. Default: `false`.
      * 
      */
     @Import(name="isAlias")
     private @Nullable Output<Boolean> isAlias;
 
     /**
-     * @return If the entry should be an alias Defaults to `false`
+     * @return Whether the entry should be an alias. Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> isAlias() {
@@ -48,14 +48,14 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the entry record
+     * Name of the entry record.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the entry record
+     * @return Name of the entry record.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +78,14 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Target of the domain entry
+     * Target of the domain entry.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Target of the domain entry
+     * @return Target of the domain entry.
      * 
      */
     public Output<String> target() {
@@ -93,14 +93,18 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of record
+     * Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of record
+     * @return Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -137,7 +141,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The name of the Lightsail domain in which to create the entry
+         * @param domainName Name of the Lightsail domain in which to create the entry.
          * 
          * @return builder
          * 
@@ -148,7 +152,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The name of the Lightsail domain in which to create the entry
+         * @param domainName Name of the Lightsail domain in which to create the entry.
          * 
          * @return builder
          * 
@@ -158,7 +162,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isAlias If the entry should be an alias Defaults to `false`
+         * @param isAlias Whether the entry should be an alias. Default: `false`.
          * 
          * @return builder
          * 
@@ -169,7 +173,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isAlias If the entry should be an alias Defaults to `false`
+         * @param isAlias Whether the entry should be an alias. Default: `false`.
          * 
          * @return builder
          * 
@@ -179,7 +183,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the entry record
+         * @param name Name of the entry record.
          * 
          * @return builder
          * 
@@ -190,7 +194,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the entry record
+         * @param name Name of the entry record.
          * 
          * @return builder
          * 
@@ -221,7 +225,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param target Target of the domain entry
+         * @param target Target of the domain entry.
          * 
          * @return builder
          * 
@@ -232,7 +236,7 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param target Target of the domain entry
+         * @param target Target of the domain entry.
          * 
          * @return builder
          * 
@@ -242,7 +246,9 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of record
+         * @param type Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -253,7 +259,9 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of record
+         * @param type Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

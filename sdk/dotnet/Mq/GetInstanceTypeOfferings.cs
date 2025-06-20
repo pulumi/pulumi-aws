@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Mq
     public static class GetInstanceTypeOfferings
     {
         /// <summary>
-        /// Provides information about a MQ Broker Instance Offerings.
+        /// Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
         /// 
         /// ## Example Usage
         /// 
@@ -24,28 +24,33 @@ namespace Pulumi.Aws.Mq
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
+        ///     // Get all instance type offerings
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke();
         /// 
-        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by engine type
+        ///     var activemq = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         EngineType = "ACTIVEMQ",
         ///     });
         /// 
-        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by storage type
+        ///     var ebs = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         StorageType = "EBS",
         ///     });
         /// 
-        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by instance type
+        ///     var m5 = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         HostInstanceType = "mq.m5.large",
         ///     });
         /// 
-        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by multiple criteria
+        ///     var filtered = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         HostInstanceType = "mq.m5.large",
-        ///         StorageType = "EBS",
         ///         EngineType = "ACTIVEMQ",
+        ///         StorageType = "EBS",
+        ///         HostInstanceType = "mq.m5.large",
         ///     });
         /// 
         /// });
@@ -55,7 +60,7 @@ namespace Pulumi.Aws.Mq
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a MQ Broker Instance Offerings.
+        /// Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
         /// 
         /// ## Example Usage
         /// 
@@ -67,28 +72,33 @@ namespace Pulumi.Aws.Mq
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
+        ///     // Get all instance type offerings
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke();
         /// 
-        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by engine type
+        ///     var activemq = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         EngineType = "ACTIVEMQ",
         ///     });
         /// 
-        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by storage type
+        ///     var ebs = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         StorageType = "EBS",
         ///     });
         /// 
-        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by instance type
+        ///     var m5 = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         HostInstanceType = "mq.m5.large",
         ///     });
         /// 
-        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by multiple criteria
+        ///     var filtered = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         HostInstanceType = "mq.m5.large",
-        ///         StorageType = "EBS",
         ///         EngineType = "ACTIVEMQ",
+        ///         StorageType = "EBS",
+        ///         HostInstanceType = "mq.m5.large",
         ///     });
         /// 
         /// });
@@ -98,7 +108,7 @@ namespace Pulumi.Aws.Mq
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a MQ Broker Instance Offerings.
+        /// Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
         /// 
         /// ## Example Usage
         /// 
@@ -110,28 +120,33 @@ namespace Pulumi.Aws.Mq
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
+        ///     // Get all instance type offerings
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke();
         /// 
-        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by engine type
+        ///     var activemq = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         EngineType = "ACTIVEMQ",
         ///     });
         /// 
-        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by storage type
+        ///     var ebs = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         StorageType = "EBS",
         ///     });
         /// 
-        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by instance type
+        ///     var m5 = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
         ///         HostInstanceType = "mq.m5.large",
         ///     });
         /// 
-        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     // Filter by multiple criteria
+        ///     var filtered = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         HostInstanceType = "mq.m5.large",
-        ///         StorageType = "EBS",
         ///         EngineType = "ACTIVEMQ",
+        ///         StorageType = "EBS",
+        ///         HostInstanceType = "mq.m5.large",
         ///     });
         /// 
         /// });
@@ -211,7 +226,7 @@ namespace Pulumi.Aws.Mq
     public sealed class GetInstanceTypeOfferingsResult
     {
         /// <summary>
-        /// Option for host instance type. See Broker Instance Options below.
+        /// List of broker instance options. See Broker Instance Options below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult> BrokerInstanceOptions;
         /// <summary>

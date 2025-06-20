@@ -16,14 +16,14 @@ public final class GetBrokerEngineTypesArgs extends com.pulumi.resources.InvokeA
     public static final GetBrokerEngineTypesArgs Empty = new GetBrokerEngineTypesArgs();
 
     /**
-     * The MQ engine type to return version details for.
+     * MQ engine type to return version details for.
      * 
      */
     @Import(name="engineType")
     private @Nullable Output<String> engineType;
 
     /**
-     * @return The MQ engine type to return version details for.
+     * @return MQ engine type to return version details for.
      * 
      */
     public Optional<Output<String>> engineType() {
@@ -71,7 +71,7 @@ public final class GetBrokerEngineTypesArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param engineType The MQ engine type to return version details for.
+         * @param engineType MQ engine type to return version details for.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetBrokerEngineTypesArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param engineType The MQ engine type to return version details for.
+         * @param engineType MQ engine type to return version details for.
          * 
          * @return builder
          * 

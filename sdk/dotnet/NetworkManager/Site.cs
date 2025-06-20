@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Creates a site in a global network.
+    /// Manages a Network Manager site. Use this resource to create a site in a global network.
     /// 
     /// ## Example Usage
     /// 
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.NetworkManager
     public partial class Site : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Site Amazon Resource Name (ARN)
+        /// Site ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -56,13 +56,15 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Global Network to create the site in.
+        /// ID of the Global Network to create the site in.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The site location as documented below.
+        /// Site location. See below.
         /// </summary>
         [Output("location")]
         public Output<Outputs.SiteLocation?> Location { get; private set; } = null!;
@@ -74,7 +76,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -132,13 +134,15 @@ namespace Pulumi.Aws.NetworkManager
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the Global Network to create the site in.
+        /// ID of the Global Network to create the site in.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The site location as documented below.
+        /// Site location. See below.
         /// </summary>
         [Input("location")]
         public Input<Inputs.SiteLocationArgs>? Location { get; set; }
@@ -164,7 +168,7 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class SiteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Site Amazon Resource Name (ARN)
+        /// Site ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -176,13 +180,15 @@ namespace Pulumi.Aws.NetworkManager
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the Global Network to create the site in.
+        /// ID of the Global Network to create the site in.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
         /// <summary>
-        /// The site location as documented below.
+        /// Site location. See below.
         /// </summary>
         [Input("location")]
         public Input<Inputs.SiteLocationGetArgs>? Location { get; set; }
@@ -203,7 +209,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

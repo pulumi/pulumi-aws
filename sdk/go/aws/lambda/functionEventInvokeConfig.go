@@ -12,13 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
+// Manages an AWS Lambda Function Event Invoke Config. Use this resource to configure error handling and destinations for asynchronous Lambda function invocations.
+//
+// More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
 //
 // ## Example Usage
 //
-// ### Destination Configuration
+// ### Complete Error Handling and Destinations
 //
-// > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+// > **Note:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 //
 // ```go
 // package main
@@ -26,20 +28,47 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(exampleAwsLambdaAlias.FunctionName),
+//			// SQS queue for failed invocations
+//			dlq, err := sqs.NewQueue(ctx, "dlq", &sqs.QueueArgs{
+//				Name: pulumi.String("lambda-dlq"),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//					"Purpose":     pulumi.String("lambda-error-handling"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// SNS topic for successful invocations
+//			success, err := sns.NewTopic(ctx, "success", &sns.TopicArgs{
+//				Name: pulumi.String("lambda-success-notifications"),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//					"Purpose":     pulumi.String("lambda-success-notifications"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Complete event invoke configuration
+//			_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName:             pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				MaximumEventAgeInSeconds: pulumi.Int(300),
+//				MaximumRetryAttempts:     pulumi.Int(1),
 //				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
 //					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
-//						Destination: pulumi.Any(exampleAwsSqsQueue.Arn),
+//						Destination: dlq.Arn,
 //					},
 //					OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
-//						Destination: pulumi.Any(exampleAwsSnsTopic.Arn),
+//						Destination: success.Arn,
 //					},
 //				},
 //			})
@@ -52,7 +81,7 @@ import (
 //
 // ```
 //
-// ### Error Handling Configuration
+// ### Error Handling Only
 //
 // ```go
 // package main
@@ -67,7 +96,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName:             pulumi.Any(exampleAwsLambdaAlias.FunctionName),
+//				FunctionName:             pulumi.Any(exampleAwsLambdaFunction.FunctionName),
 //				MaximumEventAgeInSeconds: pulumi.Int(60),
 //				MaximumRetryAttempts:     pulumi.Int(0),
 //			})
@@ -80,7 +109,7 @@ import (
 //
 // ```
 //
-// ### Configuration for Alias Name
+// ### Configuration for Lambda Alias
 //
 // ```go
 // package main
@@ -94,9 +123,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(exampleAwsLambdaAlias.FunctionName),
-//				Qualifier:    pulumi.Any(exampleAwsLambdaAlias.Name),
+//			example, err := lambda.NewAlias(ctx, "example", &lambda.AliasArgs{
+//				Name:            pulumi.String("production"),
+//				Description:     pulumi.String("Production alias"),
+//				FunctionName:    pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				FunctionVersion: pulumi.Any(exampleAwsLambdaFunction.Version),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName:             pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				Qualifier:                example.Name,
+//				MaximumEventAgeInSeconds: pulumi.Int(1800),
+//				MaximumRetryAttempts:     pulumi.Int(2),
+//				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
+//					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
+//						Destination: pulumi.Any(productionDlq.Arn),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -107,7 +152,7 @@ import (
 //
 // ```
 //
-// ### Configuration for Function Latest Unpublished Version
+// ### Configuration for Published Version
 //
 // ```go
 // package main
@@ -122,8 +167,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				Qualifier:    pulumi.String("$LATEST"),
+//				FunctionName:             pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				Qualifier:                pulumi.Any(exampleAwsLambdaFunction.Version),
+//				MaximumEventAgeInSeconds: pulumi.Int(21600),
+//				MaximumRetryAttempts:     pulumi.Int(2),
+//				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
+//					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
+//						Destination: pulumi.Any(versionDlq.Arn),
+//					},
+//					OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
+//						Destination: pulumi.Any(versionSuccess.Arn),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -134,7 +189,7 @@ import (
 //
 // ```
 //
-// ### Configuration for Function Published Version
+// ### Configuration for Latest Version
 //
 // ```go
 // package main
@@ -149,8 +204,67 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+//				FunctionName:             pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				Qualifier:                pulumi.String("$LATEST"),
+//				MaximumEventAgeInSeconds: pulumi.Int(120),
+//				MaximumRetryAttempts:     pulumi.Int(0),
+//				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
+//					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
+//						Destination: pulumi.Any(devDlq.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Multiple Destination Types
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// S3 bucket for archiving successful events
+//			lambdaSuccessArchive, err := s3.NewBucket(ctx, "lambda_success_archive", &s3.BucketArgs{
+//				Bucket: pulumi.Sprintf("lambda-success-archive-%v", bucketSuffix.Hex),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// EventBridge custom bus for failed events
+//			lambdaFailures, err := cloudwatch.NewEventBus(ctx, "lambda_failures", &cloudwatch.EventBusArgs{
+//				Name: pulumi.String("lambda-failure-events"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
 //				FunctionName: pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				Qualifier:    pulumi.Any(exampleAwsLambdaFunction.Version),
+//				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
+//					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
+//						Destination: lambdaFailures.Arn,
+//					},
+//					OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
+//						Destination: lambdaSuccessArchive.Arn,
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -169,34 +283,34 @@ import (
 //
 // Name with qualifier:
 //
-// __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+// For backwards compatibility, the following legacy `pulumi import` commands are also supported:
 //
-// ARN without qualifier (all versions and aliases):
+// Using ARN without qualifier:
 //
 // ```sh
-// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
 // ```
-// ARN with qualifier:
+// Using ARN with qualifier:
 //
 // ```sh
-// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
 // ```
 // Name without qualifier (all versions and aliases):
 //
 // ```sh
-// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
 // ```
 // Name with qualifier:
 //
 // ```sh
-// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
 // ```
 type FunctionEventInvokeConfig struct {
 	pulumi.CustomResourceState
 
-	// Configuration block with destination configuration. See below for details.
+	// Configuration block with destination configuration. See below.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
-	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 	//
 	// The following arguments are optional:
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
@@ -243,9 +357,9 @@ func GetFunctionEventInvokeConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
 type functionEventInvokeConfigState struct {
-	// Configuration block with destination configuration. See below for details.
+	// Configuration block with destination configuration. See below.
 	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
-	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 	//
 	// The following arguments are optional:
 	FunctionName *string `pulumi:"functionName"`
@@ -260,9 +374,9 @@ type functionEventInvokeConfigState struct {
 }
 
 type FunctionEventInvokeConfigState struct {
-	// Configuration block with destination configuration. See below for details.
+	// Configuration block with destination configuration. See below.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
-	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 	//
 	// The following arguments are optional:
 	FunctionName pulumi.StringPtrInput
@@ -281,9 +395,9 @@ func (FunctionEventInvokeConfigState) ElementType() reflect.Type {
 }
 
 type functionEventInvokeConfigArgs struct {
-	// Configuration block with destination configuration. See below for details.
+	// Configuration block with destination configuration. See below.
 	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
-	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 	//
 	// The following arguments are optional:
 	FunctionName string `pulumi:"functionName"`
@@ -299,9 +413,9 @@ type functionEventInvokeConfigArgs struct {
 
 // The set of arguments for constructing a FunctionEventInvokeConfig resource.
 type FunctionEventInvokeConfigArgs struct {
-	// Configuration block with destination configuration. See below for details.
+	// Configuration block with destination configuration. See below.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
-	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 	//
 	// The following arguments are optional:
 	FunctionName pulumi.StringInput
@@ -402,14 +516,14 @@ func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutputWithCo
 	return o
 }
 
-// Configuration block with destination configuration. See below for details.
+// Configuration block with destination configuration. See below.
 func (o FunctionEventInvokeConfigOutput) DestinationConfig() FunctionEventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) FunctionEventInvokeConfigDestinationConfigPtrOutput {
 		return v.DestinationConfig
 	}).(FunctionEventInvokeConfigDestinationConfigPtrOutput)
 }
 
-// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+// Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 //
 // The following arguments are optional:
 func (o FunctionEventInvokeConfigOutput) FunctionName() pulumi.StringOutput {

@@ -154,6 +154,7 @@ import * as dlm from "./dlm";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
 import * as drs from "./drs";
+import * as dsql from "./dsql";
 import * as dynamodb from "./dynamodb";
 import * as ebs from "./ebs";
 import * as ec2 from "./ec2";
@@ -377,6 +378,7 @@ export {
     dms,
     docdb,
     drs,
+    dsql,
     dynamodb,
     ebs,
     ec2,

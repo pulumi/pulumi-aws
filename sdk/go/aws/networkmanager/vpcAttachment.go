@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Network Manager VPC Attachment.
+// Manages a Network Manager VPC attachment.
 //
 // ## Example Usage
 //
@@ -56,35 +56,35 @@ import (
 type VpcAttachment struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the attachment.
+	// ARN of the attachment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The policy rule number associated with the attachment.
+	// Policy rule number associated with the attachment.
 	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
-	// The type of attachment.
+	// Type of attachment.
 	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
-	// The ARN of a core network.
+	// ARN of a core network.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// The ID of a core network for the VPC attachment.
+	// ID of a core network for the VPC attachment.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// The Region where the edge is located.
+	// Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// Options for the VPC attachment.
+	// Options for the VPC attachment. See below.
 	Options VpcAttachmentOptionsPtrOutput `pulumi:"options"`
-	// The ID of the attachment account owner.
+	// ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The attachment resource ARN.
+	// Attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The name of the segment attachment.
+	// Name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
-	// The state of the attachment.
+	// State of the attachment.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The subnet ARN of the VPC attachment.
+	// Subnet ARNs of the VPC attachment.
 	SubnetArns pulumi.StringArrayOutput `pulumi:"subnetArns"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ARN of the VPC.
+	// ARN of the VPC.
 	//
 	// The following arguments are optional:
 	VpcArn pulumi.StringOutput `pulumi:"vpcArn"`
@@ -129,70 +129,70 @@ func GetVpcAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcAttachment resources.
 type vpcAttachmentState struct {
-	// The ARN of the attachment.
+	// ARN of the attachment.
 	Arn *string `pulumi:"arn"`
-	// The policy rule number associated with the attachment.
+	// Policy rule number associated with the attachment.
 	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
-	// The type of attachment.
+	// Type of attachment.
 	AttachmentType *string `pulumi:"attachmentType"`
-	// The ARN of a core network.
+	// ARN of a core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// The ID of a core network for the VPC attachment.
+	// ID of a core network for the VPC attachment.
 	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// The Region where the edge is located.
+	// Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
-	// Options for the VPC attachment.
+	// Options for the VPC attachment. See below.
 	Options *VpcAttachmentOptions `pulumi:"options"`
-	// The ID of the attachment account owner.
+	// ID of the attachment account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The attachment resource ARN.
+	// Attachment resource ARN.
 	ResourceArn *string `pulumi:"resourceArn"`
-	// The name of the segment attachment.
+	// Name of the segment attachment.
 	SegmentName *string `pulumi:"segmentName"`
-	// The state of the attachment.
+	// State of the attachment.
 	State *string `pulumi:"state"`
-	// The subnet ARN of the VPC attachment.
+	// Subnet ARNs of the VPC attachment.
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ARN of the VPC.
+	// ARN of the VPC.
 	//
 	// The following arguments are optional:
 	VpcArn *string `pulumi:"vpcArn"`
 }
 
 type VpcAttachmentState struct {
-	// The ARN of the attachment.
+	// ARN of the attachment.
 	Arn pulumi.StringPtrInput
-	// The policy rule number associated with the attachment.
+	// Policy rule number associated with the attachment.
 	AttachmentPolicyRuleNumber pulumi.IntPtrInput
-	// The type of attachment.
+	// Type of attachment.
 	AttachmentType pulumi.StringPtrInput
-	// The ARN of a core network.
+	// ARN of a core network.
 	CoreNetworkArn pulumi.StringPtrInput
-	// The ID of a core network for the VPC attachment.
+	// ID of a core network for the VPC attachment.
 	CoreNetworkId pulumi.StringPtrInput
-	// The Region where the edge is located.
+	// Region where the edge is located.
 	EdgeLocation pulumi.StringPtrInput
-	// Options for the VPC attachment.
+	// Options for the VPC attachment. See below.
 	Options VpcAttachmentOptionsPtrInput
-	// The ID of the attachment account owner.
+	// ID of the attachment account owner.
 	OwnerAccountId pulumi.StringPtrInput
-	// The attachment resource ARN.
+	// Attachment resource ARN.
 	ResourceArn pulumi.StringPtrInput
-	// The name of the segment attachment.
+	// Name of the segment attachment.
 	SegmentName pulumi.StringPtrInput
-	// The state of the attachment.
+	// State of the attachment.
 	State pulumi.StringPtrInput
-	// The subnet ARN of the VPC attachment.
+	// Subnet ARNs of the VPC attachment.
 	SubnetArns pulumi.StringArrayInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The ARN of the VPC.
+	// ARN of the VPC.
 	//
 	// The following arguments are optional:
 	VpcArn pulumi.StringPtrInput
@@ -203,15 +203,15 @@ func (VpcAttachmentState) ElementType() reflect.Type {
 }
 
 type vpcAttachmentArgs struct {
-	// The ID of a core network for the VPC attachment.
+	// ID of a core network for the VPC attachment.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
-	// Options for the VPC attachment.
+	// Options for the VPC attachment. See below.
 	Options *VpcAttachmentOptions `pulumi:"options"`
-	// The subnet ARN of the VPC attachment.
+	// Subnet ARNs of the VPC attachment.
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The ARN of the VPC.
+	// ARN of the VPC.
 	//
 	// The following arguments are optional:
 	VpcArn string `pulumi:"vpcArn"`
@@ -219,15 +219,15 @@ type vpcAttachmentArgs struct {
 
 // The set of arguments for constructing a VpcAttachment resource.
 type VpcAttachmentArgs struct {
-	// The ID of a core network for the VPC attachment.
+	// ID of a core network for the VPC attachment.
 	CoreNetworkId pulumi.StringInput
-	// Options for the VPC attachment.
+	// Options for the VPC attachment. See below.
 	Options VpcAttachmentOptionsPtrInput
-	// The subnet ARN of the VPC attachment.
+	// Subnet ARNs of the VPC attachment.
 	SubnetArns pulumi.StringArrayInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The ARN of the VPC.
+	// ARN of the VPC.
 	//
 	// The following arguments are optional:
 	VpcArn pulumi.StringInput
@@ -320,62 +320,62 @@ func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the attachment.
+// ARN of the attachment.
 func (o VpcAttachmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The policy rule number associated with the attachment.
+// Policy rule number associated with the attachment.
 func (o VpcAttachmentOutput) AttachmentPolicyRuleNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.IntOutput { return v.AttachmentPolicyRuleNumber }).(pulumi.IntOutput)
 }
 
-// The type of attachment.
+// Type of attachment.
 func (o VpcAttachmentOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
 }
 
-// The ARN of a core network.
+// ARN of a core network.
 func (o VpcAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// The ID of a core network for the VPC attachment.
+// ID of a core network for the VPC attachment.
 func (o VpcAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// The Region where the edge is located.
+// Region where the edge is located.
 func (o VpcAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// Options for the VPC attachment.
+// Options for the VPC attachment. See below.
 func (o VpcAttachmentOutput) Options() VpcAttachmentOptionsPtrOutput {
 	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentOptionsPtrOutput { return v.Options }).(VpcAttachmentOptionsPtrOutput)
 }
 
-// The ID of the attachment account owner.
+// ID of the attachment account owner.
 func (o VpcAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The attachment resource ARN.
+// Attachment resource ARN.
 func (o VpcAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The name of the segment attachment.
+// Name of the segment attachment.
 func (o VpcAttachmentOutput) SegmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.SegmentName }).(pulumi.StringOutput)
 }
 
-// The state of the attachment.
+// State of the attachment.
 func (o VpcAttachmentOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// The subnet ARN of the VPC attachment.
+// Subnet ARNs of the VPC attachment.
 func (o VpcAttachmentOutput) SubnetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringArrayOutput { return v.SubnetArns }).(pulumi.StringArrayOutput)
 }
@@ -385,12 +385,12 @@ func (o VpcAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the VPC.
+// ARN of the VPC.
 //
 // The following arguments are optional:
 func (o VpcAttachmentOutput) VpcArn() pulumi.StringOutput {

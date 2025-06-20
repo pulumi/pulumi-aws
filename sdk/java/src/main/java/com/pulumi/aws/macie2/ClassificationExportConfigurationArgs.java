@@ -6,6 +6,7 @@ package com.pulumi.aws.macie2;
 import com.pulumi.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,15 +36,15 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
      * Configuration block for a S3 Destination. Defined below
      * 
      */
-    @Import(name="s3Destination")
-    private @Nullable Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination;
+    @Import(name="s3Destination", required=true)
+    private Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination;
 
     /**
      * @return Configuration block for a S3 Destination. Defined below
      * 
      */
-    public Optional<Output<ClassificationExportConfigurationS3DestinationArgs>> s3Destination() {
-        return Optional.ofNullable(this.s3Destination);
+    public Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination() {
+        return this.s3Destination;
     }
 
     private ClassificationExportConfigurationArgs() {}
@@ -98,7 +99,7 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder s3Destination(@Nullable Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination) {
+        public Builder s3Destination(Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination) {
             $.s3Destination = s3Destination;
             return this;
         }
@@ -114,6 +115,9 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
         }
 
         public ClassificationExportConfigurationArgs build() {
+            if ($.s3Destination == null) {
+                throw new MissingRequiredPropertyException("ClassificationExportConfigurationArgs", "s3Destination");
+            }
             return $;
         }
     }

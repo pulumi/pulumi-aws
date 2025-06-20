@@ -8,19 +8,75 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+ * Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
  *
- * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+ * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ * const example = aws.lambda.getCodeSigningConfig({
+ *     arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b",
  * });
+ * export const configDetails = {
+ *     configId: example.then(example => example.configId),
+ *     description: example.then(example => example.description),
+ *     policy: example.then(example => example.policies?.[0]?.untrustedArtifactOnDeployment),
+ * };
+ * ```
+ *
+ * ### Use in Lambda Function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get existing code signing configuration
+ * const securityConfig = aws.lambda.getCodeSigningConfig({
+ *     arn: codeSigningConfigArn,
+ * });
+ * // Create Lambda function with code signing
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "secure-function",
+ *     role: lambdaRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     codeSigningConfigArn: securityConfig.then(securityConfig => securityConfig.arn),
+ *     tags: {
+ *         Environment: "production",
+ *         Security: "code-signed",
+ *     },
+ * });
+ * ```
+ *
+ * ### Multi-Environment Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Production code signing config
+ * const prod = aws.lambda.getCodeSigningConfig({
+ *     arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123",
+ * });
+ * // Development code signing config
+ * const dev = aws.lambda.getCodeSigningConfig({
+ *     arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456",
+ * });
+ * const prodPolicy = prod.then(prod => prod.policies?.[0]?.untrustedArtifactOnDeployment);
+ * const devPolicy = dev.then(dev => dev.policies?.[0]?.untrustedArtifactOnDeployment);
+ * const configComparison = {
+ *     prodEnforcement: prodPolicy,
+ *     devEnforcement: devPolicy,
+ *     policiesMatch: Promise.all([prodPolicy, devPolicy]).then(([prodPolicy, devPolicy]) => prodPolicy == devPolicy),
+ * };
+ * export const environmentComparison = configComparison;
  * ```
  */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
@@ -37,6 +93,8 @@ export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulu
 export interface GetCodeSigningConfigArgs {
     /**
      * ARN of the code signing configuration.
+     *
+     * The following arguments are optional:
      */
     arn: string;
     /**
@@ -50,7 +108,7 @@ export interface GetCodeSigningConfigArgs {
  */
 export interface GetCodeSigningConfigResult {
     /**
-     * List of allowed publishers as signing profiles for this code signing configuration.
+     * List of allowed publishers as signing profiles for this code signing configuration. See below.
      */
     readonly allowedPublishers: outputs.lambda.GetCodeSigningConfigAllowedPublisher[];
     readonly arn: string;
@@ -71,25 +129,81 @@ export interface GetCodeSigningConfigResult {
      */
     readonly lastModified: string;
     /**
-     * List of code signing policies that control the validation failure action for signature mismatch or expiry.
+     * List of code signing policies that control the validation failure action for signature mismatch or expiry. See below.
      */
     readonly policies: outputs.lambda.GetCodeSigningConfigPolicy[];
     readonly region: string;
 }
 /**
- * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+ * Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
  *
- * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+ * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
+ * const example = aws.lambda.getCodeSigningConfig({
+ *     arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b",
  * });
+ * export const configDetails = {
+ *     configId: example.then(example => example.configId),
+ *     description: example.then(example => example.description),
+ *     policy: example.then(example => example.policies?.[0]?.untrustedArtifactOnDeployment),
+ * };
+ * ```
+ *
+ * ### Use in Lambda Function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get existing code signing configuration
+ * const securityConfig = aws.lambda.getCodeSigningConfig({
+ *     arn: codeSigningConfigArn,
+ * });
+ * // Create Lambda function with code signing
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "secure-function",
+ *     role: lambdaRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     codeSigningConfigArn: securityConfig.then(securityConfig => securityConfig.arn),
+ *     tags: {
+ *         Environment: "production",
+ *         Security: "code-signed",
+ *     },
+ * });
+ * ```
+ *
+ * ### Multi-Environment Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Production code signing config
+ * const prod = aws.lambda.getCodeSigningConfig({
+ *     arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123",
+ * });
+ * // Development code signing config
+ * const dev = aws.lambda.getCodeSigningConfig({
+ *     arn: "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456",
+ * });
+ * const prodPolicy = prod.then(prod => prod.policies?.[0]?.untrustedArtifactOnDeployment);
+ * const devPolicy = dev.then(dev => dev.policies?.[0]?.untrustedArtifactOnDeployment);
+ * const configComparison = {
+ *     prodEnforcement: prodPolicy,
+ *     devEnforcement: devPolicy,
+ *     policiesMatch: Promise.all([prodPolicy, devPolicy]).then(([prodPolicy, devPolicy]) => prodPolicy == devPolicy),
+ * };
+ * export const environmentComparison = configComparison;
  * ```
  */
 export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeSigningConfigResult> {
@@ -106,6 +220,8 @@ export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs,
 export interface GetCodeSigningConfigOutputArgs {
     /**
      * ARN of the code signing configuration.
+     *
+     * The following arguments are optional:
      */
     arn: pulumi.Input<string>;
     /**

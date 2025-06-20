@@ -18,14 +18,14 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
     public static final FunctionUrlArgs Empty = new FunctionUrlArgs();
 
     /**
-     * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      * 
      */
     @Import(name="authorizationType", required=true)
     private Output<String> authorizationType;
 
     /**
-     * @return The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * @return Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      * 
      */
     public Output<String> authorizationType() {
@@ -33,14 +33,14 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     @Import(name="cors")
     private @Nullable Output<FunctionUrlCorsArgs> cors;
 
     /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     public Optional<Output<FunctionUrlCorsArgs>> cors() {
@@ -48,14 +48,18 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return The name (or ARN) of the Lambda function.
+     * @return Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> functionName() {
@@ -63,14 +67,14 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      * 
      */
     @Import(name="invokeMode")
     private @Nullable Output<String> invokeMode;
 
     /**
-     * @return Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * @return How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      * 
      */
     public Optional<Output<String>> invokeMode() {
@@ -78,14 +82,14 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The alias name or `&#34;$LATEST&#34;`.
+     * Alias name or `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return The alias name or `&#34;$LATEST&#34;`.
+     * @return Alias name or `$LATEST`.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -137,7 +141,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+         * @param authorizationType Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
          * 
          * @return builder
          * 
@@ -148,7 +152,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+         * @param authorizationType Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
          * 
          * @return builder
          * 
@@ -158,7 +162,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+         * @param cors Cross-origin resource sharing (CORS) settings for the function URL. See below.
          * 
          * @return builder
          * 
@@ -169,7 +173,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+         * @param cors Cross-origin resource sharing (CORS) settings for the function URL. See below.
          * 
          * @return builder
          * 
@@ -179,7 +183,9 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -190,7 +196,9 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -200,7 +208,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeMode Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+         * @param invokeMode How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
          * 
          * @return builder
          * 
@@ -211,7 +219,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeMode Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+         * @param invokeMode How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
          * 
          * @return builder
          * 
@@ -221,7 +229,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 
@@ -232,7 +240,7 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 

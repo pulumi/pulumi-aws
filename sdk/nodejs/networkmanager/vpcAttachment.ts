@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Network Manager VPC Attachment.
+ * Manages a Network Manager VPC attachment.
  *
  * ## Example Usage
  *
@@ -62,51 +62,51 @@ export class VpcAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      */
     public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
     /**
-     * The type of attachment.
+     * Type of attachment.
      */
     public /*out*/ readonly attachmentType!: pulumi.Output<string>;
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**
-     * The ID of a core network for the VPC attachment.
+     * ID of a core network for the VPC attachment.
      */
     public readonly coreNetworkId!: pulumi.Output<string>;
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
-     * Options for the VPC attachment.
+     * Options for the VPC attachment. See below.
      */
     public readonly options!: pulumi.Output<outputs.networkmanager.VpcAttachmentOptions | undefined>;
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      */
     public /*out*/ readonly segmentName!: pulumi.Output<string>;
     /**
-     * The state of the attachment.
+     * State of the attachment.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * The subnet ARN of the VPC attachment.
+     * Subnet ARNs of the VPC attachment.
      */
     public readonly subnetArns!: pulumi.Output<string[]>;
     /**
@@ -114,11 +114,11 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ARN of the VPC.
+     * ARN of the VPC.
      *
      * The following arguments are optional:
      */
@@ -189,51 +189,51 @@ export class VpcAttachment extends pulumi.CustomResource {
  */
 export interface VpcAttachmentState {
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
     /**
-     * The type of attachment.
+     * Type of attachment.
      */
     attachmentType?: pulumi.Input<string>;
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      */
     coreNetworkArn?: pulumi.Input<string>;
     /**
-     * The ID of a core network for the VPC attachment.
+     * ID of a core network for the VPC attachment.
      */
     coreNetworkId?: pulumi.Input<string>;
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      */
     edgeLocation?: pulumi.Input<string>;
     /**
-     * Options for the VPC attachment.
+     * Options for the VPC attachment. See below.
      */
     options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      */
     resourceArn?: pulumi.Input<string>;
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      */
     segmentName?: pulumi.Input<string>;
     /**
-     * The state of the attachment.
+     * State of the attachment.
      */
     state?: pulumi.Input<string>;
     /**
-     * The subnet ARN of the VPC attachment.
+     * Subnet ARNs of the VPC attachment.
      */
     subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -241,11 +241,11 @@ export interface VpcAttachmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the VPC.
+     * ARN of the VPC.
      *
      * The following arguments are optional:
      */
@@ -257,15 +257,15 @@ export interface VpcAttachmentState {
  */
 export interface VpcAttachmentArgs {
     /**
-     * The ID of a core network for the VPC attachment.
+     * ID of a core network for the VPC attachment.
      */
     coreNetworkId: pulumi.Input<string>;
     /**
-     * Options for the VPC attachment.
+     * Options for the VPC attachment. See below.
      */
     options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
     /**
-     * The subnet ARN of the VPC attachment.
+     * Subnet ARNs of the VPC attachment.
      */
     subnetArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -273,7 +273,7 @@ export interface VpcAttachmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the VPC.
+     * ARN of the VPC.
      *
      * The following arguments are optional:
      */

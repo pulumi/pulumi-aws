@@ -16,14 +16,14 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
     public static final StaticIpAttachmentState Empty = new StaticIpAttachmentState();
 
     /**
-     * The name of the Lightsail instance to attach the IP to
+     * Name of the Lightsail instance to attach the IP to.
      * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
-     * @return The name of the Lightsail instance to attach the IP to
+     * @return Name of the Lightsail instance to attach the IP to.
      * 
      */
     public Optional<Output<String>> instanceName() {
@@ -31,14 +31,14 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The allocated static IP address
+     * Allocated static IP address.
      * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
-     * @return The allocated static IP address
+     * @return Allocated static IP address.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -61,14 +61,18 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the allocated static IP
+     * Name of the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="staticIpName")
     private @Nullable Output<String> staticIpName;
 
     /**
-     * @return The name of the allocated static IP
+     * @return Name of the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> staticIpName() {
@@ -103,7 +107,7 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * @param instanceName Name of the Lightsail instance to attach the IP to.
          * 
          * @return builder
          * 
@@ -114,7 +118,7 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * @param instanceName Name of the Lightsail instance to attach the IP to.
          * 
          * @return builder
          * 
@@ -124,7 +128,7 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipAddress The allocated static IP address
+         * @param ipAddress Allocated static IP address.
          * 
          * @return builder
          * 
@@ -135,7 +139,7 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipAddress The allocated static IP address
+         * @param ipAddress Allocated static IP address.
          * 
          * @return builder
          * 
@@ -166,7 +170,9 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param staticIpName The name of the allocated static IP
+         * @param staticIpName Name of the allocated static IP.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -177,7 +183,9 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param staticIpName The name of the allocated static IP
+         * @param staticIpName Name of the allocated static IP.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

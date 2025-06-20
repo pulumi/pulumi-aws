@@ -11,9 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a Lambda function URL.
+// Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
 //
 // ## Example Usage
+//
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -22,17 +24,65 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			functionName := cfg.Require("functionName")
-//			_, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
-//				FunctionName: functionName,
+//			example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
+//				FunctionName: "my_lambda_function",
 //			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("functionUrl", example.FunctionUrl)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With Qualifier
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
+//				FunctionName: exampleAwsLambdaFunction.FunctionName,
+//				Qualifier:    pulumi.StringRef("production"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
+//				Text:    example.FunctionUrl,
+//				Search:  "https://",
+//				Replace: "",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Use the URL in other resources
+//			_, err = route53.NewRecord(ctx, "lambda_alias", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
+//				Name:   pulumi.String("api.example.com"),
+//				Type:   pulumi.String(route53.RecordTypeCNAME),
+//				Ttl:    pulumi.Int(300),
+//				Records: pulumi.StringArray{
+//					pulumi.String(invokeReplace.Result),
+//				},
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -40,6 +90,48 @@ import (
 //		})
 //	}
 //
+// ```
+//
+// ### Retrieve CORS Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
+// FunctionName: "api_function",
+// }, nil);
+// if err != nil {
+// return err
+// }
+// var tmp0
+// if length > 0 {
+// tmp0 = example.Cors[0]
+// } else {
+// tmp0 = nil
+// }
+// corsConfig := len(example.Cors).ApplyT(func(length int) (lambda.GetFunctionUrlCor, error) {
+// return tmp0, nil
+// }).(lambda.GetFunctionUrlCorOutput)
+// var tmp1 interface{}
+// if corsConfig != nil {
+// tmp1 = corsConfig.AllowOrigins
+// } else {
+// tmp1 = []interface{}{
+// }
+// }
+// allowedOrigins := tmp1;
+// ctx.Export("corsAllowedOrigins", allowedOrigins)
+// return nil
+// })
+// }
 // ```
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
@@ -53,9 +145,11 @@ func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ..
 
 // A collection of arguments for invoking getFunctionUrl.
 type LookupFunctionUrlArgs struct {
-	// The name (or ARN) of the Lambda function.
+	// Name or ARN of the Lambda function.
+	//
+	// The following arguments are optional:
 	FunctionName string `pulumi:"functionName"`
-	// Alias name or `"$LATEST"`.
+	// Alias name or `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -65,7 +159,7 @@ type LookupFunctionUrlArgs struct {
 type LookupFunctionUrlResult struct {
 	// Type of authentication that the function URL uses.
 	AuthorizationType string `pulumi:"authorizationType"`
-	// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
+	// Cross-origin resource sharing (CORS) settings for the function URL. See below.
 	Cors []GetFunctionUrlCor `pulumi:"cors"`
 	// When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 	CreationTime string `pulumi:"creationTime"`
@@ -97,9 +191,11 @@ func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputAr
 
 // A collection of arguments for invoking getFunctionUrl.
 type LookupFunctionUrlOutputArgs struct {
-	// The name (or ARN) of the Lambda function.
+	// Name or ARN of the Lambda function.
+	//
+	// The following arguments are optional:
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// Alias name or `"$LATEST"`.
+	// Alias name or `$LATEST`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -129,7 +225,7 @@ func (o LookupFunctionUrlResultOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
 
-// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
+// Cross-origin resource sharing (CORS) settings for the function URL. See below.
 func (o LookupFunctionUrlResultOutput) Cors() GetFunctionUrlCorArrayOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) []GetFunctionUrlCor { return v.Cors }).(GetFunctionUrlCorArrayOutput)
 }

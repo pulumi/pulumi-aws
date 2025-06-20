@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Neptune.Outputs
     public sealed class GlobalClusterGlobalClusterMember
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of member DB Cluster.
+        /// ARN of member DB Cluster.
         /// </summary>
         public readonly string? DbClusterArn;
         /// <summary>

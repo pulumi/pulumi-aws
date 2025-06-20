@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Registers a transit gateway to a global network. The transit gateway can be in any AWS Region,
- * but it must be owned by the same AWS account that owns the global network.
- * You cannot register a transit gateway in more than one global network.
+ * Manages a Network Manager transit gateway registration. Registers a transit gateway to a global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
  *
  * ## Example Usage
  *
@@ -60,11 +58,11 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the Global Network to register to.
+     * ID of the Global Network to register to.
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * The ARN of the Transit Gateway to register.
+     * ARN of the Transit Gateway to register.
      */
     public readonly transitGatewayArn!: pulumi.Output<string>;
 
@@ -104,11 +102,11 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
  */
 export interface TransitGatewayRegistrationState {
     /**
-     * The ID of the Global Network to register to.
+     * ID of the Global Network to register to.
      */
     globalNetworkId?: pulumi.Input<string>;
     /**
-     * The ARN of the Transit Gateway to register.
+     * ARN of the Transit Gateway to register.
      */
     transitGatewayArn?: pulumi.Input<string>;
 }
@@ -118,11 +116,11 @@ export interface TransitGatewayRegistrationState {
  */
 export interface TransitGatewayRegistrationArgs {
     /**
-     * The ID of the Global Network to register to.
+     * ID of the Global Network to register to.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The ARN of the Transit Gateway to register.
+     * ARN of the Transit Gateway to register.
      */
     transitGatewayArn: pulumi.Input<string>;
 }

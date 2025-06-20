@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class ConnectAttachmentOptions
     {
         /// <summary>
-        /// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+        /// Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
         /// </summary>
         public readonly string? Protocol;
 

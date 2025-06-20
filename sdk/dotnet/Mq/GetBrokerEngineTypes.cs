@@ -12,11 +12,9 @@ namespace Pulumi.Aws.Mq
     public static class GetBrokerEngineTypes
     {
         /// <summary>
-        /// Retrieve information about available broker engines.
+        /// Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -38,11 +36,9 @@ namespace Pulumi.Aws.Mq
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about available broker engines.
+        /// Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,11 +60,9 @@ namespace Pulumi.Aws.Mq
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about available broker engines.
+        /// Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -94,7 +88,7 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerEngineTypesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The MQ engine type to return version details for.
+        /// MQ engine type to return version details for.
         /// </summary>
         [Input("engineType")]
         public string? EngineType { get; set; }
@@ -114,7 +108,7 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerEngineTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The MQ engine type to return version details for.
+        /// MQ engine type to return version details for.
         /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
@@ -136,11 +130,11 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerEngineTypesResult
     {
         /// <summary>
-        /// A list of available engine types and versions. See Engine Types.
+        /// List of available engine types and versions. See Engine Types.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerEngineTypesBrokerEngineTypeResult> BrokerEngineTypes;
         /// <summary>
-        /// The broker's engine type.
+        /// Broker's engine type.
         /// </summary>
         public readonly string? EngineType;
         /// <summary>

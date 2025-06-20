@@ -94,7 +94,7 @@ def get_connections(device_id: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionsResult:
     """
-    Retrieve information about connections.
+    Provides details about existing Network Manager connections.
 
     ## Example Usage
 
@@ -131,7 +131,7 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[builtins.st
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionsResult]:
     """
-    Retrieve information about connections.
+    Provides details about existing Network Manager connections.
 
     ## Example Usage
 

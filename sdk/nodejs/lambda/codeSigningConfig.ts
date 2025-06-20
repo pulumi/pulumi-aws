@@ -8,39 +8,118 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+ * Manages an AWS Lambda Code Signing Config. Use this resource to define allowed signing profiles and code-signing validation policies for Lambda functions to ensure code integrity and authenticity.
  *
- * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+ * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const newCsc = new aws.lambda.CodeSigningConfig("new_csc", {
+ * // Create signing profiles for different environments
+ * const prod = new aws.signer.SigningProfile("prod", {
+ *     platformId: "AWSLambda-SHA384-ECDSA",
+ *     namePrefix: "prod_lambda_",
+ *     tags: {
+ *         Environment: "production",
+ *     },
+ * });
+ * const dev = new aws.signer.SigningProfile("dev", {
+ *     platformId: "AWSLambda-SHA384-ECDSA",
+ *     namePrefix: "dev_lambda_",
+ *     tags: {
+ *         Environment: "development",
+ *     },
+ * });
+ * // Code signing configuration with enforcement
+ * const example = new aws.lambda.CodeSigningConfig("example", {
+ *     description: "Code signing configuration for Lambda functions",
  *     allowedPublishers: {
  *         signingProfileVersionArns: [
- *             example1.arn,
- *             example2.arn,
+ *             prod.versionArn,
+ *             dev.versionArn,
+ *         ],
+ *     },
+ *     policies: {
+ *         untrustedArtifactOnDeployment: "Enforce",
+ *     },
+ *     tags: {
+ *         Environment: "production",
+ *         Purpose: "code-signing",
+ *     },
+ * });
+ * ```
+ *
+ * ### Warning Only Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.CodeSigningConfig("example", {
+ *     description: "Development code signing configuration",
+ *     allowedPublishers: {
+ *         signingProfileVersionArns: [dev.versionArn],
+ *     },
+ *     policies: {
+ *         untrustedArtifactOnDeployment: "Warn",
+ *     },
+ *     tags: {
+ *         Environment: "development",
+ *         Purpose: "code-signing",
+ *     },
+ * });
+ * ```
+ *
+ * ### Multiple Environment Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Production signing configuration
+ * const prod = new aws.lambda.CodeSigningConfig("prod", {
+ *     description: "Production code signing configuration with strict enforcement",
+ *     allowedPublishers: {
+ *         signingProfileVersionArns: [prodAwsSignerSigningProfile.versionArn],
+ *     },
+ *     policies: {
+ *         untrustedArtifactOnDeployment: "Enforce",
+ *     },
+ *     tags: {
+ *         Environment: "production",
+ *         Security: "strict",
+ *     },
+ * });
+ * // Development signing configuration
+ * const dev = new aws.lambda.CodeSigningConfig("dev", {
+ *     description: "Development code signing configuration with warnings",
+ *     allowedPublishers: {
+ *         signingProfileVersionArns: [
+ *             devAwsSignerSigningProfile.versionArn,
+ *             test.versionArn,
  *         ],
  *     },
  *     policies: {
  *         untrustedArtifactOnDeployment: "Warn",
  *     },
- *     description: "My awesome code signing config.",
  *     tags: {
- *         Name: "dynamodb",
+ *         Environment: "development",
+ *         Security: "flexible",
  *     },
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Code Signing Configs using their ARN. For example:
+ * For backwards compatibility, the following legacy `pulumi import` command is also supported:
  *
  * ```sh
- * $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+ * $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
  * ```
  */
 export class CodeSigningConfig extends pulumi.CustomResource {
@@ -72,11 +151,13 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     }
 
     /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly allowedPublishers!: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
     /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
+     * ARN of the code signing configuration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -88,11 +169,11 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The date and time that the code signing configuration was last modified.
+     * Date and time that the code signing configuration was last modified.
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      */
     public readonly policies!: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies>;
     /**
@@ -104,7 +185,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -155,11 +236,13 @@ export class CodeSigningConfig extends pulumi.CustomResource {
  */
 export interface CodeSigningConfigState {
     /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+     *
+     * The following arguments are optional:
      */
     allowedPublishers?: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
     /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
+     * ARN of the code signing configuration.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -171,11 +254,11 @@ export interface CodeSigningConfigState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The date and time that the code signing configuration was last modified.
+     * Date and time that the code signing configuration was last modified.
      */
     lastModified?: pulumi.Input<string>;
     /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      */
     policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
     /**
@@ -187,7 +270,7 @@ export interface CodeSigningConfigState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -197,7 +280,9 @@ export interface CodeSigningConfigState {
  */
 export interface CodeSigningConfigArgs {
     /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+     *
+     * The following arguments are optional:
      */
     allowedPublishers: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
     /**
@@ -205,7 +290,7 @@ export interface CodeSigningConfigArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      */
     policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
     /**

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionDeadLetterConfigResult
     {
+        /// <summary>
+        /// ARN of an SNS topic or SQS queue to notify when an invocation fails.
+        /// </summary>
         public readonly string TargetArn;
 
         [OutputConstructor]

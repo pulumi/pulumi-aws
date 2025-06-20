@@ -28,6 +28,18 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Using Code Editor with empty configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.sagemaker.AppImageConfig("test", {
+ *     appImageConfigName: "example",
+ *     codeEditorAppImageConfig: {},
+ * });
+ * ```
+ *
  * ### Default File System Config
  *
  * ```typescript
@@ -90,11 +102,11 @@ export class AppImageConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      */
     public readonly codeEditorAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
     /**
-     * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      */
     public readonly jupyterLabImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
     /**
@@ -107,6 +119,8 @@ export class AppImageConfig extends pulumi.CustomResource {
     public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -167,11 +181,11 @@ export interface AppImageConfigState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      */
     codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
     /**
-     * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      */
     jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
     /**
@@ -184,6 +198,8 @@ export interface AppImageConfigState {
     region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -201,11 +217,11 @@ export interface AppImageConfigArgs {
      */
     appImageConfigName: pulumi.Input<string>;
     /**
-     * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      */
     codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
     /**
-     * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      */
     jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
     /**
@@ -218,6 +234,8 @@ export interface AppImageConfigArgs {
     region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** Exactly one of `codeEditorAppImageConfig`, `jupyterLabImageConfig`, or `kernelGatewayImageConfig` must be configured. Empty blocks (e.g., `codeEditorAppImageConfig {}`) are valid configurations.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

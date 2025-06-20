@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs;
@@ -39,6 +40,21 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs>> andStatement() {
         return Optional.ofNullable(this.andStatement);
+    }
+
+    /**
+     * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    @Import(name="asnMatchStatement")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs> asnMatchStatement;
+
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs>> asnMatchStatement() {
+        return Optional.ofNullable(this.asnMatchStatement);
     }
 
     /**
@@ -210,6 +226,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementArgs(WebAclRuleStatementRateBasedStatementScopeDownStatementArgs $) {
         this.andStatement = $.andStatement;
+        this.asnMatchStatement = $.asnMatchStatement;
         this.byteMatchStatement = $.byteMatchStatement;
         this.geoMatchStatement = $.geoMatchStatement;
         this.ipSetReferenceStatement = $.ipSetReferenceStatement;
@@ -260,6 +277,27 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
          */
         public Builder andStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs andStatement) {
             return andStatement(Output.of(andStatement));
+        }
+
+        /**
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asnMatchStatement(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs> asnMatchStatement) {
+            $.asnMatchStatement = asnMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asnMatchStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs asnMatchStatement) {
+            return asnMatchStatement(Output.of(asnMatchStatement));
         }
 
         /**

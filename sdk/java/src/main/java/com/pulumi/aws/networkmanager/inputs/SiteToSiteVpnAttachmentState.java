@@ -18,14 +18,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     public static final SiteToSiteVpnAttachmentState Empty = new SiteToSiteVpnAttachmentState();
 
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the attachment.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      * 
      */
     @Import(name="attachmentPolicyRuleNumber")
     private @Nullable Output<Integer> attachmentPolicyRuleNumber;
 
     /**
-     * @return The policy rule number associated with the attachment.
+     * @return Policy rule number associated with the attachment.
      * 
      */
     public Optional<Output<Integer>> attachmentPolicyRuleNumber() {
@@ -48,14 +48,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of attachment.
+     * Type of attachment.
      * 
      */
     @Import(name="attachmentType")
     private @Nullable Output<String> attachmentType;
 
     /**
-     * @return The type of attachment.
+     * @return Type of attachment.
      * 
      */
     public Optional<Output<String>> attachmentType() {
@@ -63,14 +63,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      * 
      */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Optional<Output<String>> coreNetworkArn() {
@@ -78,14 +78,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of a core network for the VPN attachment.
+     * ID of a core network for the VPN attachment.
      * 
      */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network for the VPN attachment.
+     * @return ID of a core network for the VPN attachment.
      * 
      */
     public Optional<Output<String>> coreNetworkId() {
@@ -93,14 +93,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      * 
      */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located.
+     * @return Region where the edge is located.
      * 
      */
     public Optional<Output<String>> edgeLocation() {
@@ -108,14 +108,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      * 
      */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the attachment account owner.
+     * @return ID of the attachment account owner.
      * 
      */
     public Optional<Output<String>> ownerAccountId() {
@@ -123,14 +123,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The attachment resource ARN.
+     * @return Attachment resource ARN.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -138,14 +138,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      * 
      */
     @Import(name="segmentName")
     private @Nullable Output<String> segmentName;
 
     /**
-     * @return The name of the segment attachment.
+     * @return Name of the segment attachment.
      * 
      */
     public Optional<Output<String>> segmentName() {
@@ -153,14 +153,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The state of the attachment.
+     * State of the attachment.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the attachment.
+     * @return State of the attachment.
      * 
      */
     public Optional<Output<String>> state() {
@@ -183,14 +183,14 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -198,7 +198,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ARN of the site-to-site VPN connection.
+     * ARN of the site-to-site VPN connection.
      * 
      * The following arguments are optional:
      * 
@@ -207,7 +207,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
     private @Nullable Output<String> vpnConnectionArn;
 
     /**
-     * @return The ARN of the site-to-site VPN connection.
+     * @return ARN of the site-to-site VPN connection.
      * 
      * The following arguments are optional:
      * 
@@ -253,7 +253,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The ARN of the attachment.
+         * @param arn ARN of the attachment.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The ARN of the attachment.
+         * @param arn ARN of the attachment.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param attachmentPolicyRuleNumber The policy rule number associated with the attachment.
+         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param attachmentPolicyRuleNumber The policy rule number associated with the attachment.
+         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param attachmentType The type of attachment.
+         * @param attachmentType Type of attachment.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param attachmentType The type of attachment.
+         * @param attachmentType Type of attachment.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coreNetworkArn The ARN of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coreNetworkArn The ARN of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPN attachment.
+         * @param coreNetworkId ID of a core network for the VPN attachment.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPN attachment.
+         * @param coreNetworkId ID of a core network for the VPN attachment.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation Region where the edge is located.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation Region where the edge is located.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ownerAccountId The ID of the attachment account owner.
+         * @param ownerAccountId ID of the attachment account owner.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ownerAccountId The ID of the attachment account owner.
+         * @param ownerAccountId ID of the attachment account owner.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceArn The attachment resource ARN.
+         * @param resourceArn Attachment resource ARN.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceArn The attachment resource ARN.
+         * @param resourceArn Attachment resource ARN.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param segmentName The name of the segment attachment.
+         * @param segmentName Name of the segment attachment.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param segmentName The name of the segment attachment.
+         * @param segmentName Name of the segment attachment.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param state The state of the attachment.
+         * @param state State of the attachment.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param state The state of the attachment.
+         * @param state State of the attachment.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param vpnConnectionArn The ARN of the site-to-site VPN connection.
+         * @param vpnConnectionArn ARN of the site-to-site VPN connection.
          * 
          * The following arguments are optional:
          * 
@@ -518,7 +518,7 @@ public final class SiteToSiteVpnAttachmentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param vpnConnectionArn The ARN of the site-to-site VPN connection.
+         * @param vpnConnectionArn ARN of the site-to-site VPN connection.
          * 
          * The following arguments are optional:
          * 

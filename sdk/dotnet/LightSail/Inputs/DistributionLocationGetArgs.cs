@@ -13,13 +13,13 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class DistributionLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+        /// Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Region name.
+        /// AWS Region name.
         /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;

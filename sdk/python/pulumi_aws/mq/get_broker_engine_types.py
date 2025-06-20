@@ -46,7 +46,7 @@ class GetBrokerEngineTypesResult:
     @pulumi.getter(name="brokerEngineTypes")
     def broker_engine_types(self) -> Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeResult']:
         """
-        A list of available engine types and versions. See Engine Types.
+        List of available engine types and versions. See Engine Types.
         """
         return pulumi.get(self, "broker_engine_types")
 
@@ -54,7 +54,7 @@ class GetBrokerEngineTypesResult:
     @pulumi.getter(name="engineType")
     def engine_type(self) -> Optional[builtins.str]:
         """
-        The broker's engine type.
+        Broker's engine type.
         """
         return pulumi.get(self, "engine_type")
 
@@ -88,11 +88,9 @@ def get_broker_engine_types(engine_type: Optional[builtins.str] = None,
                             region: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerEngineTypesResult:
     """
-    Retrieve information about available broker engines.
+    Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
 
     ## Example Usage
-
-    ### Basic Usage
 
     ```python
     import pulumi
@@ -102,7 +100,7 @@ def get_broker_engine_types(engine_type: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str engine_type: The MQ engine type to return version details for.
+    :param builtins.str engine_type: MQ engine type to return version details for.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -120,11 +118,9 @@ def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[b
                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerEngineTypesResult]:
     """
-    Retrieve information about available broker engines.
+    Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
 
     ## Example Usage
-
-    ### Basic Usage
 
     ```python
     import pulumi
@@ -134,7 +130,7 @@ def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[b
     ```
 
 
-    :param builtins.str engine_type: The MQ engine type to return version details for.
+    :param builtins.str engine_type: MQ engine type to return version details for.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

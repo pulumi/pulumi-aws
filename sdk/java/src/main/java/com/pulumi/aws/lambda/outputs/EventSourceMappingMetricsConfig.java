@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class EventSourceMappingMetricsConfig {
     /**
-     * @return A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+     * @return List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
      * 
      */
     private List<String> metrics;
 
     private EventSourceMappingMetricsConfig() {}
     /**
-     * @return A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+     * @return List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
      * 
      */
     public List<String> metrics() {

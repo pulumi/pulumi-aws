@@ -20,14 +20,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     public static final DistributionCacheBehaviorSettingsArgs Empty = new DistributionCacheBehaviorSettingsArgs();
 
     /**
-     * The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
+     * HTTP methods that are processed and forwarded to the distribution&#39;s origin.
      * 
      */
     @Import(name="allowedHttpMethods")
     private @Nullable Output<String> allowedHttpMethods;
 
     /**
-     * @return The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
+     * @return HTTP methods that are processed and forwarded to the distribution&#39;s origin.
      * 
      */
     public Optional<Output<String>> allowedHttpMethods() {
@@ -35,14 +35,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * The HTTP method responses that are cached by your distribution.
+     * HTTP method responses that are cached by your distribution.
      * 
      */
     @Import(name="cachedHttpMethods")
     private @Nullable Output<String> cachedHttpMethods;
 
     /**
-     * @return The HTTP method responses that are cached by your distribution.
+     * @return HTTP method responses that are cached by your distribution.
      * 
      */
     public Optional<Output<String>> cachedHttpMethods() {
@@ -50,14 +50,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * The default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+     * Default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
      * 
      */
     @Import(name="defaultTtl")
     private @Nullable Output<Integer> defaultTtl;
 
     /**
-     * @return The default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+     * @return Default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
      * 
      */
     public Optional<Output<Integer>> defaultTtl() {
@@ -65,14 +65,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+     * Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
      * 
      */
     @Import(name="forwardedCookies")
     private @Nullable Output<DistributionCacheBehaviorSettingsForwardedCookiesArgs> forwardedCookies;
 
     /**
-     * @return An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+     * @return Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
      * 
      */
     public Optional<Output<DistributionCacheBehaviorSettingsForwardedCookiesArgs>> forwardedCookies() {
@@ -80,14 +80,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+     * Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
      * 
      */
     @Import(name="forwardedHeaders")
     private @Nullable Output<DistributionCacheBehaviorSettingsForwardedHeadersArgs> forwardedHeaders;
 
     /**
-     * @return An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+     * @return Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
      * 
      */
     public Optional<Output<DistributionCacheBehaviorSettingsForwardedHeadersArgs>> forwardedHeaders() {
@@ -95,14 +95,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+     * Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
      * 
      */
     @Import(name="forwardedQueryStrings")
     private @Nullable Output<DistributionCacheBehaviorSettingsForwardedQueryStringsArgs> forwardedQueryStrings;
 
     /**
-     * @return An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+     * @return Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
      * 
      */
     public Optional<Output<DistributionCacheBehaviorSettingsForwardedQueryStringsArgs>> forwardedQueryStrings() {
@@ -110,14 +110,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * The maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * Maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     @Import(name="maximumTtl")
     private @Nullable Output<Integer> maximumTtl;
 
     /**
-     * @return The maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * @return Maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     public Optional<Output<Integer>> maximumTtl() {
@@ -125,14 +125,14 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
     }
 
     /**
-     * The minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * Minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     @Import(name="minimumTtl")
     private @Nullable Output<Integer> minimumTtl;
 
     /**
-     * @return The minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+     * @return Minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
     public Optional<Output<Integer>> minimumTtl() {
@@ -171,7 +171,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param allowedHttpMethods The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
+         * @param allowedHttpMethods HTTP methods that are processed and forwarded to the distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param allowedHttpMethods The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
+         * @param allowedHttpMethods HTTP methods that are processed and forwarded to the distribution&#39;s origin.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cachedHttpMethods The HTTP method responses that are cached by your distribution.
+         * @param cachedHttpMethods HTTP method responses that are cached by your distribution.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cachedHttpMethods The HTTP method responses that are cached by your distribution.
+         * @param cachedHttpMethods HTTP method responses that are cached by your distribution.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param defaultTtl The default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+         * @param defaultTtl Default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param defaultTtl The default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+         * @param defaultTtl Default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param forwardedCookies An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+         * @param forwardedCookies Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param forwardedCookies An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+         * @param forwardedCookies Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param forwardedHeaders An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+         * @param forwardedHeaders Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param forwardedHeaders An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+         * @param forwardedHeaders Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param forwardedQueryStrings An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+         * @param forwardedQueryStrings Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param forwardedQueryStrings An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+         * @param forwardedQueryStrings Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param maximumTtl The maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         * @param maximumTtl Maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param maximumTtl The maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         * @param maximumTtl Maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param minimumTtl The minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         * @param minimumTtl Minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class DistributionCacheBehaviorSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param minimumTtl The minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+         * @param minimumTtl Minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          * 
          * @return builder
          * 

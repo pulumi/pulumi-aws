@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about link.
+ * Provides details about existing Network Manager links.
  *
  * ## Example Usage
  *
@@ -77,7 +77,7 @@ export interface GetLinksResult {
     readonly type?: string;
 }
 /**
- * Retrieve information about link.
+ * Provides details about existing Network Manager links.
  *
  * ## Example Usage
  *

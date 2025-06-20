@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Neptune
         /// <summary>
         /// Information about a Neptune engine version.
         /// 
+        /// &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -28,9 +30,9 @@ namespace Pulumi.Aws.Neptune
         ///     {
         ///         PreferredVersions = new[]
         ///         {
-        ///             "1.0.3.0",
-        ///             "1.0.2.2",
-        ///             "1.0.2.1",
+        ///             "1.4.5.0",
+        ///             "1.4.4.0",
+        ///             "1.4.3.0",
         ///         },
         ///     });
         /// 
@@ -43,6 +45,8 @@ namespace Pulumi.Aws.Neptune
         /// <summary>
         /// Information about a Neptune engine version.
         /// 
+        /// &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -57,9 +61,9 @@ namespace Pulumi.Aws.Neptune
         ///     {
         ///         PreferredVersions = new[]
         ///         {
-        ///             "1.0.3.0",
-        ///             "1.0.2.2",
-        ///             "1.0.2.1",
+        ///             "1.4.5.0",
+        ///             "1.4.4.0",
+        ///             "1.4.3.0",
         ///         },
         ///     });
         /// 
@@ -72,6 +76,8 @@ namespace Pulumi.Aws.Neptune
         /// <summary>
         /// Information about a Neptune engine version.
         /// 
+        /// &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -86,9 +92,9 @@ namespace Pulumi.Aws.Neptune
         ///     {
         ///         PreferredVersions = new[]
         ///         {
-        ///             "1.0.3.0",
-        ///             "1.0.2.2",
-        ///             "1.0.2.1",
+        ///             "1.4.5.0",
+        ///             "1.4.4.0",
+        ///             "1.4.3.0",
         ///         },
         ///     });
         /// 
@@ -103,16 +109,64 @@ namespace Pulumi.Aws.Neptune
     public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. (Default: `neptune`)
+        /// Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+        /// </summary>
+        [Input("defaultOnly")]
+        public bool? DefaultOnly { get; set; }
+
+        /// <summary>
+        /// DB engine. Must be `neptune`. Default is `neptune`.
         /// </summary>
         [Input("engine")]
         public string? Engine { get; set; }
 
         /// <summary>
-        /// Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+        /// Whether to filter for engine versions that have a major target.
+        /// </summary>
+        [Input("hasMajorTarget")]
+        public bool? HasMajorTarget { get; set; }
+
+        /// <summary>
+        /// Whether to filter for engine versions that have a minor target.
+        /// </summary>
+        [Input("hasMinorTarget")]
+        public bool? HasMinorTarget { get; set; }
+
+        /// <summary>
+        /// Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+        /// </summary>
+        [Input("latest")]
+        public bool? Latest { get; set; }
+
+        /// <summary>
+        /// Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
         /// </summary>
         [Input("parameterGroupFamily")]
         public string? ParameterGroupFamily { get; set; }
+
+        [Input("preferredMajorTargets")]
+        private List<string>? _preferredMajorTargets;
+
+        /// <summary>
+        /// Ordered list of preferred major engine versions.
+        /// </summary>
+        public List<string> PreferredMajorTargets
+        {
+            get => _preferredMajorTargets ?? (_preferredMajorTargets = new List<string>());
+            set => _preferredMajorTargets = value;
+        }
+
+        [Input("preferredUpgradeTargets")]
+        private List<string>? _preferredUpgradeTargets;
+
+        /// <summary>
+        /// Ordered list of preferred upgrade engine versions.
+        /// </summary>
+        public List<string> PreferredUpgradeTargets
+        {
+            get => _preferredUpgradeTargets ?? (_preferredUpgradeTargets = new List<string>());
+            set => _preferredUpgradeTargets = value;
+        }
 
         [Input("preferredVersions")]
         private List<string>? _preferredVersions;
@@ -147,16 +201,64 @@ namespace Pulumi.Aws.Neptune
     public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. (Default: `neptune`)
+        /// Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+        /// </summary>
+        [Input("defaultOnly")]
+        public Input<bool>? DefaultOnly { get; set; }
+
+        /// <summary>
+        /// DB engine. Must be `neptune`. Default is `neptune`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+        /// Whether to filter for engine versions that have a major target.
+        /// </summary>
+        [Input("hasMajorTarget")]
+        public Input<bool>? HasMajorTarget { get; set; }
+
+        /// <summary>
+        /// Whether to filter for engine versions that have a minor target.
+        /// </summary>
+        [Input("hasMinorTarget")]
+        public Input<bool>? HasMinorTarget { get; set; }
+
+        /// <summary>
+        /// Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+        /// </summary>
+        [Input("latest")]
+        public Input<bool>? Latest { get; set; }
+
+        /// <summary>
+        /// Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
         /// </summary>
         [Input("parameterGroupFamily")]
         public Input<string>? ParameterGroupFamily { get; set; }
+
+        [Input("preferredMajorTargets")]
+        private InputList<string>? _preferredMajorTargets;
+
+        /// <summary>
+        /// Ordered list of preferred major engine versions.
+        /// </summary>
+        public InputList<string> PreferredMajorTargets
+        {
+            get => _preferredMajorTargets ?? (_preferredMajorTargets = new InputList<string>());
+            set => _preferredMajorTargets = value;
+        }
+
+        [Input("preferredUpgradeTargets")]
+        private InputList<string>? _preferredUpgradeTargets;
+
+        /// <summary>
+        /// Ordered list of preferred upgrade engine versions.
+        /// </summary>
+        public InputList<string> PreferredUpgradeTargets
+        {
+            get => _preferredUpgradeTargets ?? (_preferredUpgradeTargets = new InputList<string>());
+            set => _preferredUpgradeTargets = value;
+        }
 
         [Input("preferredVersions")]
         private InputList<string>? _preferredVersions;
@@ -192,6 +294,11 @@ namespace Pulumi.Aws.Neptune
     [OutputType]
     public sealed class GetEngineVersionResult
     {
+        /// <summary>
+        /// Default character set for the engine version.
+        /// </summary>
+        public readonly string DefaultCharacterSet;
+        public readonly bool? DefaultOnly;
         public readonly string? Engine;
         /// <summary>
         /// Description of the database engine.
@@ -201,30 +308,55 @@ namespace Pulumi.Aws.Neptune
         /// Set of log types that the database engine has available for export to CloudWatch Logs.
         /// </summary>
         public readonly ImmutableArray<string> ExportableLogTypes;
+        public readonly bool? HasMajorTarget;
+        public readonly bool? HasMinorTarget;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? Latest;
         public readonly string ParameterGroupFamily;
+        public readonly ImmutableArray<string> PreferredMajorTargets;
+        public readonly ImmutableArray<string> PreferredUpgradeTargets;
         public readonly ImmutableArray<string> PreferredVersions;
         public readonly string Region;
         /// <summary>
-        /// Set of the time zones supported by this engine.
+        /// Set of character sets supported by this engine version.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedCharacterSets;
+        /// <summary>
+        /// Set of time zones supported by this engine.
         /// </summary>
         public readonly ImmutableArray<string> SupportedTimezones;
         /// <summary>
-        /// Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+        /// Whether the engine version supports global databases.
+        /// </summary>
+        public readonly bool SupportsGlobalDatabases;
+        /// <summary>
+        /// Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         /// </summary>
         public readonly bool SupportsLogExportsToCloudwatch;
         /// <summary>
-        /// Indicates whether the database engine version supports read replicas.
+        /// Whether the database engine version supports read replicas.
         /// </summary>
         public readonly bool SupportsReadReplica;
+        /// <summary>
+        /// Set of valid major engine versions that this version can be upgraded to.
+        /// </summary>
+        public readonly ImmutableArray<string> ValidMajorTargets;
+        /// <summary>
+        /// Set of valid minor engine versions that this version can be upgraded to.
+        /// </summary>
+        public readonly ImmutableArray<string> ValidMinorTargets;
         /// <summary>
         /// Set of engine versions that this database engine version can be upgraded to.
         /// </summary>
         public readonly ImmutableArray<string> ValidUpgradeTargets;
         public readonly string Version;
+        /// <summary>
+        /// Actual engine version returned by the API.
+        /// </summary>
+        public readonly string VersionActual;
         /// <summary>
         /// Description of the database engine version.
         /// </summary>
@@ -232,44 +364,80 @@ namespace Pulumi.Aws.Neptune
 
         [OutputConstructor]
         private GetEngineVersionResult(
+            string defaultCharacterSet,
+
+            bool? defaultOnly,
+
             string? engine,
 
             string engineDescription,
 
             ImmutableArray<string> exportableLogTypes,
 
+            bool? hasMajorTarget,
+
+            bool? hasMinorTarget,
+
             string id,
 
+            bool? latest,
+
             string parameterGroupFamily,
+
+            ImmutableArray<string> preferredMajorTargets,
+
+            ImmutableArray<string> preferredUpgradeTargets,
 
             ImmutableArray<string> preferredVersions,
 
             string region,
 
+            ImmutableArray<string> supportedCharacterSets,
+
             ImmutableArray<string> supportedTimezones,
+
+            bool supportsGlobalDatabases,
 
             bool supportsLogExportsToCloudwatch,
 
             bool supportsReadReplica,
 
+            ImmutableArray<string> validMajorTargets,
+
+            ImmutableArray<string> validMinorTargets,
+
             ImmutableArray<string> validUpgradeTargets,
 
             string version,
 
+            string versionActual,
+
             string versionDescription)
         {
+            DefaultCharacterSet = defaultCharacterSet;
+            DefaultOnly = defaultOnly;
             Engine = engine;
             EngineDescription = engineDescription;
             ExportableLogTypes = exportableLogTypes;
+            HasMajorTarget = hasMajorTarget;
+            HasMinorTarget = hasMinorTarget;
             Id = id;
+            Latest = latest;
             ParameterGroupFamily = parameterGroupFamily;
+            PreferredMajorTargets = preferredMajorTargets;
+            PreferredUpgradeTargets = preferredUpgradeTargets;
             PreferredVersions = preferredVersions;
             Region = region;
+            SupportedCharacterSets = supportedCharacterSets;
             SupportedTimezones = supportedTimezones;
+            SupportsGlobalDatabases = supportsGlobalDatabases;
             SupportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             SupportsReadReplica = supportsReadReplica;
+            ValidMajorTargets = validMajorTargets;
+            ValidMinorTargets = validMinorTargets;
             ValidUpgradeTargets = validUpgradeTargets;
             Version = version;
+            VersionActual = versionActual;
             VersionDescription = versionDescription;
         }
     }

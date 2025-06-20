@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Creates a link for a site.
+    /// Manages a Network Manager link. Use this resource to create a link for a site.
     /// 
     /// ## Example Usage
     /// 
@@ -49,37 +49,39 @@ namespace Pulumi.Aws.NetworkManager
     public partial class Link : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Link Amazon Resource Name (ARN).
+        /// Link ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The upload speed and download speed in Mbps. Documented below.
+        /// Upload speed and download speed in Mbps. See below.
         /// </summary>
         [Output("bandwidth")]
         public Output<Outputs.LinkBandwidth> Bandwidth { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the link.
+        /// Description of the link.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
         /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The provider of the link.
+        /// Provider of the link.
         /// </summary>
         [Output("providerName")]
         public Output<string?> ProviderName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("siteId")]
         public Output<string> SiteId { get; private set; } = null!;
@@ -91,13 +93,13 @@ namespace Pulumi.Aws.NetworkManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the link.
+        /// Type of the link.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -149,31 +151,33 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class LinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The upload speed and download speed in Mbps. Documented below.
+        /// Upload speed and download speed in Mbps. See below.
         /// </summary>
         [Input("bandwidth", required: true)]
         public Input<Inputs.LinkBandwidthArgs> Bandwidth { get; set; } = null!;
 
         /// <summary>
-        /// A description of the link.
+        /// Description of the link.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The provider of the link.
+        /// Provider of the link.
         /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("siteId", required: true)]
         public Input<string> SiteId { get; set; } = null!;
@@ -191,7 +195,7 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The type of the link.
+        /// Type of the link.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -205,37 +209,39 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class LinkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Link Amazon Resource Name (ARN).
+        /// Link ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The upload speed and download speed in Mbps. Documented below.
+        /// Upload speed and download speed in Mbps. See below.
         /// </summary>
         [Input("bandwidth")]
         public Input<Inputs.LinkBandwidthGetArgs>? Bandwidth { get; set; }
 
         /// <summary>
-        /// A description of the link.
+        /// Description of the link.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
         /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
         /// <summary>
-        /// The provider of the link.
+        /// Provider of the link.
         /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
@@ -256,7 +262,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -265,7 +271,7 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The type of the link.
+        /// Type of the link.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -21,14 +21,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     public static final ClusterState Empty = new ClusterState();
 
     /**
-     * Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
+     * Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
      * 
      */
     @Import(name="allowMajorVersionUpgrade")
     private @Nullable Output<Boolean> allowMajorVersionUpgrade;
 
     /**
-     * @return Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
+     * @return Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> allowMajorVersionUpgrade() {
@@ -36,14 +36,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     * Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
     @Import(name="applyImmediately")
     private @Nullable Output<Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     * @return Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> applyImmediately() {
@@ -51,14 +51,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Neptune Cluster Amazon Resource Name (ARN)
+     * Neptune Cluster ARN
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Neptune Cluster Amazon Resource Name (ARN)
+     * @return Neptune Cluster ARN
      * 
      */
     public Optional<Output<String>> arn() {
@@ -66,14 +66,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+     * List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+     * @return List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -81,31 +81,23 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The days to retain backups for. Default `1`
+     * Days to retain backups for. Default `1`
      * 
      */
     @Import(name="backupRetentionPeriod")
     private @Nullable Output<Integer> backupRetentionPeriod;
 
     /**
-     * @return The days to retain backups for. Default `1`
+     * @return Days to retain backups for. Default `1`
      * 
      */
     public Optional<Output<Integer>> backupRetentionPeriod() {
         return Optional.ofNullable(this.backupRetentionPeriod);
     }
 
-    /**
-     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-     * 
-     */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-     * 
-     */
     public Optional<Output<String>> clusterIdentifier() {
         return Optional.ofNullable(this.clusterIdentifier);
     }
@@ -141,14 +133,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Neptune Cluster Resource ID
+     * Neptune Cluster Resource ID
      * 
      */
     @Import(name="clusterResourceId")
     private @Nullable Output<String> clusterResourceId;
 
     /**
-     * @return The Neptune Cluster Resource ID
+     * @return Neptune Cluster Resource ID
      * 
      */
     public Optional<Output<String>> clusterResourceId() {
@@ -171,14 +163,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * Value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      * 
      */
     @Import(name="deletionProtection")
     private @Nullable Output<Boolean> deletionProtection;
 
     /**
-     * @return A value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * @return Value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      * 
      */
     public Optional<Output<Boolean>> deletionProtection() {
@@ -186,14 +178,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     @Import(name="enableCloudwatchLogsExports")
     private @Nullable Output<List<String>> enableCloudwatchLogsExports;
 
     /**
-     * @return A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+     * @return List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     public Optional<Output<List<String>>> enableCloudwatchLogsExports() {
@@ -201,14 +193,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS address of the Neptune instance
+     * DNS address of the Neptune instance
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The DNS address of the Neptune instance
+     * @return DNS address of the Neptune instance
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -216,14 +208,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+     * Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+     * @return Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -231,14 +223,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database engine version.
+     * Database engine version.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The database engine version.
+     * @return Database engine version.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -246,14 +238,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+     * Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     @Import(name="finalSnapshotIdentifier")
     private @Nullable Output<String> finalSnapshotIdentifier;
 
     /**
-     * @return The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+     * @return Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     public Optional<Output<String>> finalSnapshotIdentifier() {
@@ -261,14 +253,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * Global cluster identifier specified on `aws.neptune.GlobalCluster`.
      * 
      */
     @Import(name="globalClusterIdentifier")
     private @Nullable Output<String> globalClusterIdentifier;
 
     /**
-     * @return The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+     * @return Global cluster identifier specified on `aws.neptune.GlobalCluster`.
      * 
      */
     public Optional<Output<String>> globalClusterIdentifier() {
@@ -276,14 +268,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Route53 Hosted Zone ID of the endpoint
+     * Route53 Hosted Zone ID of the endpoint
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return The Route53 Hosted Zone ID of the endpoint
+     * @return Route53 Hosted Zone ID of the endpoint
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -291,14 +283,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      * 
      */
     @Import(name="iamDatabaseAuthenticationEnabled")
     private @Nullable Output<Boolean> iamDatabaseAuthenticationEnabled;
 
     /**
-     * @return Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * @return Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      * 
      */
     public Optional<Output<Boolean>> iamDatabaseAuthenticationEnabled() {
@@ -306,14 +298,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+     * List of ARNs for the IAM roles to associate to the Neptune Cluster.
      * 
      */
     @Import(name="iamRoles")
     private @Nullable Output<List<String>> iamRoles;
 
     /**
-     * @return A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+     * @return List of ARNs for the IAM roles to associate to the Neptune Cluster.
      * 
      */
     public Optional<Output<List<String>>> iamRoles() {
@@ -321,14 +313,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+     * ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -336,14 +328,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A cluster parameter group to associate with the cluster.
+     * Cluster parameter group to associate with the cluster.
      * 
      */
     @Import(name="neptuneClusterParameterGroupName")
     private @Nullable Output<String> neptuneClusterParameterGroupName;
 
     /**
-     * @return A cluster parameter group to associate with the cluster.
+     * @return Cluster parameter group to associate with the cluster.
      * 
      */
     public Optional<Output<String>> neptuneClusterParameterGroupName() {
@@ -351,14 +343,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the DB parameter group to apply to all instances of the DB cluster.
+     * Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
      * 
      */
     @Import(name="neptuneInstanceParameterGroupName")
     private @Nullable Output<String> neptuneInstanceParameterGroupName;
 
     /**
-     * @return The name of the DB parameter group to apply to all instances of the DB cluster.
+     * @return Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
      * 
      */
     public Optional<Output<String>> neptuneInstanceParameterGroupName() {
@@ -366,14 +358,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Neptune subnet group to associate with this Neptune instance.
+     * Neptune subnet group to associate with this Neptune instance.
      * 
      */
     @Import(name="neptuneSubnetGroupName")
     private @Nullable Output<String> neptuneSubnetGroupName;
 
     /**
-     * @return A Neptune subnet group to associate with this Neptune instance.
+     * @return Neptune subnet group to associate with this Neptune instance.
      * 
      */
     public Optional<Output<String>> neptuneSubnetGroupName() {
@@ -381,14 +373,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port on which the Neptune accepts connections. Default is `8182`.
+     * Port on which the Neptune accepts connections. Default is `8182`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port on which the Neptune accepts connections. Default is `8182`.
+     * @return Port on which the Neptune accepts connections. Default is `8182`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -396,14 +388,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
     @Import(name="preferredBackupWindow")
     private @Nullable Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * @return Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
     public Optional<Output<String>> preferredBackupWindow() {
@@ -411,14 +403,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * @return Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -426,14 +418,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+     * Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      * 
      */
     @Import(name="readerEndpoint")
     private @Nullable Output<String> readerEndpoint;
 
     /**
-     * @return A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+     * @return Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      * 
      */
     public Optional<Output<String>> readerEndpoint() {
@@ -486,14 +478,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
     @Import(name="skipFinalSnapshot")
     private @Nullable Output<Boolean> skipFinalSnapshot;
 
     /**
-     * @return Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * @return Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> skipFinalSnapshot() {
@@ -501,14 +493,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+     * Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
     @Import(name="snapshotIdentifier")
     private @Nullable Output<String> snapshotIdentifier;
 
     /**
-     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+     * @return Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
     public Optional<Output<String>> snapshotIdentifier() {
@@ -516,14 +508,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+     * Whether the Neptune cluster is encrypted. The default is `false` if not specified.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+     * @return Whether the Neptune cluster is encrypted. The default is `false` if not specified.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -531,14 +523,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * @return Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -546,14 +538,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -561,14 +553,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -652,7 +644,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowMajorVersionUpgrade Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
+         * @param allowMajorVersionUpgrade Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
          * 
          * @return builder
          * 
@@ -663,7 +655,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowMajorVersionUpgrade Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
+         * @param allowMajorVersionUpgrade Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
          * 
          * @return builder
          * 
@@ -673,7 +665,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applyImmediately Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+         * @param applyImmediately Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
          * 
          * @return builder
          * 
@@ -684,7 +676,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applyImmediately Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+         * @param applyImmediately Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
          * 
          * @return builder
          * 
@@ -694,7 +686,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Neptune Cluster Amazon Resource Name (ARN)
+         * @param arn Neptune Cluster ARN
          * 
          * @return builder
          * 
@@ -705,7 +697,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Neptune Cluster Amazon Resource Name (ARN)
+         * @param arn Neptune Cluster ARN
          * 
          * @return builder
          * 
@@ -715,7 +707,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+         * @param availabilityZones List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
          * 
          * @return builder
          * 
@@ -726,7 +718,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+         * @param availabilityZones List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
          * 
          * @return builder
          * 
@@ -736,7 +728,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+         * @param availabilityZones List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
          * 
          * @return builder
          * 
@@ -746,7 +738,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionPeriod The days to retain backups for. Default `1`
+         * @param backupRetentionPeriod Days to retain backups for. Default `1`
          * 
          * @return builder
          * 
@@ -757,7 +749,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionPeriod The days to retain backups for. Default `1`
+         * @param backupRetentionPeriod Days to retain backups for. Default `1`
          * 
          * @return builder
          * 
@@ -766,23 +758,11 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return backupRetentionPeriod(Output.of(backupRetentionPeriod));
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(@Nullable Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
@@ -840,7 +820,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterResourceId The Neptune Cluster Resource ID
+         * @param clusterResourceId Neptune Cluster Resource ID
          * 
          * @return builder
          * 
@@ -851,7 +831,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterResourceId The Neptune Cluster Resource ID
+         * @param clusterResourceId Neptune Cluster Resource ID
          * 
          * @return builder
          * 
@@ -882,7 +862,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletionProtection A value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+         * @param deletionProtection Value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
          * 
          * @return builder
          * 
@@ -893,7 +873,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletionProtection A value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+         * @param deletionProtection Value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
          * 
          * @return builder
          * 
@@ -903,7 +883,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 
@@ -914,7 +894,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 
@@ -924,7 +904,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+         * @param enableCloudwatchLogsExports List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 
@@ -934,7 +914,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The DNS address of the Neptune instance
+         * @param endpoint DNS address of the Neptune instance
          * 
          * @return builder
          * 
@@ -945,7 +925,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The DNS address of the Neptune instance
+         * @param endpoint DNS address of the Neptune instance
          * 
          * @return builder
          * 
@@ -955,7 +935,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+         * @param engine Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
          * 
          * @return builder
          * 
@@ -966,7 +946,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+         * @param engine Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
          * 
          * @return builder
          * 
@@ -976,7 +956,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The database engine version.
+         * @param engineVersion Database engine version.
          * 
          * @return builder
          * 
@@ -987,7 +967,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion The database engine version.
+         * @param engineVersion Database engine version.
          * 
          * @return builder
          * 
@@ -997,7 +977,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotIdentifier The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+         * @param finalSnapshotIdentifier Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
          * 
          * @return builder
          * 
@@ -1008,7 +988,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotIdentifier The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+         * @param finalSnapshotIdentifier Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
          * 
          * @return builder
          * 
@@ -1018,7 +998,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalClusterIdentifier The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+         * @param globalClusterIdentifier Global cluster identifier specified on `aws.neptune.GlobalCluster`.
          * 
          * @return builder
          * 
@@ -1029,7 +1009,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalClusterIdentifier The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+         * @param globalClusterIdentifier Global cluster identifier specified on `aws.neptune.GlobalCluster`.
          * 
          * @return builder
          * 
@@ -1039,7 +1019,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The Route53 Hosted Zone ID of the endpoint
+         * @param hostedZoneId Route53 Hosted Zone ID of the endpoint
          * 
          * @return builder
          * 
@@ -1050,7 +1030,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostedZoneId The Route53 Hosted Zone ID of the endpoint
+         * @param hostedZoneId Route53 Hosted Zone ID of the endpoint
          * 
          * @return builder
          * 
@@ -1060,7 +1040,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamDatabaseAuthenticationEnabled Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+         * @param iamDatabaseAuthenticationEnabled Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
          * 
          * @return builder
          * 
@@ -1071,7 +1051,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamDatabaseAuthenticationEnabled Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+         * @param iamDatabaseAuthenticationEnabled Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
          * 
          * @return builder
          * 
@@ -1081,7 +1061,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoles A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+         * @param iamRoles List of ARNs for the IAM roles to associate to the Neptune Cluster.
          * 
          * @return builder
          * 
@@ -1092,7 +1072,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoles A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+         * @param iamRoles List of ARNs for the IAM roles to associate to the Neptune Cluster.
          * 
          * @return builder
          * 
@@ -1102,7 +1082,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoles A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+         * @param iamRoles List of ARNs for the IAM roles to associate to the Neptune Cluster.
          * 
          * @return builder
          * 
@@ -1112,7 +1092,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyArn ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -1123,7 +1103,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyArn ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -1133,7 +1113,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param neptuneClusterParameterGroupName A cluster parameter group to associate with the cluster.
+         * @param neptuneClusterParameterGroupName Cluster parameter group to associate with the cluster.
          * 
          * @return builder
          * 
@@ -1144,7 +1124,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param neptuneClusterParameterGroupName A cluster parameter group to associate with the cluster.
+         * @param neptuneClusterParameterGroupName Cluster parameter group to associate with the cluster.
          * 
          * @return builder
          * 
@@ -1154,7 +1134,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param neptuneInstanceParameterGroupName The name of the DB parameter group to apply to all instances of the DB cluster.
+         * @param neptuneInstanceParameterGroupName Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
          * 
          * @return builder
          * 
@@ -1165,7 +1145,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param neptuneInstanceParameterGroupName The name of the DB parameter group to apply to all instances of the DB cluster.
+         * @param neptuneInstanceParameterGroupName Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
          * 
          * @return builder
          * 
@@ -1175,7 +1155,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param neptuneSubnetGroupName A Neptune subnet group to associate with this Neptune instance.
+         * @param neptuneSubnetGroupName Neptune subnet group to associate with this Neptune instance.
          * 
          * @return builder
          * 
@@ -1186,7 +1166,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param neptuneSubnetGroupName A Neptune subnet group to associate with this Neptune instance.
+         * @param neptuneSubnetGroupName Neptune subnet group to associate with this Neptune instance.
          * 
          * @return builder
          * 
@@ -1196,7 +1176,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the Neptune accepts connections. Default is `8182`.
+         * @param port Port on which the Neptune accepts connections. Default is `8182`.
          * 
          * @return builder
          * 
@@ -1207,7 +1187,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the Neptune accepts connections. Default is `8182`.
+         * @param port Port on which the Neptune accepts connections. Default is `8182`.
          * 
          * @return builder
          * 
@@ -1217,7 +1197,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
          * 
          * @return builder
          * 
@@ -1228,7 +1208,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+         * @param preferredBackupWindow Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
          * 
          * @return builder
          * 
@@ -1238,7 +1218,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
          * 
          * @return builder
          * 
@@ -1249,7 +1229,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
          * 
          * @return builder
          * 
@@ -1259,7 +1239,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readerEndpoint A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+         * @param readerEndpoint Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
          * 
          * @return builder
          * 
@@ -1270,7 +1250,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readerEndpoint A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+         * @param readerEndpoint Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
          * 
          * @return builder
          * 
@@ -1343,7 +1323,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalSnapshot Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+         * @param skipFinalSnapshot Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
          * 
          * @return builder
          * 
@@ -1354,7 +1334,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalSnapshot Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+         * @param skipFinalSnapshot Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
          * 
          * @return builder
          * 
@@ -1364,7 +1344,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+         * @param snapshotIdentifier Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
          * 
          * @return builder
          * 
@@ -1375,7 +1355,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+         * @param snapshotIdentifier Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
          * 
          * @return builder
          * 
@@ -1385,7 +1365,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+         * @param storageEncrypted Whether the Neptune cluster is encrypted. The default is `false` if not specified.
          * 
          * @return builder
          * 
@@ -1396,7 +1376,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+         * @param storageEncrypted Whether the Neptune cluster is encrypted. The default is `false` if not specified.
          * 
          * @return builder
          * 
@@ -1406,7 +1386,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
          * 
          * @return builder
          * 
@@ -1417,7 +1397,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
          * 
          * @return builder
          * 
@@ -1427,7 +1407,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1438,7 +1418,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1448,7 +1428,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1459,7 +1439,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

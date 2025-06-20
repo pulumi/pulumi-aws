@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionCacheBehaviorSettingsForwardedQueryStrings {
     /**
-     * @return Indicates whether the distribution forwards and caches based on query strings.
+     * @return Whether the distribution forwards and caches based on query strings.
      * 
      */
     private @Nullable Boolean option;
     /**
-     * @return The specific query strings that the distribution forwards to the origin.
+     * @return Specific query strings that the distribution forwards to the origin.
      * 
      */
     private @Nullable List<String> queryStringsAllowedLists;
 
     private DistributionCacheBehaviorSettingsForwardedQueryStrings() {}
     /**
-     * @return Indicates whether the distribution forwards and caches based on query strings.
+     * @return Whether the distribution forwards and caches based on query strings.
      * 
      */
     public Optional<Boolean> option() {
         return Optional.ofNullable(this.option);
     }
     /**
-     * @return The specific query strings that the distribution forwards to the origin.
+     * @return Specific query strings that the distribution forwards to the origin.
      * 
      */
     public List<String> queryStringsAllowedLists() {

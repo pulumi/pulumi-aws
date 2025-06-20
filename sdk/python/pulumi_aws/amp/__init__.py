@@ -13,5 +13,6 @@ from .get_workspaces import *
 from .rule_group_namespace import *
 from .scraper import *
 from .workspace import *
+from .workspace_configuration import *
 from ._inputs import *
 from . import outputs

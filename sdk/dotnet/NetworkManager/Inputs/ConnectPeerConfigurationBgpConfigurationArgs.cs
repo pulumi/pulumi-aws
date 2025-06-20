@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class ConnectPeerConfigurationBgpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Connect peer core network address.
+        /// Connect peer core network address.
         /// </summary>
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
@@ -22,13 +22,16 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public Input<int>? CoreNetworkAsn { get; set; }
 
         /// <summary>
-        /// The Connect peer address.
+        /// Connect peer address.
         /// 
         /// The following arguments are optional:
         /// </summary>
         [Input("peerAddress")]
         public Input<string>? PeerAddress { get; set; }
 
+        /// <summary>
+        /// Peer ASN.
+        /// </summary>
         [Input("peerAsn")]
         public Input<int>? PeerAsn { get; set; }
 
