@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 from . import outputs
 from ._inputs import *
+from .rest_api import RestApi
 
 __all__ = ['IntegrationArgs', 'Integration']
 
@@ -24,7 +25,7 @@ class IntegrationArgs:
     def __init__(__self__, *,
                  http_method: pulumi.Input[builtins.str],
                  resource_id: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  type: pulumi.Input[builtins.str],
                  cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  cache_namespace: Optional[pulumi.Input[builtins.str]] = None,
@@ -45,7 +46,7 @@ class IntegrationArgs:
         :param pulumi.Input[builtins.str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
                when calling the associated resource.
         :param pulumi.Input[builtins.str] resource_id: API resource ID.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API.
         :param pulumi.Input[builtins.str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cache_key_parameters: List of cache key parameters for the integration.
         :param pulumi.Input[builtins.str] cache_namespace: Integration's cache namespace.
@@ -129,14 +130,14 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         ID of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -343,7 +344,7 @@ class _IntegrationState:
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[builtins.int]] = None,
                  tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -369,7 +370,7 @@ class _IntegrationState:
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[builtins.str] resource_id: API resource ID.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API.
         :param pulumi.Input[builtins.int] timeout_milliseconds: Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
         :param pulumi.Input[builtins.str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
@@ -578,14 +579,14 @@ class _IntegrationState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         ID of the associated REST API.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -658,7 +659,7 @@ class Integration(pulumi.CustomResource):
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[builtins.int]] = None,
                  tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -846,7 +847,7 @@ class Integration(pulumi.CustomResource):
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[builtins.str] resource_id: API resource ID.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API.
         :param pulumi.Input[builtins.int] timeout_milliseconds: Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration. See below.
         :param pulumi.Input[builtins.str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
@@ -1049,7 +1050,7 @@ class Integration(pulumi.CustomResource):
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[builtins.int]] = None,
                  tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -1112,7 +1113,7 @@ class Integration(pulumi.CustomResource):
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             timeout_milliseconds: Optional[pulumi.Input[builtins.int]] = None,
             tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
@@ -1143,7 +1144,7 @@ class Integration(pulumi.CustomResource):
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[builtins.str] resource_id: API resource ID.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API.
         :param pulumi.Input[builtins.int] timeout_milliseconds: Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration. See below.
         :param pulumi.Input[builtins.str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.

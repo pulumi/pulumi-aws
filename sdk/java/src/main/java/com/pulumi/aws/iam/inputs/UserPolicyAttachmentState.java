@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.iam.User;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -35,13 +37,13 @@ public final class UserPolicyAttachmentState extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="user")
-    private @Nullable Output<String> user;
+    private @Nullable Output<Either<String,User>> user;
 
     /**
      * @return The user the policy should be applied to
      * 
      */
-    public Optional<Output<String>> user() {
+    public Optional<Output<Either<String,User>>> user() {
         return Optional.ofNullable(this.user);
     }
 
@@ -97,7 +99,7 @@ public final class UserPolicyAttachmentState extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder user(@Nullable Output<String> user) {
+        public Builder user(@Nullable Output<Either<String,User>> user) {
             $.user = user;
             return this;
         }
@@ -108,8 +110,28 @@ public final class UserPolicyAttachmentState extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder user(String user) {
+        public Builder user(Either<String,User> user) {
             return user(Output.of(user));
+        }
+
+        /**
+         * @param user The user the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(String user) {
+            return user(Either.ofLeft(user));
+        }
+
+        /**
+         * @param user The user the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(User user) {
+            return user(Either.ofRight(user));
         }
 
         public UserPolicyAttachmentState build() {

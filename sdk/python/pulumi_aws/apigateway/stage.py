@@ -16,14 +16,16 @@ else:
 from .. import _utilities
 from . import outputs
 from ._inputs import *
+from .deployment import Deployment
+from .rest_api import RestApi
 
 __all__ = ['StageArgs', 'Stage']
 
 @pulumi.input_type
 class StageArgs:
     def __init__(__self__, *,
-                 deployment: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str],
+                 deployment: pulumi.Input[Union[builtins.str, 'Deployment']],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  stage_name: pulumi.Input[builtins.str],
                  access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
                  cache_cluster_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -38,8 +40,8 @@ class StageArgs:
                  xray_tracing_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a Stage resource.
-        :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'Deployment']] deployment: ID of the deployment that the stage points to
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
         :param pulumi.Input[builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
@@ -81,26 +83,26 @@ class StageArgs:
 
     @property
     @pulumi.getter
-    def deployment(self) -> pulumi.Input[builtins.str]:
+    def deployment(self) -> pulumi.Input[Union[builtins.str, 'Deployment']]:
         """
         ID of the deployment that the stage points to
         """
         return pulumi.get(self, "deployment")
 
     @deployment.setter
-    def deployment(self, value: pulumi.Input[builtins.str]):
+    def deployment(self, value: pulumi.Input[Union[builtins.str, 'Deployment']]):
         pulumi.set(self, "deployment", value)
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -257,13 +259,13 @@ class _StageState:
                  cache_cluster_size: Optional[pulumi.Input[builtins.str]] = None,
                  canary_settings: Optional[pulumi.Input['StageCanarySettingsArgs']] = None,
                  client_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
-                 deployment: Optional[pulumi.Input[builtins.str]] = None,
+                 deployment: Optional[pulumi.Input[Union[builtins.str, 'Deployment']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  documentation_version: Optional[pulumi.Input[builtins.str]] = None,
                  execution_arn: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_url: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -278,7 +280,7 @@ class _StageState:
         :param pulumi.Input[builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         :param pulumi.Input['StageCanarySettingsArgs'] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
-        :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
+        :param pulumi.Input[Union[builtins.str, 'Deployment']] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
         :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
         :param pulumi.Input[builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
@@ -287,7 +289,7 @@ class _StageState:
         :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -408,14 +410,14 @@ class _StageState:
 
     @property
     @pulumi.getter
-    def deployment(self) -> Optional[pulumi.Input[builtins.str]]:
+    def deployment(self) -> Optional[pulumi.Input[Union[builtins.str, 'Deployment']]]:
         """
         ID of the deployment that the stage points to
         """
         return pulumi.get(self, "deployment")
 
     @deployment.setter
-    def deployment(self, value: Optional[pulumi.Input[builtins.str]]):
+    def deployment(self, value: Optional[pulumi.Input[Union[builtins.str, 'Deployment']]]):
         pulumi.set(self, "deployment", value)
 
     @property
@@ -483,14 +485,14 @@ class _StageState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -577,11 +579,11 @@ class Stage(pulumi.CustomResource):
                  cache_cluster_size: Optional[pulumi.Input[builtins.str]] = None,
                  canary_settings: Optional[pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict']]] = None,
                  client_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
-                 deployment: Optional[pulumi.Input[builtins.str]] = None,
+                 deployment: Optional[pulumi.Input[Union[builtins.str, 'Deployment']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  documentation_version: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -625,11 +627,11 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict']] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
-        :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
+        :param pulumi.Input[Union[builtins.str, 'Deployment']] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
         :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables.
@@ -692,11 +694,11 @@ class Stage(pulumi.CustomResource):
                  cache_cluster_size: Optional[pulumi.Input[builtins.str]] = None,
                  canary_settings: Optional[pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict']]] = None,
                  client_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
-                 deployment: Optional[pulumi.Input[builtins.str]] = None,
+                 deployment: Optional[pulumi.Input[Union[builtins.str, 'Deployment']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  documentation_version: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -751,13 +753,13 @@ class Stage(pulumi.CustomResource):
             cache_cluster_size: Optional[pulumi.Input[builtins.str]] = None,
             canary_settings: Optional[pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict']]] = None,
             client_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
-            deployment: Optional[pulumi.Input[builtins.str]] = None,
+            deployment: Optional[pulumi.Input[Union[builtins.str, 'Deployment']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             documentation_version: Optional[pulumi.Input[builtins.str]] = None,
             execution_arn: Optional[pulumi.Input[builtins.str]] = None,
             invoke_url: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             stage_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -777,7 +779,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cache_cluster_size: Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         :param pulumi.Input[Union['StageCanarySettingsArgs', 'StageCanarySettingsArgsDict']] canary_settings: Configuration settings of a canary deployment. See Canary Settings below.
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
-        :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
+        :param pulumi.Input[Union[builtins.str, 'Deployment']] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
         :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
         :param pulumi.Input[builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
@@ -786,7 +788,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

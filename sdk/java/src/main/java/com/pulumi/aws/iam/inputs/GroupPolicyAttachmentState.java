@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.iam.Group;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -20,13 +22,13 @@ public final class GroupPolicyAttachmentState extends com.pulumi.resources.Resou
      * 
      */
     @Import(name="group")
-    private @Nullable Output<String> group;
+    private @Nullable Output<Either<String,Group>> group;
 
     /**
      * @return The group the policy should be applied to
      * 
      */
-    public Optional<Output<String>> group() {
+    public Optional<Output<Either<String,Group>>> group() {
         return Optional.ofNullable(this.group);
     }
 
@@ -76,7 +78,7 @@ public final class GroupPolicyAttachmentState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder group(@Nullable Output<String> group) {
+        public Builder group(@Nullable Output<Either<String,Group>> group) {
             $.group = group;
             return this;
         }
@@ -87,8 +89,28 @@ public final class GroupPolicyAttachmentState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder group(String group) {
+        public Builder group(Either<String,Group> group) {
             return group(Output.of(group));
+        }
+
+        /**
+         * @param group The group the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder group(String group) {
+            return group(Either.ofLeft(group));
+        }
+
+        /**
+         * @param group The group the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder group(Group group) {
+            return group(Either.ofRight(group));
         }
 
         /**

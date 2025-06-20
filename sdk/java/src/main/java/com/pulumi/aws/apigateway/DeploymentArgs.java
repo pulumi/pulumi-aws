@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.apigateway;
 
+import com.pulumi.aws.apigateway.RestApi;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -52,13 +54,13 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="restApi", required=true)
-    private Output<String> restApi;
+    private Output<Either<String,RestApi>> restApi;
 
     /**
      * @return REST API identifier.
      * 
      */
-    public Output<String> restApi() {
+    public Output<Either<String,RestApi>> restApi() {
         return this.restApi;
     }
 
@@ -168,7 +170,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(Output<String> restApi) {
+        public Builder restApi(Output<Either<String,RestApi>> restApi) {
             $.restApi = restApi;
             return this;
         }
@@ -179,8 +181,28 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(String restApi) {
+        public Builder restApi(Either<String,RestApi> restApi) {
             return restApi(Output.of(restApi));
+        }
+
+        /**
+         * @param restApi REST API identifier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(String restApi) {
+            return restApi(Either.ofLeft(restApi));
+        }
+
+        /**
+         * @param restApi REST API identifier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(RestApi restApi) {
+            return restApi(Either.ofRight(restApi));
         }
 
         /**

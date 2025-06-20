@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .function import Function
 
 __all__ = ['PermissionArgs', 'Permission']
 
@@ -21,7 +22,7 @@ __all__ = ['PermissionArgs', 'Permission']
 class PermissionArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[builtins.str],
-                 function: pulumi.Input[builtins.str],
+                 function: pulumi.Input[Union[builtins.str, 'Function']],
                  principal: pulumi.Input[builtins.str],
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -35,7 +36,7 @@ class PermissionArgs:
         """
         The set of arguments for constructing a Permission resource.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
                The following arguments are optional:
@@ -85,14 +86,14 @@ class PermissionArgs:
 
     @property
     @pulumi.getter
-    def function(self) -> pulumi.Input[builtins.str]:
+    def function(self) -> pulumi.Input[Union[builtins.str, 'Function']]:
         """
         Name of the Lambda function
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: pulumi.Input[builtins.str]):
+    def function(self, value: pulumi.Input[Union[builtins.str, 'Function']]):
         pulumi.set(self, "function", value)
 
     @property
@@ -223,7 +224,7 @@ class _PermissionState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-                 function: Optional[pulumi.Input[builtins.str]] = None,
+                 function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -237,7 +238,7 @@ class _PermissionState:
         Input properties used for looking up and filtering Permission resources.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: Event Source Token for Alexa Skills
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
@@ -301,14 +302,14 @@ class _PermissionState:
 
     @property
     @pulumi.getter
-    def function(self) -> Optional[pulumi.Input[builtins.str]]:
+    def function(self) -> Optional[pulumi.Input[Union[builtins.str, 'Function']]]:
         """
         Name of the Lambda function
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: Optional[pulumi.Input[builtins.str]]):
+    def function(self, value: Optional[pulumi.Input[Union[builtins.str, 'Function']]]):
         pulumi.set(self, "function", value)
 
     @property
@@ -430,7 +431,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-                 function: Optional[pulumi.Input[builtins.str]] = None,
+                 function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -600,7 +601,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: Event Source Token for Alexa Skills
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                
@@ -791,7 +792,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-                 function: Optional[pulumi.Input[builtins.str]] = None,
+                 function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
                  function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
                  principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -840,7 +841,7 @@ class Permission(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[builtins.str]] = None,
             event_source_token: Optional[pulumi.Input[builtins.str]] = None,
-            function: Optional[pulumi.Input[builtins.str]] = None,
+            function: Optional[pulumi.Input[Union[builtins.str, 'Function']]] = None,
             function_url_auth_type: Optional[pulumi.Input[builtins.str]] = None,
             principal: Optional[pulumi.Input[builtins.str]] = None,
             principal_org_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -859,7 +860,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[builtins.str] event_source_token: Event Source Token for Alexa Skills
-        :param pulumi.Input[builtins.str] function: Name of the Lambda function
+        :param pulumi.Input[Union[builtins.str, 'Function']] function: Name of the Lambda function
         :param pulumi.Input[builtins.str] function_url_auth_type: Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         :param pulumi.Input[builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
                

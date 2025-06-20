@@ -15,6 +15,8 @@ import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupTrafficSourceArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolArgs;
+import com.pulumi.aws.ec2.LaunchConfiguration;
+import com.pulumi.aws.ec2.PlacementGroup;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -335,13 +337,13 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="launchConfiguration")
-    private @Nullable Output<String> launchConfiguration;
+    private @Nullable Output<Either<String,LaunchConfiguration>> launchConfiguration;
 
     /**
      * @return Name of the launch configuration to use.
      * 
      */
-    public Optional<Output<String>> launchConfiguration() {
+    public Optional<Output<Either<String,LaunchConfiguration>>> launchConfiguration() {
         return Optional.ofNullable(this.launchConfiguration);
     }
 
@@ -512,13 +514,13 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="placementGroup")
-    private @Nullable Output<String> placementGroup;
+    private @Nullable Output<Either<String,PlacementGroup>> placementGroup;
 
     /**
      * @return Name of the placement group into which you&#39;ll launch your instances, if any.
      * 
      */
-    public Optional<Output<String>> placementGroup() {
+    public Optional<Output<Either<String,PlacementGroup>>> placementGroup() {
         return Optional.ofNullable(this.placementGroup);
     }
 
@@ -1243,7 +1245,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder launchConfiguration(@Nullable Output<String> launchConfiguration) {
+        public Builder launchConfiguration(@Nullable Output<Either<String,LaunchConfiguration>> launchConfiguration) {
             $.launchConfiguration = launchConfiguration;
             return this;
         }
@@ -1254,8 +1256,28 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder launchConfiguration(String launchConfiguration) {
+        public Builder launchConfiguration(Either<String,LaunchConfiguration> launchConfiguration) {
             return launchConfiguration(Output.of(launchConfiguration));
+        }
+
+        /**
+         * @param launchConfiguration Name of the launch configuration to use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder launchConfiguration(String launchConfiguration) {
+            return launchConfiguration(Either.ofLeft(launchConfiguration));
+        }
+
+        /**
+         * @param launchConfiguration Name of the launch configuration to use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder launchConfiguration(LaunchConfiguration launchConfiguration) {
+            return launchConfiguration(Either.ofRight(launchConfiguration));
         }
 
         /**
@@ -1517,7 +1539,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder placementGroup(@Nullable Output<String> placementGroup) {
+        public Builder placementGroup(@Nullable Output<Either<String,PlacementGroup>> placementGroup) {
             $.placementGroup = placementGroup;
             return this;
         }
@@ -1528,8 +1550,28 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder placementGroup(String placementGroup) {
+        public Builder placementGroup(Either<String,PlacementGroup> placementGroup) {
             return placementGroup(Output.of(placementGroup));
+        }
+
+        /**
+         * @param placementGroup Name of the placement group into which you&#39;ll launch your instances, if any.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroup(String placementGroup) {
+            return placementGroup(Either.ofLeft(placementGroup));
+        }
+
+        /**
+         * @param placementGroup Name of the placement group into which you&#39;ll launch your instances, if any.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroup(PlacementGroup placementGroup) {
+            return placementGroup(Either.ofRight(placementGroup));
         }
 
         /**

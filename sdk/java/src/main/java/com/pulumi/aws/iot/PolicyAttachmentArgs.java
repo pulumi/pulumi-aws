@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iot;
 
+import com.pulumi.aws.iot.Policy;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -21,13 +23,13 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="policy", required=true)
-    private Output<String> policy;
+    private Output<Either<String,Policy>> policy;
 
     /**
      * @return The name of the policy to attach.
      * 
      */
-    public Output<String> policy() {
+    public Output<Either<String,Policy>> policy() {
         return this.policy;
     }
 
@@ -93,7 +95,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policy(Output<String> policy) {
+        public Builder policy(Output<Either<String,Policy>> policy) {
             $.policy = policy;
             return this;
         }
@@ -104,8 +106,28 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,Policy> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy The name of the policy to attach.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy The name of the policy to attach.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(Policy policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

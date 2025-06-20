@@ -419,7 +419,7 @@ namespace Pulumi.Aws.Lambda
         /// Name of the Lambda function
         /// </summary>
         [Input("function", required: true)]
-        public Input<string> Function { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Lambda.Function> Function { get; set; } = null!;
 
         /// <summary>
         /// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
@@ -501,7 +501,7 @@ namespace Pulumi.Aws.Lambda
         /// Name of the Lambda function
         /// </summary>
         [Input("function")]
-        public Input<string>? Function { get; set; }
+        public InputUnion<string, Pulumi.Aws.Lambda.Function>? Function { get; set; }
 
         /// <summary>
         /// Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action

@@ -1138,7 +1138,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Name of the launch configuration to use.
         /// </summary>
         [Input("launchConfiguration")]
-        public Input<string>? LaunchConfiguration { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.LaunchConfiguration>? LaunchConfiguration { get; set; }
 
         /// <summary>
         /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
@@ -1216,7 +1216,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
         [Input("placementGroup")]
-        public Input<string>? PlacementGroup { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.PlacementGroup>? PlacementGroup { get; set; }
 
         /// <summary>
         /// Whether newly launched instances
@@ -1498,7 +1498,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Name of the launch configuration to use.
         /// </summary>
         [Input("launchConfiguration")]
-        public Input<string>? LaunchConfiguration { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.LaunchConfiguration>? LaunchConfiguration { get; set; }
 
         /// <summary>
         /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
@@ -1576,7 +1576,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
         [Input("placementGroup")]
-        public Input<string>? PlacementGroup { get; set; }
+        public InputUnion<string, Pulumi.Aws.Ec2.PlacementGroup>? PlacementGroup { get; set; }
 
         /// <summary>
         /// Predicted capacity of the group.

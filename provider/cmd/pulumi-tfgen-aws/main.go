@@ -16,6 +16,7 @@ package main
 
 import (
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -33,12 +34,25 @@ func main() {
 	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
 		postProcessor(spec)
 		replaceWafV2TypesWithRecursive(spec)
+		replaceResourceRefs(spec)
 	}
 
 	defer func() {
 		for _, f := range aws.PostTfgenHook {
 			f()
 		}
+		dir, err := os.Getwd()
+		contract.AssertNoErrorf(err, "Failed getting current directory")
+		cmd := exec.Command("goimports", "-w",
+			"./autoscaling/group.go",
+			"./cloudwatch/metricAlarm.go",
+			"./elasticbeanstalk/applicationVersion.go",
+			"./ec2/instance.go",
+			"./ec2/launchConfiguration.go",
+		)
+		cmd.Dir = filepath.Join(dir, "sdk", "go", "aws")
+		out, err := cmd.CombinedOutput()
+		contract.AssertNoErrorf(err, "Failed to run goimports in dir %s: with args %s %s", dir, strings.Join(cmd.Args, " "), string(out))
 	}()
 
 	pftfgen.MainWithMuxer("aws", *info)

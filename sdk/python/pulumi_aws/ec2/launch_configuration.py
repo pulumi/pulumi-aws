@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import iam as _iam
 from ._inputs import *
 
 __all__ = ['LaunchConfigurationArgs', 'LaunchConfiguration']
@@ -29,7 +30,7 @@ class LaunchConfigurationArgs:
                  ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_monitoring: Optional[pulumi.Input[builtins.bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
                  metadata_options: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -52,7 +53,7 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[builtins.str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[builtins.str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
         :param pulumi.Input[builtins.str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -190,14 +191,14 @@ class LaunchConfigurationArgs:
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input[builtins.str]]:
+    def iam_instance_profile(self) -> Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]:
         """
         The name attribute of the IAM instance profile to associate with launched instances.
         """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input[builtins.str]]):
+    def iam_instance_profile(self, value: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @property
@@ -342,7 +343,7 @@ class _LaunchConfigurationState:
                  ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_monitoring: Optional[pulumi.Input[builtins.bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -364,7 +365,7 @@ class _LaunchConfigurationState:
         :param pulumi.Input[builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[builtins.str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[builtins.str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[builtins.str] instance_type: The size of instance to launch.
                
@@ -496,14 +497,14 @@ class _LaunchConfigurationState:
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input[builtins.str]]:
+    def iam_instance_profile(self) -> Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]:
         """
         The name attribute of the IAM instance profile to associate with launched instances.
         """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input[builtins.str]]):
+    def iam_instance_profile(self, value: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @property
@@ -676,7 +677,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_monitoring: Optional[pulumi.Input[builtins.bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -737,7 +738,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[builtins.str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[builtins.str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[builtins.str] instance_type: The size of instance to launch.
                
@@ -819,7 +820,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_monitoring: Optional[pulumi.Input[builtins.bool]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -882,7 +883,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
             enable_monitoring: Optional[pulumi.Input[builtins.bool]] = None,
             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]]] = None,
-            iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
+            iam_instance_profile: Optional[pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']]] = None,
             image_id: Optional[pulumi.Input[builtins.str]] = None,
             instance_type: Optional[pulumi.Input[builtins.str]] = None,
             key_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -909,7 +910,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[builtins.bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[builtins.str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
+        :param pulumi.Input[Union[builtins.str, '_iam.InstanceProfile']] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[builtins.str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[builtins.str] instance_type: The size of instance to launch.
                

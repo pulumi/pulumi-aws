@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam;
 
+import com.pulumi.aws.iam.User;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -34,13 +36,13 @@ public final class UserPolicyAttachmentArgs extends com.pulumi.resources.Resourc
      * 
      */
     @Import(name="user", required=true)
-    private Output<String> user;
+    private Output<Either<String,User>> user;
 
     /**
      * @return The user the policy should be applied to
      * 
      */
-    public Output<String> user() {
+    public Output<Either<String,User>> user() {
         return this.user;
     }
 
@@ -96,7 +98,7 @@ public final class UserPolicyAttachmentArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder user(Output<String> user) {
+        public Builder user(Output<Either<String,User>> user) {
             $.user = user;
             return this;
         }
@@ -107,8 +109,28 @@ public final class UserPolicyAttachmentArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder user(String user) {
+        public Builder user(Either<String,User> user) {
             return user(Output.of(user));
+        }
+
+        /**
+         * @param user The user the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(String user) {
+            return user(Either.ofLeft(user));
+        }
+
+        /**
+         * @param user The user the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder user(User user) {
+            return user(Either.ofRight(user));
         }
 
         public UserPolicyAttachmentArgs build() {

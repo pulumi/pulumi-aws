@@ -55,6 +55,8 @@ func (ls *MinimalSchema) isDanglingRef(ref string) bool {
 			return true
 		}
 		return false
+	case strings.HasPrefix(ref, "#/resources/"):
+		return false
 	case ref == "pulumi.json#/Any" ||
 		ref == "pulumi.json#/Asset" ||
 		ref == "pulumi.json#/Archive":

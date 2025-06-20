@@ -3,7 +3,10 @@
 
 package com.pulumi.aws.elasticbeanstalk;
 
+import com.pulumi.aws.elasticbeanstalk.Application;
+import com.pulumi.aws.elasticbeanstalk.ApplicationVersion;
 import com.pulumi.aws.elasticbeanstalk.inputs.EnvironmentSettingArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -25,14 +28,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="application", required=true)
-    private Output<String> application;
+    private Output<Either<String,Application>> application;
 
     /**
      * @return Name of the application that contains the version
      * to be deployed
      * 
      */
-    public Output<String> application() {
+    public Output<Either<String,Application>> application() {
         return this.application;
     }
 
@@ -229,14 +232,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="version")
-    private @Nullable Output<String> version;
+    private @Nullable Output<Either<String,ApplicationVersion>> version;
 
     /**
      * @return The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      * 
      */
-    public Optional<Output<String>> version() {
+    public Optional<Output<Either<String,ApplicationVersion>>> version() {
         return Optional.ofNullable(this.version);
     }
 
@@ -305,7 +308,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder application(Output<String> application) {
+        public Builder application(Output<Either<String,Application>> application) {
             $.application = application;
             return this;
         }
@@ -317,8 +320,30 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder application(String application) {
+        public Builder application(Either<String,Application> application) {
             return application(Output.of(application));
+        }
+
+        /**
+         * @param application Name of the application that contains the version
+         * to be deployed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder application(String application) {
+            return application(Either.ofLeft(application));
+        }
+
+        /**
+         * @param application Name of the application that contains the version
+         * to be deployed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder application(Application application) {
+            return application(Either.ofRight(application));
         }
 
         /**
@@ -593,7 +618,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder version(@Nullable Output<String> version) {
+        public Builder version(@Nullable Output<Either<String,ApplicationVersion>> version) {
             $.version = version;
             return this;
         }
@@ -605,8 +630,30 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder version(String version) {
+        public Builder version(Either<String,ApplicationVersion> version) {
             return version(Output.of(version));
+        }
+
+        /**
+         * @param version The name of the Elastic Beanstalk Application Version
+         * to use in deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(String version) {
+            return version(Either.ofLeft(version));
+        }
+
+        /**
+         * @param version The name of the Elastic Beanstalk Application Version
+         * to use in deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(ApplicationVersion version) {
+            return version(Either.ofRight(version));
         }
 
         /**
