@@ -5,9 +5,9 @@ package main
 import (
 	"encoding/json"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
