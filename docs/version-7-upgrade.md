@@ -10,7 +10,7 @@ Upgrade topics:
 * [Removed Provider Arguments](#removed-provider-arguments)
 * [Enhanced Region Support](#enhanced-region-support)
 * [Provider role chaining](#provider-role-chaining)
-* [Bucket/BucketV2 Changes](#bucketbucketv2-changes)
+* [S3 Bucket/BucketV2 Changes](#s3-bucketbucketv2-changes)
 * [Tags Changes](#tags-changes)
 * [Patch Related Changes](#patch-related-changes)
 * [Amazon Elastic Transcoder Deprecation](#amazon-elastic-transcoder-deprecation)
@@ -167,9 +167,9 @@ const provider = new aws.Provider("provider", {
 ```
 
 
-## Bucket/BucketV2 Changes
+## S3 Bucket/BucketV2 Changes
 
-As part of this major version upgrade we are removing the old `Bucket` resource
+As part of this major version upgrade we are removing the old S3 `Bucket` resource
 and are renaming `BucketV2` to `Bucket`. This change should simplify things for
 users and make it easier to understand which bucket resources to use. There will
 now only be one version of bucket resources without any version information.
@@ -226,11 +226,13 @@ single property.
 
 In order to perform this migration first update your code to use the new resource or property names and then run pulumi with the `--refresh` and `--run-program` arguments. Make sure you have [installed](https://www.pulumi.com/docs/iac/download-install/) the latest version of the Pulumi CLI.
 
-```shell
-pulumi up --refresh --run-program
-```
+1. Rename `BucketV2` resources to `Bucket`
+2. Rename any `Bucket*V2` resources (e.g. `BucketAclV2` to `BucketAcl`)
+3. Fix any differences in property types (e.g. `Bucket.loggings` (array) to `Bucket.logging` (object))
+4. Run `pulumi up --refresh --run-program`
+5. Ensure there is no diff in the update. If there is, go back to step 1
 
-You may see a refresh diff as Pulumi migrates the state to the new structure, but you should not see an update diff.
+[!NOTE] You may see a refresh diff as Pulumi migrates the state to the new structure, but you should not see an update diff.
 
 #### Example
 
@@ -603,43 +605,61 @@ const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replic
 
 ## Tags Changes
 
-This release some changes to the way tags work in the Pulumi AWS Provider. In v6
-of the Pulumi AWS Provider we customized the tagging behavior of the provider
-through Pulumi level patches to the upstream Terraform provider along with other
-Pulumi level customizations. This resulted in tagging behavior that diverged
-from the upstream Terraform provider and has been difficult to maintain as the
-upstream Terraform provider has made changes to tagging.
+This release some changes to the way tags work in the Pulumi AWS Provider. In v6 of the Pulumi AWS Provider we customized the tagging behavior of the provider through Pulumi level patches to the upstream Terraform provider along with other Pulumi level customizations. This resulted in tagging behavior that diverged from the upstream Terraform provider and has been difficult to maintain as the upstream Terraform provider has made changes to tagging.
 
-In v7 we are removing the Pulumi level customizations and going back to relying
-on the upstream provider's tagging behavior.
+In v7 we are removing the Pulumi level customizations and going back to relying on the upstream provider's tagging behavior. This should only impact you if you were previously using the `tags` property of a resource to get _all_ the tags on the resource. In v7 you will need to use the `tagsAll` property.
+
+**Before (v6)**
+
+```typescript
+const provider = new aws.Provider('provider', {
+    defaultTags: {
+        tags: {
+            globalTag: 'value',
+        }
+    }
+});
+const bucket = new aws.s3.Bucket('my-bucket', {
+    tags: {
+        resourceTag: 'value';
+    }
+}, { provider });
+
+export const tags = bucket.tags; // contains _all_ tags (globalTag & resourceTag)
+```
+
+**After (v7)**
+
+```typescript
+const provider = new aws.Provider('provider', {
+    defaultTags: {
+        tags: {
+            globalTag: 'value',
+        }
+    }
+});
+const bucket = new aws.s3.Bucket('my-bucket');
+
+export const tags = bucket.tags; // only contains resource tags (i.e. `resourceTag`)
+export const allTags = bucket.tagsAll; // contains _all_ tags (globalTag & resourceTag)
+```
 
 ## Patch Related Changes
 
-We have created several Pulumi level patches to the upstream Terraform provider
-to address issues/limitations that existed in the upstream provider. Several of
-those issues/limitations have now been addressed in the upstream Terraform
-provider and we are removing the Pulumi level patch. Users will need to migrate
-their code to use the new features.
+We previously had Pulumi level patches to the upstream Terraform provider to address issues/limitations that existed in the upstream provider. Several of those issues/limitations have now been addressed in the upstream Terraform provider and we are removing the Pulumi level patch. Users will need to migrate their code to use the new features.
 
 ### Resource `aws.eks.Cluster`
 
-We are removing the `defaultAddonsToRemoves` property. This property does not
-exist in the upstream `terraform-provider-aws` provider and was added to
-workaround some limitations. Since then the upstream provider has added the
-`bootstrapSelfManagedAddons` field which can be used instead.
+We are removing the `defaultAddonsToRemoves` property. This property does not exist in the upstream `terraform-provider-aws` provider and was added to workaround some limitations. Since then the upstream provider has added the `bootstrapSelfManagedAddons` field which can be used instead.
 
-Users can replicate the behavior of `defaultAddonsToRemoves` by setting
-`bootstrapSelfManagedAddons` to `false` and then adding platform addons that
-they actually want as `aws.eks.Addon` resources.
+Users can replicate the behavior of `defaultAddonsToRemoves` by setting `bootstrapSelfManagedAddons` to `false` and then adding platform addons that they actually want as `aws.eks.Addon` resources.
 
 TODO[pulumi/pulumi-aws#5525]
 See the upgrade guide for more details.
 
 ### Function `aws.ecr.getCredentials`
 
-The `ecr.getCredentials` function was added to address a functionality that did
-not exist in the upstream provider. The upstream Terraform provider now has a
-`aws.ecr.getAuthorizationToken` function that should be used instead.
+The `ecr.getCredentials` function was added to address a functionality that did not exist in the upstream provider. The upstream Terraform provider now has a `aws.ecr.getAuthorizationToken` function that should be used instead.
 
 TODO[pulumi/pulumi-aws#5526
 See the upgrade guide for more information.
