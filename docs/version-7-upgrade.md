@@ -87,7 +87,7 @@ Upgrade topics:
 * [Resource `aws.ssmincidents.ReplicationSet`](#resource-awsssmincidentsreplicationset)
 * [Resource `aws.verifiedpermissions.Schema`](#resource-awsverifiedpermissionsschema)
 * [Resource `aws.wafv2.WebAcl`](#resource-awswafv2webacl)
-* [Node Only Removals](#node-only-removals)
+* [Node Only Changes](#node-only-changes)
 * [Enum Removals](#enum-removals)
 
 <!-- mtoc-end -->
@@ -888,7 +888,8 @@ If you want to retain the previous behavior (where the account settings were not
     - `stageName`
     - `stageDescription`
     - `canarySettings`
-* Remove `invokeUrl` and `executionArn`—they are no longer supported. Use the `aws.apigateway.Stage` resource instead.
+
+* `invokeUrl` and `executionArn` from `aws.apigateway.Deployment` have been removed—they are no longer supported. Use the `invokeUrl` and `executionArn` from the `aws.apigateway.Stage` resource instead.
 
 
 ### Migration Example
@@ -902,6 +903,9 @@ const exampleDeployment = new aws.apigateway.Deployment("example", {
     restApi: exampleRestApi.id,
     stageName: "prod", // This is deprecated in newer versions
 });
+
+export const invokeUrl = exampleDeployment.invokeUrl;
+export const executionArn = exampleDeployment.executionArn;
 ```
 
 **After (v7+, using explicit stage):**
@@ -920,14 +924,17 @@ const prodStage = new aws.apigateway.Stage("prod", {
     restApi: exampleRestApi.id,
     deployment: exampleDeployment.id,
 });
+
+export const invokeUrl = prodStage.invokeUrl;
+export const executionArn = prodStage.executionArn;
 ```
 
 **Import the existing stage:**
 
-Replace `rest_api_id` and `stage_name` with your actual values:
+Replace `restApi` and `stageName` with your actual values:
 
 ```bash
-pulumi import aws:apigateway/stage:Stage prod rest_api_id/stage_name
+pulumi import aws:apigateway/stage:Stage prod restApi/stageName
 ```
 
 ## Resource `aws.appflow.ConnectorProfile`
@@ -1006,6 +1013,8 @@ For the `id`, use a comma-delimited string concatenating `userPoolId`, `groupNam
 ## Resource `aws.rds.Instance`
 
 Do not use `characterSetName` with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`. The combination is no longer valid.
+
+`name` was deprecated in `v6` and has been removed in `v7`. Use `dbName` instead.
 
 ## Resource `aws.dms.Endpoint`
 
@@ -1174,180 +1183,272 @@ Treat `definition` as a list of objects instead of an object. The resource confi
 The default value for `rule.statement.managedRuleGroupStatement.managedRuleGroupConfigs.awsManagedRulesBotControlRuleSet.enableMachineLearning` is now `false`.
 To retain the previous behavior where the argument was omitted, explicitly set the value to `true`.
 
-## Node Only Removals
+## Node Only Changes
 
 The following changes only affect users of the `nodejs` SDK.
 
 ### applicationloadbalancing
 
-- `Ipv4`
+- Removed `Ipv4`
   - Use `IpAddressType.Ipv4` instead
-- `Dualstack`
+- Removed `Dualstack`
   - Use `IpAddressType.Dualstack` instead
-- `ApplicationLoadBalancer`
+- Removed `ApplicationLoadBalancer`
   - Use `LoadBalancerType.Application` instead
-- `NetworkLoadBalancer`
+- Removed `NetworkLoadBalancer`
   - Use `LoadBalancerType.Network` instead
 
 ### rds
 
-- `InstanceTypes.*`
+- Removed `InstanceTypes.*`
   - Use `InstanceType.*` instead
 
-- `StorageTypes.Standard` 
+- Removed `StorageTypes.Standard` 
   - Use `StorageType.Standard` instead
-- `StorageTypes.GP2` 
+- Removed `StorageTypes.GP2` 
   - Use `StorageType.GP2` instead
-- `StorageTypes.Io1` 
+- Removed `StorageTypes.Io1` 
   - Use `StorageType.IO1` instead
 
-- `ProvisionedEngine` 
+- Removed `ProvisionedEngine` 
   - Use `EngineMode.Provisioned` instead
-- `ServerlessEngine` 
+- Removed `ServerlessEngine` 
   - Use `EngineMode.Serverless` instead
-- `ParallelQueryEngine` 
+- Removed `ParallelQueryEngine` 
   - Use `EngineMode.ParallelQuery` instead
-- `GlobalEngine` 
+- Removed `GlobalEngine` 
   - Use `EngineMode.Global` instead
 
-- `AuroraEngine` 
+- Removed `AuroraEngine` 
   - Use `EngineType.Aurora` instead
-- `AuroraMysqlEngine` 
+- Removed `AuroraMysqlEngine` 
   - Use `EngineType.AuroraMysql` instead
-- `AuroraPostgresqlEngine` 
+- Removed `AuroraPostgresqlEngine` 
   - Use `EngineType.AuroraPostgresql` instead
 
 ### iam
 
-- `ManagedPolicies.*`
+- Removed `ManagedPolicies.*`
   - Use `ManagedPolicy.*` instead
+
+The `PolicyDocument` type has been moved from the `iam` module to `types.inputs.iam`.
+
+**Before (v6)**
+
+```typescript
+import * as aws from '@pulumi/aws';
+
+const policyDoc: aws.iam.PolicyDocument = {
+    Version: "2012-10-17",
+    Statement: [
+        {
+            Action: ["sts:AssumeRole"],
+            Effect: "Allow",
+            Principal: {
+                Service: ["ecs.amazonaws.com", "ecs-tasks.amazonaws.com"],
+            },
+        },
+    ],
+}
+```
+
+**After (v7)**
+
+```typescript
+import * as aws from '@pulumi/aws';
+
+const policyDoc: aws.types.input.iam.PolicyDocument = {
+    Version: "2012-10-17",
+    Statement: [
+        {
+            Action: ["sts:AssumeRole"],
+            Effect: "Allow",
+            Principal: {
+                Service: ["ecs.amazonaws.com", "ecs-tasks.amazonaws.com"],
+            },
+        },
+    ],
+}
+```
+
 
 ### route53
 
-- `RecordTypes.A` 
+- Removed `RecordTypes.A` 
   - Use `RecordType.A` instead
-- `RecordTypes.AAAA` 
+- Removed `RecordTypes.AAAA` 
   - Use `RecordType.AAAA` instead
-- `RecordTypes.CNAME` 
+- Removed `RecordTypes.CNAME` 
   - Use `RecordType.CNAME` instead
-- `RecordTypes.CAA` 
+- Removed `RecordTypes.CAA` 
   - Use `RecordType.CAA` instead
-- `RecordTypes.MX` 
+- Removed `RecordTypes.MX` 
   - Use `RecordType.MX` instead
-- `RecordTypes.NAPTR` 
+- Removed `RecordTypes.NAPTR` 
   - Use `RecordType.NAPTR` instead
-- `RecordTypes.NS` 
+- Removed `RecordTypes.NS` 
   - Use `RecordType.NS` instead
-- `RecordTypes.PTR` 
+- Removed `RecordTypes.PTR` 
   - Use `RecordType.PTR` instead
-- `RecordTypes.SOA` 
+- Removed `RecordTypes.SOA` 
   - Use `RecordType.SOA` instead
-- `RecordTypes.SPF` 
+- Removed `RecordTypes.SPF` 
   - Use `RecordType.SPF` instead
-- `RecordTypes.SRV` 
+- Removed `RecordTypes.SRV` 
   - Use `RecordType.SRV` instead
-- `RecordTypes.TXT` 
+- Removed `RecordTypes.TXT` 
   - Use `RecordType.TXT` instead
 
 ### s3
 
-- `PrivateAcl` 
+- Removed `PrivateAcl` 
   - Use `CannedAcl.Private` instead
-- `PublicReadAcl` 
+- Removed `PublicReadAcl` 
   - Use `CannedAcl.PublicRead` instead
-- `PublicReadWriteAcl` 
+- Removed `PublicReadWriteAcl` 
   - Use `CannedAcl.PublicReadWrite` instead
-- `AwsExecReadAcl` 
+- Removed `AwsExecReadAcl` 
   - Use `CannedAcl.AwsExecRead` instead
-- `AuthenticatedReadAcl` 
+- Removed `AuthenticatedReadAcl` 
   - Use `CannedAcl.AuthenticatedRead` instead
-- `BucketOwnerReadAcl` 
+- Removed `BucketOwnerReadAcl` 
   - Use `CannedAcl.BucketOwnerRead` instead
-- `BucketOwnerFullControlAcl` 
+- Removed `BucketOwnerFullControlAcl` 
   - Use `CannedAcl.BucketOwnerFullControl` instead
-- `LogDeliveryWriteAcl` 
+- Removed `LogDeliveryWriteAcl` 
   - Use `CannedAcl.LogDeliveryWrite` instead
 
 ### ec2
 
-- `InstanceTypes.*` 
+- Removed `InstanceTypes.*` 
   - Use `InstanceType.*` instead
 
-- `InstancePlatforms.LinuxUnixPlatform` 
+- Removed `InstancePlatforms.LinuxUnixPlatform` 
   - Use `InstancePlatform.LinuxUnix` instead
-- `InstancePlatforms.RedHatEnterpriseLinuxPlatform` 
+- Removed `InstancePlatforms.RedHatEnterpriseLinuxPlatform` 
   - Use `InstancePlatform.RedHatEnterpriseLinux` instead
-- `InstancePlatforms.SuseLinuxPlatform` 
+- Removed `InstancePlatforms.SuseLinuxPlatform` 
   - Use `InstancePlatform.SuseLinux` instead
-- `InstancePlatforms.WindowsPlatform` 
+- Removed `InstancePlatforms.WindowsPlatform` 
   - Use `InstancePlatform.Windows` instead
-- `InstancePlatforms.WindowsWithSqlServerPlatform` 
+- Removed `InstancePlatforms.WindowsWithSqlServerPlatform` 
   - Use `InstancePlatform.WindowsWithSqlServer` instead
-- `InstancePlatforms.WindowsWithSqlServerEnterprisePlatform` 
+- Removed `InstancePlatforms.WindowsWithSqlServerEnterprisePlatform` 
   - Use `InstancePlatform.WindowsWithSqlServerEnterprise` instead
-- `InstancePlatforms.WindowsWithSqlServerStandardPlatform` 
+- Removed `InstancePlatforms.WindowsWithSqlServerStandardPlatform` 
   - Use `InstancePlatform.WindowsWithSqlServerStandard` instead
-- `InstancePlatforms.WindowsWithSqlServerWebPlatform` 
+- Removed `InstancePlatforms.WindowsWithSqlServerWebPlatform` 
   - Use `InstancePlatform.WindowsWithSqlServerWeb` instead
 
-- `SpreadStrategy` 
+- Removed `SpreadStrategy` 
   - Use `PlacementStrategy.Spread` instead
-- `ClusterStrategy` 
+- Removed `ClusterStrategy` 
   - Use `PlacementStrategy.Cluster` instead
 
-- `AllProtocols` 
+- Removed `AllProtocols` 
   - Use `ProtocolType.All` instead
-- `TCPProtocol` 
+- Removed `TCPProtocol` 
   - Use `ProtocolType.TCP` instead
-- `UDPProtocol` 
+- Removed `UDPProtocol` 
   - Use `ProtocolType.UDP` instead
-- `ICMPProtocol` 
+- Removed `ICMPProtocol` 
   - Use `ProtocolType.ICMP` instead
 
-- `Tenancies.DefaultTenancy` 
+- Removed `Tenancies.DefaultTenancy` 
   - Use `Tenancy.Default` instead
-- `Tenancies.DedicatedTenancy` 
+- Removed `Tenancies.DedicatedTenancy` 
   - Use `Tenancy.Dedicated` instead
 
 ### lambda
 
-- `DotnetCore2d1Runtime` 
+- Removed `DotnetCore2d1Runtime` 
   - Use `Runtime.DotnetCore2d1` instead
-- `DotnetCore3d1Runtime` 
+- Removed `DotnetCore3d1Runtime` 
   - Use `Runtime.DotnetCore3d1` instead
-- `Go1dxRuntime` 
+- Removed `Go1dxRuntime` 
   - Use `Runtime.Go1dx` instead
-- `Java8Runtime` 
+- Removed `Java8Runtime` 
   - Use `Runtime.Java8` instead
-- `Java11Runtime` 
+- Removed `Java11Runtime` 
   - Use `Runtime.Java11` instead
-- `Ruby2d5Runtime` 
+- Removed `Ruby2d5Runtime` 
   - Use `Runtime.Ruby2d5` instead
-- `Ruby2d7Runtime` 
+- Removed `Ruby2d7Runtime` 
   - Use `Runtime.Ruby2d7` instead
-- `NodeJS10dXRuntime` 
+- Removed `NodeJS10dXRuntime` 
   - Use `Runtime.NodeJS10dX` instead
-- `NodeJS12dXRuntime` 
+- Removed `NodeJS12dXRuntime` 
   - Use `Runtime.NodeJS12dX` instead
-- `Python2d7Runtime` 
+- Removed `Python2d7Runtime` 
   - Use `Runtime.Python2d7` instead
-- `Python3d6Runtime` 
+- Removed `Python3d6Runtime` 
   - Use `Runtime.Python3d6` instead
-- `Python3d7Runtime` 
+- Removed `Python3d7Runtime` 
   - Use `Runtime.Python3d7` instead
-- `Python3d8Runtime` 
+- Removed `Python3d8Runtime` 
   - Use `Runtime.Python3d8` instead
-- `CustomRuntime` 
+- Removed `CustomRuntime` 
   - Use `Runtime.Custom` instead
 
 ### ssm
 
-- `StringParameter`
+- Removed `StringParameter`
   - Use `ParamterType.String` instead
-- `StringListParameter`
+- Removed `StringListParameter`
   - Use `ParamterType.StringList` instead
-- `SecureStringParameter`
+- Removed `SecureStringParameter`
   - Use `ParameterType.SecureString` instead
+
+### region
+
+- Removed `AFSouth1Region`
+  - Use `Region.AFSouth1` instead
+- Removed `APEast1Region`
+  - Use `Region.AFEast1` instead
+- Removed `APNortheast1Region`
+  - Use `Region.AFNortheast1` instead
+- Removed `APNortheast2Region`
+  - Use `Region.APNortheast2` instead
+- Removed `APSouth1Region`
+  - Use `Region.APSouth1` instead
+- Removed `APSouthEast2Region`
+  - Use `Region.APSoutheast2` instead
+- Removed `APSoutheast1Region`
+  - Use `Region.APSoutheast1` instead
+- Removed `CACentralRegion`
+  - Use `Region.CACentral1` instead
+- Removed `CNNorth1Region`
+  - Use `Region.CNNorth1` instead
+- Removed `CNNorthWest1Region`
+  - Use `Region.CNNorthwest1` instead
+- Removed `EUCentral1Region`
+  - Use `Region.EUCentral1` instead
+- Removed `EUNorth1Region`
+  - Use `Region.EUNorth1` instead
+- Removed `EUWest1Region`
+  - Use `Region.EUWest1` instead
+- Removed `EUWest2Region`
+  - Use `Region.EUWest2` instead
+- Removed `EUWest3Region`
+  - Use `Region.EUWest3` instead
+- Removed `EUSouth1Region`
+  - Use `Region.EUSouth1` instead
+- Removed `MESouth1Region`
+  - Use `Region.MESouth1` instead
+- Removed `SAEast1Region`
+  - Use `Region.SAEast1` instead
+- Removed `USGovEast1Region`
+  - Use `Region.USGovEast1` instead
+- Removed `USGovWest1Region`
+  - Use `Region.USGovWest1` instead
+- Removed `USEast1Region`
+  - Use `Region.USEast1` instead
+- Removed `USEast2Region`
+  - Use `Region.USEast2` instead
+- Removed `USWest1Region`
+  - Use `Region.USWest1` instead
+- Removed `USWest2Region`
+  - Use `Region.USWest2` instead
 
 ## Enum Removals
 
