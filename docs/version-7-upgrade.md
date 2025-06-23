@@ -661,8 +661,25 @@ See the upgrade guide for more details.
 
 The `ecr.getCredentials` function was added to address a functionality that did not exist in the upstream provider. The upstream Terraform provider now has a `aws.ecr.getAuthorizationToken` function that should be used instead.
 
-TODO[pulumi/pulumi-aws#5526
-See the upgrade guide for more information.
+**Before (v6)**
+
+```typescript
+const credentials = await aws.ecr.getCredentials({ registryId: registryId });
+const decodedCredentials = Buffer.from(credentials.authorizationToken, "base64").toString();
+const [username, password] = decodedCredentials.split(":");
+if (!password || !username) {
+    throw new Error("Invalid credentials");
+}
+
+```
+
+**After (v7)**
+
+```typescript
+const credentials = await aws.ecr.getAuthorizationToken({ registryId: registryId });
+const username = credentials.userName;
+const password = pulumi.secret(credentials.password);
+```
 
 ## Amazon Elastic Transcoder Deprecation
 
