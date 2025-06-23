@@ -452,6 +452,15 @@ const replication = new aws.s3.BucketReplicationConfig("replication", {
 }, { provider: awsProvider });
 ```
 
+</p>
+</details>
+
+## Non-region-aware resources
+
+This section lists resources that are not Region-aware--meaning `region` has not been added to them.
+
+Some resources, such as [IAM and STS](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html#IAMEndpoints) are [global](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/global-services.html) and exist in all Regions within a partition.
+
 Other resources are not Region-aware because they already had a top-level `region`, are inherently global, or because adding `region` would not be appropriate for other reasons.
 
 ### Resources deprecating `region`
