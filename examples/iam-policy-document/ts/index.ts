@@ -20,24 +20,38 @@ import * as aws from '@pulumi/aws'
 const account = aws.getCallerIdentityOutput().accountId;
 const bucket = new aws.s3.Bucket('test-bucket');
 
+const assumeRolePolicyDoc: aws.iam.PolicyDocument = {
+    Version: '2012-10-17',
+    Id: 'comprehensive-policy-id',
+    Statement: [
+        {
+            Sid: 'AllowAWSPrincipal',
+            Effect: 'Allow',
+            Action: 'sts:AssumeRole',
+            Principal: {
+                AWS: [
+                    pulumi.interpolate`arn:aws:iam::${account}:root`,
+                ]
+            }
+        },
+    ]
+};
+
 const baseRole = new aws.iam.Role('base-role', {
-    assumeRolePolicy: {
-        Version: '2012-10-17',
-        Id: 'comprehensive-policy-id',
-        Statement: [
-            {
-                Sid: 'AllowAWSPrincipal',
-                Effect: 'Allow',
-                Action: 'sts:AssumeRole',
-                Principal: {
-                    AWS: [
-                        pulumi.interpolate`arn:aws:iam::${account}:root`,
-                    ]
-                }
-            },
-        ]
-    },
+    assumeRolePolicy: assumeRolePolicyDoc,
 });
+
+const statement1: aws.iam.PolicyStatement = {
+    Sid: 'AllowAWSPrincipal',
+    Effect: 'Allow',
+    Action: 'sts:AssumeRole',
+    Principal: {
+        AWS: [
+            pulumi.interpolate`arn:aws:iam::${account}:root`,
+            baseRole.arn,
+        ]
+    }
+};
 
 // Test 1: Complete PolicyDocument with all optional fields
 const comprehensiveRole = new aws.iam.Role('comprehensive-role', {
@@ -46,17 +60,7 @@ const comprehensiveRole = new aws.iam.Role('comprehensive-role', {
         Id: 'comprehensive-policy-id',
         Statement: [
             // Test all Principal types
-            {
-                Sid: 'AllowAWSPrincipal',
-                Effect: 'Allow',
-                Action: 'sts:AssumeRole',
-                Principal: {
-                    AWS: [
-                        pulumi.interpolate`arn:aws:iam::${account}:root`,
-                        baseRole.arn,
-                    ]
-                }
-            },
+            statement1,
             {
                 Sid: 'AllowServicePrincipal',
                 Effect: 'Allow',
