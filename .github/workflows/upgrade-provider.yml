@@ -79,7 +79,7 @@ jobs:
         id: upgrade_provider
         if: steps.target_version.outputs.version != ''
         continue-on-error: true
-        uses: pulumi/pulumi-upgrade-provider-action@819d5a53c48d0c7ddd67acbc82eb220b342084eb # v0.0.16
+        uses: pulumi/pulumi-upgrade-provider-action@3c670a7cb92732324c8ccc17f7f9ef9dfca126d0 # v0.0.17
         with:
           kind: provider
           email: bot@pulumi.com
