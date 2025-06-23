@@ -9,7 +9,7 @@ Version 7.0.0 of the Pulumi AWS Provider adds `region` to most resources making 
 - [How `region` works](#how-region-works)
 - [Migrating from multiple provider configurations](#migrating-from-multiple-provider-configurations)
 - [Before and after examples using `region`](#before-and-after-examples-using-region)
-- [Non–region-aware resources](#nonregion-aware-resources)
+- [Non–region-aware resources](#non-region-aware-resources)
 
 
 ## What's new
