@@ -14,7 +14,7 @@ Version 7.0.0 of the Pulumi AWS Provider adds `region` to most resources making 
 
 ## What's new
 
-As of v7.0.0, most existing resources and data sources are now [Region-aware](#nonregion-aware-resources), meaning they support a new top-level `region`. This allows you to manage a resource in a Region different from the one specified in the provider configuration without requiring multiple provider definitions. See [How `region` works](#how-region-works) for details.
+As of v7.0.0, most existing resources and data sources are now [Region-aware](#non-region-aware-resources), meaning they support a new top-level `region`. This allows you to manage a resource in a Region different from the one specified in the provider configuration without requiring multiple provider definitions. See [How `region` works](#how-region-works) for details.
 
 For example, if your provider is configured for `us-east-1`, you can now manage a VPC in `us-west-2` without defining an additional provider:
 
@@ -35,7 +35,7 @@ You can still define the Region at the provider level using any of the existing 
 
 ## Can I use `region` in every resource?
 
-No. While most resources are now Region-aware, there are exceptions. These include a few resources that already had a `region` and resources that are inherently global. See [Non–region-aware resources](#nonregion-aware-resources).
+No. While most resources are now Region-aware, there are exceptions. These include a few resources that already had a `region` and resources that are inherently global. See [Non–region-aware resources](#non-region-aware-resources).
 
 ## Why make this change
 
