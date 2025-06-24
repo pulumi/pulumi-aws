@@ -1248,47 +1248,6 @@ The following changes only affect users of the `nodejs` SDK.
 - Removed `ManagedPolicies.*`
   - Use `ManagedPolicy.*` instead
 
-The `PolicyDocument` type has been moved from the `iam` module to `types.inputs.iam`.
-
-**Before (v6)**
-
-```typescript
-import * as aws from '@pulumi/aws';
-
-const policyDoc: aws.iam.PolicyDocument = {
-    Version: "2012-10-17",
-    Statement: [
-        {
-            Action: ["sts:AssumeRole"],
-            Effect: "Allow",
-            Principal: {
-                Service: ["ecs.amazonaws.com", "ecs-tasks.amazonaws.com"],
-            },
-        },
-    ],
-}
-```
-
-**After (v7)**
-
-```typescript
-import * as aws from '@pulumi/aws';
-
-const policyDoc: aws.types.input.iam.PolicyDocument = {
-    Version: "2012-10-17",
-    Statement: [
-        {
-            Action: ["sts:AssumeRole"],
-            Effect: "Allow",
-            Principal: {
-                Service: ["ecs.amazonaws.com", "ecs-tasks.amazonaws.com"],
-            },
-        },
-    ],
-}
-```
-
-
 ### route53
 
 - Removed `RecordTypes.A` 
@@ -1375,6 +1334,46 @@ const policyDoc: aws.types.input.iam.PolicyDocument = {
   - Use `Tenancy.Default` instead
 - Removed `Tenancies.DedicatedTenancy` 
   - Use `Tenancy.Dedicated` instead
+
+### ecr
+
+The `rules` input property of the `ecr.LifecyclePolicyDocument` type has changed from `ecr.PolicyRule[]` to `pulumi.Input<pulumi.Input<ecr.PolicyRule>[]>;`.
+
+**Before (v6)**
+
+```typescript
+const result: aws.ecr.LifecyclePolicyDocument = { rules: [] };
+result.rules.push({
+    action: {
+        type: 'expire',
+    },
+    rulePriority: 1,
+    selection: {
+        countType: 'imageCountMoreThan',
+        countNumber: 3,
+        tagStatus: 'any',
+    },
+});
+```
+
+**After (v7)**
+
+```typescript
+const result: aws.ecr.LifecyclePolicyDocument = { rules: [] };
+const rules: aws.ecr.PolicyRule[] = [];
+rules.push({
+    action: {
+        type: 'expire',
+    },
+    rulePriority: 1,
+    selection: {
+        countType: 'imageCountMoreThan',
+        countNumber: 3,
+        tagStatus: 'any',
+    },
+});
+result.rules = rules;
+```
 
 ### lambda
 
