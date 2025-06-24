@@ -927,6 +927,7 @@
         "ecr/getRepositoryCreationTemplate.ts",
         "ecr/index.ts",
         "ecr/lifecyclePolicy.ts",
+        "ecr/lifecyclePolicyDocument.ts",
         "ecr/pullThroughCacheRule.ts",
         "ecr/registryPolicy.ts",
         "ecr/registryScanningConfiguration.ts",
