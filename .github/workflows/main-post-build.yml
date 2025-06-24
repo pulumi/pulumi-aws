@@ -33,8 +33,6 @@ env:
 jobs:
   generate_coverage_data:
     continue-on-error: true
-    env:
-      COVERAGE_OUTPUT_DIR: ${{ secrets.COVERAGE_OUTPUT_DIR }}
     name: generate_coverage_data
     runs-on: ubuntu-latest
     steps:
@@ -62,8 +60,12 @@ jobs:
         run: 'echo "Coverage output directory: ${{ env.COVERAGE_OUTPUT_DIR }}"'
       - name: Generate Coverage Data
         run: PULUMI_MISSING_DOCS_ERROR=true make tfgen
+        env:
+          COVERAGE_OUTPUT_DIR: ${{ runner.temp }}/cov
       - name: Summarize Provider Coverage Results
         run: cat ${{ env.COVERAGE_OUTPUT_DIR }}/shortSummary.txt
+        env:
+          COVERAGE_OUTPUT_DIR: ${{ runner.temp }}/cov
       - name: Upload coverage data to S3
         run: >-
           summaryName="${PROVIDER}_summary_$(date +"%Y-%m-%d_%H-%M-%S").json"
@@ -71,3 +73,5 @@ jobs:
           s3FullURI="s3://${{ secrets.S3_COVERAGE_BUCKET_NAME }}/summaries/${summaryName}"
 
           aws s3 cp "${{ env.COVERAGE_OUTPUT_DIR }}/summary.json" "${s3FullURI}" --acl bucket-owner-full-control
+        env:
+          COVERAGE_OUTPUT_DIR: ${{ runner.temp }}/cov
