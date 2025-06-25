@@ -651,6 +651,8 @@ func TestRegress3421(t *testing.T) {
 }
 
 func TestRegress3421Update(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "regress-3421",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -690,6 +692,8 @@ func getAwsSession(t *testing.T) *session.Session {
 }
 
 func TestUpdateImportedLambda(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "lambda-import-ts",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 		opttest.YarnLink("@pulumi/aws"),
@@ -736,6 +740,8 @@ func TestUpdateImportedLambda(t *testing.T) {
 }
 
 func TestImportResourceNew(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "test-programs", "resource-import-ts"),
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 		opttest.YarnLink("@pulumi/aws"),
@@ -791,6 +797,8 @@ func TestImportResourceNew(t *testing.T) {
 }
 
 func TestNoCodeLambda(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "no-code-lambda",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -805,6 +813,8 @@ type InlinePolicy struct {
 }
 
 func TestRoleInlinePolicyAutoName(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "role-inline-policy-auto-name",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -831,6 +841,8 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 }
 
 func TestRdsGetEngineVersion(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "rds-getengineversion",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -932,6 +944,8 @@ func TestJobQueueUpgrade(t *testing.T) {
 }
 
 func TestMultipleRegionsUpgrade(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "multiple-regions"),
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 		opttest.YarnLink("@pulumi/aws"),
@@ -963,6 +977,7 @@ func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
 
 func TestRegress3094(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-3094")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -978,6 +993,7 @@ func TestRegress3094(t *testing.T) {
 
 func TestRegress3835(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-3835")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -993,6 +1009,7 @@ func TestRegress3835(t *testing.T) {
 
 func TestChangingRegion(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "changing-region")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1040,6 +1057,7 @@ func TestChangingRegion(t *testing.T) {
 func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 	// pulumi/pulumi-terraform-bridge#1940
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "ec2-string-for-int")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1054,6 +1072,7 @@ func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 }
 
 func TestRegress4079(t *testing.T) {
+	t.Parallel()
 	skipIfShort(t)
 	ctx := context.Background()
 	dir := filepath.Join("test-programs", "regress-4079")
@@ -1162,6 +1181,7 @@ func TestRegress4128(t *testing.T) {
 
 func TestRegress4446(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-4446")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1179,6 +1199,7 @@ func TestRegress4446(t *testing.T) {
 
 func TestRegress5219(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-5219")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1209,6 +1230,7 @@ func (ef *expectFailure) FailNow() {
 
 // Tests that there are no diagnostics by default on simple programs.
 func TestNoExtranousLogOutput(t *testing.T) {
+	t.Parallel()
 	skipIfShort(t)
 	dir := filepath.Join("test-programs", "bucket-obj")
 	cwd, err := os.Getwd()
@@ -1230,6 +1252,7 @@ func TestNoExtranousLogOutput(t *testing.T) {
 // exists. Emulate this situation and assert that the message has propagated.
 func TestUpstreamWarningsPropagated(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "disappearing-bucket-object")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1334,6 +1357,7 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 	// See pulumi/pulumi-aws#5540
 	t.Skip("Skipping for now since we are not removing resource references")
 	skipIfShort(t)
+	t.Parallel()
 	resourceRefMigrateDir := "migrate-resource-refs"
 	dirs := []string{
 		filepath.Join(resourceRefMigrateDir, "autoscalinggroup"),
@@ -1351,6 +1375,7 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 
 	for _, dir := range dirs {
 		t.Run(dir, func(t *testing.T) {
+			t.Parallel()
 			options := []opttest.Option{
 				opttest.AttachDownloadedPlugin("aws", "6.80.0"),
 			}

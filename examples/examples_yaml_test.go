@@ -214,6 +214,19 @@ func TestS3BucketV2ToBucketUpgrade(t *testing.T) {
 	}, res.ChangeSummary)
 }
 
+func TestS3BucketV2Compat(t *testing.T) {
+	t.Parallel()
+	skipIfShort(t)
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	test := pulumitest.NewPulumiTest(t, "bucketv2-to-bucket",
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		opttest.SkipInstall(),
+	)
+
+	test.Up(t)
+}
+
 func TestS3BucketV2ToBucketSidecarUpgrade(t *testing.T) {
 	test, _ := testProviderUpgrade(t, "bucket-sidecar-renames", &testProviderUpgradeOptions{
 		skipDefaultPreviewTest: true,
