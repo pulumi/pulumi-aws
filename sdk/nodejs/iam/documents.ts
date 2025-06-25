@@ -63,3 +63,10 @@ export function assumeRolePolicyForPrincipal(principal: Principal): inputs.iam.P
         ]
     };
 }
+
+// re-exporting these for backwards compatibility
+export type PolicyDocument = inputs.iam.PolicyDocument;
+export type PolicyStatement = inputs.iam.PolicyStatement;
+export type ServicePrincipal = inputs.iam.ServicePrincipal;
+export type AWSPrincipal = inputs.iam.AWSPrincipal;
+export type FederatedPrincipal = inputs.iam.FederatedPrincipal;

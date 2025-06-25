@@ -50,6 +50,7 @@ export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
 export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
 utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
+export * from "./lifecyclePolicyDocument";
 export { PullThroughCacheRuleArgs, PullThroughCacheRuleState } from "./pullThroughCacheRule";
 export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughCacheRule;
 export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;

@@ -5153,6 +5153,11 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 							"dynamodbMixins.ts",
 						},
 					},
+					"ecr": {
+						DestFiles: []string{
+							"lifecyclePolicyDocument.ts",
+						},
+					},
 					"ecs": {
 						DestFiles: []string{
 							"container.ts", // Container definition JSON schema
