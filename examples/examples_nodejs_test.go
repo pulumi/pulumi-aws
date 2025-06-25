@@ -1331,6 +1331,8 @@ func createLambdaArchive(size int64) (string, error) {
 }
 
 func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
+	// See pulumi/pulumi-aws#5540
+	t.Skip("Skipping for now since we are not removing resource references")
 	skipIfShort(t)
 	resourceRefMigrateDir := "migrate-resource-refs"
 	dirs := []string{
