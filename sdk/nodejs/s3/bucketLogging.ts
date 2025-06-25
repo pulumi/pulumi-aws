@@ -153,7 +153,7 @@ export class BucketLogging extends pulumi.CustomResource {
             resourceInputs["targetPrefix"] = args ? args.targetPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketLoggingV2:BucketLoggingV2" }, { type: "aws:s3/bucketLoggingV2:BucketLoggingV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketLoggingV2:BucketLoggingV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketLogging.__pulumiType, name, resourceInputs, opts);
     }

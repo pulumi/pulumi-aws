@@ -141,7 +141,7 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2" }, { type: "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["token"] };
         opts = pulumi.mergeOptions(opts, secretOpts);

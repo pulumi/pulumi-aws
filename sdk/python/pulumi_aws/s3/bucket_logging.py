@@ -422,7 +422,7 @@ class BucketLogging(pulumi.CustomResource):
             if target_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'target_prefix'")
             __props__.__dict__["target_prefix"] = target_prefix
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketLoggingV2:BucketLoggingV2"), pulumi.Alias(type_="aws:s3/bucketLoggingV2:BucketLoggingV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketLoggingV2:BucketLoggingV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketLogging, __self__).__init__(
             'aws:s3/bucketLogging:BucketLogging',

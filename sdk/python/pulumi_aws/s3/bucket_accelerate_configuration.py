@@ -287,7 +287,7 @@ class BucketAccelerateConfiguration(pulumi.CustomResource):
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2"), pulumi.Alias(type_="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketAccelerateConfiguration, __self__).__init__(
             'aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration',

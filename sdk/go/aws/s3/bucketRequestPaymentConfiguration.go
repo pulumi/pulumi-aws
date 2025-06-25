@@ -91,9 +91,6 @@ func NewBucketRequestPaymentConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

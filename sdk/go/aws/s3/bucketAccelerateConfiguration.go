@@ -95,9 +95,6 @@ func NewBucketAccelerateConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

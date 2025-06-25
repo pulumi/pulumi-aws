@@ -122,9 +122,6 @@ func NewBucketCorsConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

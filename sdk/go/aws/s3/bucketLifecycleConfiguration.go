@@ -565,9 +565,6 @@ func NewBucketLifecycleConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

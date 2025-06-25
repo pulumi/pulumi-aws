@@ -569,7 +569,6 @@ namespace Pulumi.Aws.S3
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2" },
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

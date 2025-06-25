@@ -289,7 +289,7 @@ class BucketRequestPaymentConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'payer'")
             __props__.__dict__["payer"] = payer
             __props__.__dict__["region"] = region
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2"), pulumi.Alias(type_="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketRequestPaymentConfiguration, __self__).__init__(
             'aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration',

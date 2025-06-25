@@ -116,7 +116,7 @@ export class BucketRequestPaymentConfiguration extends pulumi.CustomResource {
             resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2" }, { type: "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketRequestPaymentConfiguration.__pulumiType, name, resourceInputs, opts);
     }

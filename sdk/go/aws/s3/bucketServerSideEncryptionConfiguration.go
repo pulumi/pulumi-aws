@@ -110,9 +110,6 @@ func NewBucketServerSideEncryptionConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

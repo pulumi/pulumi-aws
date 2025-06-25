@@ -144,7 +144,6 @@ namespace Pulumi.Aws.S3
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2" },
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

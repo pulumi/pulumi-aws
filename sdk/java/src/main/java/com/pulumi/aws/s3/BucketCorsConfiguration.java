@@ -197,7 +197,6 @@ public class BucketCorsConfiguration extends com.pulumi.resources.CustomResource
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2").build())
             ))
             .build();

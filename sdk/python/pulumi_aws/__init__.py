@@ -10191,6 +10191,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketAccelerateConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2": "BucketAccelerateConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketAcl",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -10199,10 +10207,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketAclV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketAclV2:BucketAclV2": "BucketAclV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketCorsConfiguration",
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketCorsConfiguration:BucketCorsConfiguration": "BucketCorsConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketCorsConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2": "BucketCorsConfigurationV2"
   }
  },
  {
@@ -10223,10 +10247,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketLifecycleConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2": "BucketLifecycleConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketLogging",
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketLogging:BucketLogging": "BucketLogging"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketLoggingV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketLoggingV2:BucketLoggingV2": "BucketLoggingV2"
   }
  },
  {
@@ -10259,6 +10299,14 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration": "BucketObjectLockConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketObjectLockConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2": "BucketObjectLockConfigurationV2"
   }
  },
  {
@@ -10311,10 +10359,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketRequestPaymentConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2": "BucketRequestPaymentConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketServerSideEncryptionConfiguration",
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration": "BucketServerSideEncryptionConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketServerSideEncryptionConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2": "BucketServerSideEncryptionConfigurationV2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketV2:BucketV2": "BucketV2"
   }
  },
  {
@@ -10327,10 +10399,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketVersioningV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketVersioningV2:BucketVersioningV2": "BucketVersioningV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/bucketWebsiteConfiguration",
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration": "BucketWebsiteConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketWebsiteConfigurationV2",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2": "BucketWebsiteConfigurationV2"
   }
  },
  {

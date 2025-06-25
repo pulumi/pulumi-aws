@@ -139,7 +139,6 @@ namespace Pulumi.Aws.S3
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2" },
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2" },
                 },
                 AdditionalSecretOutputs =
                 {

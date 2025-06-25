@@ -129,9 +129,6 @@ func NewBucketLogging(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketLoggingV2:BucketLoggingV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketLoggingV2:BucketLoggingV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

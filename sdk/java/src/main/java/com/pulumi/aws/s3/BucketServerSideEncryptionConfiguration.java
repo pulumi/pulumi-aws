@@ -195,7 +195,6 @@ public class BucketServerSideEncryptionConfiguration extends com.pulumi.resource
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2").build())
             ))
             .build();

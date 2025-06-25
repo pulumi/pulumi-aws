@@ -204,7 +204,6 @@ namespace Pulumi.Aws.S3
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "aws:s3/bucketVersioningV2:BucketVersioningV2" },
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketVersioningV2:BucketVersioningV2" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

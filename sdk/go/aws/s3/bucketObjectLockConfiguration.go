@@ -113,9 +113,6 @@ func NewBucketObjectLockConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	if args.Token != nil {

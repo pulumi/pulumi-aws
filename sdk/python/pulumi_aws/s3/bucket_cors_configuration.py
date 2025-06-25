@@ -323,7 +323,7 @@ class BucketCorsConfiguration(pulumi.CustomResource):
             __props__.__dict__["cors_rules"] = cors_rules
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["region"] = region
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2"), pulumi.Alias(type_="aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketCorsConfiguration, __self__).__init__(
             'aws:s3/bucketCorsConfiguration:BucketCorsConfiguration',

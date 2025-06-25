@@ -115,7 +115,7 @@ export class BucketAccelerateConfiguration extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" }, { type: "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketAccelerateConfiguration.__pulumiType, name, resourceInputs, opts);
     }
