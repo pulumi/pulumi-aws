@@ -60,6 +60,10 @@ export interface Selection {
      */
     tagPrefixList?: Input<string> | Input<string>[];
     /**
+     * Specify one or more image tag patterns for selection.
+     */
+    tagPatternList?: Input<string>[];
+    /**
      * Indicate whether to evaluate the rule based on `imageCountMoreThan` or `sinceImagePushed`.
      */
     countType: Input<"imageCountMoreThan" | "sinceImagePushed">;
