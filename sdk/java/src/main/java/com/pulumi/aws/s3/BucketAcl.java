@@ -378,7 +378,6 @@ public class BucketAcl extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketAclV2:BucketAclV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketAclV2:BucketAclV2").build())
             ))
             .build();

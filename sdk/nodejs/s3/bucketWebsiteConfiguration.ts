@@ -192,7 +192,7 @@ export class BucketWebsiteConfiguration extends pulumi.CustomResource {
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2" }, { type: "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketWebsiteConfiguration.__pulumiType, name, resourceInputs, opts);
     }

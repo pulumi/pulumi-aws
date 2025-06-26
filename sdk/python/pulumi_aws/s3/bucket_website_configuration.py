@@ -549,7 +549,7 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
             __props__.__dict__["routing_rules"] = routing_rules
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2"), pulumi.Alias(type_="aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketWebsiteConfiguration, __self__).__init__(
             'aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration',

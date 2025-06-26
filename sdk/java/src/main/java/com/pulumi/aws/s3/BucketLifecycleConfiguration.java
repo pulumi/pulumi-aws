@@ -752,7 +752,6 @@ public class BucketLifecycleConfiguration extends com.pulumi.resources.CustomRes
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2").build())
             ))
             .build();

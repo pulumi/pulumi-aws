@@ -226,7 +226,7 @@ export class BucketAcl extends pulumi.CustomResource {
             resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketAclV2:BucketAclV2" }, { type: "aws:s3/bucketAclV2:BucketAclV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketAclV2:BucketAclV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketAcl.__pulumiType, name, resourceInputs, opts);
     }

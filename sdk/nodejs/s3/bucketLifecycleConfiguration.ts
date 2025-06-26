@@ -422,7 +422,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
             resourceInputs["transitionDefaultMinimumObjectSize"] = args ? args.transitionDefaultMinimumObjectSize : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2" }, { type: "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketLifecycleConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -159,9 +159,6 @@ func NewBucketWebsiteConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

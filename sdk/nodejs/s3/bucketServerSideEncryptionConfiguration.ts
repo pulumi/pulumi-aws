@@ -127,7 +127,7 @@ export class BucketServerSideEncryptionConfiguration extends pulumi.CustomResour
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" }, { type: "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketServerSideEncryptionConfiguration.__pulumiType, name, resourceInputs, opts);
     }

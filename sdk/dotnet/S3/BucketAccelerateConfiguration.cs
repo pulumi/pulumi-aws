@@ -108,7 +108,6 @@ namespace Pulumi.Aws.S3
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" },
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

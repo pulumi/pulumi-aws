@@ -180,7 +180,6 @@ public class BucketAccelerateConfiguration extends com.pulumi.resources.CustomRe
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2").build())
             ))
             .build();

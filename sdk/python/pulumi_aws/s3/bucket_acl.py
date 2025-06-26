@@ -516,7 +516,7 @@ class BucketAcl(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["region"] = region
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketAclV2:BucketAclV2"), pulumi.Alias(type_="aws:s3/bucketAclV2:BucketAclV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketAclV2:BucketAclV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketAcl, __self__).__init__(
             'aws:s3/bucketAcl:BucketAcl',

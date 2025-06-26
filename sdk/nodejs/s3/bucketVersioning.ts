@@ -183,7 +183,7 @@ export class BucketVersioning extends pulumi.CustomResource {
             resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketVersioningV2:BucketVersioningV2" }, { type: "aws:s3/bucketVersioningV2:BucketVersioningV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketVersioningV2:BucketVersioningV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketVersioning.__pulumiType, name, resourceInputs, opts);
     }

@@ -919,7 +919,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
             __props__.__dict__["rules"] = rules
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2"), pulumi.Alias(type_="aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketLifecycleConfiguration, __self__).__init__(
             'aws:s3/bucketLifecycleConfiguration:BucketLifecycleConfiguration',

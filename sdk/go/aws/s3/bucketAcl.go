@@ -252,9 +252,6 @@ func NewBucketAcl(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketAclV2:BucketAclV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketAclV2:BucketAclV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

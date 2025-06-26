@@ -205,9 +205,6 @@ func NewBucketVersioning(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("aws:s3/bucketVersioningV2:BucketVersioningV2"),
 		},
-		{
-			Type: pulumi.String("aws:s3/bucketVersioningV2:BucketVersioningV2"),
-		},
 	})
 	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)

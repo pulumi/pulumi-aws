@@ -124,7 +124,6 @@ namespace Pulumi.Aws.S3
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" },
-                    new global::Pulumi.Alias { Type = "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

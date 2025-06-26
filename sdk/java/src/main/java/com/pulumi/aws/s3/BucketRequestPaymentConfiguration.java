@@ -176,7 +176,6 @@ public class BucketRequestPaymentConfiguration extends com.pulumi.resources.Cust
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2").build())
             ))
             .build();

@@ -135,7 +135,7 @@ export class BucketCorsConfiguration extends pulumi.CustomResource {
             resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2" }, { type: "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2" }] };
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketCorsConfiguration.__pulumiType, name, resourceInputs, opts);
     }

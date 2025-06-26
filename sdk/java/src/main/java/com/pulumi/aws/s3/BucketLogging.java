@@ -245,7 +245,6 @@ public class BucketLogging extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucketLoggingV2:BucketLoggingV2").build()),
                 Output.of(Alias.builder().type("aws:s3/bucketLoggingV2:BucketLoggingV2").build())
             ))
             .build();
