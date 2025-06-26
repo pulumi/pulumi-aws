@@ -342,7 +342,7 @@ type LifecyclePolicySelection struct {
 	// The unit of time for sinceImagePushed. Either 'days'.
 	CountUnit *string `pulumi:"countUnit"`
 	// A list of image tag prefixes on which to take action.
-	TagPrefixList interface{} `pulumi:"tagPrefixList"`
+	TagPrefixList []string `pulumi:"tagPrefixList"`
 	// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
 	TagStatus LifecyclePolicyTagStatus `pulumi:"tagStatus"`
 }
@@ -367,7 +367,7 @@ type LifecyclePolicySelectionArgs struct {
 	// The unit of time for sinceImagePushed. Either 'days'.
 	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
 	// A list of image tag prefixes on which to take action.
-	TagPrefixList pulumi.Input `pulumi:"tagPrefixList"`
+	TagPrefixList pulumi.StringArrayInput `pulumi:"tagPrefixList"`
 	// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
 	TagStatus LifecyclePolicyTagStatusInput `pulumi:"tagStatus"`
 }
@@ -415,8 +415,8 @@ func (o LifecyclePolicySelectionOutput) CountUnit() pulumi.StringPtrOutput {
 }
 
 // A list of image tag prefixes on which to take action.
-func (o LifecyclePolicySelectionOutput) TagPrefixList() pulumi.AnyOutput {
-	return o.ApplyT(func(v LifecyclePolicySelection) interface{} { return v.TagPrefixList }).(pulumi.AnyOutput)
+func (o LifecyclePolicySelectionOutput) TagPrefixList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) []string { return v.TagPrefixList }).(pulumi.StringArrayOutput)
 }
 
 // The tag status of the image. Either 'tagged', 'untagged', or 'any'.

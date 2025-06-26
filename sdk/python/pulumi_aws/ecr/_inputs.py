@@ -237,7 +237,7 @@ if not MYPY:
         """
         The unit of time for sinceImagePushed. Either 'days'.
         """
-        tag_prefix_list: NotRequired[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]]
+        tag_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         A list of image tag prefixes on which to take action.
         """
@@ -251,14 +251,14 @@ class LifecyclePolicySelectionArgs:
                  count_type: pulumi.Input['LifecyclePolicyCountType'],
                  tag_status: pulumi.Input['LifecyclePolicyTagStatus'],
                  count_unit: Optional[pulumi.Input[builtins.str]] = None,
-                 tag_prefix_list: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]] = None):
+                 tag_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Represents selection criteria for an ECR lifecycle policy rule.
         :param pulumi.Input[builtins.int] count_number: The count number to use with the count type.
         :param pulumi.Input['LifecyclePolicyCountType'] count_type: The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
         :param pulumi.Input['LifecyclePolicyTagStatus'] tag_status: The tag status of the image. Either 'tagged', 'untagged', or 'any'.
         :param pulumi.Input[builtins.str] count_unit: The unit of time for sinceImagePushed. Either 'days'.
-        :param pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]] tag_prefix_list: A list of image tag prefixes on which to take action.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tag_prefix_list: A list of image tag prefixes on which to take action.
         """
         pulumi.set(__self__, "count_number", count_number)
         pulumi.set(__self__, "count_type", count_type)
@@ -318,14 +318,14 @@ class LifecyclePolicySelectionArgs:
 
     @property
     @pulumi.getter(name="tagPrefixList")
-    def tag_prefix_list(self) -> Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]]:
+    def tag_prefix_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         A list of image tag prefixes on which to take action.
         """
         return pulumi.get(self, "tag_prefix_list")
 
     @tag_prefix_list.setter
-    def tag_prefix_list(self, value: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]]):
+    def tag_prefix_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tag_prefix_list", value)
 
 

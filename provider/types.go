@@ -701,10 +701,8 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 				},
 				"tagPrefixList": {
 					TypeSpec: schema.TypeSpec{
-						OneOf: []schema.TypeSpec{
-							{Type: "string"},
-							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
-						},
+						Type:  "array",
+						Items: &schema.TypeSpec{Type: "string"},
 					},
 					Description: "A list of image tag prefixes on which to take action.",
 				},

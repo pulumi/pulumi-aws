@@ -33,11 +33,17 @@ namespace Pulumi.Aws.Ecr.Inputs
         [Input("countUnit")]
         public Input<string>? CountUnit { get; set; }
 
+        [Input("tagPrefixList")]
+        private InputList<string>? _tagPrefixList;
+
         /// <summary>
         /// A list of image tag prefixes on which to take action.
         /// </summary>
-        [Input("tagPrefixList")]
-        public InputUnion<string, ImmutableArray<string>>? TagPrefixList { get; set; }
+        public InputList<string> TagPrefixList
+        {
+            get => _tagPrefixList ?? (_tagPrefixList = new InputList<string>());
+            set => _tagPrefixList = value;
+        }
 
         /// <summary>
         /// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
