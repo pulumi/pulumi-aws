@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
  * ```
+ *
+ * @deprecated s3.BucketV2 has been deprecated in favor of s3.Bucket
  */
 export class BucketV2 extends pulumi.CustomResource {
     /**
@@ -50,6 +52,7 @@ export class BucketV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketV2State, opts?: pulumi.CustomResourceOptions): BucketV2 {
+        pulumi.log.warn("BucketV2 is deprecated: s3.BucketV2 has been deprecated in favor of s3.Bucket")
         return new BucketV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -230,8 +233,11 @@ export class BucketV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated s3.BucketV2 has been deprecated in favor of s3.Bucket */
     constructor(name: string, args?: BucketV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated s3.BucketV2 has been deprecated in favor of s3.Bucket */
     constructor(name: string, argsOrState?: BucketV2Args | BucketV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketV2 is deprecated: s3.BucketV2 has been deprecated in favor of s3.Bucket")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -294,8 +300,6 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "aws:s3/bucket:Bucket" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketV2.__pulumiType, name, resourceInputs, opts);
     }
 }

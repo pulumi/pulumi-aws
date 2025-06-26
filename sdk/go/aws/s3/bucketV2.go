@@ -56,6 +56,8 @@ import (
 // ```sh
 // $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
 // ```
+//
+// Deprecated: s3.BucketV2 has been deprecated in favor of s3.Bucket
 type BucketV2 struct {
 	pulumi.CustomResourceState
 
@@ -169,12 +171,6 @@ func NewBucketV2(ctx *pulumi.Context,
 		args = &BucketV2Args{}
 	}
 
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("aws:s3/bucket:Bucket"),
-		},
-	})
-	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketV2
 	err := ctx.RegisterResource("aws:s3/bucketV2:BucketV2", name, args, &resource, opts...)

@@ -15,7 +15,6 @@ import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfiguration;
 import com.pulumi.aws.s3.outputs.BucketV2ServerSideEncryptionConfiguration;
 import com.pulumi.aws.s3.outputs.BucketV2Versioning;
 import com.pulumi.aws.s3.outputs.BucketV2Website;
-import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -83,7 +82,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
  * ```
  * 
+ * @deprecated
+ * s3.BucketV2 has been deprecated in favor of s3.Bucket
+ * 
  */
+@Deprecated /* s3.BucketV2 has been deprecated in favor of s3.Bucket */
 @ResourceType(type="aws:s3/bucketV2:BucketV2")
 public class BucketV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -598,9 +601,6 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .aliases(List.of(
-                Output.of(Alias.builder().type("aws:s3/bucket:Bucket").build())
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

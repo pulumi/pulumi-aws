@@ -967,8 +967,13 @@ class _BucketV2State:
         pulumi.set(self, "websites", value)
 
 
+warnings.warn("""s3.BucketV2 has been deprecated in favor of s3.Bucket""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:s3/bucketV2:BucketV2")
 class BucketV2(pulumi.CustomResource):
+    warnings.warn("""s3.BucketV2 has been deprecated in favor of s3.Bucket""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1138,6 +1143,7 @@ class BucketV2(pulumi.CustomResource):
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketV2VersioningArgs', 'BucketV2VersioningArgsDict']]]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketV2WebsiteArgs', 'BucketV2WebsiteArgsDict']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""BucketV2 is deprecated: s3.BucketV2 has been deprecated in favor of s3.Bucket""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -1173,8 +1179,6 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucket:Bucket")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketV2, __self__).__init__(
             'aws:s3/bucketV2:BucketV2',
             resource_name,

@@ -49,6 +49,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
     /// ```
     /// </summary>
+    [Obsolete(@"s3.BucketV2 has been deprecated in favor of s3.Bucket")]
     [AwsResourceType("aws:s3/bucketV2:BucketV2")]
     public partial class BucketV2 : global::Pulumi.CustomResource
     {
@@ -254,10 +255,6 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new global::Pulumi.Alias { Type = "aws:s3/bucket:Bucket" },
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

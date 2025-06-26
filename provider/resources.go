@@ -5460,7 +5460,11 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	})
 
 	legacyInfo := &info.Resource{
-		Tok: awsResource(s3Mod, "BucketV2"),
+		Tok:                awsResource(s3Mod, "BucketV2"),
+		DeprecationMessage: "s3.BucketV2 has been deprecated in favor of s3.Bucket",
+		Docs: &info.Doc{
+			Source: "s3_bucket.html.markdown",
+		},
 		Fields: map[string]*tfbridge.SchemaInfo{
 			"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 				return strings.ToLower(name)
@@ -5579,14 +5583,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 		},
-		Aliases: []tfbridge.AliasInfo{
-			{
-				Type: ref("aws:s3/bucket:Bucket"),
-			},
-		},
 	}
-	prov.Resources["aws_s3_bucket_legacy"] = legacyInfo
-	err := shim.CloneResource(prov.P.ResourcesMap(), "aws_s3_bucket", "aws_s3_bucket_legacy")
+	prov.Resources["aws_s3_bucket_v2_compat"] = legacyInfo
+	err := shim.CloneResource(prov.P.ResourcesMap(), "aws_s3_bucket", "aws_s3_bucket_v2_compat")
 	contract.AssertNoErrorf(err, "Failed to rename the resource")
 
 	policyDocumentResources := map[string]map[string]string{
