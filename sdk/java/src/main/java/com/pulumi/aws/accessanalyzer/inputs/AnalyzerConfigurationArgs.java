@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.accessanalyzer.inputs;
 
+import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationInternalAccessArgs;
 import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationUnusedAccessArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,14 +17,29 @@ public final class AnalyzerConfigurationArgs extends com.pulumi.resources.Resour
     public static final AnalyzerConfigurationArgs Empty = new AnalyzerConfigurationArgs();
 
     /**
-     * A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+     * Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+     * 
+     */
+    @Import(name="internalAccess")
+    private @Nullable Output<AnalyzerConfigurationInternalAccessArgs> internalAccess;
+
+    /**
+     * @return Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+     * 
+     */
+    public Optional<Output<AnalyzerConfigurationInternalAccessArgs>> internalAccess() {
+        return Optional.ofNullable(this.internalAccess);
+    }
+
+    /**
+     * Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
      * 
      */
     @Import(name="unusedAccess")
     private @Nullable Output<AnalyzerConfigurationUnusedAccessArgs> unusedAccess;
 
     /**
-     * @return A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+     * @return Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
      * 
      */
     public Optional<Output<AnalyzerConfigurationUnusedAccessArgs>> unusedAccess() {
@@ -33,6 +49,7 @@ public final class AnalyzerConfigurationArgs extends com.pulumi.resources.Resour
     private AnalyzerConfigurationArgs() {}
 
     private AnalyzerConfigurationArgs(AnalyzerConfigurationArgs $) {
+        this.internalAccess = $.internalAccess;
         this.unusedAccess = $.unusedAccess;
     }
 
@@ -55,7 +72,28 @@ public final class AnalyzerConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param unusedAccess A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+         * @param internalAccess Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder internalAccess(@Nullable Output<AnalyzerConfigurationInternalAccessArgs> internalAccess) {
+            $.internalAccess = internalAccess;
+            return this;
+        }
+
+        /**
+         * @param internalAccess Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder internalAccess(AnalyzerConfigurationInternalAccessArgs internalAccess) {
+            return internalAccess(Output.of(internalAccess));
+        }
+
+        /**
+         * @param unusedAccess Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +104,7 @@ public final class AnalyzerConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param unusedAccess A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+         * @param unusedAccess Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
          * 
          * @return builder
          * 

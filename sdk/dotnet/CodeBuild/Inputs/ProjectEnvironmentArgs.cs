@@ -27,6 +27,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         [Input("computeType", required: true)]
         public Input<string> ComputeType { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("dockerServer")]
+        public Input<Inputs.ProjectEnvironmentDockerServerArgs>? DockerServer { get; set; }
+
         [Input("environmentVariables")]
         private InputList<Inputs.ProjectEnvironmentEnvironmentVariableArgs>? _environmentVariables;
 

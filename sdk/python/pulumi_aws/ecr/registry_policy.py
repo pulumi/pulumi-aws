@@ -148,7 +148,7 @@ class RegistryPolicy(pulumi.CustomResource):
                     "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                 },
                 "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
+                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.region}:{current.account_id}:repository/*"],
             }],
         }))
         ```
@@ -196,7 +196,7 @@ class RegistryPolicy(pulumi.CustomResource):
                     "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                 },
                 "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
+                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.region}:{current.account_id}:repository/*"],
             }],
         }))
         ```

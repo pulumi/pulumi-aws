@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ecr
     ///                             var currentGetPartition = values.Item1;
     ///                             var currentGetRegion = values.Item2;
     ///                             var current = values.Item3;
-    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ecr:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:repository/*";
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ecr:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:repository/*";
     ///                         }),
     ///                     },
     ///                 },

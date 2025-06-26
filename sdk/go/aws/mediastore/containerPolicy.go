@@ -62,7 +62,7 @@ import (
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", current.Name, currentGetCallerIdentity.AccountId, name), nil
+//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", current.Region, currentGetCallerIdentity.AccountId, name), nil
 //							}).(pulumi.StringOutput),
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{

@@ -304,12 +304,12 @@ class OutboundConnection(pulumi.CustomResource):
             connection_mode="DIRECT",
             local_domain_info={
                 "owner_id": current.account_id,
-                "region": current_get_region.name,
+                "region": current_get_region.region,
                 "domain_name": local_domain["domainName"],
             },
             remote_domain_info={
                 "owner_id": current.account_id,
-                "region": current_get_region.name,
+                "region": current_get_region.region,
                 "domain_name": remote_domain["domainName"],
             })
         ```
@@ -356,12 +356,12 @@ class OutboundConnection(pulumi.CustomResource):
             connection_mode="DIRECT",
             local_domain_info={
                 "owner_id": current.account_id,
-                "region": current_get_region.name,
+                "region": current_get_region.region,
                 "domain_name": local_domain["domainName"],
             },
             remote_domain_info={
                 "owner_id": current.account_id,
-                "region": current_get_region.name,
+                "region": current_get_region.region,
                 "domain_name": remote_domain["domainName"],
             })
         ```

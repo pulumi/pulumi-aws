@@ -839,6 +839,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    @Export(name="osReleaseLabel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> osReleaseLabel;
+
+    /**
+     * @return Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    public Output<Optional<String>> osReleaseLabel() {
+        return Codegen.optional(this.osReleaseLabel);
+    }
+    /**
      * The specified placement group configuration for an Amazon EMR cluster.
      * 
      */

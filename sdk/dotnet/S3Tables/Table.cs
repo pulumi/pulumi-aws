@@ -46,6 +46,74 @@ namespace Pulumi.Aws.S3Tables
     /// });
     /// ```
     /// 
+    /// ### With Metadata Schema
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTableBucket = new Aws.S3Tables.TableBucket("example", new()
+    ///     {
+    ///         Name = "example-bucket",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Aws.S3Tables.Namespace("example", new()
+    ///     {
+    ///         NameSpace = "example_namespace",
+    ///         TableBucketArn = exampleTableBucket.Arn,
+    ///     });
+    /// 
+    ///     var example = new Aws.S3Tables.Table("example", new()
+    ///     {
+    ///         Name = "example_table",
+    ///         Namespace = exampleNamespace.NameSpace,
+    ///         TableBucketArn = exampleNamespace.TableBucketArn,
+    ///         Format = "ICEBERG",
+    ///         Metadata = new Aws.S3Tables.Inputs.TableMetadataArgs
+    ///         {
+    ///             Iceberg = new Aws.S3Tables.Inputs.TableMetadataIcebergArgs
+    ///             {
+    ///                 Schema = new Aws.S3Tables.Inputs.TableMetadataIcebergSchemaArgs
+    ///                 {
+    ///                     Fields = new[]
+    ///                     {
+    ///                         new Aws.S3Tables.Inputs.TableMetadataIcebergSchemaFieldArgs
+    ///                         {
+    ///                             Name = "id",
+    ///                             Type = "long",
+    ///                             Required = true,
+    ///                         },
+    ///                         new Aws.S3Tables.Inputs.TableMetadataIcebergSchemaFieldArgs
+    ///                         {
+    ///                             Name = "name",
+    ///                             Type = "string",
+    ///                             Required = true,
+    ///                         },
+    ///                         new Aws.S3Tables.Inputs.TableMetadataIcebergSchemaFieldArgs
+    ///                         {
+    ///                             Name = "created_at",
+    ///                             Type = "timestamp",
+    ///                             Required = false,
+    ///                         },
+    ///                         new Aws.S3Tables.Inputs.TableMetadataIcebergSchemaFieldArgs
+    ///                         {
+    ///                             Name = "price",
+    ///                             Type = "decimal(10,2)",
+    ///                             Required = false,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
@@ -95,6 +163,13 @@ namespace Pulumi.Aws.S3Tables
         /// </summary>
         [Output("maintenanceConfiguration")]
         public Output<Outputs.TableMaintenanceConfiguration> MaintenanceConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+        /// See `metadata` below.
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.TableMetadata?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Location of table metadata.
@@ -238,6 +313,13 @@ namespace Pulumi.Aws.S3Tables
         public Input<Inputs.TableMaintenanceConfigurationArgs>? MaintenanceConfiguration { get; set; }
 
         /// <summary>
+        /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+        /// See `metadata` below.
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.TableMetadataArgs>? Metadata { get; set; }
+
+        /// <summary>
         /// Name of the table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -314,6 +396,13 @@ namespace Pulumi.Aws.S3Tables
         /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableMaintenanceConfigurationGetArgs>? MaintenanceConfiguration { get; set; }
+
+        /// <summary>
+        /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+        /// See `metadata` below.
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.TableMetadataGetArgs>? Metadata { get; set; }
 
         /// <summary>
         /// Location of table metadata.

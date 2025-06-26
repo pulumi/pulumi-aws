@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *             identifiers: [currentGetCallerIdentity.then(currentGetCallerIdentity => `arn:aws:iam::${currentGetCallerIdentity.accountId}:root`)],
  *         }],
  *         actions: ["mediastore:*"],
- *         resources: [pulumi.all([current, currentGetCallerIdentity, exampleContainer.name]).apply(([current, currentGetCallerIdentity, name]) => `arn:aws:mediastore:${current.name}:${currentGetCallerIdentity.accountId}:container/${name}/*`)],
+ *         resources: [pulumi.all([current, currentGetCallerIdentity, exampleContainer.name]).apply(([current, currentGetCallerIdentity, name]) => `arn:aws:mediastore:${current.region}:${currentGetCallerIdentity.accountId}:container/${name}/*`)],
  *         conditions: [{
  *             test: "Bool",
  *             variable: "aws:SecureTransport",

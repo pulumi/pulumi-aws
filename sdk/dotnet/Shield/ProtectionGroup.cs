@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Shield
     ///             var current = values.Item1;
     ///             var currentGetCallerIdentity = values.Item2;
     ///             var id = values.Item3;
-    ///             return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///             return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///         }),
     ///     });
     /// 
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Shield
     ///                 var current = values.Item1;
     ///                 var currentGetCallerIdentity = values.Item2;
     ///                 var id = values.Item3;
-    ///                 return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///                 return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///             }),
     ///         },
     ///     }, new CustomResourceOptions

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
         private InputList<Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionGetArgs>? _exclusions;
 
         /// <summary>
-        /// A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        /// List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
         /// </summary>
         public InputList<Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionGetArgs> Exclusions
         {

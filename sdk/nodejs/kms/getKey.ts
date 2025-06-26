@@ -89,7 +89,7 @@ export interface GetKeyResult {
      */
     readonly customKeyStoreId: string;
     /**
-     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * See `keySpec`.
      */
     readonly customerMasterKeySpec: string;
     /**

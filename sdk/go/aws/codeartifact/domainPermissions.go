@@ -113,9 +113,6 @@ func NewDomainPermissions(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
-	if args.PolicyDocument == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainPermissions
 	err := ctx.RegisterResource("aws:codeartifact/domainPermissions:DomainPermissions", name, args, &resource, opts...)
@@ -178,7 +175,7 @@ type domainPermissionsArgs struct {
 	// The account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
 	// A JSON policy string to be set as the access control resource policy on the provided domain.
-	PolicyDocument string `pulumi:"policyDocument"`
+	PolicyDocument *string `pulumi:"policyDocument"`
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision *string `pulumi:"policyRevision"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -192,7 +189,7 @@ type DomainPermissionsArgs struct {
 	// The account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput
 	// A JSON policy string to be set as the access control resource policy on the provided domain.
-	PolicyDocument pulumi.StringInput
+	PolicyDocument pulumi.StringPtrInput
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *         var exampleBotAssociation = new BotAssociation("exampleBotAssociation", BotAssociationArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(current.name())
+ *                 .lexRegion(current.region())
  *                 .name(exampleBot.name())
  *                 .build())
  *             .build());

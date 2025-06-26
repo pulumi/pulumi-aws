@@ -30,7 +30,7 @@ namespace Pulumi.Aws
         /// 
         ///     var test = Aws.GetService.Invoke(new()
         ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
         ///     });
         /// 
@@ -95,7 +95,7 @@ namespace Pulumi.Aws
         /// 
         ///     var test = Aws.GetService.Invoke(new()
         ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
         ///     });
         /// 
@@ -160,7 +160,7 @@ namespace Pulumi.Aws
         /// 
         ///     var test = Aws.GetService.Invoke(new()
         ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
         ///     });
         /// 

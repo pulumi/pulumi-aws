@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     ],
  *     parameters: {
  *         functionName: "func-postgres-rotator",
- *         endpoint: Promise.all([currentGetRegion, current]).then(([currentGetRegion, current]) => `secretsmanager.${currentGetRegion.name}.${current.dnsSuffix}`),
+ *         endpoint: Promise.all([currentGetRegion, current]).then(([currentGetRegion, current]) => `secretsmanager.${currentGetRegion.region}.${current.dnsSuffix}`),
  *     },
  * });
  * ```

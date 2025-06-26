@@ -348,7 +348,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         test = aws.networkmanager.DxGatewayAttachment("test",
             core_network_id=test_aws_networkmanager_core_network_policy_attachment["coreNetworkId"],
             direct_connect_gateway_arn=f"arn:aws:directconnect::{current['accountId']}:dx-gateway/{test_aws_dx_gateway['id']}",
-            edge_locations=[current_aws_region["name"]])
+            edge_locations=[current_aws_region["region"]])
         ```
 
         ## Import
@@ -390,7 +390,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         test = aws.networkmanager.DxGatewayAttachment("test",
             core_network_id=test_aws_networkmanager_core_network_policy_attachment["coreNetworkId"],
             direct_connect_gateway_arn=f"arn:aws:directconnect::{current['accountId']}:dx-gateway/{test_aws_dx_gateway['id']}",
-            edge_locations=[current_aws_region["name"]])
+            edge_locations=[current_aws_region["region"]])
         ```
 
         ## Import

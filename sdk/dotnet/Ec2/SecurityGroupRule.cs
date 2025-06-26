@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var s3 = Aws.Ec2.GetPrefixList.Invoke(new()
     ///     {
-    ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.s3",
+    ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.s3",
     ///     });
     /// 
     ///     var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3_gateway_egress", new()

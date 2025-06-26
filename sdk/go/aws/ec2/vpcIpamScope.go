@@ -38,7 +38,7 @@ import (
 //			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Region),
 //					},
 //				},
 //			})

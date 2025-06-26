@@ -190,7 +190,7 @@ class Tag(pulumi.CustomResource):
         }])
         test = aws.dynamodb.Tag("test",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
-                search=current.name,
+                search=current.region,
                 replace=replica.name)).apply(lambda invoke: invoke.result),
             key="testkey",
             value="testvalue")
@@ -238,7 +238,7 @@ class Tag(pulumi.CustomResource):
         }])
         test = aws.dynamodb.Tag("test",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
-                search=current.name,
+                search=current.region,
                 replace=replica.name)).apply(lambda invoke: invoke.result),
             key="testkey",
             value="testvalue")

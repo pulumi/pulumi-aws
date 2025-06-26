@@ -100,7 +100,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
+    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
+    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
     ///                 },
     ///             },
     ///         },

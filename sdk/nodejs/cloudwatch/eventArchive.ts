@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example all optional arguments
+ * ### Optional Arguments
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -37,6 +37,70 @@ import * as utilities from "../utilities";
  *     eventPattern: JSON.stringify({
  *         source: ["company.team.order"],
  *     }),
+ * });
+ * ```
+ *
+ * ### CMK Encryption
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.cloudwatch.EventBus("example", {name: "example"});
+ * const exampleKey = new aws.kms.Key("example", {
+ *     deletionWindowInDays: 7,
+ *     policy: pulumi.jsonStringify({
+ *         Version: "2012-10-17",
+ *         Id: "key-policy-example",
+ *         Statement: [
+ *             {
+ *                 Sid: "Enable IAM User Permissions",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
+ *                 },
+ *                 Action: "kms:*",
+ *                 Resource: "*",
+ *             },
+ *             {
+ *                 Sid: "Allow describing of the key",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "events.amazonaws.com",
+ *                 },
+ *                 Action: ["kms:DescribeKey"],
+ *                 Resource: "*",
+ *             },
+ *             {
+ *                 Sid: "Allow use of the key",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "events.amazonaws.com",
+ *                 },
+ *                 Action: [
+ *                     "kms:GenerateDataKey",
+ *                     "kms:Decrypt",
+ *                     "kms:ReEncrypt*",
+ *                 ],
+ *                 Resource: "*",
+ *                 Condition: {
+ *                     StringEquals: {
+ *                         "kms:EncryptionContext:aws:events:event-bus:arn": example.arn,
+ *                     },
+ *                 },
+ *             },
+ *         ],
+ *     }),
+ *     tags: {
+ *         EventBridgeApiDestinations: "true",
+ *     },
+ * });
+ * const exampleEventArchive = new aws.cloudwatch.EventArchive("example", {
+ *     name: "example",
+ *     eventSourceArn: example.arn,
+ *     kmsKeyIdentifier: exampleKey.id,
  * });
  * ```
  *
@@ -77,23 +141,27 @@ export class EventArchive extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the event archive.
+     * ARN of the archive.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the new event archive.
+     * Description for the archive.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
     public readonly eventPattern!: pulumi.Output<string | undefined>;
     /**
-     * Event bus source ARN from where these events should be archived.
+     * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      */
     public readonly eventSourceArn!: pulumi.Output<string>;
     /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the archive. The archive name cannot exceed 48 characters.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -122,6 +190,7 @@ export class EventArchive extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["eventPattern"] = state ? state.eventPattern : undefined;
             resourceInputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
@@ -133,6 +202,7 @@ export class EventArchive extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
             resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
@@ -148,23 +218,27 @@ export class EventArchive extends pulumi.CustomResource {
  */
 export interface EventArchiveState {
     /**
-     * The Amazon Resource Name (ARN) of the event archive.
+     * ARN of the archive.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The description of the new event archive.
+     * Description for the archive.
      */
     description?: pulumi.Input<string>;
     /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
     eventPattern?: pulumi.Input<string>;
     /**
-     * Event bus source ARN from where these events should be archived.
+     * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      */
     eventSourceArn?: pulumi.Input<string>;
     /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * Name of the archive. The archive name cannot exceed 48 characters.
      */
     name?: pulumi.Input<string>;
     /**
@@ -182,19 +256,23 @@ export interface EventArchiveState {
  */
 export interface EventArchiveArgs {
     /**
-     * The description of the new event archive.
+     * Description for the archive.
      */
     description?: pulumi.Input<string>;
     /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
+     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
     eventPattern?: pulumi.Input<string>;
     /**
-     * Event bus source ARN from where these events should be archived.
+     * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      */
     eventSourceArn: pulumi.Input<string>;
     /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * Name of the archive. The archive name cannot exceed 48 characters.
      */
     name?: pulumi.Input<string>;
     /**

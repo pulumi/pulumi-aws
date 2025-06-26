@@ -296,6 +296,9 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        current_get_caller_identity = aws.get_caller_identity()
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
@@ -305,7 +308,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
-                "tls_inspection_configuration_arn": "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+                "tls_inspection_configuration_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:{current_get_caller_identity.account_id}:tls-configuration/example",
             },
             tags={
                 "Tag1": "Value1",
@@ -352,7 +355,7 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.networkfirewall.FirewallPolicy("test",
+        example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
                 "stateless_default_actions": [
@@ -369,6 +372,50 @@ class FirewallPolicy(pulumi.CustomResource):
                         },
                     },
                     "action_name": "ExampleCustomAction",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Action Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "true",
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Strict Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_engine_options": {
+                    "rule_order": "STRICT_ORDER",
+                },
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "false",
+                    "priority": 1,
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder",
                 }],
             })
         ```
@@ -405,6 +452,9 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        current_get_caller_identity = aws.get_caller_identity()
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
@@ -414,7 +464,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
-                "tls_inspection_configuration_arn": "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+                "tls_inspection_configuration_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:{current_get_caller_identity.account_id}:tls-configuration/example",
             },
             tags={
                 "Tag1": "Value1",
@@ -461,7 +511,7 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.networkfirewall.FirewallPolicy("test",
+        example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
                 "stateless_default_actions": [
@@ -478,6 +528,50 @@ class FirewallPolicy(pulumi.CustomResource):
                         },
                     },
                     "action_name": "ExampleCustomAction",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Action Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "true",
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Strict Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_engine_options": {
+                    "rule_order": "STRICT_ORDER",
+                },
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "false",
+                    "priority": 1,
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder",
                 }],
             })
         ```

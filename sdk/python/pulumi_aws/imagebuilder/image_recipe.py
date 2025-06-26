@@ -522,7 +522,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ],
             }],
             name="example",
-            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
+            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
         ```
 
@@ -588,7 +588,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ],
             }],
             name="example",
-            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
+            parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
         ```
 

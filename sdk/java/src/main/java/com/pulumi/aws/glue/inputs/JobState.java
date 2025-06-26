@@ -145,6 +145,21 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * 
+     */
+    @Import(name="jobMode")
+    private @Nullable Output<String> jobMode;
+
+    /**
+     * @return Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * 
+     */
+    public Optional<Output<String>> jobMode() {
+        return Optional.ofNullable(this.jobMode);
+    }
+
+    /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      * 
      */
@@ -409,6 +424,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         this.executionClass = $.executionClass;
         this.executionProperty = $.executionProperty;
         this.glueVersion = $.glueVersion;
+        this.jobMode = $.jobMode;
         this.jobRunQueuingEnabled = $.jobRunQueuingEnabled;
         this.maintenanceWindow = $.maintenanceWindow;
         this.maxCapacity = $.maxCapacity;
@@ -621,6 +637,27 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder glueVersion(String glueVersion) {
             return glueVersion(Output.of(glueVersion));
+        }
+
+        /**
+         * @param jobMode Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobMode(@Nullable Output<String> jobMode) {
+            $.jobMode = jobMode;
+            return this;
+        }
+
+        /**
+         * @param jobMode Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobMode(String jobMode) {
+            return jobMode(Output.of(jobMode));
         }
 
         /**

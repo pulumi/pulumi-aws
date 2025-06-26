@@ -22,18 +22,8 @@ import * as utilities from "../utilities";
  * const runtimeMonitoring = new aws.guardduty.MemberDetectorFeature("runtime_monitoring", {
  *     detectorId: example.id,
  *     accountId: "123456789012",
- *     name: "RUNTIME_MONITORING",
+ *     name: "S3_DATA_EVENTS",
  *     status: "ENABLED",
- *     additionalConfigurations: [
- *         {
- *             name: "EKS_ADDON_MANAGEMENT",
- *             status: "ENABLED",
- *         },
- *         {
- *             name: "ECS_FARGATE_AGENT_MANAGEMENT",
- *             status: "ENABLED",
- *         },
- *     ],
  * });
  * ```
  */

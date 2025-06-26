@@ -254,6 +254,20 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.resourceSetIds;
     }
     /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    @Export(name="resourceTagLogicalOperator", refs={String.class}, tree="[0]")
+    private Output<String> resourceTagLogicalOperator;
+
+    /**
+     * @return Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    public Output<String> resourceTagLogicalOperator() {
+        return this.resourceTagLogicalOperator;
+    }
+    /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      * 
      */

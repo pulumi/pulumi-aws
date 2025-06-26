@@ -310,12 +310,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
@@ -333,12 +333,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
@@ -385,12 +385,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
@@ -408,12 +408,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")

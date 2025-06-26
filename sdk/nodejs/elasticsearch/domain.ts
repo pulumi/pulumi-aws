@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *       "Action": "es:*",
  *       "Principal": "*",
  *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*",
+ *       "Resource": "arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*",
  *       "Condition": {
  *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
  *       }
@@ -155,7 +155,7 @@ import * as utilities from "../utilities";
  * 			"Action": "es:*",
  * 			"Principal": "*",
  * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*"
+ * 			"Resource": "arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*"
  * 		}
  * 	]
  * }

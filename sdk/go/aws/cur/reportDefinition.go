@@ -84,7 +84,7 @@ type ReportDefinition struct {
 	ReportVersioning pulumi.StringPtrOutput `pulumi:"reportVersioning"`
 	// Name of the existing S3 bucket to hold generated reports.
 	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
-	// Report path prefix. Limited to 256 characters.
+	// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
 	S3Prefix pulumi.StringOutput `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region pulumi.StringOutput `pulumi:"s3Region"`
@@ -168,7 +168,7 @@ type reportDefinitionState struct {
 	ReportVersioning *string `pulumi:"reportVersioning"`
 	// Name of the existing S3 bucket to hold generated reports.
 	S3Bucket *string `pulumi:"s3Bucket"`
-	// Report path prefix. Limited to 256 characters.
+	// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
 	S3Prefix *string `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region *string `pulumi:"s3Region"`
@@ -199,7 +199,7 @@ type ReportDefinitionState struct {
 	ReportVersioning pulumi.StringPtrInput
 	// Name of the existing S3 bucket to hold generated reports.
 	S3Bucket pulumi.StringPtrInput
-	// Report path prefix. Limited to 256 characters.
+	// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
 	S3Prefix pulumi.StringPtrInput
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region pulumi.StringPtrInput
@@ -232,7 +232,7 @@ type reportDefinitionArgs struct {
 	ReportVersioning *string `pulumi:"reportVersioning"`
 	// Name of the existing S3 bucket to hold generated reports.
 	S3Bucket string `pulumi:"s3Bucket"`
-	// Report path prefix. Limited to 256 characters.
+	// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
 	S3Prefix string `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region string `pulumi:"s3Region"`
@@ -260,7 +260,7 @@ type ReportDefinitionArgs struct {
 	ReportVersioning pulumi.StringPtrInput
 	// Name of the existing S3 bucket to hold generated reports.
 	S3Bucket pulumi.StringInput
-	// Report path prefix. Limited to 256 characters.
+	// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
 	S3Prefix pulumi.StringInput
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region pulumi.StringInput
@@ -402,7 +402,7 @@ func (o ReportDefinitionOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// Report path prefix. Limited to 256 characters.
+// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
 func (o ReportDefinitionOutput) S3Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Prefix }).(pulumi.StringOutput)
 }

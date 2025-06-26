@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                     .identifiers(String.format("arn:aws:iam::%s:root", currentGetCallerIdentity.accountId()))
  *                     .build())
  *                 .actions("mediastore:*")
- *                 .resources(exampleContainer.name().applyValue(_name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.name(),currentGetCallerIdentity.accountId(),_name)))
+ *                 .resources(exampleContainer.name().applyValue(_name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.region(),currentGetCallerIdentity.accountId(),_name)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("Bool")
  *                     .variable("aws:SecureTransport")

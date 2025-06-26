@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleProductSubscription = new ProductSubscription("exampleProductSubscription", ProductSubscriptionArgs.builder()
- *             .productArn(String.format("arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement", current.name()))
+ *             .productArn(String.format("arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement", current.region()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());

@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:SourceArn",
- *                 values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example`)],
+ *                 values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.region}:${current.accountId}:trail/example`)],
  *             }],
  *         },
  *         {
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *                 {
  *                     test: "StringEquals",
  *                     variable: "aws:SourceArn",
- *                     values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example`)],
+ *                     values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.region}:${current.accountId}:trail/example`)],
  *                 },
  *             ],
  *         },

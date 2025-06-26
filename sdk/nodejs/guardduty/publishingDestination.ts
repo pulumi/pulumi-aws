@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow GuardDuty to encrypt findings",
  *             actions: ["kms:GenerateDataKey"],
- *             resources: [`arn:aws:kms:${currentGetRegion.name}:${current.accountId}:key/*`],
+ *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow all users to modify/delete key (test only)",
  *             actions: ["kms:*"],
- *             resources: [`arn:aws:kms:${currentGetRegion1.name}:${current1.accountId}:key/*`],
+ *             resources: [`arn:aws:kms:${currentGetRegion1.region}:${current1.accountId}:key/*`],
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [`arn:aws:iam::${current2.accountId}:root`],

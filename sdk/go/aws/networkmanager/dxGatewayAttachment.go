@@ -38,7 +38,7 @@ import (
 //				CoreNetworkId:           pulumi.Any(testAwsNetworkmanagerCoreNetworkPolicyAttachment.CoreNetworkId),
 //				DirectConnectGatewayArn: pulumi.Sprintf("arn:aws:directconnect::%v:dx-gateway/%v", current.AccountId, testAwsDxGateway.Id),
 //				EdgeLocations: pulumi.StringArray{
-//					currentAwsRegion.Name,
+//					currentAwsRegion.Region,
 //				},
 //			})
 //			if err != nil {

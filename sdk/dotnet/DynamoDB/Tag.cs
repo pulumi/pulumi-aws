@@ -52,7 +52,7 @@ namespace Pulumi.Aws.DynamoDB
     ///             return Std.Replace.Invoke(new()
     ///             {
     ///                 Text = arn,
-    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///                 Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///             });
     ///         }).Apply(invoke =&gt; invoke.Result),

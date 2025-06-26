@@ -906,7 +906,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
@@ -988,7 +988,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
         }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,
@@ -1195,7 +1195,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
@@ -1277,7 +1277,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
         }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,

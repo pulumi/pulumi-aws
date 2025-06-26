@@ -116,7 +116,7 @@ import (
 //			_, err = connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
 //				InstanceId: pulumi.Any(exampleAwsConnectInstance.Id),
 //				LexBot: &connect.BotAssociationLexBotArgs{
-//					LexRegion: pulumi.String(current.Name),
+//					LexRegion: pulumi.String(current.Region),
 //					Name:      exampleBot.Name,
 //				},
 //			})

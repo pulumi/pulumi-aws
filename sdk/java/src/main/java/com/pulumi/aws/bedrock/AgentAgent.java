@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("ArnLike")
- *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                         .variable("AWS:SourceArn")
  *                         .build())
  *                 .build())
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *         final var exampleAgentPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions("bedrock:InvokeModel")
- *                 .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetPartition.partition(),currentGetRegion.name()))
+ *                 .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetPartition.partition(),currentGetRegion.region()))
  *                 .build())
  *             .build());
  * 

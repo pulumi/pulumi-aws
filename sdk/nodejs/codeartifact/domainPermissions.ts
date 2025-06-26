@@ -120,9 +120,6 @@ export class DomainPermissions extends pulumi.CustomResource {
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyDocument'");
-            }
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
@@ -180,7 +177,7 @@ export interface DomainPermissionsArgs {
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
-    policyDocument: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string>;
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */

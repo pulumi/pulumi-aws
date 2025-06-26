@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
- *             .serviceName(String.format("com.amazonaws.%s.datasync", current.name()))
+ *             .serviceName(String.format("com.amazonaws.%s.datasync", current.region()))
  *             .vpcId(exampleAwsVpc.id())
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .subnetIds(exampleAwsSubnet.id())

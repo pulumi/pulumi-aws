@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  *     name: "example",
- *     parentImage: `arn:${current.partition}:imagebuilder:${currentAwsRegion.name}:aws:image/amazon-linux-2-x86/x.x.x`,
+ *     parentImage: `arn:${current.partition}:imagebuilder:${currentAwsRegion.region}:aws:image/amazon-linux-2-x86/x.x.x`,
  *     version: "1.0.0",
  * });
  * ```

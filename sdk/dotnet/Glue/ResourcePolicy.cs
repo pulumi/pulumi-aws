@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*",
     ///                 },
     ///                 Principals = new[]
     ///                 {

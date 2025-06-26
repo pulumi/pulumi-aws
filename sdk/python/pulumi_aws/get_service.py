@@ -132,7 +132,7 @@ def get_service(dns_name: Optional[builtins.str] = None,
     import pulumi_aws as aws
 
     current = aws.get_region()
-    test = aws.get_service(region=current.name,
+    test = aws.get_service(region=current.region,
         service_id="ec2")
     ```
 
@@ -199,7 +199,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[builtins.str]]] 
     import pulumi_aws as aws
 
     current = aws.get_region()
-    test = aws.get_service(region=current.name,
+    test = aws.get_service(region=current.region,
         service_id="ec2")
     ```
 

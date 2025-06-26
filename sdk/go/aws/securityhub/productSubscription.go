@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = securityhub.NewProductSubscription(ctx, "example", &securityhub.ProductSubscriptionArgs{
-//				ProductArn: pulumi.Sprintf("arn:aws:securityhub:%v:733251395267:product/alertlogic/althreatmanagement", current.Name),
+//				ProductArn: pulumi.Sprintf("arn:aws:securityhub:%v:733251395267:product/alertlogic/althreatmanagement", current.Region),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))

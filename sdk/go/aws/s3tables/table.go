@@ -58,6 +58,76 @@ import (
 //
 // ```
 //
+// ### With Metadata Schema
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTableBucket, err := s3tables.NewTableBucket(ctx, "example", &s3tables.TableBucketArgs{
+//				Name: pulumi.String("example-bucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := s3tables.NewNamespace(ctx, "example", &s3tables.NamespaceArgs{
+//				Namespace:      pulumi.String("example_namespace"),
+//				TableBucketArn: exampleTableBucket.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3tables.NewTable(ctx, "example", &s3tables.TableArgs{
+//				Name:           pulumi.String("example_table"),
+//				Namespace:      exampleNamespace.Namespace,
+//				TableBucketArn: exampleNamespace.TableBucketArn,
+//				Format:         pulumi.String("ICEBERG"),
+//				Metadata: &s3tables.TableMetadataArgs{
+//					Iceberg: &s3tables.TableMetadataIcebergArgs{
+//						Schema: &s3tables.TableMetadataIcebergSchemaArgs{
+//							Fields: s3tables.TableMetadataIcebergSchemaFieldArray{
+//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
+//									Name:     pulumi.String("id"),
+//									Type:     pulumi.String("long"),
+//									Required: pulumi.Bool(true),
+//								},
+//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
+//									Name:     pulumi.String("name"),
+//									Type:     pulumi.String("string"),
+//									Required: pulumi.Bool(true),
+//								},
+//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
+//									Name:     pulumi.String("created_at"),
+//									Type:     pulumi.String("timestamp"),
+//									Required: pulumi.Bool(false),
+//								},
+//								&s3tables.TableMetadataIcebergSchemaFieldArgs{
+//									Name:     pulumi.String("price"),
+//									Type:     pulumi.String("decimal(10,2)"),
+//									Required: pulumi.Bool(false),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
@@ -83,6 +153,9 @@ type Table struct {
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+	// See `metadata` below.
+	Metadata TableMetadataPtrOutput `pulumi:"metadata"`
 	// Location of table metadata.
 	MetadataLocation pulumi.StringOutput `pulumi:"metadataLocation"`
 	// Date and time when the namespace was last modified.
@@ -169,6 +242,9 @@ type tableState struct {
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+	// See `metadata` below.
+	Metadata *TableMetadata `pulumi:"metadata"`
 	// Location of table metadata.
 	MetadataLocation *string `pulumi:"metadataLocation"`
 	// Date and time when the namespace was last modified.
@@ -217,6 +293,9 @@ type TableState struct {
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+	// See `metadata` below.
+	Metadata TableMetadataPtrInput
 	// Location of table metadata.
 	MetadataLocation pulumi.StringPtrInput
 	// Date and time when the namespace was last modified.
@@ -263,6 +342,9 @@ type tableArgs struct {
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+	// See `metadata` below.
+	Metadata *TableMetadata `pulumi:"metadata"`
 	// Name of the table.
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -291,6 +373,9 @@ type TableArgs struct {
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+	// See `metadata` below.
+	Metadata TableMetadataPtrInput
 	// Name of the table.
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -426,6 +511,12 @@ func (o TableOutput) Format() pulumi.StringOutput {
 // See `maintenanceConfiguration` below.
 func (o TableOutput) MaintenanceConfiguration() TableMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *Table) TableMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableMaintenanceConfigurationOutput)
+}
+
+// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+// See `metadata` below.
+func (o TableOutput) Metadata() TableMetadataPtrOutput {
+	return o.ApplyT(func(v *Table) TableMetadataPtrOutput { return v.Metadata }).(TableMetadataPtrOutput)
 }
 
 // Location of table metadata.

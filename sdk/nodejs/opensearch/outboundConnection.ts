@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *     connectionMode: "DIRECT",
  *     localDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: localDomain.domainName,
  *     },
  *     remoteDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: remoteDomain.domainName,
  *     },
  * });

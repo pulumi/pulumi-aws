@@ -10,67 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
-    /// Attaches a policy to an S3 bucket resource.
-    /// 
-    /// &gt; Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.Bucket("example", new()
-    ///     {
-    ///         BucketName = "my-tf-test-bucket",
-    ///     });
-    /// 
-    ///     var allowAccessFromAnotherAccount = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetObject",
-    ///                     "s3:ListBucket",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     example.Arn,
-    ///                     $"{example.Arn}/*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allow_access_from_another_account", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Policy = allowAccessFromAnotherAccount.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket policies using the bucket name. For example:

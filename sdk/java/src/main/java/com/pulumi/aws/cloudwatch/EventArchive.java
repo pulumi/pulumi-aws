@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Example all optional arguments
+ * ### Optional Arguments
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -111,6 +111,109 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### CMK Encryption
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.cloudwatch.EventArchive;
+ * import com.pulumi.aws.cloudwatch.EventArchiveArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
+ *         var example = new EventBus("example", EventBusArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
+ *             .deletionWindowInDays(7)
+ *             .policy(example.arn().applyValue(_arn -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "key-policy-example"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow describing of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "events.amazonaws.com")
+ *                             )),
+ *                             jsonProperty("Action", jsonArray("kms:DescribeKey")),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow use of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "events.amazonaws.com")
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:GenerateDataKey", 
+ *                                 "kms:Decrypt", 
+ *                                 "kms:ReEncrypt*"
+ *                             )),
+ *                             jsonProperty("Resource", "*"),
+ *                             jsonProperty("Condition", jsonObject(
+ *                                 jsonProperty("StringEquals", jsonObject(
+ *                                     jsonProperty("kms:EncryptionContext:aws:events:event-bus:arn", _arn)
+ *                                 ))
+ *                             ))
+ *                         )
+ *                     ))
+ *                 ))))
+ *             .tags(Map.of("EventBridgeApiDestinations", "true"))
+ *             .build());
+ * 
+ *         var exampleEventArchive = new EventArchive("exampleEventArchive", EventArchiveArgs.builder()
+ *             .name("example")
+ *             .eventSourceArn(example.arn())
+ *             .kmsKeyIdentifier(exampleKey.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import an EventBridge archive using the `name`. For example:
@@ -123,70 +226,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/eventArchive:EventArchive")
 public class EventArchive extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the event archive.
+     * ARN of the archive.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the event archive.
+     * @return ARN of the archive.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of the new event archive.
+     * Description for the archive.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the new event archive.
+     * @return Description for the archive.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
     @Export(name="eventPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventPattern;
 
     /**
-     * @return Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+     * @return Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
     public Output<Optional<String>> eventPattern() {
         return Codegen.optional(this.eventPattern);
     }
     /**
-     * Event bus source ARN from where these events should be archived.
+     * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      * 
      */
     @Export(name="eventSourceArn", refs={String.class}, tree="[0]")
     private Output<String> eventSourceArn;
 
     /**
-     * @return Event bus source ARN from where these events should be archived.
+     * @return ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      * 
      */
     public Output<String> eventSourceArn() {
         return this.eventSourceArn;
     }
     /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyIdentifier;
+
+    /**
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyIdentifier() {
+        return Codegen.optional(this.kmsKeyIdentifier);
+    }
+    /**
+     * Name of the archive. The archive name cannot exceed 48 characters.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the new event archive. The archive name cannot exceed 48 characters.
+     * @return Name of the archive. The archive name cannot exceed 48 characters.
      * 
      */
     public Output<String> name() {

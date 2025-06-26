@@ -152,7 +152,7 @@ class ResourcePolicy(pulumi.CustomResource):
         current_get_region = aws.get_region()
         glue_example_policy = aws.iam.get_policy_document(statements=[{
             "actions": ["glue:CreateTable"],
-            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:*"],
+            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:*"],
             "principals": [{
                 "identifiers": ["*"],
                 "type": "AWS",
@@ -195,7 +195,7 @@ class ResourcePolicy(pulumi.CustomResource):
         current_get_region = aws.get_region()
         glue_example_policy = aws.iam.get_policy_document(statements=[{
             "actions": ["glue:CreateTable"],
-            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:*"],
+            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:*"],
             "principals": [{
                 "identifiers": ["*"],
                 "type": "AWS",

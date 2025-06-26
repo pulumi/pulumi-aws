@@ -33,21 +33,8 @@ namespace Pulumi.Aws.GuardDuty
     ///     {
     ///         DetectorId = example.Id,
     ///         AccountId = "123456789012",
-    ///         Name = "RUNTIME_MONITORING",
+    ///         Name = "S3_DATA_EVENTS",
     ///         Status = "ENABLED",
-    ///         AdditionalConfigurations = new[]
-    ///         {
-    ///             new Aws.GuardDuty.Inputs.MemberDetectorFeatureAdditionalConfigurationArgs
-    ///             {
-    ///                 Name = "EKS_ADDON_MANAGEMENT",
-    ///                 Status = "ENABLED",
-    ///             },
-    ///             new Aws.GuardDuty.Inputs.MemberDetectorFeatureAdditionalConfigurationArgs
-    ///             {
-    ///                 Name = "ECS_FARGATE_AGENT_MANAGEMENT",
-    ///                 Status = "ENABLED",
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

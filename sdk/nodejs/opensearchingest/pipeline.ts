@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     - s3:
  *         aws:
  *           sts_role_arn: "${arn}"
- *           region: "${current.name}"
+ *           region: "${current.region}"
  *         bucket: "example"
  *         threshold:
  *           event_collect_timeout: "60s"

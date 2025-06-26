@@ -19,6 +19,7 @@ __all__ = [
     'AppAutoBranchCreationConfig',
     'AppCacheConfig',
     'AppCustomRule',
+    'AppJobConfig',
     'AppProductionBranch',
     'DomainAssociationCertificateSettings',
     'DomainAssociationSubDomain',
@@ -251,6 +252,42 @@ class AppCustomRule(dict):
         Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class AppJobConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildComputeType":
+            suggest = "build_compute_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppJobConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppJobConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppJobConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 build_compute_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str build_compute_type: Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+        """
+        if build_compute_type is not None:
+            pulumi.set(__self__, "build_compute_type", build_compute_type)
+
+    @property
+    @pulumi.getter(name="buildComputeType")
+    def build_compute_type(self) -> Optional[builtins.str]:
+        """
+        Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+        """
+        return pulumi.get(self, "build_compute_type")
 
 
 @pulumi.output_type

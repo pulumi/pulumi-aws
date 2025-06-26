@@ -143,12 +143,12 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
             {
                 "id": "my_elb",
                 "type": "elastic-load-balancer",
-                "value": f"elb-111111.{current.name}.elb.amazonaws.com",
+                "value": f"elb-111111.{current.region}.elb.amazonaws.com",
             },
             {
                 "id": "site_down_banner",
                 "type": "s3-website",
-                "region": current.name,
+                "region": current.region,
                 "value": "www.example.com",
             },
         ],
@@ -294,12 +294,12 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
             {
                 "id": "my_elb",
                 "type": "elastic-load-balancer",
-                "value": f"elb-111111.{current.name}.elb.amazonaws.com",
+                "value": f"elb-111111.{current.region}.elb.amazonaws.com",
             },
             {
                 "id": "site_down_banner",
                 "type": "s3-website",
-                "region": current.name,
+                "region": current.region,
                 "value": "www.example.com",
             },
         ],

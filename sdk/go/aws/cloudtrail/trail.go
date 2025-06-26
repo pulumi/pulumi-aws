@@ -85,7 +85,7 @@ import (
 //								Test:     pulumi.String("StringEquals"),
 //								Variable: pulumi.String("aws:SourceArn"),
 //								Values: pulumi.StringArray{
-//									pulumi.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+//									pulumi.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //								},
 //							},
 //						},
@@ -121,7 +121,7 @@ import (
 //								Test:     pulumi.String("StringEquals"),
 //								Variable: pulumi.String("aws:SourceArn"),
 //								Values: pulumi.StringArray{
-//									pulumi.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+//									pulumi.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //								},
 //							},
 //						},

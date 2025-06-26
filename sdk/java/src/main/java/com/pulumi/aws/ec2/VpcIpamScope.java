@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 

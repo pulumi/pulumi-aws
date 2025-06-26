@@ -93,21 +93,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lightsail/instancePublicPorts:InstancePublicPorts")
 public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      * 
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
-     * @return Name of the Lightsail Instance.
+     * @return Name of the instance for which to open ports.
      * 
      */
     public Output<String> instanceName() {
         return this.instanceName;
     }
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -116,7 +116,7 @@ public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
     private Output<List<InstancePublicPortsPortInfo>> portInfos;
 
     /**
-     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
      * 
      * The following arguments are optional:
      * 

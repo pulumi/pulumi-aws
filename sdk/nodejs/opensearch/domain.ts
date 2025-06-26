@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["es:*"],
- *         resources: [`arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
+ *         resources: [`arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",
@@ -158,7 +158,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["es:*"],
- *         resources: [`arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
+ *         resources: [`arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
  *     }],
  * }));
  * const exampleDomain = new aws.opensearch.Domain("example", {

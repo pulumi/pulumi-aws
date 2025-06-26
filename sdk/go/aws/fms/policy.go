@@ -116,6 +116,8 @@ type Policy struct {
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrOutput     `pulumi:"remediationEnabled"`
 	ResourceSetIds     pulumi.StringArrayOutput `pulumi:"resourceSetIds"`
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator pulumi.StringOutput `pulumi:"resourceTagLogicalOperator"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -188,6 +190,8 @@ type policyState struct {
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
 	ResourceSetIds     []string `pulumi:"resourceSetIds"`
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator *string `pulumi:"resourceTagLogicalOperator"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -225,6 +229,8 @@ type PolicyState struct {
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
 	ResourceSetIds     pulumi.StringArrayInput
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator pulumi.StringPtrInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -263,6 +269,8 @@ type policyArgs struct {
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
 	ResourceSetIds     []string `pulumi:"resourceSetIds"`
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator *string `pulumi:"resourceTagLogicalOperator"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -296,6 +304,8 @@ type PolicyArgs struct {
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
 	ResourceSetIds     pulumi.StringArrayInput
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator pulumi.StringPtrInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -451,6 +461,11 @@ func (o PolicyOutput) RemediationEnabled() pulumi.BoolPtrOutput {
 
 func (o PolicyOutput) ResourceSetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
+}
+
+// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+func (o PolicyOutput) ResourceTagLogicalOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceTagLogicalOperator }).(pulumi.StringOutput)
 }
 
 // A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.

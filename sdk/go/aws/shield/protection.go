@@ -56,7 +56,7 @@ import (
 //			_, err = shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
 //				Name: pulumi.String("example"),
 //				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Name, currentGetCallerIdentity.AccountId, id), nil
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", current.Region, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Dev"),

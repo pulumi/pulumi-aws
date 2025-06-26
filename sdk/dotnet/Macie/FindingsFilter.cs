@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Macie
     ///                     Field = "region",
     ///                     Eqs = new[]
     ///                     {
-    ///                         current.Name,
+    ///                         current.Region,
     ///                     },
     ///                 },
     ///             },

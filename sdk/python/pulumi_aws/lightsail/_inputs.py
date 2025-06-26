@@ -1248,17 +1248,15 @@ if not MYPY:
     class InstancePublicPortsPortInfoArgsDict(TypedDict):
         from_port: pulumi.Input[builtins.int]
         """
-        First port in a range of open ports on an instance.
+        First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         """
         protocol: pulumi.Input[builtins.str]
         """
-        IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+        IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         """
         to_port: pulumi.Input[builtins.int]
         """
-        Last port in a range of open ports on an instance.
-
-        The following arguments are optional:
+        Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         """
         cidr_list_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -1266,11 +1264,11 @@ if not MYPY:
         """
         cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        Set of CIDR blocks.
+        Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         """
         ipv6_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        Set of IPv6 CIDR blocks.
+        Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         """
 elif False:
     InstancePublicPortsPortInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -1285,14 +1283,12 @@ class InstancePublicPortsPortInfoArgs:
                  cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  ipv6_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
-        :param pulumi.Input[builtins.int] from_port: First port in a range of open ports on an instance.
-        :param pulumi.Input[builtins.str] protocol: IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
-        :param pulumi.Input[builtins.int] to_port: Last port in a range of open ports on an instance.
-               
-               The following arguments are optional:
+        :param pulumi.Input[builtins.int] from_port: First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
+        :param pulumi.Input[builtins.str] protocol: IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
+        :param pulumi.Input[builtins.int] to_port: Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cidr_list_aliases: Set of CIDR aliases that define access for a preconfigured range of IP addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cidrs: Set of CIDR blocks.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ipv6_cidrs: Set of IPv6 CIDR blocks.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cidrs: Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ipv6_cidrs: Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1308,7 +1304,7 @@ class InstancePublicPortsPortInfoArgs:
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[builtins.int]:
         """
-        First port in a range of open ports on an instance.
+        First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         """
         return pulumi.get(self, "from_port")
 
@@ -1320,7 +1316,7 @@ class InstancePublicPortsPortInfoArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[builtins.str]:
         """
-        IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+        IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         """
         return pulumi.get(self, "protocol")
 
@@ -1332,9 +1328,7 @@ class InstancePublicPortsPortInfoArgs:
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[builtins.int]:
         """
-        Last port in a range of open ports on an instance.
-
-        The following arguments are optional:
+        Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         """
         return pulumi.get(self, "to_port")
 
@@ -1358,7 +1352,7 @@ class InstancePublicPortsPortInfoArgs:
     @pulumi.getter
     def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Set of CIDR blocks.
+        Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         """
         return pulumi.get(self, "cidrs")
 
@@ -1370,7 +1364,7 @@ class InstancePublicPortsPortInfoArgs:
     @pulumi.getter(name="ipv6Cidrs")
     def ipv6_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Set of IPv6 CIDR blocks.
+        Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         """
         return pulumi.get(self, "ipv6_cidrs")
 

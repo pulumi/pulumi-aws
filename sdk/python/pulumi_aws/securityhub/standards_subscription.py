@@ -166,7 +166,7 @@ class StandardsSubscription(pulumi.CustomResource):
         current = aws.get_region()
         cis = aws.securityhub.StandardsSubscription("cis", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
         opts = pulumi.ResourceOptions(depends_on=[example]))
-        pci321 = aws.securityhub.StandardsSubscription("pci_321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
+        pci321 = aws.securityhub.StandardsSubscription("pci_321", standards_arn=f"arn:aws:securityhub:{current.region}::standards/pci-dss/v/3.2.1",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -220,7 +220,7 @@ class StandardsSubscription(pulumi.CustomResource):
         current = aws.get_region()
         cis = aws.securityhub.StandardsSubscription("cis", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
         opts = pulumi.ResourceOptions(depends_on=[example]))
-        pci321 = aws.securityhub.StandardsSubscription("pci_321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
+        pci321 = aws.securityhub.StandardsSubscription("pci_321", standards_arn=f"arn:aws:securityhub:{current.region}::standards/pci-dss/v/3.2.1",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 

@@ -39,7 +39,7 @@ class ReportDefinitionArgs:
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[builtins.str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
@@ -128,7 +128,7 @@ class ReportDefinitionArgs:
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> pulumi.Input[builtins.str]:
         """
-        Report path prefix. Limited to 256 characters.
+        Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         """
         return pulumi.get(self, "s3_prefix")
 
@@ -237,7 +237,7 @@ class _ReportDefinitionState:
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -384,7 +384,7 @@ class _ReportDefinitionState:
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Report path prefix. Limited to 256 characters.
+        Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         """
         return pulumi.get(self, "s3_prefix")
 
@@ -507,7 +507,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
@@ -661,7 +661,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -763,7 +763,7 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> pulumi.Output[builtins.str]:
         """
-        Report path prefix. Limited to 256 characters.
+        Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         """
         return pulumi.get(self, "s3_prefix")
 

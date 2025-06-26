@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField;
@@ -21,6 +22,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet;
+    /**
+     * @return Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet awsManagedRulesAntiDdosRuleSet;
     /**
      * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
      * 
@@ -59,6 +65,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet> awsManagedRulesAcfpRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesAcfpRuleSet);
+    }
+    /**
+     * @return Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet> awsManagedRulesAntiDdosRuleSet() {
+        return Optional.ofNullable(this.awsManagedRulesAntiDdosRuleSet);
     }
     /**
      * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
@@ -113,6 +126,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet awsManagedRulesAntiDdosRuleSet;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet;
         private @Nullable String loginPath;
@@ -123,6 +137,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsManagedRulesAcfpRuleSet = defaults.awsManagedRulesAcfpRuleSet;
+    	      this.awsManagedRulesAntiDdosRuleSet = defaults.awsManagedRulesAntiDdosRuleSet;
     	      this.awsManagedRulesAtpRuleSet = defaults.awsManagedRulesAtpRuleSet;
     	      this.awsManagedRulesBotControlRuleSet = defaults.awsManagedRulesBotControlRuleSet;
     	      this.loginPath = defaults.loginPath;
@@ -135,6 +150,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         public Builder awsManagedRulesAcfpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet) {
 
             this.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder awsManagedRulesAntiDdosRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet awsManagedRulesAntiDdosRuleSet) {
+
+            this.awsManagedRulesAntiDdosRuleSet = awsManagedRulesAntiDdosRuleSet;
             return this;
         }
         @CustomType.Setter
@@ -176,6 +197,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig build() {
             final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig();
             _resultValue.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            _resultValue.awsManagedRulesAntiDdosRuleSet = awsManagedRulesAntiDdosRuleSet;
             _resultValue.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             _resultValue.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             _resultValue.loginPath = loginPath;

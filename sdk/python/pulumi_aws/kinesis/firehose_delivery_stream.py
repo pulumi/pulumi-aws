@@ -1179,7 +1179,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="iceberg",
             iceberg_configuration={
                 "role_arn": firehose_role["arn"],
-                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:catalog",
+                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:catalog",
                 "buffering_size": 10,
                 "buffering_interval": 400,
                 "s3_configuration": {
@@ -1837,7 +1837,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="iceberg",
             iceberg_configuration={
                 "role_arn": firehose_role["arn"],
-                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:catalog",
+                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.region}:{current.account_id}:catalog",
                 "buffering_size": 10,
                 "buffering_interval": 400,
                 "s3_configuration": {

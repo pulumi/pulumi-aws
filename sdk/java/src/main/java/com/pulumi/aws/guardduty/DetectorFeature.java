@@ -35,6 +35,51 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.DetectorFeature;
  * import com.pulumi.aws.guardduty.DetectorFeatureArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Detector("example", DetectorArgs.builder()
+ *             .enable(true)
+ *             .build());
+ * 
+ *         var s3Protection = new DetectorFeature("s3Protection", DetectorFeatureArgs.builder()
+ *             .detectorId(example.id())
+ *             .name("S3_DATA_EVENTS")
+ *             .status("ENABLED")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Extended Threat Detection for EKS
+ * 
+ * To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.guardduty.Detector;
+ * import com.pulumi.aws.guardduty.DetectorArgs;
+ * import com.pulumi.aws.guardduty.DetectorFeature;
+ * import com.pulumi.aws.guardduty.DetectorFeatureArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorFeatureAdditionalConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -51,6 +96,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Detector("example", DetectorArgs.builder()
  *             .enable(true)
+ *             .build());
+ * 
+ *         var eksProtection = new DetectorFeature("eksProtection", DetectorFeatureArgs.builder()
+ *             .detectorId(example.id())
+ *             .name("EKS_AUDIT_LOGS")
+ *             .status("ENABLED")
  *             .build());
  * 
  *         var eksRuntimeMonitoring = new DetectorFeature("eksRuntimeMonitoring", DetectorFeatureArgs.builder()

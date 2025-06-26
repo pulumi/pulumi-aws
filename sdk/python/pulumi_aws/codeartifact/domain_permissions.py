@@ -21,22 +21,23 @@ __all__ = ['DomainPermissionsArgs', 'DomainPermissions']
 class DomainPermissionsArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[builtins.str],
-                 policy_document: pulumi.Input[builtins.str],
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  policy_revision: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DomainPermissions resource.
         :param pulumi.Input[builtins.str] domain: The name of the domain on which to set the resource policy.
-        :param pulumi.Input[builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
+        :param pulumi.Input[builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
         :param pulumi.Input[builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "policy_document", policy_document)
         if domain_owner is not None:
             pulumi.set(__self__, "domain_owner", domain_owner)
+        if policy_document is not None:
+            pulumi.set(__self__, "policy_document", policy_document)
         if policy_revision is not None:
             pulumi.set(__self__, "policy_revision", policy_revision)
         if region is not None:
@@ -55,18 +56,6 @@ class DomainPermissionsArgs:
         pulumi.set(self, "domain", value)
 
     @property
-    @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[builtins.str]:
-        """
-        A JSON policy string to be set as the access control resource policy on the provided domain.
-        """
-        return pulumi.get(self, "policy_document")
-
-    @policy_document.setter
-    def policy_document(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "policy_document", value)
-
-    @property
     @pulumi.getter(name="domainOwner")
     def domain_owner(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -77,6 +66,18 @@ class DomainPermissionsArgs:
     @domain_owner.setter
     def domain_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "domain_owner", value)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A JSON policy string to be set as the access control resource policy on the provided domain.
+        """
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "policy_document", value)
 
     @property
     @pulumi.getter(name="policyRevision")
@@ -336,8 +337,6 @@ class DomainPermissions(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
             __props__.__dict__["domain_owner"] = domain_owner
-            if policy_document is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_revision"] = policy_revision
             __props__.__dict__["region"] = region

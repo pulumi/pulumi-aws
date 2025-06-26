@@ -557,6 +557,12 @@ namespace Pulumi.Aws.Emr
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        /// </summary>
+        [Output("osReleaseLabel")]
+        public Output<string?> OsReleaseLabel { get; private set; } = null!;
+
+        /// <summary>
         /// The specified placement group configuration for an Amazon EMR cluster.
         /// </summary>
         [Output("placementGroupConfigs")]
@@ -852,6 +858,12 @@ namespace Pulumi.Aws.Emr
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        /// </summary>
+        [Input("osReleaseLabel")]
+        public Input<string>? OsReleaseLabel { get; set; }
+
         [Input("placementGroupConfigs")]
         private InputList<Inputs.ClusterPlacementGroupConfigArgs>? _placementGroupConfigs;
 
@@ -1136,6 +1148,12 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        /// </summary>
+        [Input("osReleaseLabel")]
+        public Input<string>? OsReleaseLabel { get; set; }
 
         [Input("placementGroupConfigs")]
         private InputList<Inputs.ClusterPlacementGroupConfigGetArgs>? _placementGroupConfigs;

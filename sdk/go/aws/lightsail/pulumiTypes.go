@@ -2686,17 +2686,15 @@ func (o InstanceAddOnPtrOutput) Type() pulumi.StringPtrOutput {
 type InstancePublicPortsPortInfo struct {
 	// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
 	CidrListAliases []string `pulumi:"cidrListAliases"`
-	// Set of CIDR blocks.
+	// Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 	Cidrs []string `pulumi:"cidrs"`
-	// First port in a range of open ports on an instance.
+	// First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 	FromPort int `pulumi:"fromPort"`
-	// Set of IPv6 CIDR blocks.
+	// Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 	Ipv6Cidrs []string `pulumi:"ipv6Cidrs"`
-	// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+	// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 	Protocol string `pulumi:"protocol"`
-	// Last port in a range of open ports on an instance.
-	//
-	// The following arguments are optional:
+	// Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -2714,17 +2712,15 @@ type InstancePublicPortsPortInfoInput interface {
 type InstancePublicPortsPortInfoArgs struct {
 	// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
 	CidrListAliases pulumi.StringArrayInput `pulumi:"cidrListAliases"`
-	// Set of CIDR blocks.
+	// Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
-	// First port in a range of open ports on an instance.
+	// First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	// Set of IPv6 CIDR blocks.
+	// Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 	Ipv6Cidrs pulumi.StringArrayInput `pulumi:"ipv6Cidrs"`
-	// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+	// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Last port in a range of open ports on an instance.
-	//
-	// The following arguments are optional:
+	// Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -2784,29 +2780,27 @@ func (o InstancePublicPortsPortInfoOutput) CidrListAliases() pulumi.StringArrayO
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.CidrListAliases }).(pulumi.StringArrayOutput)
 }
 
-// Set of CIDR blocks.
+// Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 func (o InstancePublicPortsPortInfoOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
 
-// First port in a range of open ports on an instance.
+// First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 func (o InstancePublicPortsPortInfoOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
-// Set of IPv6 CIDR blocks.
+// Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 func (o InstancePublicPortsPortInfoOutput) Ipv6Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.Ipv6Cidrs }).(pulumi.StringArrayOutput)
 }
 
-// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 func (o InstancePublicPortsPortInfoOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Last port in a range of open ports on an instance.
-//
-// The following arguments are optional:
+// Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
 func (o InstancePublicPortsPortInfoOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) int { return v.ToPort }).(pulumi.IntOutput)
 }

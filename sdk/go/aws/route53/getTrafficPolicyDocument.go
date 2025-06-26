@@ -43,12 +43,12 @@ import (
 //					{
 //						Id:    "my_elb",
 //						Type:  pulumi.StringRef("elastic-load-balancer"),
-//						Value: pulumi.StringRef(fmt.Sprintf("elb-111111.%v.elb.amazonaws.com", current.Name)),
+//						Value: pulumi.StringRef(fmt.Sprintf("elb-111111.%v.elb.amazonaws.com", current.Region)),
 //					},
 //					{
 //						Id:     "site_down_banner",
 //						Type:   pulumi.StringRef("s3-website"),
-//						Region: pulumi.StringRef(current.Name),
+//						Region: pulumi.StringRef(current.Region),
 //						Value:  pulumi.StringRef("www.example.com"),
 //					},
 //				},

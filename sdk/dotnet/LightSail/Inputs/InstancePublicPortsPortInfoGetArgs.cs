@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputList<string>? _cidrs;
 
         /// <summary>
-        /// Set of CIDR blocks.
+        /// Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         /// </summary>
         public InputList<string> Cidrs
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// First port in a range of open ports on an instance.
+        /// First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputList<string>? _ipv6Cidrs;
 
         /// <summary>
-        /// Set of IPv6 CIDR blocks.
+        /// Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
         /// </summary>
         public InputList<string> Ipv6Cidrs
         {
@@ -55,15 +55,13 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+        /// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Last port in a range of open ports on an instance.
-        /// 
-        /// The following arguments are optional:
+        /// Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

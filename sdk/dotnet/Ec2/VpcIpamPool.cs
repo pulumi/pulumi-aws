@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
     ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
     ///     });
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         AddressFamily = "ipv4",
     ///         IpamScopeId = example.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///     });
     /// 
     /// });
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
     ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
     ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         AddressFamily = "ipv4",
     ///         IpamScopeId = example.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         SourceIpamPoolId = parent.Id,
     ///     });
     /// 

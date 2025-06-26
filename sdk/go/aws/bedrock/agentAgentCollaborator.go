@@ -73,7 +73,7 @@ import (
 // {
 // Test: "ArnLike",
 // Values: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 // },
 // Variable: "AWS:SourceArn",
 // },
@@ -91,7 +91,7 @@ import (
 // "bedrock:InvokeModel",
 // },
 // Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.Partition, currentGetRegion.Name),
+// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.Partition, currentGetRegion.Region),
 // },
 // },
 // {
@@ -100,8 +100,8 @@ import (
 // "bedrock:InvokeAgent",
 // },
 // Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentAgent.Partition, currentGetRegion.Name, current.AccountId),
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent-alias/*", currentAgent.Partition, currentGetRegion.Name, current.AccountId),
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent-alias/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
 // },
 // },
 // },

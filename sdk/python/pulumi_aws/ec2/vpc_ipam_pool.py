@@ -655,12 +655,12 @@ class VpcIpamPool(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         ```
 
         Nested Pools:
@@ -671,7 +671,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         parent = aws.ec2.VpcIpamPool("parent",
             address_family="ipv4",
@@ -682,7 +682,7 @@ class VpcIpamPool(pulumi.CustomResource):
         child = aws.ec2.VpcIpamPool("child",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
-            locale=current.name,
+            locale=current.region,
             source_ipam_pool_id=parent.id)
         child_test = aws.ec2.VpcIpamPoolCidr("child_test",
             ipam_pool_id=child.id,
@@ -736,12 +736,12 @@ class VpcIpamPool(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         ```
 
         Nested Pools:
@@ -752,7 +752,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         parent = aws.ec2.VpcIpamPool("parent",
             address_family="ipv4",
@@ -763,7 +763,7 @@ class VpcIpamPool(pulumi.CustomResource):
         child = aws.ec2.VpcIpamPool("child",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
-            locale=current.name,
+            locale=current.region,
             source_ipam_pool_id=parent.id)
         child_test = aws.ec2.VpcIpamPoolCidr("child_test",
             ipam_pool_id=child.id,

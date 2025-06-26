@@ -9557,7 +9557,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.region()))
      *             .build());
      * 
      *     }
@@ -9645,7 +9645,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.region()))
      *             .build());
      * 
      *     }
@@ -9733,7 +9733,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.region()))
      *             .build());
      * 
      *     }
@@ -9821,7 +9821,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.region()))
      *             .build());
      * 
      *     }
@@ -9909,7 +9909,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.region()))
      *             .build());
      * 
      *     }
@@ -9997,7 +9997,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.region()))
      *             .build());
      * 
      *     }
@@ -10085,7 +10085,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.region()))
      *             .build());
      * 
      *     }

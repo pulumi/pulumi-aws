@@ -420,6 +420,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     */
+    public readonly osReleaseLabel!: pulumi.Output<string | undefined>;
+    /**
      * The specified placement group configuration for an Amazon EMR cluster.
      */
     public readonly placementGroupConfigs!: pulumi.Output<outputs.emr.ClusterPlacementGroupConfig[] | undefined>;
@@ -510,6 +514,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterInstanceGroup"] = state ? state.masterInstanceGroup : undefined;
             resourceInputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["osReleaseLabel"] = state ? state.osReleaseLabel : undefined;
             resourceInputs["placementGroupConfigs"] = state ? state.placementGroupConfigs : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
@@ -551,6 +556,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterInstanceFleet"] = args ? args.masterInstanceFleet : undefined;
             resourceInputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["osReleaseLabel"] = args ? args.osReleaseLabel : undefined;
             resourceInputs["placementGroupConfigs"] = args ? args.placementGroupConfigs : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
@@ -689,6 +695,10 @@ export interface ClusterState {
      * Name of the job flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     */
+    osReleaseLabel?: pulumi.Input<string>;
     /**
      * The specified placement group configuration for an Amazon EMR cluster.
      */
@@ -852,6 +862,10 @@ export interface ClusterArgs {
      * Name of the job flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     */
+    osReleaseLabel?: pulumi.Input<string>;
     /**
      * The specified placement group configuration for an Amazon EMR cluster.
      */

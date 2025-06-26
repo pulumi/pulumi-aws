@@ -904,6 +904,14 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs',
@@ -23522,6 +23530,10 @@ if not MYPY:
         """
         Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
         """
+        aws_managed_rules_anti_ddos_rule_set: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgsDict']]
+        """
+        Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+        """
         aws_managed_rules_atp_rule_set: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgsDict']]
         """
         Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
@@ -23553,6 +23565,7 @@ elif False:
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs:
     def __init__(__self__, *,
                  aws_managed_rules_acfp_rule_set: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs']] = None,
+                 aws_managed_rules_anti_ddos_rule_set: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs']] = None,
                  aws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs']] = None,
                  aws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs']] = None,
                  login_path: Optional[pulumi.Input[builtins.str]] = None,
@@ -23561,6 +23574,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs:
                  username_field: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs'] aws_managed_rules_acfp_rule_set: Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs'] aws_managed_rules_anti_ddos_rule_set: Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs'] aws_managed_rules_atp_rule_set: Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs'] aws_managed_rules_bot_control_rule_set: Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
         :param pulumi.Input[builtins.str] login_path: The path of the login endpoint for your application.
@@ -23570,6 +23584,8 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs:
         """
         if aws_managed_rules_acfp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
+        if aws_managed_rules_anti_ddos_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_anti_ddos_rule_set", aws_managed_rules_anti_ddos_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
         if aws_managed_rules_bot_control_rule_set is not None:
@@ -23594,6 +23610,18 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs:
     @aws_managed_rules_acfp_rule_set.setter
     def aws_managed_rules_acfp_rule_set(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs']]):
         pulumi.set(self, "aws_managed_rules_acfp_rule_set", value)
+
+    @property
+    @pulumi.getter(name="awsManagedRulesAntiDdosRuleSet")
+    def aws_managed_rules_anti_ddos_rule_set(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs']]:
+        """
+        Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+        """
+        return pulumi.get(self, "aws_managed_rules_anti_ddos_rule_set")
+
+    @aws_managed_rules_anti_ddos_rule_set.setter
+    def aws_managed_rules_anti_ddos_rule_set(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs']]):
+        pulumi.set(self, "aws_managed_rules_anti_ddos_rule_set", value)
 
     @property
     @pulumi.getter(name="awsManagedRulesAtpRuleSet")
@@ -24394,6 +24422,175 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgsDict(TypedDict):
+        client_side_action_config: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgsDict']
+        """
+        Configuration for the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `client_side_action_config` for more details.
+        """
+        sensitivity_to_block: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs:
+    def __init__(__self__, *,
+                 client_side_action_config: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs'],
+                 sensitivity_to_block: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs'] client_side_action_config: Configuration for the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `client_side_action_config` for more details.
+        :param pulumi.Input[builtins.str] sensitivity_to_block: Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
+        """
+        pulumi.set(__self__, "client_side_action_config", client_side_action_config)
+        if sensitivity_to_block is not None:
+            pulumi.set(__self__, "sensitivity_to_block", sensitivity_to_block)
+
+    @property
+    @pulumi.getter(name="clientSideActionConfig")
+    def client_side_action_config(self) -> pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs']:
+        """
+        Configuration for the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `client_side_action_config` for more details.
+        """
+        return pulumi.get(self, "client_side_action_config")
+
+    @client_side_action_config.setter
+    def client_side_action_config(self, value: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs']):
+        pulumi.set(self, "client_side_action_config", value)
+
+    @property
+    @pulumi.getter(name="sensitivityToBlock")
+    def sensitivity_to_block(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
+        """
+        return pulumi.get(self, "sensitivity_to_block")
+
+    @sensitivity_to_block.setter
+    def sensitivity_to_block(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "sensitivity_to_block", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgsDict(TypedDict):
+        challenge: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgsDict']
+        """
+        Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs:
+    def __init__(__self__, *,
+                 challenge: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs']):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs'] challenge: Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests`.
+        """
+        pulumi.set(__self__, "challenge", challenge)
+
+    @property
+    @pulumi.getter
+    def challenge(self) -> pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs']:
+        """
+        Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests`.
+        """
+        return pulumi.get(self, "challenge")
+
+    @challenge.setter
+    def challenge(self, value: pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs']):
+        pulumi.set(self, "challenge", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgsDict(TypedDict):
+        usage_of_action: pulumi.Input[builtins.str]
+        """
+        Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
+        """
+        exempt_uri_regular_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgsDict']]]]
+        sensitivity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs:
+    def __init__(__self__, *,
+                 usage_of_action: pulumi.Input[builtins.str],
+                 exempt_uri_regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs']]]] = None,
+                 sensitivity: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] usage_of_action: Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[builtins.str] sensitivity: Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
+        """
+        pulumi.set(__self__, "usage_of_action", usage_of_action)
+        if exempt_uri_regular_expressions is not None:
+            pulumi.set(__self__, "exempt_uri_regular_expressions", exempt_uri_regular_expressions)
+        if sensitivity is not None:
+            pulumi.set(__self__, "sensitivity", sensitivity)
+
+    @property
+    @pulumi.getter(name="usageOfAction")
+    def usage_of_action(self) -> pulumi.Input[builtins.str]:
+        """
+        Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "usage_of_action")
+
+    @usage_of_action.setter
+    def usage_of_action(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "usage_of_action", value)
+
+    @property
+    @pulumi.getter(name="exemptUriRegularExpressions")
+    def exempt_uri_regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs']]]]:
+        return pulumi.get(self, "exempt_uri_regular_expressions")
+
+    @exempt_uri_regular_expressions.setter
+    def exempt_uri_regular_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs']]]]):
+        pulumi.set(self, "exempt_uri_regular_expressions", value)
+
+    @property
+    @pulumi.getter
+    def sensitivity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
+        """
+        return pulumi.get(self, "sensitivity")
+
+    @sensitivity.setter
+    def sensitivity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "sensitivity", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgsDict(TypedDict):
+        regex_string: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs:
+    def __init__(__self__, *,
+                 regex_string: Optional[pulumi.Input[builtins.str]] = None):
+        if regex_string is not None:
+            pulumi.set(__self__, "regex_string", regex_string)
+
+    @property
+    @pulumi.getter(name="regexString")
+    def regex_string(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "regex_string")
+
+    @regex_string.setter
+    def regex_string(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "regex_string", value)
+
+
+if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgsDict(TypedDict):
         login_path: pulumi.Input[builtins.str]
         """
@@ -25117,9 +25314,6 @@ if not MYPY:
         Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
         """
         challenge: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgsDict']]
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         count: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgsDict']]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgsDict: TypeAlias = Mapping[str, Any]
@@ -25134,7 +25328,6 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
                  count: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs'] captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs'] challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -25180,9 +25373,6 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
     @property
     @pulumi.getter
     def challenge(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs']]:
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         return pulumi.get(self, "challenge")
 
     @challenge.setter
@@ -44152,9 +44342,6 @@ if not MYPY:
         Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
         """
         challenge: NotRequired[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgsDict']]
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         count: NotRequired[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgsDict']]
 elif False:
     WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgsDict: TypeAlias = Mapping[str, Any]
@@ -44169,7 +44356,6 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
                  count: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs'] captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs'] challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -44215,9 +44401,6 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     @property
     @pulumi.getter
     def challenge(self) -> Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs']]:
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         return pulumi.get(self, "challenge")
 
     @challenge.setter

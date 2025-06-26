@@ -6,6 +6,7 @@ package com.pulumi.aws.eks;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -30,6 +31,21 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
      */
     public Output<String> clusterName() {
         return this.clusterName;
+    }
+
+    /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    @Import(name="disableSessionTags")
+    private @Nullable Output<Boolean> disableSessionTags;
+
+    /**
+     * @return Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    public Optional<Output<Boolean>> disableSessionTags() {
+        return Optional.ofNullable(this.disableSessionTags);
     }
 
     /**
@@ -111,15 +127,32 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    @Import(name="targetRoleArn")
+    private @Nullable Output<String> targetRoleArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    public Optional<Output<String>> targetRoleArn() {
+        return Optional.ofNullable(this.targetRoleArn);
+    }
+
     private PodIdentityAssociationArgs() {}
 
     private PodIdentityAssociationArgs(PodIdentityAssociationArgs $) {
         this.clusterName = $.clusterName;
+        this.disableSessionTags = $.disableSessionTags;
         this.namespace = $.namespace;
         this.region = $.region;
         this.roleArn = $.roleArn;
         this.serviceAccount = $.serviceAccount;
         this.tags = $.tags;
+        this.targetRoleArn = $.targetRoleArn;
     }
 
     public static Builder builder() {
@@ -159,6 +192,27 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
+        }
+
+        /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(@Nullable Output<Boolean> disableSessionTags) {
+            $.disableSessionTags = disableSessionTags;
+            return this;
+        }
+
+        /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(Boolean disableSessionTags) {
+            return disableSessionTags(Output.of(disableSessionTags));
         }
 
         /**
@@ -268,6 +322,27 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(@Nullable Output<String> targetRoleArn) {
+            $.targetRoleArn = targetRoleArn;
+            return this;
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(String targetRoleArn) {
+            return targetRoleArn(Output.of(targetRoleArn));
         }
 
         public PodIdentityAssociationArgs build() {

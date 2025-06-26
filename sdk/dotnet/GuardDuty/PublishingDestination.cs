@@ -98,7 +98,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
+    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
+    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {

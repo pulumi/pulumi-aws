@@ -47,7 +47,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
-    ///         ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.datasync",
+    ///         ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.datasync",
     ///         VpcId = exampleAwsVpc.Id,
     ///         SecurityGroupIds = new[]
     ///         {

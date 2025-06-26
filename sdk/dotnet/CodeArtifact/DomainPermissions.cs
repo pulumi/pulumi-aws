@@ -180,8 +180,8 @@ namespace Pulumi.Aws.CodeArtifact
         /// <summary>
         /// A JSON policy string to be set as the access control resource policy on the provided domain.
         /// </summary>
-        [Input("policyDocument", required: true)]
-        public Input<string> PolicyDocument { get; set; } = null!;
+        [Input("policyDocument")]
+        public Input<string>? PolicyDocument { get; set; }
 
         /// <summary>
         /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.

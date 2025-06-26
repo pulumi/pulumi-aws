@@ -393,7 +393,7 @@ class Agent(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
-            service_name=f"com.amazonaws.{current.name}.datasync",
+            service_name=f"com.amazonaws.{current.region}.datasync",
             vpc_id=example_aws_vpc["id"],
             security_group_ids=[example_aws_security_group["id"]],
             subnet_ids=[example_aws_subnet["id"]],
@@ -458,7 +458,7 @@ class Agent(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
-            service_name=f"com.amazonaws.{current.name}.datasync",
+            service_name=f"com.amazonaws.{current.region}.datasync",
             vpc_id=example_aws_vpc["id"],
             security_group_ids=[example_aws_security_group["id"]],
             subnet_ids=[example_aws_subnet["id"]],

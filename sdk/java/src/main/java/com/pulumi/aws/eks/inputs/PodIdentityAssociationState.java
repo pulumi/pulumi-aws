@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -59,6 +60,36 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
+    }
+
+    /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    @Import(name="disableSessionTags")
+    private @Nullable Output<Boolean> disableSessionTags;
+
+    /**
+     * @return Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    public Optional<Output<Boolean>> disableSessionTags() {
+        return Optional.ofNullable(this.disableSessionTags);
+    }
+
+    /**
+     * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     * 
+     */
+    @Import(name="externalId")
+    private @Nullable Output<String> externalId;
+
+    /**
+     * @return The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     * 
+     */
+    public Optional<Output<String>> externalId() {
+        return Optional.ofNullable(this.externalId);
     }
 
     /**
@@ -155,18 +186,36 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    @Import(name="targetRoleArn")
+    private @Nullable Output<String> targetRoleArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    public Optional<Output<String>> targetRoleArn() {
+        return Optional.ofNullable(this.targetRoleArn);
+    }
+
     private PodIdentityAssociationState() {}
 
     private PodIdentityAssociationState(PodIdentityAssociationState $) {
         this.associationArn = $.associationArn;
         this.associationId = $.associationId;
         this.clusterName = $.clusterName;
+        this.disableSessionTags = $.disableSessionTags;
+        this.externalId = $.externalId;
         this.namespace = $.namespace;
         this.region = $.region;
         this.roleArn = $.roleArn;
         this.serviceAccount = $.serviceAccount;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.targetRoleArn = $.targetRoleArn;
     }
 
     public static Builder builder() {
@@ -248,6 +297,48 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
+        }
+
+        /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(@Nullable Output<Boolean> disableSessionTags) {
+            $.disableSessionTags = disableSessionTags;
+            return this;
+        }
+
+        /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(Boolean disableSessionTags) {
+            return disableSessionTags(Output.of(disableSessionTags));
+        }
+
+        /**
+         * @param externalId The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalId(@Nullable Output<String> externalId) {
+            $.externalId = externalId;
+            return this;
+        }
+
+        /**
+         * @param externalId The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalId(String externalId) {
+            return externalId(Output.of(externalId));
         }
 
         /**
@@ -378,6 +469,27 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(@Nullable Output<String> targetRoleArn) {
+            $.targetRoleArn = targetRoleArn;
+            return this;
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(String targetRoleArn) {
+            return targetRoleArn(Output.of(targetRoleArn));
         }
 
         public PodIdentityAssociationState build() {

@@ -27,8 +27,8 @@ class InstancePublicPortsArgs:
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InstancePublicPorts resource.
-        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail Instance.
-        :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance for which to open ports.
+        :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -42,7 +42,7 @@ class InstancePublicPortsArgs:
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Lightsail Instance.
+        Name of the instance for which to open ports.
         """
         return pulumi.get(self, "instance_name")
 
@@ -54,7 +54,7 @@ class InstancePublicPortsArgs:
     @pulumi.getter(name="portInfos")
     def port_infos(self) -> pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]:
         """
-        Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
 
         The following arguments are optional:
         """
@@ -85,8 +85,8 @@ class _InstancePublicPortsState:
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstancePublicPorts resources.
-        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail Instance.
-        :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance for which to open ports.
+        :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -102,7 +102,7 @@ class _InstancePublicPortsState:
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the Lightsail Instance.
+        Name of the instance for which to open ports.
         """
         return pulumi.get(self, "instance_name")
 
@@ -114,7 +114,7 @@ class _InstancePublicPortsState:
     @pulumi.getter(name="portInfos")
     def port_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]]:
         """
-        Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
 
         The following arguments are optional:
         """
@@ -189,8 +189,8 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance for which to open ports.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -295,8 +295,8 @@ class InstancePublicPorts(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] instance_name: Name of the Lightsail Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance for which to open ports.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -314,7 +314,7 @@ class InstancePublicPorts(pulumi.CustomResource):
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Output[builtins.str]:
         """
-        Name of the Lightsail Instance.
+        Name of the instance for which to open ports.
         """
         return pulumi.get(self, "instance_name")
 
@@ -322,7 +322,7 @@ class InstancePublicPorts(pulumi.CustomResource):
     @pulumi.getter(name="portInfos")
     def port_infos(self) -> pulumi.Output[Sequence['outputs.InstancePublicPortsPortInfo']]:
         """
-        Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
 
         The following arguments are optional:
         """

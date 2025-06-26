@@ -22,10 +22,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha;
-    /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count;
 
@@ -43,10 +39,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
-    /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge> challenge() {
         return Optional.ofNullable(this.challenge);
     }

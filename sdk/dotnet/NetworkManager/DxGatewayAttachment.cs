@@ -32,7 +32,7 @@ namespace Pulumi.Aws.NetworkManager
     ///         DirectConnectGatewayArn = $"arn:aws:directconnect::{current.AccountId}:dx-gateway/{testAwsDxGateway.Id}",
     ///         EdgeLocations = new[]
     ///         {
-    ///             currentAwsRegion.Name,
+    ///             currentAwsRegion.Region,
     ///         },
     ///     });
     /// 

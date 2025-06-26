@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.accessanalyzer.outputs;
 
+import com.pulumi.aws.accessanalyzer.outputs.AnalyzerConfigurationInternalAccess;
 import com.pulumi.aws.accessanalyzer.outputs.AnalyzerConfigurationUnusedAccess;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -12,14 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalyzerConfiguration {
     /**
-     * @return A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+     * @return Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+     * 
+     */
+    private @Nullable AnalyzerConfigurationInternalAccess internalAccess;
+    /**
+     * @return Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
      * 
      */
     private @Nullable AnalyzerConfigurationUnusedAccess unusedAccess;
 
     private AnalyzerConfiguration() {}
     /**
-     * @return A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+     * @return Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+     * 
+     */
+    public Optional<AnalyzerConfigurationInternalAccess> internalAccess() {
+        return Optional.ofNullable(this.internalAccess);
+    }
+    /**
+     * @return Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
      * 
      */
     public Optional<AnalyzerConfigurationUnusedAccess> unusedAccess() {
@@ -35,13 +48,21 @@ public final class AnalyzerConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AnalyzerConfigurationInternalAccess internalAccess;
         private @Nullable AnalyzerConfigurationUnusedAccess unusedAccess;
         public Builder() {}
         public Builder(AnalyzerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.internalAccess = defaults.internalAccess;
     	      this.unusedAccess = defaults.unusedAccess;
         }
 
+        @CustomType.Setter
+        public Builder internalAccess(@Nullable AnalyzerConfigurationInternalAccess internalAccess) {
+
+            this.internalAccess = internalAccess;
+            return this;
+        }
         @CustomType.Setter
         public Builder unusedAccess(@Nullable AnalyzerConfigurationUnusedAccess unusedAccess) {
 
@@ -50,6 +71,7 @@ public final class AnalyzerConfiguration {
         }
         public AnalyzerConfiguration build() {
             final var _resultValue = new AnalyzerConfiguration();
+            _resultValue.internalAccess = internalAccess;
             _resultValue.unusedAccess = unusedAccess;
             return _resultValue;
         }

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ServerlessRepository
     ///             {
     ///                 var currentGetRegion = values.Item1;
     ///                 var current = values.Item2;
-    ///                 return $"secretsmanager.{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///                 return $"secretsmanager.{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
     ///             }) },
     ///         },
     ///     });

@@ -896,7 +896,7 @@ import javax.annotation.Nullable;
  *             .destination("iceberg")
  *             .icebergConfiguration(FirehoseDeliveryStreamIcebergConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
- *                 .catalogArn(String.format("arn:%s:glue:%s:%s:catalog", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                 .catalogArn(String.format("arn:%s:glue:%s:%s:catalog", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                 .bufferingSize(10)
  *                 .bufferingInterval(400)
  *                 .s3Configuration(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs.builder()

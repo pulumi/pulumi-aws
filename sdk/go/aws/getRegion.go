@@ -63,7 +63,7 @@ type GetRegionArgs struct {
 	//
 	// Deprecated: name is deprecated. Use region instead.
 	Name *string `pulumi:"name"`
-	// Full name of the region to select (e.g. `us-east-1`)
+	// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -96,7 +96,7 @@ type GetRegionOutputArgs struct {
 	//
 	// Deprecated: name is deprecated. Use region instead.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Full name of the region to select (e.g. `us-east-1`)
+	// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

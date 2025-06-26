@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
- *     serviceName: current.then(current => `com.amazonaws.${current.name}.datasync`),
+ *     serviceName: current.then(current => `com.amazonaws.${current.region}.datasync`),
  *     vpcId: exampleAwsVpc.id,
  *     securityGroupIds: [exampleAwsSecurityGroup.id],
  *     subnetIds: [exampleAwsSubnet.id],

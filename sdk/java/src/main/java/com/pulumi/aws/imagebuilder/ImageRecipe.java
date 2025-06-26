@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .build())
  *             .name("example")
- *             .parentImage(String.format("arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x", current.partition(),currentAwsRegion.name()))
+ *             .parentImage(String.format("arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x", current.partition(),currentAwsRegion.region()))
  *             .version("1.0.0")
  *             .build());
  * 

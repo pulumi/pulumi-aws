@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.VpcIpamResourceDiscovery("main", {
  *     description: "My IPAM Resource Discovery",
  *     operatingRegions: [{
- *         regionName: current.then(current => current.name),
+ *         regionName: current.then(current => current.region),
  *     }],
  *     tags: {
  *         Test: "Main",

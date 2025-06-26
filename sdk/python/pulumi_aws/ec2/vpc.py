@@ -686,12 +686,12 @@ class Vpc(pulumi.CustomResource):
 
         current = aws.get_region()
         test = aws.ec2.VpcIpam("test", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
             address_family="ipv4",
             ipam_scope_id=test.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
             ipam_pool_id=test_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
@@ -768,12 +768,12 @@ class Vpc(pulumi.CustomResource):
 
         current = aws.get_region()
         test = aws.ec2.VpcIpam("test", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
             address_family="ipv4",
             ipam_scope_id=test.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
             ipam_pool_id=test_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")

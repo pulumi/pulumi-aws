@@ -348,7 +348,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
@@ -356,7 +356,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         example_agent_permissions = aws.iam.get_policy_document(statements=[
             {
                 "actions": ["bedrock:InvokeModel"],
-                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
+                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
             },
             {
                 "actions": [
@@ -364,8 +364,8 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "bedrock:InvokeAgent",
                 ],
                 "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent-alias/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
                 ],
             },
         ])
@@ -453,7 +453,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
@@ -461,7 +461,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         example_agent_permissions = aws.iam.get_policy_document(statements=[
             {
                 "actions": ["bedrock:InvokeModel"],
-                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
+                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
             },
             {
                 "actions": [
@@ -469,8 +469,8 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "bedrock:InvokeAgent",
                 ],
                 "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent-alias/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
                 ],
             },
         ])

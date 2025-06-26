@@ -21,6 +21,9 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -28,7 +31,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
 //				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
 //					StatelessDefaultActions: pulumi.StringArray{
@@ -43,7 +58,7 @@ import (
 //							ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
 //						},
 //					},
-//					TlsInspectionConfigurationArn: pulumi.String("arn:aws:network-firewall:REGION:ACCT:tls-configuration/example"),
+//					TlsInspectionConfigurationArn: pulumi.Sprintf("arn:%v:network-firewall:%v:%v:tls-configuration/example", currentGetPartition.Partition, current.Region, currentGetCallerIdentity.AccountId),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
@@ -130,7 +145,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewallPolicy(ctx, "test", &networkfirewall.FirewallPolicyArgs{
+//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
 //				Name: pulumi.String("example"),
 //				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
 //					StatelessDefaultActions: pulumi.StringArray{
@@ -152,6 +167,112 @@ import (
 //								},
 //							},
 //							ActionName: pulumi.String("ExampleCustomAction"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Policy with Active Threat Defense in Action Order
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				Name: pulumi.String("example"),
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
+//					StatefulRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{
+//							DeepThreatInspection: pulumi.String("true"),
+//							ResourceArn:          pulumi.Sprintf("arn:%v:network-firewall:%v:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder", currentGetPartition.Partition, current.Region),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Policy with Active Threat Defense in Strict Order
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				Name: pulumi.String("example"),
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
+//					StatefulEngineOptions: &networkfirewall.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{
+//						RuleOrder: pulumi.String("STRICT_ORDER"),
+//					},
+//					StatefulRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{
+//							DeepThreatInspection: pulumi.String("false"),
+//							Priority:             pulumi.Int(1),
+//							ResourceArn:          pulumi.Sprintf("arn:%v:network-firewall:%v:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder", currentGetPartition.Partition, current.Region),
 //						},
 //					},
 //				},

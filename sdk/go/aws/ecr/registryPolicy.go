@@ -59,7 +59,7 @@ import (
 //							"ecr:ReplicateImage",
 //						},
 //						"Resource": []string{
-//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+//							fmt.Sprintf("arn:%v:ecr:%v:%v:repository/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //						},
 //					},
 //				},

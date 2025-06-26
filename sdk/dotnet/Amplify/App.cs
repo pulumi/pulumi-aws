@@ -226,6 +226,28 @@ namespace Pulumi.Aws.Amplify
     /// });
     /// ```
     /// 
+    /// ### Job Config
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         JobConfig = new Aws.Amplify.Inputs.AppJobConfigArgs
+    ///         {
+    ///             BuildComputeType = "STANDARD_8GB",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
@@ -345,6 +367,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Output("iamServiceRoleArn")]
         public Output<string?> IamServiceRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        /// </summary>
+        [Output("jobConfig")]
+        public Output<Outputs.AppJobConfig> JobConfig { get; private set; } = null!;
 
         /// <summary>
         /// Name for an Amplify app.
@@ -581,6 +609,12 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? IamServiceRoleArn { get; set; }
 
         /// <summary>
+        /// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        /// </summary>
+        [Input("jobConfig")]
+        public Input<Inputs.AppJobConfigArgs>? JobConfig { get; set; }
+
+        /// <summary>
         /// Name for an Amplify app.
         /// </summary>
         [Input("name")]
@@ -785,6 +819,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("iamServiceRoleArn")]
         public Input<string>? IamServiceRoleArn { get; set; }
+
+        /// <summary>
+        /// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        /// </summary>
+        [Input("jobConfig")]
+        public Input<Inputs.AppJobConfigGetArgs>? JobConfig { get; set; }
 
         /// <summary>
         /// Name for an Amplify app.

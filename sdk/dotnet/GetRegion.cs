@@ -118,7 +118,7 @@ namespace Pulumi.Aws
         public string? Name { get; set; }
 
         /// <summary>
-        /// Full name of the region to select (e.g. `us-east-1`)
+        /// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -147,7 +147,7 @@ namespace Pulumi.Aws
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Full name of the region to select (e.g. `us-east-1`)
+        /// Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -41,12 +41,12 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const test = new aws.ec2.VpcIpam("test", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const testVpcIpamPool = new aws.ec2.VpcIpamPool("test", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: test.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  * });
  * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("test", {
  *     ipamPoolId: testVpcIpamPool.id,

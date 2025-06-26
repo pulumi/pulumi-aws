@@ -794,6 +794,12 @@ if not MYPY:
         """
         The Amazon Resource Name (ARN) of the stateful rule group.
         """
+        deep_threat_inspection: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+
+        For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+        """
         override: NotRequired[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgsDict']]
         """
         Configuration block for override values
@@ -809,14 +815,20 @@ elif False:
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[builtins.str],
+                 deep_threat_inspection: Optional[pulumi.Input[builtins.str]] = None,
                  override: Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs']] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None):
         """
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
+        :param pulumi.Input[builtins.str] deep_threat_inspection: Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+               
+               For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
         :param pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs'] override: Configuration block for override values
         :param pulumi.Input[builtins.int] priority: An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if deep_threat_inspection is not None:
+            pulumi.set(__self__, "deep_threat_inspection", deep_threat_inspection)
         if override is not None:
             pulumi.set(__self__, "override", override)
         if priority is not None:
@@ -833,6 +845,20 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
     @resource_arn.setter
     def resource_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="deepThreatInspection")
+    def deep_threat_inspection(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+
+        For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+        """
+        return pulumi.get(self, "deep_threat_inspection")
+
+    @deep_threat_inspection.setter
+    def deep_threat_inspection(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "deep_threat_inspection", value)
 
     @property
     @pulumi.getter

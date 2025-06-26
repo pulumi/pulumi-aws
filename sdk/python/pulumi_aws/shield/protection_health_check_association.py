@@ -128,7 +128,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
             })
         example_protection = aws.shield.Protection("example",
             name="example-protection",
-            resource_arn=example.id.apply(lambda id: f"arn:{current_get_partition.partition}:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
+            resource_arn=example.id.apply(lambda id: f"arn:{current_get_partition.partition}:ec2:{current.region}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
         example_health_check = aws.route53.HealthCheck("example",
             ip_address=example.public_ip,
             port=80,
@@ -187,7 +187,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
             })
         example_protection = aws.shield.Protection("example",
             name="example-protection",
-            resource_arn=example.id.apply(lambda id: f"arn:{current_get_partition.partition}:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
+            resource_arn=example.id.apply(lambda id: f"arn:{current_get_partition.partition}:ec2:{current.region}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
         example_health_check = aws.route53.HealthCheck("example",
             ip_address=example.public_ip,
             port=80,

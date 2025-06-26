@@ -34,7 +34,7 @@ import (
 //				return err
 //			}
 //			_, err = aws.GetService(ctx, &aws.GetServiceArgs{
-//				Region:    pulumi.StringRef(current.Name),
+//				Region:    pulumi.StringRef(current.Region),
 //				ServiceId: pulumi.StringRef("ec2"),
 //			}, nil)
 //			if err != nil {

@@ -473,6 +473,8 @@ type Cluster struct {
 	MasterPublicDns pulumi.StringOutput `pulumi:"masterPublicDns"`
 	// Name of the job flow.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel pulumi.StringPtrOutput `pulumi:"osReleaseLabel"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayOutput `pulumi:"placementGroupConfigs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -621,6 +623,8 @@ type clusterState struct {
 	MasterPublicDns *string `pulumi:"masterPublicDns"`
 	// Name of the job flow.
 	Name *string `pulumi:"name"`
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel *string `pulumi:"osReleaseLabel"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -734,6 +738,8 @@ type ClusterState struct {
 	MasterPublicDns pulumi.StringPtrInput
 	// Name of the job flow.
 	Name pulumi.StringPtrInput
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -846,6 +852,8 @@ type clusterArgs struct {
 	MasterInstanceGroup *ClusterMasterInstanceGroup `pulumi:"masterInstanceGroup"`
 	// Name of the job flow.
 	Name *string `pulumi:"name"`
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel *string `pulumi:"osReleaseLabel"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -953,6 +961,8 @@ type ClusterArgs struct {
 	MasterInstanceGroup ClusterMasterInstanceGroupPtrInput
 	// Name of the job flow.
 	Name pulumi.StringPtrInput
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1222,6 +1232,11 @@ func (o ClusterOutput) MasterPublicDns() pulumi.StringOutput {
 // Name of the job flow.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+func (o ClusterOutput) OsReleaseLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OsReleaseLabel }).(pulumi.StringPtrOutput)
 }
 
 // The specified placement group configuration for an Amazon EMR cluster.

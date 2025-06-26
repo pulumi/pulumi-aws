@@ -73,7 +73,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///       ""Action"": ""es:*"",
     ///       ""Principal"": ""*"",
     ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
+    ///       ""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
     ///       ""Condition"": {{
     ///         ""IpAddress"": {{""aws:SourceIp"": [""66.193.100.22/32""]}}
     ///       }}
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 			""Action"": ""es:*"",
     /// 			""Principal"": ""*"",
     /// 			""Effect"": ""Allow"",
-    /// 			""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
+    /// 			""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
     /// 		}}
     /// 	]
     /// }}

@@ -81,7 +81,7 @@ import (
 //					TaskCount:                         pulumi.Int(1),
 //					TaskDescription:                   pulumi.String("example"),
 //					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Name),
+//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Region),
 //					PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
 //						AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
 //							Cents:                 pulumi.Int(1),

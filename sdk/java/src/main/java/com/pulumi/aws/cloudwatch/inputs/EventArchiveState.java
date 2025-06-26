@@ -17,14 +17,14 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
     public static final EventArchiveState Empty = new EventArchiveState();
 
     /**
-     * The Amazon Resource Name (ARN) of the event archive.
+     * ARN of the archive.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the event archive.
+     * @return ARN of the archive.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the new event archive.
+     * Description for the archive.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the new event archive.
+     * @return Description for the archive.
      * 
      */
     public Optional<Output<String>> description() {
@@ -47,14 +47,14 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
     @Import(name="eventPattern")
     private @Nullable Output<String> eventPattern;
 
     /**
-     * @return Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+     * @return Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
     public Optional<Output<String>> eventPattern() {
@@ -62,14 +62,14 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Event bus source ARN from where these events should be archived.
+     * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      * 
      */
     @Import(name="eventSourceArn")
     private @Nullable Output<String> eventSourceArn;
 
     /**
-     * @return Event bus source ARN from where these events should be archived.
+     * @return ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      * 
      */
     public Optional<Output<String>> eventSourceArn() {
@@ -77,14 +77,29 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    @Import(name="kmsKeyIdentifier")
+    private @Nullable Output<String> kmsKeyIdentifier;
+
+    /**
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyIdentifier() {
+        return Optional.ofNullable(this.kmsKeyIdentifier);
+    }
+
+    /**
+     * Name of the archive. The archive name cannot exceed 48 characters.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the new event archive. The archive name cannot exceed 48 characters.
+     * @return Name of the archive. The archive name cannot exceed 48 characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -128,6 +143,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.eventPattern = $.eventPattern;
         this.eventSourceArn = $.eventSourceArn;
+        this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.name = $.name;
         this.region = $.region;
         this.retentionDays = $.retentionDays;
@@ -152,7 +168,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the event archive.
+         * @param arn ARN of the archive.
          * 
          * @return builder
          * 
@@ -163,7 +179,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the event archive.
+         * @param arn ARN of the archive.
          * 
          * @return builder
          * 
@@ -173,7 +189,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the new event archive.
+         * @param description Description for the archive.
          * 
          * @return builder
          * 
@@ -184,7 +200,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the new event archive.
+         * @param description Description for the archive.
          * 
          * @return builder
          * 
@@ -194,7 +210,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventPattern Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+         * @param eventPattern Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
          * 
          * @return builder
          * 
@@ -205,7 +221,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventPattern Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+         * @param eventPattern Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
          * 
          * @return builder
          * 
@@ -215,7 +231,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventSourceArn Event bus source ARN from where these events should be archived.
+         * @param eventSourceArn ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
          * 
          * @return builder
          * 
@@ -226,7 +242,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventSourceArn Event bus source ARN from where these events should be archived.
+         * @param eventSourceArn ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
          * 
          * @return builder
          * 
@@ -236,7 +252,28 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the new event archive. The archive name cannot exceed 48 characters.
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
+            $.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
+        }
+
+        /**
+         * @param name Name of the archive. The archive name cannot exceed 48 characters.
          * 
          * @return builder
          * 
@@ -247,7 +284,7 @@ public final class EventArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the new event archive. The archive name cannot exceed 48 characters.
+         * @param name Name of the archive. The archive name cannot exceed 48 characters.
          * 
          * @return builder
          * 

@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
  *                         )),
  *                         jsonProperty("Action", jsonArray("ecr:ReplicateImage")),
- *                         jsonProperty("Resource", jsonArray(String.format("arn:%s:ecr:%s:%s:repository/*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId())))
+ *                         jsonProperty("Resource", jsonArray(String.format("arn:%s:ecr:%s:%s:repository/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId())))
  *                     )))
  *                 )))
  *             .build());

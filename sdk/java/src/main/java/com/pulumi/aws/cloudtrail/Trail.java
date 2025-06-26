@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("aws:SourceArn")
- *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
  *                             .variable("aws:SourceArn")
- *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                             .build())
  *                     .build())
  *             .build());

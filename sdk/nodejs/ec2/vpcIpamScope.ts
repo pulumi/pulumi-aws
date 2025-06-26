@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const exampleVpcIpamScope = new aws.ec2.VpcIpamScope("example", {
  *     ipamId: example.id,

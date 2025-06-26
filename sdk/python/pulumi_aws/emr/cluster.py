@@ -44,6 +44,7 @@ class ClusterArgs:
                  master_instance_fleet: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']] = None,
                  master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 os_release_label: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[builtins.str]] = None,
@@ -103,6 +104,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterMasterInstanceFleetArgs'] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[builtins.str] name: Name of the job flow.
+        :param pulumi.Input[builtins.str] os_release_label: Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -156,6 +158,8 @@ class ClusterArgs:
             pulumi.set(__self__, "master_instance_group", master_instance_group)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if os_release_label is not None:
+            pulumi.set(__self__, "os_release_label", os_release_label)
         if placement_group_configs is not None:
             pulumi.set(__self__, "placement_group_configs", placement_group_configs)
         if region is not None:
@@ -467,6 +471,18 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="osReleaseLabel")
+    def os_release_label(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        """
+        return pulumi.get(self, "os_release_label")
+
+    @os_release_label.setter
+    def os_release_label(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "os_release_label", value)
+
+    @property
     @pulumi.getter(name="placementGroupConfigs")
     def placement_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
         """
@@ -613,6 +629,7 @@ class _ClusterState:
                  master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
                  master_public_dns: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 os_release_label: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  release_label: Optional[pulumi.Input[builtins.str]] = None,
@@ -673,6 +690,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[builtins.str] master_public_dns: The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         :param pulumi.Input[builtins.str] name: Name of the job flow.
+        :param pulumi.Input[builtins.str] os_release_label: Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_label: Release label for the Amazon EMR release.
@@ -735,6 +753,8 @@ class _ClusterState:
             pulumi.set(__self__, "master_public_dns", master_public_dns)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if os_release_label is not None:
+            pulumi.set(__self__, "os_release_label", os_release_label)
         if placement_group_configs is not None:
             pulumi.set(__self__, "placement_group_configs", placement_group_configs)
         if region is not None:
@@ -1059,6 +1079,18 @@ class _ClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="osReleaseLabel")
+    def os_release_label(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        """
+        return pulumi.get(self, "os_release_label")
+
+    @os_release_label.setter
+    def os_release_label(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "os_release_label", value)
+
+    @property
     @pulumi.getter(name="placementGroupConfigs")
     def placement_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
         """
@@ -1243,6 +1275,7 @@ class Cluster(pulumi.CustomResource):
                  master_instance_fleet: Optional[pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
                  master_instance_group: Optional[pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 os_release_label: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  release_label: Optional[pulumi.Input[builtins.str]] = None,
@@ -1569,6 +1602,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[builtins.str] name: Name of the job flow.
+        :param pulumi.Input[builtins.str] os_release_label: Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_label: Release label for the Amazon EMR release.
@@ -1893,6 +1927,7 @@ class Cluster(pulumi.CustomResource):
                  master_instance_fleet: Optional[pulumi.Input[Union['ClusterMasterInstanceFleetArgs', 'ClusterMasterInstanceFleetArgsDict']]] = None,
                  master_instance_group: Optional[pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 os_release_label: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  release_label: Optional[pulumi.Input[builtins.str]] = None,
@@ -1934,6 +1969,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_instance_fleet"] = master_instance_fleet
             __props__.__dict__["master_instance_group"] = master_instance_group
             __props__.__dict__["name"] = name
+            __props__.__dict__["os_release_label"] = os_release_label
             __props__.__dict__["placement_group_configs"] = placement_group_configs
             __props__.__dict__["region"] = region
             if release_label is None and not opts.urn:
@@ -1987,6 +2023,7 @@ class Cluster(pulumi.CustomResource):
             master_instance_group: Optional[pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']]] = None,
             master_public_dns: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            os_release_label: Optional[pulumi.Input[builtins.str]] = None,
             placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             release_label: Optional[pulumi.Input[builtins.str]] = None,
@@ -2052,6 +2089,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterMasterInstanceGroupArgs', 'ClusterMasterInstanceGroupArgsDict']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[builtins.str] master_public_dns: The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         :param pulumi.Input[builtins.str] name: Name of the job flow.
+        :param pulumi.Input[builtins.str] os_release_label: Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterPlacementGroupConfigArgs', 'ClusterPlacementGroupConfigArgsDict']]]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_label: Release label for the Amazon EMR release.
@@ -2095,6 +2133,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["master_instance_group"] = master_instance_group
         __props__.__dict__["master_public_dns"] = master_public_dns
         __props__.__dict__["name"] = name
+        __props__.__dict__["os_release_label"] = os_release_label
         __props__.__dict__["placement_group_configs"] = placement_group_configs
         __props__.__dict__["region"] = region
         __props__.__dict__["release_label"] = release_label
@@ -2313,6 +2352,14 @@ class Cluster(pulumi.CustomResource):
         Name of the job flow.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osReleaseLabel")
+    def os_release_label(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        """
+        return pulumi.get(self, "os_release_label")
 
     @property
     @pulumi.getter(name="placementGroupConfigs")

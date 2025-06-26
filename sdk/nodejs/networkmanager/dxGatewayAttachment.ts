@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const test = new aws.networkmanager.DxGatewayAttachment("test", {
  *     coreNetworkId: testAwsNetworkmanagerCoreNetworkPolicyAttachment.coreNetworkId,
  *     directConnectGatewayArn: `arn:aws:directconnect::${current.accountId}:dx-gateway/${testAwsDxGateway.id}`,
- *     edgeLocations: [currentAwsRegion.name],
+ *     edgeLocations: [currentAwsRegion.region],
  * });
  * ```
  *

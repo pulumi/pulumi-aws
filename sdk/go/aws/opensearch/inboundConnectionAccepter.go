@@ -43,12 +43,12 @@ import (
 //				ConnectionAlias: pulumi.String("outbound_connection"),
 //				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
 //					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Name),
+//					Region:     pulumi.String(currentGetRegion.Region),
 //					DomainName: pulumi.Any(localDomain.DomainName),
 //				},
 //				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
 //					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Name),
+//					Region:     pulumi.String(currentGetRegion.Region),
 //					DomainName: pulumi.Any(remoteDomain.DomainName),
 //				},
 //			})

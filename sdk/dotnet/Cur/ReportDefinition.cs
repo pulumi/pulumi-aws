@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Cur
         public Output<string> S3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Report path prefix. Limited to 256 characters.
+        /// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         /// </summary>
         [Output("s3Prefix")]
         public Output<string> S3Prefix { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Cur
         public Input<string> S3Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Report path prefix. Limited to 256 characters.
+        /// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         /// </summary>
         [Input("s3Prefix", required: true)]
         public Input<string> S3Prefix { get; set; } = null!;
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Cur
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// Report path prefix. Limited to 256 characters.
+        /// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         /// </summary>
         [Input("s3Prefix")]
         public Input<string>? S3Prefix { get; set; }

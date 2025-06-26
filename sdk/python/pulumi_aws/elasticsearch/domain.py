@@ -738,7 +738,7 @@ class Domain(pulumi.CustomResource):
               "Action": "es:*",
               "Principal": "*",
               "Effect": "Allow",
-              "Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*",
+              "Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*",
               "Condition": {{
                 "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
               }}
@@ -835,7 +835,7 @@ class Domain(pulumi.CustomResource):
         \\x09\\x09\\x09"Action": "es:*",
         \\x09\\x09\\x09"Principal": "*",
         \\x09\\x09\\x09"Effect": "Allow",
-        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
+        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"
         \\x09\\x09}}
         \\x09]
         }}
@@ -927,7 +927,7 @@ class Domain(pulumi.CustomResource):
               "Action": "es:*",
               "Principal": "*",
               "Effect": "Allow",
-              "Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*",
+              "Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*",
               "Condition": {{
                 "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
               }}
@@ -1024,7 +1024,7 @@ class Domain(pulumi.CustomResource):
         \\x09\\x09\\x09"Action": "es:*",
         \\x09\\x09\\x09"Principal": "*",
         \\x09\\x09\\x09"Effect": "Allow",
-        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
+        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"
         \\x09\\x09}}
         \\x09]
         }}

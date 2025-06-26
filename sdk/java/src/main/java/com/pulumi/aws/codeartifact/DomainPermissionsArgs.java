@@ -50,15 +50,15 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      * 
      */
-    @Import(name="policyDocument", required=true)
-    private Output<String> policyDocument;
+    @Import(name="policyDocument")
+    private @Nullable Output<String> policyDocument;
 
     /**
      * @return A JSON policy string to be set as the access control resource policy on the provided domain.
      * 
      */
-    public Output<String> policyDocument() {
-        return this.policyDocument;
+    public Optional<Output<String>> policyDocument() {
+        return Optional.ofNullable(this.policyDocument);
     }
 
     /**
@@ -167,7 +167,7 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder policyDocument(Output<String> policyDocument) {
+        public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
@@ -227,9 +227,6 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
         public DomainPermissionsArgs build() {
             if ($.domain == null) {
                 throw new MissingRequiredPropertyException("DomainPermissionsArgs", "domain");
-            }
-            if ($.policyDocument == null) {
-                throw new MissingRequiredPropertyException("DomainPermissionsArgs", "policyDocument");
             }
             return $;
         }

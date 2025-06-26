@@ -681,6 +681,8 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
         suggest = None
         if key == "resourceArn":
             suggest = "resource_arn"
+        elif key == "deepThreatInspection":
+            suggest = "deep_threat_inspection"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicyStatefulRuleGroupReference. Access the value via the '{suggest}' property getter instead.")
@@ -695,14 +697,20 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
 
     def __init__(__self__, *,
                  resource_arn: builtins.str,
+                 deep_threat_inspection: Optional[builtins.str] = None,
                  override: Optional['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride'] = None,
                  priority: Optional[builtins.int] = None):
         """
         :param builtins.str resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
+        :param builtins.str deep_threat_inspection: Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+               
+               For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
         :param 'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs' override: Configuration block for override values
         :param builtins.int priority: An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if deep_threat_inspection is not None:
+            pulumi.set(__self__, "deep_threat_inspection", deep_threat_inspection)
         if override is not None:
             pulumi.set(__self__, "override", override)
         if priority is not None:
@@ -715,6 +723,16 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReference(dict):
         The Amazon Resource Name (ARN) of the stateful rule group.
         """
         return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter(name="deepThreatInspection")
+    def deep_threat_inspection(self) -> Optional[builtins.str]:
+        """
+        Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+
+        For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+        """
+        return pulumi.get(self, "deep_threat_inspection")
 
     @property
     @pulumi.getter
@@ -3414,13 +3432,20 @@ class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(dict):
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(dict):
     def __init__(__self__, *,
+                 deep_threat_inspection: builtins.str,
                  priority: builtins.int,
                  resource_arn: builtins.str,
                  overrides: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']] = None):
+        pulumi.set(__self__, "deep_threat_inspection", deep_threat_inspection)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "resource_arn", resource_arn)
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
+
+    @property
+    @pulumi.getter(name="deepThreatInspection")
+    def deep_threat_inspection(self) -> builtins.str:
+        return pulumi.get(self, "deep_threat_inspection")
 
     @property
     @pulumi.getter

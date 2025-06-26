@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleProtection = new aws.shield.Protection("example", {
  *     name: "example-protection",
- *     resourceArn: pulumi.all([currentGetPartition, current, currentGetCallerIdentity, example.id]).apply(([currentGetPartition, current, currentGetCallerIdentity, id]) => `arn:${currentGetPartition.partition}:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
+ *     resourceArn: pulumi.all([currentGetPartition, current, currentGetCallerIdentity, example.id]).apply(([currentGetPartition, current, currentGetCallerIdentity, id]) => `arn:${currentGetPartition.partition}:ec2:${current.region}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
  * });
  * const exampleHealthCheck = new aws.route53.HealthCheck("example", {
  *     ipAddress: example.publicIp,

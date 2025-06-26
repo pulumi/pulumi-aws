@@ -22,6 +22,12 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
     ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
     ///         Name = "example",
@@ -43,7 +49,13 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///                 },
     ///             },
-    ///             TlsInspectionConfigurationArn = "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+    ///             TlsInspectionConfigurationArn = Output.Tuple(currentGetPartition, current, currentGetCallerIdentity).Apply(values =&gt;
+    ///             {
+    ///                 var currentGetPartition = values.Item1;
+    ///                 var current = values.Item2;
+    ///                 var currentGetCallerIdentity = values.Item3;
+    ///                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:network-firewall:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:tls-configuration/example";
+    ///             }),
     ///         },
     ///         Tags = 
     ///         {
@@ -125,7 +137,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.NetworkFirewall.FirewallPolicy("test", new()
+    ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
     ///     {
     ///         Name = "example",
     ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
@@ -157,6 +169,103 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                         },
     ///                     },
     ///                     ActionName = "ExampleCustomAction",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Policy with Active Threat Defense in Action Order
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///         {
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             },
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///             },
+    ///             StatefulRuleGroupReferences = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs
+    ///                 {
+    ///                     DeepThreatInspection = "true",
+    ///                     ResourceArn = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
+    ///                     {
+    ///                         var currentGetPartition = values.Item1;
+    ///                         var current = values.Item2;
+    ///                         return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:network-firewall:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder";
+    ///                     }),
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Policy with Active Threat Defense in Strict Order
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///         {
+    ///             StatelessFragmentDefaultActions = new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             },
+    ///             StatelessDefaultActions = new[]
+    ///             {
+    ///                 "aws:pass",
+    ///             },
+    ///             StatefulEngineOptions = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs
+    ///             {
+    ///                 RuleOrder = "STRICT_ORDER",
+    ///             },
+    ///             StatefulRuleGroupReferences = new[]
+    ///             {
+    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs
+    ///                 {
+    ///                     DeepThreatInspection = "false",
+    ///                     Priority = 1,
+    ///                     ResourceArn = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
+    ///                     {
+    ///                         var currentGetPartition = values.Item1;
+    ///                         var current = values.Item2;
+    ///                         return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:network-firewall:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder";
+    ///                     }),
     ///                 },
     ///             },
     ///         },

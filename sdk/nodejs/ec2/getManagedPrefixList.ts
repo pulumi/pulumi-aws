@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = current.then(current => aws.ec2.getManagedPrefixList({
- *     name: `com.amazonaws.${current.name}.dynamodb`,
+ *     name: `com.amazonaws.${current.region}.dynamodb`,
  * }));
  * ```
  *
@@ -135,7 +135,7 @@ export interface GetManagedPrefixListResult {
  *
  * const current = aws.getRegion({});
  * const example = current.then(current => aws.ec2.getManagedPrefixList({
- *     name: `com.amazonaws.${current.name}.dynamodb`,
+ *     name: `com.amazonaws.${current.region}.dynamodb`,
  * }));
  * ```
  *

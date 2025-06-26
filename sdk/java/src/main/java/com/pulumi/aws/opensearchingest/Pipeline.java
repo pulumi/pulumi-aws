@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *           event_collect_timeout: "60s"
  *         codec:
  *           ndjson:
- * ", _arn,current.name())))
+ * ", _arn,current.region())))
  *             .maxUnits(1)
  *             .minUnits(1)
  *             .build());

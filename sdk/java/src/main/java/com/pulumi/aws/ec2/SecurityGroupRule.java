@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var s3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
- *             .name(String.format("com.amazonaws.%s.s3", current.name()))
+ *             .name(String.format("com.amazonaws.%s.s3", current.region()))
  *             .build());
  * 
  *         var s3GatewayEgress = new SecurityGroupRule("s3GatewayEgress", SecurityGroupRuleArgs.builder()

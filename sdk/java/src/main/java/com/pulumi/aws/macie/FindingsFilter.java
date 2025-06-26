@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .findingCriteria(FindingsFilterFindingCriteriaArgs.builder()
  *                 .criterions(FindingsFilterFindingCriteriaCriterionArgs.builder()
  *                     .field("region")
- *                     .eqs(current.name())
+ *                     .eqs(current.region())
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

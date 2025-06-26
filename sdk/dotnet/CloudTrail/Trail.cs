@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         Variable = "aws:SourceArn",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
     ///                         },
     ///                     },
     ///                 },
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         Variable = "aws:SourceArn",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
     ///                         },
     ///                     },
     ///                 },

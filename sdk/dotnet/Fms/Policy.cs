@@ -148,6 +148,12 @@ namespace Pulumi.Aws.Fms
         public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
 
         /// <summary>
+        /// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        /// </summary>
+        [Output("resourceTagLogicalOperator")]
+        public Output<string> ResourceTagLogicalOperator { get; private set; } = null!;
+
+        /// <summary>
         /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         /// </summary>
         [Output("resourceTags")]
@@ -291,6 +297,12 @@ namespace Pulumi.Aws.Fms
             set => _resourceSetIds = value;
         }
 
+        /// <summary>
+        /// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        /// </summary>
+        [Input("resourceTagLogicalOperator")]
+        public Input<string>? ResourceTagLogicalOperator { get; set; }
+
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
 
@@ -417,6 +429,12 @@ namespace Pulumi.Aws.Fms
             get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
             set => _resourceSetIds = value;
         }
+
+        /// <summary>
+        /// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        /// </summary>
+        [Input("resourceTagLogicalOperator")]
+        public Input<string>? ResourceTagLogicalOperator { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;

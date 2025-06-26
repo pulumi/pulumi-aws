@@ -134,14 +134,14 @@ import javax.annotation.Nullable;
  * 
  *         var test = new VpcIpam("test", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 
  *         var testVpcIpamPool = new VpcIpamPool("testVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(test.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .build());
  * 
  *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr("testVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()

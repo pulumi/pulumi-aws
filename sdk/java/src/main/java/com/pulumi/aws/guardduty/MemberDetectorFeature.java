@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.MemberDetectorFeature;
  * import com.pulumi.aws.guardduty.MemberDetectorFeatureArgs;
- * import com.pulumi.aws.guardduty.inputs.MemberDetectorFeatureAdditionalConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,23 +55,21 @@ import javax.annotation.Nullable;
  *         var runtimeMonitoring = new MemberDetectorFeature("runtimeMonitoring", MemberDetectorFeatureArgs.builder()
  *             .detectorId(example.id())
  *             .accountId("123456789012")
- *             .name("RUNTIME_MONITORING")
+ *             .name("S3_DATA_EVENTS")
  *             .status("ENABLED")
- *             .additionalConfigurations(            
- *                 MemberDetectorFeatureAdditionalConfigurationArgs.builder()
- *                     .name("EKS_ADDON_MANAGEMENT")
- *                     .status("ENABLED")
- *                     .build(),
- *                 MemberDetectorFeatureAdditionalConfigurationArgs.builder()
- *                     .name("ECS_FARGATE_AGENT_MANAGEMENT")
- *                     .status("ENABLED")
- *                     .build())
  *             .build());
  * 
  *     }
  * }
  * }
  * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Extended Threat Detection for EKS
+ * 
+ * To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

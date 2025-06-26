@@ -34,14 +34,14 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     }
 
     /**
-     * Set of CIDR blocks.
+     * Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
      * 
      */
     @Import(name="cidrs")
     private @Nullable Output<List<String>> cidrs;
 
     /**
-     * @return Set of CIDR blocks.
+     * @return Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
      * 
      */
     public Optional<Output<List<String>>> cidrs() {
@@ -49,14 +49,14 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     }
 
     /**
-     * First port in a range of open ports on an instance.
+     * First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
      * 
      */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
     /**
-     * @return First port in a range of open ports on an instance.
+     * @return First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
      * 
      */
     public Output<Integer> fromPort() {
@@ -64,14 +64,14 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     }
 
     /**
-     * Set of IPv6 CIDR blocks.
+     * Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
      * 
      */
     @Import(name="ipv6Cidrs")
     private @Nullable Output<List<String>> ipv6Cidrs;
 
     /**
-     * @return Set of IPv6 CIDR blocks.
+     * @return Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
      * 
      */
     public Optional<Output<List<String>>> ipv6Cidrs() {
@@ -79,14 +79,14 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     }
 
     /**
-     * IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+     * IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
      * 
      */
     public Output<String> protocol() {
@@ -94,18 +94,14 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     }
 
     /**
-     * Last port in a range of open ports on an instance.
-     * 
-     * The following arguments are optional:
+     * Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
      * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
-     * @return Last port in a range of open ports on an instance.
-     * 
-     * The following arguments are optional:
+     * @return Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
      * 
      */
     public Output<Integer> toPort() {
@@ -173,7 +169,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cidrs Set of CIDR blocks.
+         * @param cidrs Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
          * 
          * @return builder
          * 
@@ -184,7 +180,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cidrs Set of CIDR blocks.
+         * @param cidrs Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
          * 
          * @return builder
          * 
@@ -194,7 +190,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cidrs Set of CIDR blocks.
+         * @param cidrs Set of IPv4 addresses or ranges of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
          * 
          * @return builder
          * 
@@ -204,7 +200,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param fromPort First port in a range of open ports on an instance.
+         * @param fromPort First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
          * 
          * @return builder
          * 
@@ -215,7 +211,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param fromPort First port in a range of open ports on an instance.
+         * @param fromPort First port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
          * 
          * @return builder
          * 
@@ -225,7 +221,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipv6Cidrs Set of IPv6 CIDR blocks.
+         * @param ipv6Cidrs Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
          * 
          * @return builder
          * 
@@ -236,7 +232,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipv6Cidrs Set of IPv6 CIDR blocks.
+         * @param ipv6Cidrs Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
          * 
          * @return builder
          * 
@@ -246,7 +242,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipv6Cidrs Set of IPv6 CIDR blocks.
+         * @param ipv6Cidrs Set of IPv6 addresses or ranges of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
          * 
          * @return builder
          * 
@@ -256,7 +252,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
          * 
          * @return builder
          * 
@@ -267,7 +263,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
+         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
          * 
          * @return builder
          * 
@@ -277,9 +273,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param toPort Last port in a range of open ports on an instance.
-         * 
-         * The following arguments are optional:
+         * @param toPort Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
          * 
          * @return builder
          * 
@@ -290,9 +284,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param toPort Last port in a range of open ports on an instance.
-         * 
-         * The following arguments are optional:
+         * @param toPort Last port in a range of open ports on an instance. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
          * 
          * @return builder
          * 

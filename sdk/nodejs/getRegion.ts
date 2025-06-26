@@ -51,7 +51,7 @@ export interface GetRegionArgs {
      */
     name?: string;
     /**
-     * Full name of the region to select (e.g. `us-east-1`)
+     * Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -119,7 +119,7 @@ export interface GetRegionOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Full name of the region to select (e.g. `us-east-1`)
+     * Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

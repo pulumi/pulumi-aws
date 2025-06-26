@@ -80,11 +80,11 @@ export class InstancePublicPorts extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      */
     public readonly instanceName!: pulumi.Output<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      *
      * The following arguments are optional:
      */
@@ -132,11 +132,11 @@ export class InstancePublicPorts extends pulumi.CustomResource {
  */
 export interface InstancePublicPortsState {
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      */
     instanceName?: pulumi.Input<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      *
      * The following arguments are optional:
      */
@@ -152,11 +152,11 @@ export interface InstancePublicPortsState {
  */
 export interface InstancePublicPortsArgs {
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      */
     instanceName: pulumi.Input<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
      *
      * The following arguments are optional:
      */

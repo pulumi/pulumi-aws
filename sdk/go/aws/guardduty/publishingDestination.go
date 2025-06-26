@@ -97,7 +97,7 @@ import (
 //							"kms:GenerateDataKey",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Name, current.AccountId),
+//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -114,7 +114,7 @@ import (
 //							"kms:*",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Name, current.AccountId),
+//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci_321", new()
     ///     {
-    ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::standards/pci-dss/v/3.2.1",
+    ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}::standards/pci-dss/v/3.2.1",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

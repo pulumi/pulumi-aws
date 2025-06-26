@@ -34,13 +34,13 @@ namespace Pulumi.Aws.OpenSearch
     ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
     ///         {
     ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             DomainName = localDomain.DomainName,
     ///         },
     ///         RemoteDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionRemoteDomainInfoArgs
     ///         {
     ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             DomainName = remoteDomain.DomainName,
     ///         },
     ///     });
