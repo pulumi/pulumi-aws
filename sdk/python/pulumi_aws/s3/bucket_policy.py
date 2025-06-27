@@ -141,6 +141,40 @@ class BucketPolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
+        Attaches a policy to an S3 bucket resource.
+
+        > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example", bucket="my-tf-test-bucket")
+        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": [
+                "s3:GetObject",
+                "s3:ListBucket",
+            ],
+            "resources": [
+                example.arn,
+                example.arn.apply(lambda arn: f"{arn}/*"),
+            ],
+        }])
+        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
+            bucket=example.id,
+            policy=allow_access_from_another_account.json)
+        ```
+
+        > Only one `s3.BucketPolicy` resource should be defined per S3 bucket. Defining multiple `s3.BucketPolicy` resources with different Pulumi names but the same `bucket` value may result in unexpected policy overwrites. Each resource uses the `PutBucketPolicy` API, which replaces the entire existing policy without error or warning. Because Pulumi treats each resource independently, the policy applied last will silently override any previously applied policy.
+
         ## Import
 
         Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
@@ -162,6 +196,40 @@ class BucketPolicy(pulumi.CustomResource):
                  args: BucketPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Attaches a policy to an S3 bucket resource.
+
+        > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example", bucket="my-tf-test-bucket")
+        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": [
+                "s3:GetObject",
+                "s3:ListBucket",
+            ],
+            "resources": [
+                example.arn,
+                example.arn.apply(lambda arn: f"{arn}/*"),
+            ],
+        }])
+        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
+            bucket=example.id,
+            policy=allow_access_from_another_account.json)
+        ```
+
+        > Only one `s3.BucketPolicy` resource should be defined per S3 bucket. Defining multiple `s3.BucketPolicy` resources with different Pulumi names but the same `bucket` value may result in unexpected policy overwrites. Each resource uses the `PutBucketPolicy` API, which replaces the entire existing policy without error or warning. Because Pulumi treats each resource independently, the policy applied last will silently override any previously applied policy.
+
         ## Import
 
         Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
