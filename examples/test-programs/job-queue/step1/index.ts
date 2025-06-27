@@ -1,29 +1,5 @@
 import * as aws from "@pulumi/aws";
 
-const ec2AssumeRole = aws.iam.getPolicyDocument({
-    statements: [{
-        actions: ["sts:AssumeRole"],
-        effect: "Allow",
-        principals: [{
-            identifiers: ["ec2.amazonaws.com"],
-            type: "Service",
-        }],
-    }],
-});
-
-const ecsInstanceRole = new aws.iam.Role("ecsInstanceRoleRole", {
-    assumeRolePolicy: ec2AssumeRole.then(policy => policy.json),
-});
-
-const ecsPolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", {
-    role: ecsInstanceRole.name,
-    policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
-});
-
-const ecsInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", {
-    role: ecsInstanceRole.name,
-});
-
 const batchAssumeRole = aws.iam.getPolicyDocument({
     statements: [{
         actions: ["sts:AssumeRole"],
@@ -65,13 +41,10 @@ const subnet = new aws.ec2.Subnet("sampleSubnet", {
 const computeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
     namePrefix: "test-",
     computeResources: {
-        instanceRole: ecsInstanceProfile.arn,
-        instanceTypes: ["c4.large"],
-        maxVcpus: 16,
-        minVcpus: 0,
         securityGroupIds: [sg.id],
+        type: 'FARGATE',
+        maxVcpus: 16,
         subnets: [subnet.id],
-        type: "EC2",
     },
     serviceRole: batchRole.arn,
     type: "MANAGED",

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.s3;
 
+import com.pulumi.aws.s3.enums.CannedAcl;
 import com.pulumi.aws.s3.inputs.BucketCorsRuleArgs;
 import com.pulumi.aws.s3.inputs.BucketGrantArgs;
 import com.pulumi.aws.s3.inputs.BucketLifecycleRuleArgs;
@@ -12,6 +13,8 @@ import com.pulumi.aws.s3.inputs.BucketReplicationConfigurationArgs;
 import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationArgs;
 import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
 import com.pulumi.aws.s3.inputs.BucketWebsiteArgs;
+import com.pulumi.aws.s3.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -61,7 +64,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
      */
     @Deprecated /* acl is deprecated. Use the aws.s3.BucketAcl resource instead. */
     @Import(name="acl")
-    private @Nullable Output<String> acl;
+    private @Nullable Output<Either<String,CannedAcl>> acl;
 
     /**
      * @return The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
@@ -71,7 +74,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* acl is deprecated. Use the aws.s3.BucketAcl resource instead. */
-    public Optional<Output<String>> acl() {
+    public Optional<Output<Either<String,CannedAcl>>> acl() {
         return Optional.ofNullable(this.acl);
     }
 
@@ -269,7 +272,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
      */
     @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
     @Import(name="policy")
-    private @Nullable Output<String> policy;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
     /**
      * @return Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
@@ -281,7 +284,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
-    public Optional<Output<String>> policy() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
@@ -533,7 +536,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* acl is deprecated. Use the aws.s3.BucketAcl resource instead. */
-        public Builder acl(@Nullable Output<String> acl) {
+        public Builder acl(@Nullable Output<Either<String,CannedAcl>> acl) {
             $.acl = acl;
             return this;
         }
@@ -548,8 +551,36 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* acl is deprecated. Use the aws.s3.BucketAcl resource instead. */
-        public Builder acl(String acl) {
+        public Builder acl(Either<String,CannedAcl> acl) {
             return acl(Output.of(acl));
+        }
+
+        /**
+         * @param acl The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * acl is deprecated. Use the aws.s3.BucketAcl resource instead.
+         * 
+         */
+        @Deprecated /* acl is deprecated. Use the aws.s3.BucketAcl resource instead. */
+        public Builder acl(String acl) {
+            return acl(Either.ofLeft(acl));
+        }
+
+        /**
+         * @param acl The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * acl is deprecated. Use the aws.s3.BucketAcl resource instead.
+         * 
+         */
+        @Deprecated /* acl is deprecated. Use the aws.s3.BucketAcl resource instead. */
+        public Builder acl(CannedAcl acl) {
+            return acl(Either.ofRight(acl));
         }
 
         /**
@@ -844,7 +875,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
-        public Builder policy(@Nullable Output<String> policy) {
+        public Builder policy(@Nullable Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
@@ -861,8 +892,40 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+         * The provider will only perform drift detection if a configuration value is provided.
+         * Use the resource `aws.s3.BucketPolicy` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * policy is deprecated. Use the aws.s3.BucketPolicy resource instead.
+         * 
+         */
+        @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+         * The provider will only perform drift detection if a configuration value is provided.
+         * Use the resource `aws.s3.BucketPolicy` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * policy is deprecated. Use the aws.s3.BucketPolicy resource instead.
+         * 
+         */
+        @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

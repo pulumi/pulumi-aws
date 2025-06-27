@@ -184,12 +184,12 @@ func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
 }
 
 func TestS3BucketToBucketUpgrade(t *testing.T) {
-	test, _ := testProviderUpgrade(t, "bucket-to-bucket", &testProviderUpgradeOptions{
+	test, _ := testProviderUpgrade(t, "bucket-to-bucket/yaml", &testProviderUpgradeOptions{
 		skipDefaultPreviewTest: true,
 		runProgram:             true,
 		skipCache:              true,
 	},
-		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "step1")),
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "yaml", "step1")),
 	)
 	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff())
 	assert.Equal(t, map[apitype.OpType]int{
