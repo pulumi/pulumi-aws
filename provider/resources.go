@@ -3533,9 +3533,18 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_s3_bucket": {
 				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"acl": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(s3Mod, "CannedAcl", "CannedAcl")},
+					},
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
@@ -5602,6 +5611,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		},
 		s3Mod: {
 			"aws_s3_bucket_policy": "policy",
+			"aws_s3_bucket":        "policy",
 		},
 		snsMod: {
 			"aws_sns_topic_policy": "policy",

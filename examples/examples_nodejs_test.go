@@ -943,6 +943,32 @@ func TestJobQueueUpgrade(t *testing.T) {
 	test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ExpectNoChanges())
 }
 
+// This test requires `--refresh` to perform the state migrations
+// `--refresh` means we have to disable the cache to run the initial deployment
+func TestBucketToBucketUpgradeTs(t *testing.T) {
+	opts := nodeProviderUpgradeOpts()
+	opts.setEnvRegion = false
+	opts.skipCache = true
+	opts.skipDefaultPreviewTest = true
+	opts.runProgram = true
+	test, _ := testProviderUpgrade(t, filepath.Join("bucket-to-bucket", "ts"), opts,
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "ts", "step1")))
+
+	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ProgressStreams(os.Stdout), optpreview.ErrorProgressStreams(os.Stderr))
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpUpdate: 1, // the provider gets updated because of the version update
+		apitype.OpSame:   9,
+	}, res.ChangeSummary)
+}
+
+// This test requires `--refresh` to perform the state migrations
+// `--refresh` means we have to disable the cache to run the initial deployment
+func TestBucketV2ToBucketV2UpgradeTs(t *testing.T) {
+	opts := nodeProviderUpgradeOpts()
+	opts.setEnvRegion = false
+	testProviderUpgrade(t, "bucketv2-to-bucketv2", opts)
+}
+
 func TestMultipleRegionsUpgrade(t *testing.T) {
 	skipIfShort(t)
 	t.Parallel()
@@ -1300,6 +1326,22 @@ func TestAccProviderRoleChaining(t *testing.T) {
 		Config: map[string]string{
 			"aws-native:region": region,
 			"aws:region":        region,
+		},
+	}
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
+}
+
+// also test the release verification test so it will also fail in CI
+func TestReleaseVerification(t *testing.T) {
+	region := getEnvRegion(t)
+	test := integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "release-verification"),
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Config: map[string]string{
+			"aws:region": region,
 		},
 	}
 	skipRefresh(&test)
