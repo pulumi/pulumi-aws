@@ -165,6 +165,21 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    @Import(name="resourceTagLogicalOperator")
+    private @Nullable Output<String> resourceTagLogicalOperator;
+
+    /**
+     * @return Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    public Optional<Output<String>> resourceTagLogicalOperator() {
+        return Optional.ofNullable(this.resourceTagLogicalOperator);
+    }
+
+    /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      * 
      */
@@ -252,6 +267,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         this.region = $.region;
         this.remediationEnabled = $.remediationEnabled;
         this.resourceSetIds = $.resourceSetIds;
+        this.resourceTagLogicalOperator = $.resourceTagLogicalOperator;
         this.resourceTags = $.resourceTags;
         this.resourceType = $.resourceType;
         this.resourceTypeLists = $.resourceTypeLists;
@@ -477,6 +493,27 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder resourceSetIds(String... resourceSetIds) {
             return resourceSetIds(List.of(resourceSetIds));
+        }
+
+        /**
+         * @param resourceTagLogicalOperator Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTagLogicalOperator(@Nullable Output<String> resourceTagLogicalOperator) {
+            $.resourceTagLogicalOperator = resourceTagLogicalOperator;
+            return this;
+        }
+
+        /**
+         * @param resourceTagLogicalOperator Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTagLogicalOperator(String resourceTagLogicalOperator) {
+            return resourceTagLogicalOperator(Output.of(resourceTagLogicalOperator));
         }
 
         /**

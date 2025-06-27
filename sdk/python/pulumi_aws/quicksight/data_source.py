@@ -483,7 +483,7 @@ class DataSource(pulumi.CustomResource):
             key="manifest.json",
             content=pulumi.Output.json_dumps({
                 "fileLocations": [{
-                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.name}.{current_get_partition.dns_suffix}")],
+                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.region}.{current_get_partition.dns_suffix}")],
                 }],
                 "globalUploadSettings": {
                     "format": "CSV",
@@ -620,7 +620,7 @@ class DataSource(pulumi.CustomResource):
             key="manifest.json",
             content=pulumi.Output.json_dumps({
                 "fileLocations": [{
-                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.name}.{current_get_partition.dns_suffix}")],
+                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.region}.{current_get_partition.dns_suffix}")],
                 }],
                 "globalUploadSettings": {
                     "format": "CSV",

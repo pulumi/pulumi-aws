@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Organization Unused Access Analyzer with analysis rule
+ * ### Organization Unused Access Analyzer With Analysis Rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,6 +67,53 @@ import * as utilities from "../utilities";
  *                         ],
  *                     },
  *                 ],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Account Internal Access Analyzer by Resource Types
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.accessanalyzer.Analyzer("test", {
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION_INTERNAL_ACCESS",
+ *     configuration: {
+ *         internalAccess: {
+ *             analysisRule: {
+ *                 inclusions: [{
+ *                     resourceTypes: [
+ *                         "AWS::S3::Bucket",
+ *                         "AWS::RDS::DBSnapshot",
+ *                         "AWS::DynamoDB::Table",
+ *                     ],
+ *                 }],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Organization Internal Access Analyzer by Account ID and Resource ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.accessanalyzer.Analyzer("test", {
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION_INTERNAL_ACCESS",
+ *     configuration: {
+ *         internalAccess: {
+ *             analysisRule: {
+ *                 inclusions: [{
+ *                     accountIds: ["123456789012"],
+ *                     resourceArns: ["arn:aws:s3:::my-example-bucket"],
+ *                 }],
  *             },
  *         },
  *     },
@@ -120,7 +167,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A block that specifies the configuration of the analyzer. Documented below
+     * A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      */
     public readonly configuration!: pulumi.Output<outputs.accessanalyzer.AnalyzerConfiguration | undefined>;
     /**
@@ -136,7 +183,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -193,7 +240,7 @@ export interface AnalyzerState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A block that specifies the configuration of the analyzer. Documented below
+     * A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      */
     configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
     /**
@@ -209,7 +256,7 @@ export interface AnalyzerState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      */
     type?: pulumi.Input<string>;
 }
@@ -225,7 +272,7 @@ export interface AnalyzerArgs {
      */
     analyzerName: pulumi.Input<string>;
     /**
-     * A block that specifies the configuration of the analyzer. Documented below
+     * A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      */
     configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
     /**
@@ -237,7 +284,7 @@ export interface AnalyzerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      */
     type?: pulumi.Input<string>;
 }

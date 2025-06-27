@@ -146,7 +146,7 @@ class GetKeyResult:
     @pulumi.getter(name="customerMasterKeySpec")
     def customer_master_key_spec(self) -> builtins.str:
         """
-        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+        See `key_spec`.
         """
         return pulumi.get(self, "customer_master_key_spec")
 

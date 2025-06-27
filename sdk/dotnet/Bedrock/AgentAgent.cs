@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Bedrock
     ///                         Test = "ArnLike",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
     ///                         },
     ///                         Variable = "AWS:SourceArn",
     ///                     },
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}::foundation-model/anthropic.claude-v2",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}::foundation-model/anthropic.claude-v2",
     ///                 },
     ///             },
     ///         },

@@ -272,7 +272,7 @@ class VpcIpamScope(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_scope = aws.ec2.VpcIpamScope("example",
             ipam_id=example.id,
@@ -313,7 +313,7 @@ class VpcIpamScope(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.ec2.VpcIpam("example", operating_regions=[{
-            "region_name": current.name,
+            "region_name": current.region,
         }])
         example_vpc_ipam_scope = aws.ec2.VpcIpamScope("example",
             ipam_id=example.id,

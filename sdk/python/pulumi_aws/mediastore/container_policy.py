@@ -155,7 +155,7 @@ class ContainerPolicy(pulumi.CustomResource):
                 "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
             }],
             "actions": ["mediastore:*"],
-            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
+            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
             "conditions": [{
                 "test": "Bool",
                 "variable": "aws:SecureTransport",
@@ -205,7 +205,7 @@ class ContainerPolicy(pulumi.CustomResource):
                 "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
             }],
             "actions": ["mediastore:*"],
-            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
+            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
             "conditions": [{
                 "test": "Bool",
                 "variable": "aws:SecureTransport",

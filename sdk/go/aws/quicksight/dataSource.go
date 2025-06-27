@@ -97,7 +97,7 @@ import (
 //						"fileLocations": []map[string]interface{}{
 //							map[string]interface{}{
 //								"URIPrefixes": []string{
-//									fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Name, currentGetPartition.DnsSuffix),
+//									fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Region, currentGetPartition.DnsSuffix),
 //								},
 //							},
 //						},

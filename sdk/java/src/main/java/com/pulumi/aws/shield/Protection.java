@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
  *             .name("example")
- *             .resourceArn(example.id().applyValue(_id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.name(),currentGetCallerIdentity.accountId(),_id)))
+ *             .resourceArn(example.id().applyValue(_id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.region(),currentGetCallerIdentity.accountId(),_id)))
  *             .tags(Map.of("Environment", "Dev"))
  *             .build());
  * 

@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: example.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  * });
  * ```
  *
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const parent = new aws.ec2.VpcIpamPool("parent", {
  *     addressFamily: "ipv4",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * const child = new aws.ec2.VpcIpamPool("child", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: example.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  *     sourceIpamPoolId: parent.id,
  * });
  * const childTest = new aws.ec2.VpcIpamPoolCidr("child_test", {

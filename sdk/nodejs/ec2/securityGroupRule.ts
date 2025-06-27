@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const s3 = current.then(current => aws.ec2.getPrefixList({
- *     name: `com.amazonaws.${current.name}.s3`,
+ *     name: `com.amazonaws.${current.region}.s3`,
  * }));
  * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3_gateway_egress", {
  *     description: "S3 Gateway Egress",

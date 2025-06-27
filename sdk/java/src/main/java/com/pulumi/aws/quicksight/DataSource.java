@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *             .content(example.id().applyValue(_id -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("fileLocations", jsonArray(jsonObject(
- *                         jsonProperty("URIPrefixes", jsonArray(String.format("https://%s.s3-%s.%s", _id,currentGetRegion.name(),currentGetPartition.dnsSuffix())))
+ *                         jsonProperty("URIPrefixes", jsonArray(String.format("https://%s.s3-%s.%s", _id,currentGetRegion.region(),currentGetPartition.dnsSuffix())))
  *                     ))),
  *                     jsonProperty("globalUploadSettings", jsonObject(
  *                         jsonProperty("format", "CSV"),

@@ -127,7 +127,7 @@ import (
 //				return err
 //			}
 //			s3, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
-//				Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.s3", current.Name)),
+//				Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.s3", current.Region)),
 //			}, nil)
 //			if err != nil {
 //				return err

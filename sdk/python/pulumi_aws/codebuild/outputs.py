@@ -27,6 +27,7 @@ __all__ = [
     'ProjectBuildBatchConfigRestrictions',
     'ProjectCache',
     'ProjectEnvironment',
+    'ProjectEnvironmentDockerServer',
     'ProjectEnvironmentEnvironmentVariable',
     'ProjectEnvironmentFleet',
     'ProjectEnvironmentRegistryCredential',
@@ -732,6 +733,8 @@ class ProjectEnvironment(dict):
         suggest = None
         if key == "computeType":
             suggest = "compute_type"
+        elif key == "dockerServer":
+            suggest = "docker_server"
         elif key == "environmentVariables":
             suggest = "environment_variables"
         elif key == "imagePullCredentialsType":
@@ -757,6 +760,7 @@ class ProjectEnvironment(dict):
                  image: builtins.str,
                  type: builtins.str,
                  certificate: Optional[builtins.str] = None,
+                 docker_server: Optional['outputs.ProjectEnvironmentDockerServer'] = None,
                  environment_variables: Optional[Sequence['outputs.ProjectEnvironmentEnvironmentVariable']] = None,
                  fleet: Optional['outputs.ProjectEnvironmentFleet'] = None,
                  image_pull_credentials_type: Optional[builtins.str] = None,
@@ -777,6 +781,7 @@ class ProjectEnvironment(dict):
                `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
                the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         :param builtins.str certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+        :param 'ProjectEnvironmentDockerServerArgs' docker_server: Configuration block. Detailed below.
         :param Sequence['ProjectEnvironmentEnvironmentVariableArgs'] environment_variables: Configuration block. Detailed below.
         :param 'ProjectEnvironmentFleetArgs' fleet: Configuration block. Detailed below.
         :param builtins.str image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid
@@ -791,6 +796,8 @@ class ProjectEnvironment(dict):
         pulumi.set(__self__, "type", type)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if docker_server is not None:
+            pulumi.set(__self__, "docker_server", docker_server)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if fleet is not None:
@@ -845,6 +852,14 @@ class ProjectEnvironment(dict):
         return pulumi.get(self, "certificate")
 
     @property
+    @pulumi.getter(name="dockerServer")
+    def docker_server(self) -> Optional['outputs.ProjectEnvironmentDockerServer']:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "docker_server")
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.ProjectEnvironmentEnvironmentVariable']]:
         """
@@ -886,6 +901,55 @@ class ProjectEnvironment(dict):
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "registry_credential")
+
+
+@pulumi.output_type
+class ProjectEnvironmentDockerServer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectEnvironmentDockerServer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectEnvironmentDockerServer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectEnvironmentDockerServer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_type: builtins.str,
+                 security_group_ids: Optional[Sequence[builtins.str]] = None):
+        """
+        :param builtins.str compute_type: Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+        :param Sequence[builtins.str] security_group_ids: List of security group IDs to assign to the Docker server.
+        """
+        pulumi.set(__self__, "compute_type", compute_type)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> builtins.str:
+        """
+        Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of security group IDs to assign to the Docker server.
+        """
+        return pulumi.get(self, "security_group_ids")
 
 
 @pulumi.output_type

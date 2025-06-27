@@ -64,7 +64,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     ///     - s3:
     ///         aws:
     ///           sts_role_arn: ""{arn}""
-    ///           region: ""{current.Apply(getRegionResult =&gt; getRegionResult.Name)}""
+    ///           region: ""{current.Apply(getRegionResult =&gt; getRegionResult.Region)}""
     ///         bucket: ""example""
     ///         threshold:
     ///           event_collect_timeout: ""60s""

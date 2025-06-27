@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Quicksight
     ///                             var id = values.Item1;
     ///                             var currentGetRegion = values.Item2;
     ///                             var currentGetPartition = values.Item3;
-    ///                             return $"https://{id}.s3-{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///                             return $"https://{id}.s3-{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}.{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
     ///                         }),
     ///                     },
     ///                 },

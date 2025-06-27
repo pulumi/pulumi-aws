@@ -524,7 +524,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
+        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.region}.s3")
         s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
             description="S3 Gateway Egress",
             type="egress",
@@ -674,7 +674,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
+        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.region}.s3")
         s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
             description="S3 Gateway Egress",
             type="egress",

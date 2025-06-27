@@ -17,14 +17,14 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs extends com
     public static final AnalyzerConfigurationUnusedAccessAnalysisRuleArgs Empty = new AnalyzerConfigurationUnusedAccessAnalysisRuleArgs();
 
     /**
-     * A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+     * List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
      * 
      */
     @Import(name="exclusions")
     private @Nullable Output<List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs>> exclusions;
 
     /**
-     * @return A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+     * @return List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
      * 
      */
     public Optional<Output<List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs>>> exclusions() {
@@ -56,7 +56,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs extends com
         }
 
         /**
-         * @param exclusions A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+         * @param exclusions List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs extends com
         }
 
         /**
-         * @param exclusions A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+         * @param exclusions List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs extends com
         }
 
         /**
-         * @param exclusions A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+         * @param exclusions List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
          * 
          * @return builder
          * 

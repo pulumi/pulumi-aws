@@ -31,6 +31,53 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Metadata Schema
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleTableBucket = new aws.s3tables.TableBucket("example", {name: "example-bucket"});
+ * const exampleNamespace = new aws.s3tables.Namespace("example", {
+ *     namespace: "example_namespace",
+ *     tableBucketArn: exampleTableBucket.arn,
+ * });
+ * const example = new aws.s3tables.Table("example", {
+ *     name: "example_table",
+ *     namespace: exampleNamespace.namespace,
+ *     tableBucketArn: exampleNamespace.tableBucketArn,
+ *     format: "ICEBERG",
+ *     metadata: {
+ *         iceberg: {
+ *             schema: {
+ *                 fields: [
+ *                     {
+ *                         name: "id",
+ *                         type: "long",
+ *                         required: true,
+ *                     },
+ *                     {
+ *                         name: "name",
+ *                         type: "string",
+ *                         required: true,
+ *                     },
+ *                     {
+ *                         name: "created_at",
+ *                         type: "timestamp",
+ *                         required: false,
+ *                     },
+ *                     {
+ *                         name: "price",
+ *                         type: "decimal(10,2)",
+ *                         required: false,
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
@@ -94,6 +141,11 @@ export class Table extends pulumi.CustomResource {
      * See `maintenanceConfiguration` below.
      */
     public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
+    /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     */
+    public readonly metadata!: pulumi.Output<outputs.s3tables.TableMetadata | undefined>;
     /**
      * Location of table metadata.
      */
@@ -166,6 +218,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["format"] = state ? state.format : undefined;
             resourceInputs["maintenanceConfiguration"] = state ? state.maintenanceConfiguration : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["metadataLocation"] = state ? state.metadataLocation : undefined;
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
             resourceInputs["modifiedBy"] = state ? state.modifiedBy : undefined;
@@ -191,6 +244,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
@@ -242,6 +296,11 @@ export interface TableState {
      * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
+    /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     */
+    metadata?: pulumi.Input<inputs.s3tables.TableMetadata>;
     /**
      * Location of table metadata.
      */
@@ -315,6 +374,11 @@ export interface TableArgs {
      * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
+    /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     */
+    metadata?: pulumi.Input<inputs.s3tables.TableMetadata>;
     /**
      * Name of the table.
      * Must be between 1 and 255 characters in length.

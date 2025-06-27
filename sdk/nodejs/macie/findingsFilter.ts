@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     findingCriteria: {
  *         criterions: [{
  *             field: "region",
- *             eqs: [current.name],
+ *             eqs: [current.region],
  *         }],
  *     },
  * }, {

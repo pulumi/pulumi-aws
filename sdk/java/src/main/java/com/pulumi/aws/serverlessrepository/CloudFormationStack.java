@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *                 "CAPABILITY_RESOURCE_POLICY")
  *             .parameters(Map.ofEntries(
  *                 Map.entry("functionName", "func-postgres-rotator"),
- *                 Map.entry("endpoint", String.format("secretsmanager.%s.%s", currentGetRegion.name(),current.dnsSuffix()))
+ *                 Map.entry("endpoint", String.format("secretsmanager.%s.%s", currentGetRegion.region(),current.dnsSuffix()))
  *             ))
  *             .build());
  * 

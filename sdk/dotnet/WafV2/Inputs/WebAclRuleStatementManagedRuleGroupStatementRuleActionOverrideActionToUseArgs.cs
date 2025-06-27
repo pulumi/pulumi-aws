@@ -24,9 +24,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("captcha")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs>? Captcha { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        /// </summary>
         [Input("challenge")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs>? Challenge { get; set; }
 

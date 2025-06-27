@@ -5,6 +5,7 @@ package com.pulumi.aws.s3tables.inputs;
 
 import com.pulumi.aws.s3tables.inputs.TableEncryptionConfigurationArgs;
 import com.pulumi.aws.s3tables.inputs.TableMaintenanceConfigurationArgs;
+import com.pulumi.aws.s3tables.inputs.TableMetadataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -111,6 +112,23 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<TableMaintenanceConfigurationArgs>> maintenanceConfiguration() {
         return Optional.ofNullable(this.maintenanceConfiguration);
+    }
+
+    /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    @Import(name="metadata")
+    private @Nullable Output<TableMetadataArgs> metadata;
+
+    /**
+     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    public Optional<Output<TableMetadataArgs>> metadata() {
+        return Optional.ofNullable(this.metadata);
     }
 
     /**
@@ -303,6 +321,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.encryptionConfiguration = $.encryptionConfiguration;
         this.format = $.format;
         this.maintenanceConfiguration = $.maintenanceConfiguration;
+        this.metadata = $.metadata;
         this.metadataLocation = $.metadataLocation;
         this.modifiedAt = $.modifiedAt;
         this.modifiedBy = $.modifiedBy;
@@ -464,6 +483,29 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maintenanceConfiguration(TableMaintenanceConfigurationArgs maintenanceConfiguration) {
             return maintenanceConfiguration(Output.of(maintenanceConfiguration));
+        }
+
+        /**
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+         * See `metadata` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(@Nullable Output<TableMetadataArgs> metadata) {
+            $.metadata = metadata;
+            return this;
+        }
+
+        /**
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+         * See `metadata` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(TableMetadataArgs metadata) {
+            return metadata(Output.of(metadata));
         }
 
         /**

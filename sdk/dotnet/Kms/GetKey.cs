@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string CustomKeyStoreId;
         /// <summary>
-        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+        /// See `key_spec`.
         /// </summary>
         public readonly string CustomerMasterKeySpec;
         /// <summary>

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var pci321 = new StandardsSubscription("pci321", StandardsSubscriptionArgs.builder()
- *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.name()))
+ *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.region()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());

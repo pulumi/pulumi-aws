@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         var main = new VpcIpam("main", VpcIpamArgs.builder()
  *             .description("My IPAM")
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .tags(Map.of("Test", "Main"))
  *             .build());

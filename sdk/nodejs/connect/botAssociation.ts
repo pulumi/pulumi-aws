@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * const exampleBotAssociation = new aws.connect.BotAssociation("example", {
  *     instanceId: exampleAwsConnectInstance.id,
  *     lexBot: {
- *         lexRegion: current.then(current => current.name),
+ *         lexRegion: current.then(current => current.region),
  *         name: exampleBot.name,
  *     },
  * });

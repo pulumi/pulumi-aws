@@ -39,7 +39,7 @@ import (
 //				Description: pulumi.String("My IPAM"),
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Region),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

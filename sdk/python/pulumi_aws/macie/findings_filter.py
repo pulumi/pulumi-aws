@@ -354,7 +354,7 @@ class FindingsFilter(pulumi.CustomResource):
             finding_criteria={
                 "criterions": [{
                     "field": "region",
-                    "eqs": [current["name"]],
+                    "eqs": [current["region"]],
                 }],
             },
             opts = pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
@@ -403,7 +403,7 @@ class FindingsFilter(pulumi.CustomResource):
             finding_criteria={
                 "criterions": [{
                     "field": "region",
-                    "eqs": [current["name"]],
+                    "eqs": [current["region"]],
                 }],
             },
             opts = pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))

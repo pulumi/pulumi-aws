@@ -27,6 +27,10 @@ __all__ = [
     'TableMaintenanceConfigurationIcebergCompactionSettings',
     'TableMaintenanceConfigurationIcebergSnapshotManagement',
     'TableMaintenanceConfigurationIcebergSnapshotManagementSettings',
+    'TableMetadata',
+    'TableMetadataIceberg',
+    'TableMetadataIcebergSchema',
+    'TableMetadataIcebergSchemaField',
 ]
 
 @pulumi.output_type
@@ -452,5 +456,107 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettings(dict):
         Must be at least `1`.
         """
         return pulumi.get(self, "min_snapshots_to_keep")
+
+
+@pulumi.output_type
+class TableMetadata(dict):
+    def __init__(__self__, *,
+                 iceberg: 'outputs.TableMetadataIceberg'):
+        """
+        :param 'TableMetadataIcebergArgs' iceberg: Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+               See `iceberg` below.
+        """
+        pulumi.set(__self__, "iceberg", iceberg)
+
+    @property
+    @pulumi.getter
+    def iceberg(self) -> 'outputs.TableMetadataIceberg':
+        """
+        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+        See `iceberg` below.
+        """
+        return pulumi.get(self, "iceberg")
+
+
+@pulumi.output_type
+class TableMetadataIceberg(dict):
+    def __init__(__self__, *,
+                 schema: 'outputs.TableMetadataIcebergSchema'):
+        """
+        :param 'TableMetadataIcebergSchemaArgs' schema: Schema configuration for the Iceberg table.
+               See `schema` below.
+        """
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> 'outputs.TableMetadataIcebergSchema':
+        """
+        Schema configuration for the Iceberg table.
+        See `schema` below.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class TableMetadataIcebergSchema(dict):
+    def __init__(__self__, *,
+                 fields: Optional[Sequence['outputs.TableMetadataIcebergSchemaField']] = None):
+        """
+        :param Sequence['TableMetadataIcebergSchemaFieldArgs'] fields: List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+               See `field` below.
+        """
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.TableMetadataIcebergSchemaField']]:
+        """
+        List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+        See `field` below.
+        """
+        return pulumi.get(self, "fields")
+
+
+@pulumi.output_type
+class TableMetadataIcebergSchemaField(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 type: builtins.str,
+                 required: Optional[builtins.bool] = None):
+        """
+        :param builtins.str name: The name of the field.
+        :param builtins.str type: The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+        :param builtins.bool required: A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[builtins.bool]:
+        """
+        A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
 
 

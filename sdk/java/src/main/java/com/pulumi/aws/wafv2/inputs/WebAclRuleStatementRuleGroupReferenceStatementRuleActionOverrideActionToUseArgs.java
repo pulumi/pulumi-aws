@@ -48,17 +48,9 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         return Optional.ofNullable(this.captcha);
     }
 
-    /**
-     * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     @Import(name="challenge")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge;
 
-    /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs>> challenge() {
         return Optional.ofNullable(this.challenge);
     }
@@ -137,23 +129,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             return captcha(Output.of(captcha));
         }
 
-        /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge) {
             $.challenge = challenge;
             return this;
         }
 
-        /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs challenge) {
             return challenge(Output.of(challenge));
         }

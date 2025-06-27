@@ -13,18 +13,22 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult
     {
+        public readonly string DeepThreatInspection;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult> Overrides;
         public readonly int Priority;
         public readonly string ResourceArn;
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(
+            string deepThreatInspection,
+
             ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult> overrides,
 
             int priority,
 
             string resourceArn)
         {
+            DeepThreatInspection = deepThreatInspection;
             Overrides = overrides;
             Priority = priority;
             ResourceArn = resourceArn;

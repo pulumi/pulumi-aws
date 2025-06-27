@@ -51,7 +51,7 @@ import (
 //							"glue:CreateTable",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{

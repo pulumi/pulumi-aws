@@ -711,7 +711,7 @@ class Trail(pulumi.CustomResource):
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
-                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                 }],
             },
             {
@@ -732,7 +732,7 @@ class Trail(pulumi.CustomResource):
                     {
                         "test": "StringEquals",
                         "variable": "aws:SourceArn",
-                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                     },
                 ],
             },
@@ -995,7 +995,7 @@ class Trail(pulumi.CustomResource):
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
-                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                 }],
             },
             {
@@ -1016,7 +1016,7 @@ class Trail(pulumi.CustomResource):
                     {
                         "test": "StringEquals",
                         "variable": "aws:SourceArn",
-                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                     },
                 ],
             },

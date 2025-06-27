@@ -376,7 +376,7 @@ class FlowDefinition(pulumi.CustomResource):
                 "task_count": 1,
                 "task_description": "example",
                 "task_title": "example",
-                "workteam_arn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
+                "workteam_arn": f"arn:aws:sagemaker:{current['region']}:394669845002:workteam/public-crowd/default",
                 "public_workforce_task_price": {
                     "amount_in_usd": {
                         "cents": 1,
@@ -496,7 +496,7 @@ class FlowDefinition(pulumi.CustomResource):
                 "task_count": 1,
                 "task_description": "example",
                 "task_title": "example",
-                "workteam_arn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
+                "workteam_arn": f"arn:aws:sagemaker:{current['region']}:394669845002:workteam/public-crowd/default",
                 "public_workforce_task_price": {
                     "amount_in_usd": {
                         "cents": 1,

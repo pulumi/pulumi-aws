@@ -42,7 +42,7 @@ public final class GetKeyResult {
      */
     private String customKeyStoreId;
     /**
-     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * @return See `key_spec`.
      * 
      */
     private String customerMasterKeySpec;
@@ -166,7 +166,7 @@ public final class GetKeyResult {
         return this.customKeyStoreId;
     }
     /**
-     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * @return See `key_spec`.
      * 
      */
     public String customerMasterKeySpec() {

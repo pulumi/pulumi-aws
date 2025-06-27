@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *         var test = new Tag("test", TagArgs.builder()
  *             .resourceArn(example.arn().applyValue(_arn -> StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(_arn)
- *                 .search(current.name())
+ *                 .search(current.region())
  *                 .replace(replica.name())
  *                 .build())).applyValue(_invoke -> _invoke.result()))
  *             .key("testkey")

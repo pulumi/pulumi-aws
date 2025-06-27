@@ -57,14 +57,14 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 
  *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .build());
  * 
  *     }
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *         var child = new VpcIpamPool("child", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .sourceIpamPoolId(parent.id())
  *             .build());
  * 

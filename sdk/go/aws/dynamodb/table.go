@@ -205,7 +205,7 @@ import (
 //			}
 //			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
 //				Text:    arn,
-//				Search:  current.Name,
+//				Search:  current.Region,
 //				Replace: alternate.Name,
 //			}, nil)
 //			if err != nil {

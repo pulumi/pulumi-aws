@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new DrtAccessRoleArnAssociation("test", DrtAccessRoleArnAssociationArgs.builder()
- *             .roleArn(String.format("arn:aws:iam:%s:%s:%s", current.name(),currentAwsCallerIdentity.accountId(),shieldDrtAccessRoleName))
+ *             .roleArn(String.format("arn:aws:iam:%s:%s:%s", current.region(),currentAwsCallerIdentity.accountId(),shieldDrtAccessRoleName))
  *             .build());
  * 
  *         var testDrtAccessLogBucketAssociation = new DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation", DrtAccessLogBucketAssociationArgs.builder()

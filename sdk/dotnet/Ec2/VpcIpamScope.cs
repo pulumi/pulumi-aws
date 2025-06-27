@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
     ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
     ///     });

@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *             AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *         },
  *         Action: ["ecr:ReplicateImage"],
- *         Resource: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:ecr:${currentGetRegion.name}:${current.accountId}:repository/*`)],
+ *         Resource: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:ecr:${currentGetRegion.region}:${current.accountId}:repository/*`)],
  *     }],
  * })});
  * ```

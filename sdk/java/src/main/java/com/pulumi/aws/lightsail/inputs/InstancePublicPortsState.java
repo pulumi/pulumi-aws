@@ -18,14 +18,14 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
     public static final InstancePublicPortsState Empty = new InstancePublicPortsState();
 
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
-     * @return Name of the Lightsail Instance.
+     * @return Name of the instance for which to open ports.
      * 
      */
     public Optional<Output<String>> instanceName() {
@@ -33,7 +33,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -42,7 +42,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
     private @Nullable Output<List<InstancePublicPortsPortInfoArgs>> portInfos;
 
     /**
-     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -93,7 +93,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param instanceName Name of the Lightsail Instance.
+         * @param instanceName Name of the instance for which to open ports.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param instanceName Name of the Lightsail Instance.
+         * @param instanceName Name of the instance for which to open ports.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -127,7 +127,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -139,7 +139,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
          * 
          * The following arguments are optional:
          * 

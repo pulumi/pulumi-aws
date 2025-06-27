@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Organization Unused Access Analyzer with analysis rule
+ * ### Organization Unused Access Analyzer With Analysis Rule
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -158,6 +158,106 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Account Internal Access Analyzer by Resource Types
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.accessanalyzer.Analyzer;
+ * import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationInternalAccessArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationInternalAccessAnalysisRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Analyzer("test", AnalyzerArgs.builder()
+ *             .analyzerName("example")
+ *             .type("ORGANIZATION_INTERNAL_ACCESS")
+ *             .configuration(AnalyzerConfigurationArgs.builder()
+ *                 .internalAccess(AnalyzerConfigurationInternalAccessArgs.builder()
+ *                     .analysisRule(AnalyzerConfigurationInternalAccessAnalysisRuleArgs.builder()
+ *                         .inclusions(AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs.builder()
+ *                             .resourceTypes(                            
+ *                                 "AWS::S3::Bucket",
+ *                                 "AWS::RDS::DBSnapshot",
+ *                                 "AWS::DynamoDB::Table")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Organization Internal Access Analyzer by Account ID and Resource ARN
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.accessanalyzer.Analyzer;
+ * import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationInternalAccessArgs;
+ * import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationInternalAccessAnalysisRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Analyzer("test", AnalyzerArgs.builder()
+ *             .analyzerName("example")
+ *             .type("ORGANIZATION_INTERNAL_ACCESS")
+ *             .configuration(AnalyzerConfigurationArgs.builder()
+ *                 .internalAccess(AnalyzerConfigurationInternalAccessArgs.builder()
+ *                     .analysisRule(AnalyzerConfigurationInternalAccessAnalysisRuleArgs.builder()
+ *                         .inclusions(AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs.builder()
+ *                             .accountIds("123456789012")
+ *                             .resourceArns("arn:aws:s3:::my-example-bucket")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
@@ -202,14 +302,14 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A block that specifies the configuration of the analyzer. Documented below
+     * A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      * 
      */
     @Export(name="configuration", refs={AnalyzerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AnalyzerConfiguration> configuration;
 
     /**
-     * @return A block that specifies the configuration of the analyzer. Documented below
+     * @return A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      * 
      */
     public Output<Optional<AnalyzerConfiguration>> configuration() {
@@ -258,14 +358,14 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * @return Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     public Output<Optional<String>> type() {

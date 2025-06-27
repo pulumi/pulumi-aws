@@ -95,7 +95,7 @@ type LookupKeyResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// A unique identifier for the custom key store that contains the KMS key.
 	CustomKeyStoreId string `pulumi:"customKeyStoreId"`
-	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+	// See `keySpec`.
 	CustomerMasterKeySpec string `pulumi:"customerMasterKeySpec"`
 	// The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
 	DeletionDate string `pulumi:"deletionDate"`
@@ -200,7 +200,7 @@ func (o LookupKeyResultOutput) CustomKeyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomKeyStoreId }).(pulumi.StringOutput)
 }
 
-// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+// See `keySpec`.
 func (o LookupKeyResultOutput) CustomerMasterKeySpec() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomerMasterKeySpec }).(pulumi.StringOutput)
 }

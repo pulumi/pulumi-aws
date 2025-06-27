@@ -36,6 +36,14 @@ __all__ = [
     'TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict',
     'TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs',
     'TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict',
+    'TableMetadataArgs',
+    'TableMetadataArgsDict',
+    'TableMetadataIcebergArgs',
+    'TableMetadataIcebergArgsDict',
+    'TableMetadataIcebergSchemaArgs',
+    'TableMetadataIcebergSchemaArgsDict',
+    'TableMetadataIcebergSchemaFieldArgs',
+    'TableMetadataIcebergSchemaFieldArgsDict',
 ]
 
 MYPY = False
@@ -542,5 +550,178 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
     @min_snapshots_to_keep.setter
     def min_snapshots_to_keep(self, value: pulumi.Input[builtins.int]):
         pulumi.set(self, "min_snapshots_to_keep", value)
+
+
+if not MYPY:
+    class TableMetadataArgsDict(TypedDict):
+        iceberg: pulumi.Input['TableMetadataIcebergArgsDict']
+        """
+        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+        See `iceberg` below.
+        """
+elif False:
+    TableMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableMetadataArgs:
+    def __init__(__self__, *,
+                 iceberg: pulumi.Input['TableMetadataIcebergArgs']):
+        """
+        :param pulumi.Input['TableMetadataIcebergArgs'] iceberg: Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+               See `iceberg` below.
+        """
+        pulumi.set(__self__, "iceberg", iceberg)
+
+    @property
+    @pulumi.getter
+    def iceberg(self) -> pulumi.Input['TableMetadataIcebergArgs']:
+        """
+        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+        See `iceberg` below.
+        """
+        return pulumi.get(self, "iceberg")
+
+    @iceberg.setter
+    def iceberg(self, value: pulumi.Input['TableMetadataIcebergArgs']):
+        pulumi.set(self, "iceberg", value)
+
+
+if not MYPY:
+    class TableMetadataIcebergArgsDict(TypedDict):
+        schema: pulumi.Input['TableMetadataIcebergSchemaArgsDict']
+        """
+        Schema configuration for the Iceberg table.
+        See `schema` below.
+        """
+elif False:
+    TableMetadataIcebergArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableMetadataIcebergArgs:
+    def __init__(__self__, *,
+                 schema: pulumi.Input['TableMetadataIcebergSchemaArgs']):
+        """
+        :param pulumi.Input['TableMetadataIcebergSchemaArgs'] schema: Schema configuration for the Iceberg table.
+               See `schema` below.
+        """
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> pulumi.Input['TableMetadataIcebergSchemaArgs']:
+        """
+        Schema configuration for the Iceberg table.
+        See `schema` below.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: pulumi.Input['TableMetadataIcebergSchemaArgs']):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class TableMetadataIcebergSchemaArgsDict(TypedDict):
+        fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgsDict']]]]
+        """
+        List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+        See `field` below.
+        """
+elif False:
+    TableMetadataIcebergSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableMetadataIcebergSchemaArgs:
+    def __init__(__self__, *,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]] fields: List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+               See `field` below.
+        """
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]]:
+        """
+        List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+        See `field` below.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]]):
+        pulumi.set(self, "fields", value)
+
+
+if not MYPY:
+    class TableMetadataIcebergSchemaFieldArgsDict(TypedDict):
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the field.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+        """
+        required: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+        """
+elif False:
+    TableMetadataIcebergSchemaFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableMetadataIcebergSchemaFieldArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str],
+                 required: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: The name of the field.
+        :param pulumi.Input[builtins.str] type: The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+        :param pulumi.Input[builtins.bool] required: A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "required", value)
 
 

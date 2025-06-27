@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 test: "ArnLike",
- *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}:${current1.accountId}:agent/*`],
+ *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current1.accountId}:agent/*`],
  *                 variable: "AWS:SourceArn",
  *             },
  *         ],
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     statements: [
  *         {
  *             actions: ["bedrock:InvokeModel"],
- *             resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0`],
+ *             resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0`],
  *         },
  *         {
  *             actions: [
@@ -54,8 +54,8 @@ import * as utilities from "../utilities";
  *                 "bedrock:InvokeAgent",
  *             ],
  *             resources: [
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion1.name}:${current.accountId}:agent/*`,
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion2.name}:${current1.accountId}:agent-alias/*`,
+ *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion1.region}:${current.accountId}:agent/*`,
+ *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion2.region}:${current1.accountId}:agent-alias/*`,
  *             ],
  *         },
  *     ],

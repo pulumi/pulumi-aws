@@ -83,7 +83,7 @@ import (
 //	      codec:
 //	        ndjson:
 //
-// `, arn, current.Name), nil
+// `, arn, current.Region), nil
 //
 //				}).(pulumi.StringOutput),
 //				MaxUnits: pulumi.Int(1),

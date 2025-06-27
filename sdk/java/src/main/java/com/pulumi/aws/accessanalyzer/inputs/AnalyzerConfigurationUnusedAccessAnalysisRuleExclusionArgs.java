@@ -18,14 +18,14 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
     public static final AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs Empty = new AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs();
 
     /**
-     * A list of account IDs to exclude from the analysis.
+     * List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
      * 
      */
     @Import(name="accountIds")
     private @Nullable Output<List<String>> accountIds;
 
     /**
-     * @return A list of account IDs to exclude from the analysis.
+     * @return List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
      * 
      */
     public Optional<Output<List<String>>> accountIds() {
@@ -33,14 +33,14 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
     }
 
     /**
-     * A list of key-value pairs for resource tags to exclude from the analysis.
+     * List of key-value pairs for resource tags to exclude from the analysis.
      * 
      */
     @Import(name="resourceTags")
     private @Nullable Output<List<Map<String,String>>> resourceTags;
 
     /**
-     * @return A list of key-value pairs for resource tags to exclude from the analysis.
+     * @return List of key-value pairs for resource tags to exclude from the analysis.
      * 
      */
     public Optional<Output<List<Map<String,String>>>> resourceTags() {
@@ -73,7 +73,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
         }
 
         /**
-         * @param accountIds A list of account IDs to exclude from the analysis.
+         * @param accountIds List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
         }
 
         /**
-         * @param accountIds A list of account IDs to exclude from the analysis.
+         * @param accountIds List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
         }
 
         /**
-         * @param accountIds A list of account IDs to exclude from the analysis.
+         * @param accountIds List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
         }
 
         /**
-         * @param resourceTags A list of key-value pairs for resource tags to exclude from the analysis.
+         * @param resourceTags List of key-value pairs for resource tags to exclude from the analysis.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
         }
 
         /**
-         * @param resourceTags A list of key-value pairs for resource tags to exclude from the analysis.
+         * @param resourceTags List of key-value pairs for resource tags to exclude from the analysis.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs ex
         }
 
         /**
-         * @param resourceTags A list of key-value pairs for resource tags to exclude from the analysis.
+         * @param resourceTags List of key-value pairs for resource tags to exclude from the analysis.
          * 
          * @return builder
          * 

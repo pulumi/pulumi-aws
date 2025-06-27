@@ -36,6 +36,8 @@ __all__ = [
     'ProjectCacheArgsDict',
     'ProjectEnvironmentArgs',
     'ProjectEnvironmentArgsDict',
+    'ProjectEnvironmentDockerServerArgs',
+    'ProjectEnvironmentDockerServerArgsDict',
     'ProjectEnvironmentEnvironmentVariableArgs',
     'ProjectEnvironmentEnvironmentVariableArgsDict',
     'ProjectEnvironmentFleetArgs',
@@ -961,6 +963,10 @@ if not MYPY:
         """
         ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         """
+        docker_server: NotRequired[pulumi.Input['ProjectEnvironmentDockerServerArgsDict']]
+        """
+        Configuration block. Detailed below.
+        """
         environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgsDict']]]]
         """
         Configuration block. Detailed below.
@@ -994,6 +1000,7 @@ class ProjectEnvironmentArgs:
                  image: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
                  certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 docker_server: Optional[pulumi.Input['ProjectEnvironmentDockerServerArgs']] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]] = None,
                  fleet: Optional[pulumi.Input['ProjectEnvironmentFleetArgs']] = None,
                  image_pull_credentials_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -1014,6 +1021,7 @@ class ProjectEnvironmentArgs:
                `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
                the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         :param pulumi.Input[builtins.str] certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+        :param pulumi.Input['ProjectEnvironmentDockerServerArgs'] docker_server: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
         :param pulumi.Input['ProjectEnvironmentFleetArgs'] fleet: Configuration block. Detailed below.
         :param pulumi.Input[builtins.str] image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid
@@ -1028,6 +1036,8 @@ class ProjectEnvironmentArgs:
         pulumi.set(__self__, "type", type)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if docker_server is not None:
+            pulumi.set(__self__, "docker_server", docker_server)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if fleet is not None:
@@ -1098,6 +1108,18 @@ class ProjectEnvironmentArgs:
         pulumi.set(self, "certificate", value)
 
     @property
+    @pulumi.getter(name="dockerServer")
+    def docker_server(self) -> Optional[pulumi.Input['ProjectEnvironmentDockerServerArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "docker_server")
+
+    @docker_server.setter
+    def docker_server(self, value: Optional[pulumi.Input['ProjectEnvironmentDockerServerArgs']]):
+        pulumi.set(self, "docker_server", value)
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]:
         """
@@ -1159,6 +1181,57 @@ class ProjectEnvironmentArgs:
     @registry_credential.setter
     def registry_credential(self, value: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']]):
         pulumi.set(self, "registry_credential", value)
+
+
+if not MYPY:
+    class ProjectEnvironmentDockerServerArgsDict(TypedDict):
+        compute_type: pulumi.Input[builtins.str]
+        """
+        Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of security group IDs to assign to the Docker server.
+        """
+elif False:
+    ProjectEnvironmentDockerServerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectEnvironmentDockerServerArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[builtins.str],
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input[builtins.str] compute_type: Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: List of security group IDs to assign to the Docker server.
+        """
+        pulumi.set(__self__, "compute_type", compute_type)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of security group IDs to assign to the Docker server.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
 
 
 if not MYPY:

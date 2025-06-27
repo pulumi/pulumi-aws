@@ -252,18 +252,8 @@ class MemberDetectorFeature(pulumi.CustomResource):
         runtime_monitoring = aws.guardduty.MemberDetectorFeature("runtime_monitoring",
             detector_id=example.id,
             account_id="123456789012",
-            name="RUNTIME_MONITORING",
-            status="ENABLED",
-            additional_configurations=[
-                {
-                    "name": "EKS_ADDON_MANAGEMENT",
-                    "status": "ENABLED",
-                },
-                {
-                    "name": "ECS_FARGATE_AGENT_MANAGEMENT",
-                    "status": "ENABLED",
-                },
-            ])
+            name="S3_DATA_EVENTS",
+            status="ENABLED")
         ```
 
         :param str resource_name: The name of the resource.
@@ -296,18 +286,8 @@ class MemberDetectorFeature(pulumi.CustomResource):
         runtime_monitoring = aws.guardduty.MemberDetectorFeature("runtime_monitoring",
             detector_id=example.id,
             account_id="123456789012",
-            name="RUNTIME_MONITORING",
-            status="ENABLED",
-            additional_configurations=[
-                {
-                    "name": "EKS_ADDON_MANAGEMENT",
-                    "status": "ENABLED",
-                },
-                {
-                    "name": "ECS_FARGATE_AGENT_MANAGEMENT",
-                    "status": "ENABLED",
-                },
-            ])
+            name="S3_DATA_EVENTS",
+            status="ENABLED")
         ```
 
         :param str resource_name: The name of the resource.

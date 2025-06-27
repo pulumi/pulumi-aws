@@ -848,7 +848,7 @@ import (
 //				Destination: pulumi.String("iceberg"),
 //				IcebergConfiguration: &kinesis.FirehoseDeliveryStreamIcebergConfigurationArgs{
 //					RoleArn:           pulumi.Any(firehoseRole.Arn),
-//					CatalogArn:        pulumi.Sprintf("arn:%v:glue:%v:%v:catalog", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+//					CatalogArn:        pulumi.Sprintf("arn:%v:glue:%v:%v:catalog", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //					BufferingSize:     pulumi.Int(10),
 //					BufferingInterval: pulumi.Int(400),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs{

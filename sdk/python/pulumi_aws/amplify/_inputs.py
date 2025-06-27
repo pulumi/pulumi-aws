@@ -22,6 +22,8 @@ __all__ = [
     'AppCacheConfigArgsDict',
     'AppCustomRuleArgs',
     'AppCustomRuleArgsDict',
+    'AppJobConfigArgs',
+    'AppJobConfigArgsDict',
     'AppProductionBranchArgs',
     'AppProductionBranchArgsDict',
     'DomainAssociationCertificateSettingsArgs',
@@ -363,6 +365,38 @@ class AppCustomRuleArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class AppJobConfigArgsDict(TypedDict):
+        build_compute_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+        """
+elif False:
+    AppJobConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppJobConfigArgs:
+    def __init__(__self__, *,
+                 build_compute_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] build_compute_type: Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+        """
+        if build_compute_type is not None:
+            pulumi.set(__self__, "build_compute_type", build_compute_type)
+
+    @property
+    @pulumi.getter(name="buildComputeType")
+    def build_compute_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+        """
+        return pulumi.get(self, "build_compute_type")
+
+    @build_compute_type.setter
+    def build_compute_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "build_compute_type", value)
 
 
 if not MYPY:

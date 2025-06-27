@@ -16,6 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const current = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
  *     name: "example",
  *     firewallPolicy: {
@@ -25,7 +28,7 @@ import * as utilities from "../utilities";
  *             priority: 1,
  *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
- *         tlsInspectionConfigurationArn: "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+ *         tlsInspectionConfigurationArn: Promise.all([currentGetPartition, current, currentGetCallerIdentity]).then(([currentGetPartition, current, currentGetCallerIdentity]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:${currentGetCallerIdentity.accountId}:tls-configuration/example`),
  *     },
  *     tags: {
  *         Tag1: "Value1",
@@ -74,7 +77,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.networkfirewall.FirewallPolicy("test", {
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
  *     name: "example",
  *     firewallPolicy: {
  *         statelessDefaultActions: [
@@ -91,6 +94,52 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *             actionName: "ExampleCustomAction",
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ## Policy with Active Threat Defense in Action Order
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
+ *     firewallPolicy: {
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statefulRuleGroupReferences: [{
+ *             deepThreatInspection: "true",
+ *             resourceArn: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder`),
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ## Policy with Active Threat Defense in Strict Order
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
+ *     firewallPolicy: {
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statefulEngineOptions: {
+ *             ruleOrder: "STRICT_ORDER",
+ *         },
+ *         statefulRuleGroupReferences: [{
+ *             deepThreatInspection: "false",
+ *             priority: 1,
+ *             resourceArn: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder`),
  *         }],
  *     },
  * });

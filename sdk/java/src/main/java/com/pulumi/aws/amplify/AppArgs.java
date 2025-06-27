@@ -6,6 +6,7 @@ package com.pulumi.aws.amplify;
 import com.pulumi.aws.amplify.inputs.AppAutoBranchCreationConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppCacheConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
+import com.pulumi.aws.amplify.inputs.AppJobConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -262,6 +263,21 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    @Import(name="jobConfig")
+    private @Nullable Output<AppJobConfigArgs> jobConfig;
+
+    /**
+     * @return Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    public Optional<Output<AppJobConfigArgs>> jobConfig() {
+        return Optional.ofNullable(this.jobConfig);
+    }
+
+    /**
      * Name for an Amplify app.
      * 
      */
@@ -370,6 +386,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         this.enableBranchAutoDeletion = $.enableBranchAutoDeletion;
         this.environmentVariables = $.environmentVariables;
         this.iamServiceRoleArn = $.iamServiceRoleArn;
+        this.jobConfig = $.jobConfig;
         this.name = $.name;
         this.oauthToken = $.oauthToken;
         this.platform = $.platform;
@@ -750,6 +767,27 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder iamServiceRoleArn(String iamServiceRoleArn) {
             return iamServiceRoleArn(Output.of(iamServiceRoleArn));
+        }
+
+        /**
+         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobConfig(@Nullable Output<AppJobConfigArgs> jobConfig) {
+            $.jobConfig = jobConfig;
+            return this;
+        }
+
+        /**
+         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobConfig(AppJobConfigArgs jobConfig) {
+            return jobConfig(Output.of(jobConfig));
         }
 
         /**

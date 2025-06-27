@@ -9,6 +9,7 @@ import com.pulumi.aws.amplify.inputs.AppState;
 import com.pulumi.aws.amplify.outputs.AppAutoBranchCreationConfig;
 import com.pulumi.aws.amplify.outputs.AppCacheConfig;
 import com.pulumi.aws.amplify.outputs.AppCustomRule;
+import com.pulumi.aws.amplify.outputs.AppJobConfig;
 import com.pulumi.aws.amplify.outputs.AppProductionBranch;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -345,6 +346,45 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Job Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
+ * import com.pulumi.aws.amplify.inputs.AppJobConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new App("example", AppArgs.builder()
+ *             .name("example")
+ *             .jobConfig(AppJobConfigArgs.builder()
+ *                 .buildComputeType("STANDARD_8GB")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
@@ -608,6 +648,20 @@ public class App extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> iamServiceRoleArn() {
         return Codegen.optional(this.iamServiceRoleArn);
+    }
+    /**
+     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    @Export(name="jobConfig", refs={AppJobConfig.class}, tree="[0]")
+    private Output<AppJobConfig> jobConfig;
+
+    /**
+     * @return Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    public Output<AppJobConfig> jobConfig() {
+        return this.jobConfig;
     }
     /**
      * Name for an Amplify app.

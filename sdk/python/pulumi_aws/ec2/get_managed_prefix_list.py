@@ -182,7 +182,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
+    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.region}.dynamodb")
     ```
 
     ### Find a managed prefix list using filters
@@ -248,7 +248,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
+    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.region}.dynamodb")
     ```
 
     ### Find a managed prefix list using filters

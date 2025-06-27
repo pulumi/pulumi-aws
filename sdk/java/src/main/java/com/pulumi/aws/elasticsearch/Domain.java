@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  * }
- * ", current.name(),currentGetCallerIdentity.accountId(),domain))
+ * ", current.region(),currentGetCallerIdentity.accountId(),domain))
  *             .build());
  * 
  *     }
@@ -308,7 +308,7 @@ import javax.annotation.Nullable;
  * 		}
  * 	]
  * }
- * ", current.name(),currentGetCallerIdentity.accountId(),domain))
+ * ", current.region(),currentGetCallerIdentity.accountId(),domain))
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(esServiceLinkedRole)

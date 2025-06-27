@@ -269,6 +269,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly glueVersion!: pulumi.Output<string>;
     /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     */
+    public readonly jobMode!: pulumi.Output<string>;
+    /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
     public readonly jobRunQueuingEnabled!: pulumi.Output<boolean | undefined>;
@@ -361,6 +365,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = state ? state.executionClass : undefined;
             resourceInputs["executionProperty"] = state ? state.executionProperty : undefined;
             resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
+            resourceInputs["jobMode"] = state ? state.jobMode : undefined;
             resourceInputs["jobRunQueuingEnabled"] = state ? state.jobRunQueuingEnabled : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
@@ -392,6 +397,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = args ? args.executionClass : undefined;
             resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
             resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["jobMode"] = args ? args.jobMode : undefined;
             resourceInputs["jobRunQueuingEnabled"] = args ? args.jobRunQueuingEnabled : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
@@ -451,6 +457,10 @@ export interface JobState {
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string>;
+    /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     */
+    jobMode?: pulumi.Input<string>;
     /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
@@ -556,6 +566,10 @@ export interface JobArgs {
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string>;
+    /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     */
+    jobMode?: pulumi.Input<string>;
     /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */

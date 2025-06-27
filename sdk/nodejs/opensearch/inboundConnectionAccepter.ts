@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  *     connectionAlias: "outbound_connection",
  *     localDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: localDomain.domainName,
  *     },
  *     remoteDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: remoteDomain.domainName,
  *     },
  * });

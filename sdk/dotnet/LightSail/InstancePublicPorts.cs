@@ -81,13 +81,13 @@ namespace Pulumi.Aws.LightSail
     public partial class InstancePublicPorts : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Lightsail Instance.
+        /// Name of the instance for which to open ports.
         /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        /// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class InstancePublicPortsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Lightsail Instance.
+        /// Name of the instance for which to open ports.
         /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.InstancePublicPortsPortInfoArgs>? _portInfos;
 
         /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        /// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class InstancePublicPortsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Lightsail Instance.
+        /// Name of the instance for which to open ports.
         /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.InstancePublicPortsPortInfoGetArgs>? _portInfos;
 
         /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+        /// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>

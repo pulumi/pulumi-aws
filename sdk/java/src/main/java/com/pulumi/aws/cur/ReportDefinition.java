@@ -207,14 +207,14 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return this.s3Bucket;
     }
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
      * 
      */
     @Export(name="s3Prefix", refs={String.class}, tree="[0]")
     private Output<String> s3Prefix;
 
     /**
-     * @return Report path prefix. Limited to 256 characters.
+     * @return Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
      * 
      */
     public Output<String> s3Prefix() {

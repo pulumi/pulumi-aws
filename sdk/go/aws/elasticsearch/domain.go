@@ -98,7 +98,7 @@ import (
 //	  ]
 //	}
 //
-// `, current.Name, currentGetCallerIdentity.AccountId, domain)),
+// `, current.Region, currentGetCallerIdentity.AccountId, domain)),
 //
 //			})
 //			if err != nil {
@@ -297,7 +297,7 @@ import (
 //		]
 //	}
 //
-// `, current.Name, currentGetCallerIdentity.AccountId, domain)),
+// `, current.Region, currentGetCallerIdentity.AccountId, domain)),
 // Tags: pulumi.StringMap{
 // "Domain": pulumi.String("TestDomain"),
 // },

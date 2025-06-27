@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const current = aws.getRegion({});
  * const test = current.then(current => aws.getService({
- *     region: current.name,
+ *     region: current.region,
  *     serviceId: "ec2",
  * }));
  * ```
@@ -113,7 +113,7 @@ export interface GetServiceResult {
  *
  * const current = aws.getRegion({});
  * const test = current.then(current => aws.getService({
- *     region: current.name,
+ *     region: current.region,
  *     serviceId: "ec2",
  * }));
  * ```

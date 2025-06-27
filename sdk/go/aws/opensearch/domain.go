@@ -115,7 +115,7 @@ import (
 //							"es:*",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Name, currentGetCallerIdentity.AccountId, domain),
+//							fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Region, currentGetCallerIdentity.AccountId, domain),
 //						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
@@ -316,7 +316,7 @@ import (
 // "es:*",
 // },
 // Resources: []string{
-// fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Name, currentGetCallerIdentity.AccountId, domain),
+// fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Region, currentGetCallerIdentity.AccountId, domain),
 // },
 // },
 // },

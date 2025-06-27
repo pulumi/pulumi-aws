@@ -144,7 +144,7 @@ import * as utilities from "../utilities";
  * const exampleTag = new aws.dynamodb.Tag("example", {
  *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replaceOutput({
  *         text: arn,
- *         search: current.name,
+ *         search: current.region,
  *         replace: alternate.name,
  *     })).apply(invoke => invoke.result),
  *     key: "Architect",

@@ -8,11 +8,13 @@ import com.pulumi.aws.s3tables.TableArgs;
 import com.pulumi.aws.s3tables.inputs.TableState;
 import com.pulumi.aws.s3tables.outputs.TableEncryptionConfiguration;
 import com.pulumi.aws.s3tables.outputs.TableMaintenanceConfiguration;
+import com.pulumi.aws.s3tables.outputs.TableMetadata;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -63,6 +65,87 @@ import javax.annotation.Nullable;
  *             .namespace(exampleNamespace.namespace())
  *             .tableBucketArn(exampleNamespace.tableBucketArn())
  *             .format("ICEBERG")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Metadata Schema
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3tables.TableBucket;
+ * import com.pulumi.aws.s3tables.TableBucketArgs;
+ * import com.pulumi.aws.s3tables.Namespace;
+ * import com.pulumi.aws.s3tables.NamespaceArgs;
+ * import com.pulumi.aws.s3tables.Table;
+ * import com.pulumi.aws.s3tables.TableArgs;
+ * import com.pulumi.aws.s3tables.inputs.TableMetadataArgs;
+ * import com.pulumi.aws.s3tables.inputs.TableMetadataIcebergArgs;
+ * import com.pulumi.aws.s3tables.inputs.TableMetadataIcebergSchemaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleTableBucket = new TableBucket("exampleTableBucket", TableBucketArgs.builder()
+ *             .name("example-bucket")
+ *             .build());
+ * 
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .namespace("example_namespace")
+ *             .tableBucketArn(exampleTableBucket.arn())
+ *             .build());
+ * 
+ *         var example = new Table("example", TableArgs.builder()
+ *             .name("example_table")
+ *             .namespace(exampleNamespace.namespace())
+ *             .tableBucketArn(exampleNamespace.tableBucketArn())
+ *             .format("ICEBERG")
+ *             .metadata(TableMetadataArgs.builder()
+ *                 .iceberg(TableMetadataIcebergArgs.builder()
+ *                     .schema(TableMetadataIcebergSchemaArgs.builder()
+ *                         .fields(                        
+ *                             TableMetadataIcebergSchemaFieldArgs.builder()
+ *                                 .name("id")
+ *                                 .type("long")
+ *                                 .required(true)
+ *                                 .build(),
+ *                             TableMetadataIcebergSchemaFieldArgs.builder()
+ *                                 .name("name")
+ *                                 .type("string")
+ *                                 .required(true)
+ *                                 .build(),
+ *                             TableMetadataIcebergSchemaFieldArgs.builder()
+ *                                 .name("created_at")
+ *                                 .type("timestamp")
+ *                                 .required(false)
+ *                                 .build(),
+ *                             TableMetadataIcebergSchemaFieldArgs.builder()
+ *                                 .name("price")
+ *                                 .type("decimal(10,2)")
+ *                                 .required(false)
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -171,6 +254,22 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<TableMaintenanceConfiguration> maintenanceConfiguration() {
         return this.maintenanceConfiguration;
+    }
+    /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    @Export(name="metadata", refs={TableMetadata.class}, tree="[0]")
+    private Output</* @Nullable */ TableMetadata> metadata;
+
+    /**
+     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    public Output<Optional<TableMetadata>> metadata() {
+        return Codegen.optional(this.metadata);
     }
     /**
      * Location of table metadata.

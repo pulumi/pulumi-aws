@@ -27,6 +27,7 @@ class TableArgs:
                  table_bucket_arn: pulumi.Input[builtins.str],
                  encryption_configuration: Optional[pulumi.Input['TableEncryptionConfigurationArgs']] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableMaintenanceConfigurationArgs']] = None,
+                 metadata: Optional[pulumi.Input['TableMetadataArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -43,6 +44,8 @@ class TableArgs:
                See `encryption_configuration` below.
         :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
+        :param pulumi.Input['TableMetadataArgs'] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+               See `metadata` below.
         :param pulumi.Input[builtins.str] name: Name of the table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -56,6 +59,8 @@ class TableArgs:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -130,6 +135,19 @@ class TableArgs:
 
     @property
     @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['TableMetadataArgs']]:
+        """
+        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+        See `metadata` below.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['TableMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Name of the table.
@@ -165,6 +183,7 @@ class _TableState:
                  encryption_configuration: Optional[pulumi.Input['TableEncryptionConfigurationArgs']] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableMaintenanceConfigurationArgs']] = None,
+                 metadata: Optional[pulumi.Input['TableMetadataArgs']] = None,
                  metadata_location: Optional[pulumi.Input[builtins.str]] = None,
                  modified_at: Optional[pulumi.Input[builtins.str]] = None,
                  modified_by: Optional[pulumi.Input[builtins.str]] = None,
@@ -187,6 +206,8 @@ class _TableState:
                Must be `ICEBERG`.
         :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
+        :param pulumi.Input['TableMetadataArgs'] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+               See `metadata` below.
         :param pulumi.Input[builtins.str] metadata_location: Location of table metadata.
         :param pulumi.Input[builtins.str] modified_at: Date and time when the namespace was last modified.
         :param pulumi.Input[builtins.str] modified_by: Account ID of the account that last modified the namespace.
@@ -219,6 +240,8 @@ class _TableState:
             pulumi.set(__self__, "format", format)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if metadata_location is not None:
             pulumi.set(__self__, "metadata_location", metadata_location)
         if modified_at is not None:
@@ -316,6 +339,19 @@ class _TableState:
     @maintenance_configuration.setter
     def maintenance_configuration(self, value: Optional[pulumi.Input['TableMaintenanceConfigurationArgs']]):
         pulumi.set(self, "maintenance_configuration", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['TableMetadataArgs']]:
+        """
+        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+        See `metadata` below.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['TableMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
 
     @property
     @pulumi.getter(name="metadataLocation")
@@ -467,6 +503,7 @@ class Table(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']]] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
+                 metadata: Optional[pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
@@ -494,6 +531,51 @@ class Table(pulumi.CustomResource):
             format="ICEBERG")
         ```
 
+        ### With Metadata Schema
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
+        example_namespace = aws.s3tables.Namespace("example",
+            namespace="example_namespace",
+            table_bucket_arn=example_table_bucket.arn)
+        example = aws.s3tables.Table("example",
+            name="example_table",
+            namespace=example_namespace.namespace,
+            table_bucket_arn=example_namespace.table_bucket_arn,
+            format="ICEBERG",
+            metadata={
+                "iceberg": {
+                    "schema": {
+                        "fields": [
+                            {
+                                "name": "id",
+                                "type": "long",
+                                "required": True,
+                            },
+                            {
+                                "name": "name",
+                                "type": "string",
+                                "required": True,
+                            },
+                            {
+                                "name": "created_at",
+                                "type": "timestamp",
+                                "required": False,
+                            },
+                            {
+                                "name": "price",
+                                "type": "decimal(10,2)",
+                                "required": False,
+                            },
+                        ],
+                    },
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
@@ -510,6 +592,8 @@ class Table(pulumi.CustomResource):
                Must be `ICEBERG`.
         :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
+        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+               See `metadata` below.
         :param pulumi.Input[builtins.str] name: Name of the table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -550,6 +634,51 @@ class Table(pulumi.CustomResource):
             format="ICEBERG")
         ```
 
+        ### With Metadata Schema
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
+        example_namespace = aws.s3tables.Namespace("example",
+            namespace="example_namespace",
+            table_bucket_arn=example_table_bucket.arn)
+        example = aws.s3tables.Table("example",
+            name="example_table",
+            namespace=example_namespace.namespace,
+            table_bucket_arn=example_namespace.table_bucket_arn,
+            format="ICEBERG",
+            metadata={
+                "iceberg": {
+                    "schema": {
+                        "fields": [
+                            {
+                                "name": "id",
+                                "type": "long",
+                                "required": True,
+                            },
+                            {
+                                "name": "name",
+                                "type": "string",
+                                "required": True,
+                            },
+                            {
+                                "name": "created_at",
+                                "type": "timestamp",
+                                "required": False,
+                            },
+                            {
+                                "name": "price",
+                                "type": "decimal(10,2)",
+                                "required": False,
+                            },
+                        ],
+                    },
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
@@ -576,6 +705,7 @@ class Table(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']]] = None,
                  format: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
+                 metadata: Optional[pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
@@ -594,6 +724,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'format'")
             __props__.__dict__["format"] = format
             __props__.__dict__["maintenance_configuration"] = maintenance_configuration
+            __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
             if namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace'")
@@ -628,6 +759,7 @@ class Table(pulumi.CustomResource):
             encryption_configuration: Optional[pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']]] = None,
             format: Optional[pulumi.Input[builtins.str]] = None,
             maintenance_configuration: Optional[pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']]] = None,
+            metadata: Optional[pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']]] = None,
             metadata_location: Optional[pulumi.Input[builtins.str]] = None,
             modified_at: Optional[pulumi.Input[builtins.str]] = None,
             modified_by: Optional[pulumi.Input[builtins.str]] = None,
@@ -655,6 +787,8 @@ class Table(pulumi.CustomResource):
                Must be `ICEBERG`.
         :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
+        :param pulumi.Input[Union['TableMetadataArgs', 'TableMetadataArgsDict']] metadata: Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+               See `metadata` below.
         :param pulumi.Input[builtins.str] metadata_location: Location of table metadata.
         :param pulumi.Input[builtins.str] modified_at: Date and time when the namespace was last modified.
         :param pulumi.Input[builtins.str] modified_by: Account ID of the account that last modified the namespace.
@@ -685,6 +819,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["format"] = format
         __props__.__dict__["maintenance_configuration"] = maintenance_configuration
+        __props__.__dict__["metadata"] = metadata
         __props__.__dict__["metadata_location"] = metadata_location
         __props__.__dict__["modified_at"] = modified_at
         __props__.__dict__["modified_by"] = modified_by
@@ -748,6 +883,15 @@ class Table(pulumi.CustomResource):
         See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional['outputs.TableMetadata']]:
+        """
+        Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+        See `metadata` below.
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter(name="metadataLocation")

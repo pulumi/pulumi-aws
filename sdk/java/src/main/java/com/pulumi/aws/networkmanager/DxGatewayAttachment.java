@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         var test = new DxGatewayAttachment("test", DxGatewayAttachmentArgs.builder()
  *             .coreNetworkId(testAwsNetworkmanagerCoreNetworkPolicyAttachment.coreNetworkId())
  *             .directConnectGatewayArn(String.format("arn:aws:directconnect::%s:dx-gateway/%s", current.accountId(),testAwsDxGateway.id()))
- *             .edgeLocations(currentAwsRegion.name())
+ *             .edgeLocations(currentAwsRegion.region())
  *             .build());
  * 
  *     }

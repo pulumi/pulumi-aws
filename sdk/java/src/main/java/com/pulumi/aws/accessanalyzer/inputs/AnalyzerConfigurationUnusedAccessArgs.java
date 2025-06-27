@@ -17,14 +17,14 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
     public static final AnalyzerConfigurationUnusedAccessArgs Empty = new AnalyzerConfigurationUnusedAccessArgs();
 
     /**
-     * A block for analysis rules. Documented below
+     * Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
      * 
      */
     @Import(name="analysisRule")
     private @Nullable Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs> analysisRule;
 
     /**
-     * @return A block for analysis rules. Documented below
+     * @return Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
      * 
      */
     public Optional<Output<AnalyzerConfigurationUnusedAccessAnalysisRuleArgs>> analysisRule() {
@@ -32,14 +32,14 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
     }
 
     /**
-     * The specified access age in days for which to generate findings for unused access.
+     * Specified access age in days for which to generate findings for unused access.
      * 
      */
     @Import(name="unusedAccessAge")
     private @Nullable Output<Integer> unusedAccessAge;
 
     /**
-     * @return The specified access age in days for which to generate findings for unused access.
+     * @return Specified access age in days for which to generate findings for unused access.
      * 
      */
     public Optional<Output<Integer>> unusedAccessAge() {
@@ -72,7 +72,7 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
         }
 
         /**
-         * @param analysisRule A block for analysis rules. Documented below
+         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
         }
 
         /**
-         * @param analysisRule A block for analysis rules. Documented below
+         * @param analysisRule Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
         }
 
         /**
-         * @param unusedAccessAge The specified access age in days for which to generate findings for unused access.
+         * @param unusedAccessAge Specified access age in days for which to generate findings for unused access.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AnalyzerConfigurationUnusedAccessArgs extends com.pulumi.reso
         }
 
         /**
-         * @param unusedAccessAge The specified access age in days for which to generate findings for unused access.
+         * @param unusedAccessAge Specified access age in days for which to generate findings for unused access.
          * 
          * @return builder
          * 

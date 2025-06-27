@@ -29,6 +29,40 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
+    ///     var s3Protection = new Aws.GuardDuty.DetectorFeature("s3_protection", new()
+    ///     {
+    ///         DetectorId = example.Id,
+    ///         Name = "S3_DATA_EVENTS",
+    ///         Status = "ENABLED",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Extended Threat Detection for EKS
+    /// 
+    /// To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.GuardDuty.Detector("example", new()
+    ///     {
+    ///         Enable = true,
+    ///     });
+    /// 
+    ///     var eksProtection = new Aws.GuardDuty.DetectorFeature("eks_protection", new()
+    ///     {
+    ///         DetectorId = example.Id,
+    ///         Name = "EKS_AUDIT_LOGS",
+    ///         Status = "ENABLED",
+    ///     });
+    /// 
     ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eks_runtime_monitoring", new()
     ///     {
     ///         DetectorId = example.Id,

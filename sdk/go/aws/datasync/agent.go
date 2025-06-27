@@ -65,7 +65,7 @@ import (
 //				return err
 //			}
 //			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
-//				ServiceName: pulumi.Sprintf("com.amazonaws.%v.datasync", current.Name),
+//				ServiceName: pulumi.Sprintf("com.amazonaws.%v.datasync", current.Region),
 //				VpcId:       pulumi.Any(exampleAwsVpc.Id),
 //				SecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,

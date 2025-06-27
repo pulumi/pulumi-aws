@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("es:*")
- *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.name(),currentGetCallerIdentity.accountId(),domain))
+ *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.region(),currentGetCallerIdentity.accountId(),domain))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
@@ -315,7 +315,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("es:*")
- *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.name(),currentGetCallerIdentity.accountId(),domain))
+ *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.region(),currentGetCallerIdentity.accountId(),domain))
  *                 .build())
  *             .build());
  * 

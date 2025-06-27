@@ -820,7 +820,7 @@ namespace Pulumi.Aws.Kinesis
     ///                 var currentGetPartition = values.Item1;
     ///                 var currentGetRegion = values.Item2;
     ///                 var current = values.Item3;
-    ///                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:catalog";
+    ///                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:catalog";
     ///             }),
     ///             BufferingSize = 10,
     ///             BufferingInterval = 400,

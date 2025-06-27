@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Sagemaker
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = $"arn:aws:sagemaker:{current.Name}:394669845002:workteam/public-crowd/default",
+    ///             WorkteamArn = $"arn:aws:sagemaker:{current.Region}:394669845002:workteam/public-crowd/default",
     ///             PublicWorkforceTaskPrice = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs
     ///             {
     ///                 AmountInUsd = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs

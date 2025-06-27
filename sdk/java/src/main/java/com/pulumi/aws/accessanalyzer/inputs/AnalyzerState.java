@@ -52,14 +52,14 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that specifies the configuration of the analyzer. Documented below
+     * A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<AnalyzerConfigurationArgs> configuration;
 
     /**
-     * @return A block that specifies the configuration of the analyzer. Documented below
+     * @return A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      * 
      */
     public Optional<Output<AnalyzerConfigurationArgs>> configuration() {
@@ -112,14 +112,14 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * @return Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -203,7 +203,7 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * @param configuration A block that specifies the configuration of the analyzer. See `configuration` Block for details.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * @param configuration A block that specifies the configuration of the analyzer. See `configuration` Block for details.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+         * @param type Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+         * @param type Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
          * 
          * @return builder
          * 

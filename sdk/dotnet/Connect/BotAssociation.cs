@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Connect
     ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
-    ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             Name = exampleBot.Name,
     ///         },
     ///     });

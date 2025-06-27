@@ -107,7 +107,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly s3Bucket!: pulumi.Output<string>;
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
     public readonly s3Prefix!: pulumi.Output<string>;
     /**
@@ -241,7 +241,7 @@ export interface ReportDefinitionState {
      */
     s3Bucket?: pulumi.Input<string>;
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
     s3Prefix?: pulumi.Input<string>;
     /**
@@ -299,7 +299,7 @@ export interface ReportDefinitionArgs {
      */
     s3Bucket: pulumi.Input<string>;
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
     s3Prefix: pulumi.Input<string>;
     /**

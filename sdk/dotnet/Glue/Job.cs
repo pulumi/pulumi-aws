@@ -350,6 +350,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        /// </summary>
+        [Output("jobMode")]
+        public Output<string> JobMode { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         /// </summary>
         [Output("jobRunQueuingEnabled")]
@@ -553,6 +559,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
+        /// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        /// </summary>
+        [Input("jobMode")]
+        public Input<string>? JobMode { get; set; }
+
+        /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         /// </summary>
         [Input("jobRunQueuingEnabled")]
@@ -728,6 +740,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
+
+        /// <summary>
+        /// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        /// </summary>
+        [Input("jobMode")]
+        public Input<string>? JobMode { get; set; }
 
         /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.

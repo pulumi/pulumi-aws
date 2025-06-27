@@ -43,7 +43,7 @@ import (
 //						&macie.FindingsFilterFindingCriteriaCriterionArgs{
 //							Field: pulumi.String("region"),
 //							Eqs: pulumi.StringArray{
-//								current.Name,
+//								current.Region,
 //							},
 //						},
 //					},

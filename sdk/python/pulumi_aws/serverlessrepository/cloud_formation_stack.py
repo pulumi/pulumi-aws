@@ -321,7 +321,7 @@ class CloudFormationStack(pulumi.CustomResource):
             ],
             parameters={
                 "functionName": "func-postgres-rotator",
-                "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
+                "endpoint": f"secretsmanager.{current_get_region.region}.{current.dns_suffix}",
             })
         ```
 
@@ -369,7 +369,7 @@ class CloudFormationStack(pulumi.CustomResource):
             ],
             parameters={
                 "functionName": "func-postgres-rotator",
-                "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
+                "endpoint": f"secretsmanager.{current_get_region.region}.{current.dns_suffix}",
             })
         ```
 

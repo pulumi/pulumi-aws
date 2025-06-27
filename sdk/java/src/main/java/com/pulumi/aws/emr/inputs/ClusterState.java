@@ -467,6 +467,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    @Import(name="osReleaseLabel")
+    private @Nullable Output<String> osReleaseLabel;
+
+    /**
+     * @return Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    public Optional<Output<String>> osReleaseLabel() {
+        return Optional.ofNullable(this.osReleaseLabel);
+    }
+
+    /**
      * The specified placement group configuration for an Amazon EMR cluster.
      * 
      */
@@ -691,6 +706,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.masterInstanceGroup = $.masterInstanceGroup;
         this.masterPublicDns = $.masterPublicDns;
         this.name = $.name;
+        this.osReleaseLabel = $.osReleaseLabel;
         this.placementGroupConfigs = $.placementGroupConfigs;
         this.region = $.region;
         this.releaseLabel = $.releaseLabel;
@@ -1323,6 +1339,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param osReleaseLabel Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osReleaseLabel(@Nullable Output<String> osReleaseLabel) {
+            $.osReleaseLabel = osReleaseLabel;
+            return this;
+        }
+
+        /**
+         * @param osReleaseLabel Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osReleaseLabel(String osReleaseLabel) {
+            return osReleaseLabel(Output.of(osReleaseLabel));
         }
 
         /**

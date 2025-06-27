@@ -39,18 +39,8 @@ import (
 //			_, err = guardduty.NewMemberDetectorFeature(ctx, "runtime_monitoring", &guardduty.MemberDetectorFeatureArgs{
 //				DetectorId: example.ID(),
 //				AccountId:  pulumi.String("123456789012"),
-//				Name:       pulumi.String("RUNTIME_MONITORING"),
+//				Name:       pulumi.String("S3_DATA_EVENTS"),
 //				Status:     pulumi.String("ENABLED"),
-//				AdditionalConfigurations: guardduty.MemberDetectorFeatureAdditionalConfigurationArray{
-//					&guardduty.MemberDetectorFeatureAdditionalConfigurationArgs{
-//						Name:   pulumi.String("EKS_ADDON_MANAGEMENT"),
-//						Status: pulumi.String("ENABLED"),
-//					},
-//					&guardduty.MemberDetectorFeatureAdditionalConfigurationArgs{
-//						Name:   pulumi.String("ECS_FARGATE_AGENT_MANAGEMENT"),
-//						Status: pulumi.String("ENABLED"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

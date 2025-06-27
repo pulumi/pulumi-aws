@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *         var main = new VpcIpamResourceDiscovery("main", VpcIpamResourceDiscoveryArgs.builder()
  *             .description("My IPAM Resource Discovery")
  *             .operatingRegions(VpcIpamResourceDiscoveryOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .tags(Map.of("Test", "Main"))
  *             .build());

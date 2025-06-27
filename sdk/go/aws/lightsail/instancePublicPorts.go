@@ -85,9 +85,9 @@ import (
 type InstancePublicPorts struct {
 	pulumi.CustomResourceState
 
-	// Name of the Lightsail Instance.
+	// Name of the instance for which to open ports.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
 	//
 	// The following arguments are optional:
 	PortInfos InstancePublicPortsPortInfoArrayOutput `pulumi:"portInfos"`
@@ -131,9 +131,9 @@ func GetInstancePublicPorts(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstancePublicPorts resources.
 type instancePublicPortsState struct {
-	// Name of the Lightsail Instance.
+	// Name of the instance for which to open ports.
 	InstanceName *string `pulumi:"instanceName"`
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
 	//
 	// The following arguments are optional:
 	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
@@ -142,9 +142,9 @@ type instancePublicPortsState struct {
 }
 
 type InstancePublicPortsState struct {
-	// Name of the Lightsail Instance.
+	// Name of the instance for which to open ports.
 	InstanceName pulumi.StringPtrInput
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
 	//
 	// The following arguments are optional:
 	PortInfos InstancePublicPortsPortInfoArrayInput
@@ -157,9 +157,9 @@ func (InstancePublicPortsState) ElementType() reflect.Type {
 }
 
 type instancePublicPortsArgs struct {
-	// Name of the Lightsail Instance.
+	// Name of the instance for which to open ports.
 	InstanceName string `pulumi:"instanceName"`
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
 	//
 	// The following arguments are optional:
 	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
@@ -169,9 +169,9 @@ type instancePublicPortsArgs struct {
 
 // The set of arguments for constructing a InstancePublicPorts resource.
 type InstancePublicPortsArgs struct {
-	// Name of the Lightsail Instance.
+	// Name of the instance for which to open ports.
 	InstanceName pulumi.StringInput
-	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+	// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
 	//
 	// The following arguments are optional:
 	PortInfos InstancePublicPortsPortInfoArrayInput
@@ -266,12 +266,12 @@ func (o InstancePublicPortsOutput) ToInstancePublicPortsOutputWithContext(ctx co
 	return o
 }
 
-// Name of the Lightsail Instance.
+// Name of the instance for which to open ports.
 func (o InstancePublicPortsOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstancePublicPorts) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+// Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
 //
 // The following arguments are optional:
 func (o InstancePublicPortsOutput) PortInfos() InstancePublicPortsPortInfoArrayOutput {

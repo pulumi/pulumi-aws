@@ -143,7 +143,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=f"arn:aws:iam:{current['name']}:{current_aws_caller_identity['accountId']}:{shield_drt_access_role_name}")
+        test = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=f"arn:aws:iam:{current['region']}:{current_aws_caller_identity['accountId']}:{shield_drt_access_role_name}")
         test_drt_access_log_bucket_association = aws.shield.DrtAccessLogBucketAssociation("test",
             log_bucket=shield_drt_access_log_bucket,
             role_arn_association_id=test.id)
@@ -180,7 +180,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=f"arn:aws:iam:{current['name']}:{current_aws_caller_identity['accountId']}:{shield_drt_access_role_name}")
+        test = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=f"arn:aws:iam:{current['region']}:{current_aws_caller_identity['accountId']}:{shield_drt_access_role_name}")
         test_drt_access_log_bucket_association = aws.shield.DrtAccessLogBucketAssociation("test",
             log_bucket=shield_drt_access_log_bucket,
             role_arn_association_id=test.id)

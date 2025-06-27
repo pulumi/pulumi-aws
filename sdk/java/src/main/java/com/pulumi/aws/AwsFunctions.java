@@ -5130,7 +5130,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5249,7 +5249,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5368,7 +5368,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5487,7 +5487,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5606,7 +5606,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5725,7 +5725,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5844,7 +5844,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 

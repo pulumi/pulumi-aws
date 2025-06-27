@@ -675,14 +675,14 @@ class AgentAgent(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
         }])
         example = aws.iam.Role("example",
             assume_role_policy=example_agent_trust.json,
@@ -759,14 +759,14 @@ class AgentAgent(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
         }])
         example = aws.iam.Role("example",
             assume_role_policy=example_agent_trust.json,

@@ -59,7 +59,7 @@ type LogGroup struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
 	LogGroupClass pulumi.StringOutput `pulumi:"logGroupClass"`
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -69,7 +69,7 @@ type LogGroup struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the number of days
 	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire.
+	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
@@ -115,7 +115,7 @@ type logGroupState struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
 	LogGroupClass *string `pulumi:"logGroupClass"`
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -125,7 +125,7 @@ type logGroupState struct {
 	Region *string `pulumi:"region"`
 	// Specifies the number of days
 	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire.
+	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -142,7 +142,7 @@ type LogGroupState struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId pulumi.StringPtrInput
-	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
 	LogGroupClass pulumi.StringPtrInput
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type LogGroupState struct {
 	Region pulumi.StringPtrInput
 	// Specifies the number of days
 	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire.
+	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
 	RetentionInDays pulumi.IntPtrInput
 	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -171,7 +171,7 @@ type logGroupArgs struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
 	LogGroupClass *string `pulumi:"logGroupClass"`
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -181,7 +181,7 @@ type logGroupArgs struct {
 	Region *string `pulumi:"region"`
 	// Specifies the number of days
 	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire.
+	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -195,7 +195,7 @@ type LogGroupArgs struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId pulumi.StringPtrInput
-	// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+	// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
 	LogGroupClass pulumi.StringPtrInput
 	// The name of the log group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type LogGroupArgs struct {
 	Region pulumi.StringPtrInput
 	// Specifies the number of days
 	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-	// If you select 0, the events in the log group are always retained and never expire.
+	// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
 	RetentionInDays pulumi.IntPtrInput
 	// Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -312,7 +312,7 @@ func (o LogGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
+// Specified the log class of the log group. Possible values are: `STANDARD`, `INFREQUENT_ACCESS`, or `DELIVERY`.
 func (o LogGroupOutput) LogGroupClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.LogGroupClass }).(pulumi.StringOutput)
 }
@@ -334,7 +334,7 @@ func (o LogGroupOutput) Region() pulumi.StringOutput {
 
 // Specifies the number of days
 // you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
-// If you select 0, the events in the log group are always retained and never expire.
+// If you select 0, the events in the log group are always retained and never expire. If `logGroupClass` is set to `DELIVERY`, this argument is ignored and `retentionInDays` is forcibly set to 2.
 func (o LogGroupOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

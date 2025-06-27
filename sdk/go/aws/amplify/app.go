@@ -283,6 +283,35 @@ import (
 //
 // ```
 //
+// ### Job Config
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("example"),
+//				JobConfig: &amplify.AppJobConfigArgs{
+//					BuildComputeType: pulumi.String("STANDARD_8GB"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
@@ -330,6 +359,8 @@ type App struct {
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrOutput `pulumi:"iamServiceRoleArn"`
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig AppJobConfigOutput `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -429,6 +460,8 @@ type appState struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -484,6 +517,8 @@ type AppState struct {
 	EnvironmentVariables pulumi.StringMapInput
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig AppJobConfigPtrInput
 	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -539,6 +574,8 @@ type appArgs struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -587,6 +624,8 @@ type AppArgs struct {
 	EnvironmentVariables pulumi.StringMapInput
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig AppJobConfigPtrInput
 	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -776,6 +815,11 @@ func (o AppOutput) EnvironmentVariables() pulumi.StringMapOutput {
 // AWS Identity and Access Management (IAM) service role for an Amplify app.
 func (o AppOutput) IamServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IamServiceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+func (o AppOutput) JobConfig() AppJobConfigOutput {
+	return o.ApplyT(func(v *App) AppJobConfigOutput { return v.JobConfig }).(AppJobConfigOutput)
 }
 
 // Name for an Amplify app.

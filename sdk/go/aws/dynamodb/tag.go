@@ -54,7 +54,7 @@ import (
 //			}
 //			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
 //				Text:    arn,
-//				Search:  current.Name,
+//				Search:  current.Region,
 //				Replace: replica.Name,
 //			}, nil)
 //			if err != nil {

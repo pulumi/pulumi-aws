@@ -128,6 +128,10 @@ export class Policy extends pulumi.CustomResource {
     public readonly remediationEnabled!: pulumi.Output<boolean | undefined>;
     public readonly resourceSetIds!: pulumi.Output<string[]>;
     /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     */
+    public readonly resourceTagLogicalOperator!: pulumi.Output<string>;
+    /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */
     public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -177,6 +181,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
             resourceInputs["resourceSetIds"] = state ? state.resourceSetIds : undefined;
+            resourceInputs["resourceTagLogicalOperator"] = state ? state.resourceTagLogicalOperator : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
@@ -201,6 +206,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
             resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
+            resourceInputs["resourceTagLogicalOperator"] = args ? args.resourceTagLogicalOperator : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
@@ -261,6 +267,10 @@ export interface PolicyState {
      */
     remediationEnabled?: pulumi.Input<boolean>;
     resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     */
+    resourceTagLogicalOperator?: pulumi.Input<string>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */
@@ -328,6 +338,10 @@ export interface PolicyArgs {
      */
     remediationEnabled?: pulumi.Input<boolean>;
     resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     */
+    resourceTagLogicalOperator?: pulumi.Input<string>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */

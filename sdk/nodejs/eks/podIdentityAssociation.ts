@@ -101,6 +101,14 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     */
+    public readonly disableSessionTags!: pulumi.Output<boolean>;
+    /**
+     * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     */
+    public /*out*/ readonly externalId!: pulumi.Output<string>;
+    /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
     public readonly namespace!: pulumi.Output<string>;
@@ -126,6 +134,10 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     */
+    public readonly targetRoleArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PodIdentityAssociation resource with the given unique name, arguments, and options.
@@ -143,12 +155,15 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["associationArn"] = state ? state.associationArn : undefined;
             resourceInputs["associationId"] = state ? state.associationId : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["disableSessionTags"] = state ? state.disableSessionTags : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["serviceAccount"] = state ? state.serviceAccount : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetRoleArn"] = state ? state.targetRoleArn : undefined;
         } else {
             const args = argsOrState as PodIdentityAssociationArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -164,13 +179,16 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceAccount'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["disableSessionTags"] = args ? args.disableSessionTags : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetRoleArn"] = args ? args.targetRoleArn : undefined;
             resourceInputs["associationArn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,6 +212,14 @@ export interface PodIdentityAssociationState {
      * The name of the cluster to create the association in.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     */
+    disableSessionTags?: pulumi.Input<boolean>;
+    /**
+     * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     */
+    externalId?: pulumi.Input<string>;
     /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
@@ -220,6 +246,10 @@ export interface PodIdentityAssociationState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     */
+    targetRoleArn?: pulumi.Input<string>;
 }
 
 /**
@@ -230,6 +260,10 @@ export interface PodIdentityAssociationArgs {
      * The name of the cluster to create the association in.
      */
     clusterName: pulumi.Input<string>;
+    /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     */
+    disableSessionTags?: pulumi.Input<boolean>;
     /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
@@ -252,4 +286,8 @@ export interface PodIdentityAssociationArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     */
+    targetRoleArn?: pulumi.Input<string>;
 }

@@ -199,7 +199,7 @@ class BotAssociation(pulumi.CustomResource):
         example_bot_association = aws.connect.BotAssociation("example",
             instance_id=example_aws_connect_instance["id"],
             lex_bot={
-                "lex_region": current.name,
+                "lex_region": current.region,
                 "name": example_bot.name,
             })
         ```
@@ -284,7 +284,7 @@ class BotAssociation(pulumi.CustomResource):
         example_bot_association = aws.connect.BotAssociation("example",
             instance_id=example_aws_connect_instance["id"],
             lex_bot={
-                "lex_region": current.name,
+                "lex_region": current.region,
                 "name": example_bot.name,
             })
         ```

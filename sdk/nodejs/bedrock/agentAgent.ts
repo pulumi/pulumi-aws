@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 test: "ArnLike",
- *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}:${current1.accountId}:agent/*`],
+ *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current1.accountId}:agent/*`],
  *                 variable: "AWS:SourceArn",
  *             },
  *         ],
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * const exampleAgentPermissions = Promise.all([currentGetPartition, currentGetRegion]).then(([currentGetPartition, currentGetRegion]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["bedrock:InvokeModel"],
- *         resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}::foundation-model/anthropic.claude-v2`],
+ *         resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}::foundation-model/anthropic.claude-v2`],
  *     }],
  * }));
  * const example = new aws.iam.Role("example", {

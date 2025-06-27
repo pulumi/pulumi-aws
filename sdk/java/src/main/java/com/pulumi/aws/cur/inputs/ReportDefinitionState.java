@@ -154,14 +154,14 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
      * 
      */
     @Import(name="s3Prefix")
     private @Nullable Output<String> s3Prefix;
 
     /**
-     * @return Report path prefix. Limited to 256 characters.
+     * @return Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
      * 
      */
     public Optional<Output<String>> s3Prefix() {
@@ -475,7 +475,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param s3Prefix Report path prefix. Limited to 256 characters.
+         * @param s3Prefix Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param s3Prefix Report path prefix. Limited to 256 characters.
+         * @param s3Prefix Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
          * 
          * @return builder
          * 

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.MediaStore
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:mediastore:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:container/{exampleContainer.Name}/*",
+    ///                     $"arn:aws:mediastore:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:container/{exampleContainer.Name}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {

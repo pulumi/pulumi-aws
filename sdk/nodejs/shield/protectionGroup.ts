@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.Eip("example", {domain: "vpc"});
  * const exampleProtection = new aws.shield.Protection("example", {
  *     name: "example",
- *     resourceArn: pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
+ *     resourceArn: pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.region}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`),
  * });
  * const exampleProtectionGroup = new aws.shield.ProtectionGroup("example", {
  *     protectionGroupId: "example",
  *     aggregation: "MEAN",
  *     pattern: "ARBITRARY",
- *     members: [pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`)],
+ *     members: [pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.region}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`)],
  * }, {
  *     dependsOn: [exampleProtection],
  * });

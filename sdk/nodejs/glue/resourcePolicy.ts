@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const glue_example_policy = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["glue:CreateTable"],
- *         resources: [`arn:${currentGetPartition.partition}:glue:${currentGetRegion.name}:${current.accountId}:*`],
+ *         resources: [`arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:*`],
  *         principals: [{
  *             identifiers: ["*"],
  *             type: "AWS",

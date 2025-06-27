@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     key: "manifest.json",
  *     content: pulumi.jsonStringify({
  *         fileLocations: [{
- *             URIPrefixes: [pulumi.all([example.id, currentGetRegion, currentGetPartition]).apply(([id, currentGetRegion, currentGetPartition]) => `https://${id}.s3-${currentGetRegion.name}.${currentGetPartition.dnsSuffix}`)],
+ *             URIPrefixes: [pulumi.all([example.id, currentGetRegion, currentGetPartition]).apply(([id, currentGetRegion, currentGetPartition]) => `https://${id}.s3-${currentGetRegion.region}.${currentGetPartition.dnsSuffix}`)],
  *         }],
  *         globalUploadSettings: {
  *             format: "CSV",

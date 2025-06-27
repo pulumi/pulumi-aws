@@ -19,6 +19,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetGetArgs>? AwsManagedRulesAcfpRuleSet { get; set; }
 
         /// <summary>
+        /// Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+        /// </summary>
+        [Input("awsManagedRulesAntiDdosRuleSet")]
+        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetGetArgs>? AwsManagedRulesAntiDdosRuleSet { get; set; }
+
+        /// <summary>
         /// Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
         /// </summary>
         [Input("awsManagedRulesAtpRuleSet")]

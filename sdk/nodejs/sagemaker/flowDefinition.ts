@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         taskCount: 1,
  *         taskDescription: "example",
  *         taskTitle: "example",
- *         workteamArn: `arn:aws:sagemaker:${current.name}:394669845002:workteam/public-crowd/default`,
+ *         workteamArn: `arn:aws:sagemaker:${current.region}:394669845002:workteam/public-crowd/default`,
  *         publicWorkforceTaskPrice: {
  *             amountInUsd: {
  *                 cents: 1,

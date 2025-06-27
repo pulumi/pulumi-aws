@@ -530,7 +530,7 @@ import * as utilities from "../utilities";
  *     destination: "iceberg",
  *     icebergConfiguration: {
  *         roleArn: firehoseRole.arn,
- *         catalogArn: Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:glue:${currentGetRegion.name}:${current.accountId}:catalog`),
+ *         catalogArn: Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:catalog`),
  *         bufferingSize: 10,
  *         bufferingInterval: 400,
  *         s3Configuration: {

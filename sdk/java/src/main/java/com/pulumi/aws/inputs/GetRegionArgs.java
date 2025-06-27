@@ -61,14 +61,14 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Full name of the region to select (e.g. `us-east-1`)
+     * Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Full name of the region to select (e.g. `us-east-1`)
+     * @return Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -162,7 +162,7 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region Full name of the region to select (e.g. `us-east-1`)
+         * @param region Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region Full name of the region to select (e.g. `us-east-1`)
+         * @param region Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

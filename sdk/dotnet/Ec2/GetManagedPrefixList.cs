@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
         ///     {
-        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
+        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.dynamodb",
         ///     });
         /// 
         /// });
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
         ///     {
-        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
+        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.dynamodb",
         ///     });
         /// 
         /// });
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
         ///     {
-        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
+        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.dynamodb",
         ///     });
         /// 
         /// });

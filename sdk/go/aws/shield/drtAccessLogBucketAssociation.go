@@ -34,7 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := shield.NewDrtAccessRoleArnAssociation(ctx, "test", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: pulumi.Sprintf("arn:aws:iam:%v:%v:%v", current.Name, currentAwsCallerIdentity.AccountId, shieldDrtAccessRoleName),
+//				RoleArn: pulumi.Sprintf("arn:aws:iam:%v:%v:%v", current.Region, currentAwsCallerIdentity.AccountId, shieldDrtAccessRoleName),
 //			})
 //			if err != nil {
 //				return err

@@ -248,7 +248,7 @@ class PublishingDestination(pulumi.CustomResource):
             {
                 "sid": "Allow GuardDuty to encrypt findings",
                 "actions": ["kms:GenerateDataKey"],
-                "resources": [f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
+                "resources": [f"arn:aws:kms:{current_get_region.region}:{current.account_id}:key/*"],
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["guardduty.amazonaws.com"],
@@ -257,7 +257,7 @@ class PublishingDestination(pulumi.CustomResource):
             {
                 "sid": "Allow all users to modify/delete key (test only)",
                 "actions": ["kms:*"],
-                "resources": [f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
+                "resources": [f"arn:aws:kms:{current_get_region.region}:{current.account_id}:key/*"],
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
@@ -346,7 +346,7 @@ class PublishingDestination(pulumi.CustomResource):
             {
                 "sid": "Allow GuardDuty to encrypt findings",
                 "actions": ["kms:GenerateDataKey"],
-                "resources": [f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
+                "resources": [f"arn:aws:kms:{current_get_region.region}:{current.account_id}:key/*"],
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["guardduty.amazonaws.com"],
@@ -355,7 +355,7 @@ class PublishingDestination(pulumi.CustomResource):
             {
                 "sid": "Allow all users to modify/delete key (test only)",
                 "actions": ["kms:*"],
-                "resources": [f"arn:aws:kms:{current_get_region.name}:{current.account_id}:key/*"],
+                "resources": [f"arn:aws:kms:{current_get_region.region}:{current.account_id}:key/*"],
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [f"arn:aws:iam::{current.account_id}:root"],

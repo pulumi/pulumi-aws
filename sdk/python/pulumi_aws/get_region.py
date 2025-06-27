@@ -115,7 +115,7 @@ def get_region(endpoint: Optional[builtins.str] = None,
 
     :param builtins.str endpoint: EC2 endpoint of the region to select.
     :param builtins.str name: Full name of the region to select. Use `region` instead.
-    :param builtins.str region: Full name of the region to select (e.g. `us-east-1`)
+    :param builtins.str region: Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint
@@ -159,7 +159,7 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[builtins.str]]] =
 
     :param builtins.str endpoint: EC2 endpoint of the region to select.
     :param builtins.str name: Full name of the region to select. Use `region` instead.
-    :param builtins.str region: Full name of the region to select (e.g. `us-east-1`)
+    :param builtins.str region: Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint

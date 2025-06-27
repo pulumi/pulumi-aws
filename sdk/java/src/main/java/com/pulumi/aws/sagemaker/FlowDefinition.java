@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *                 .taskCount(1)
  *                 .taskDescription("example")
  *                 .taskTitle("example")
- *                 .workteamArn(String.format("arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default", current.name()))
+ *                 .workteamArn(String.format("arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default", current.region()))
  *                 .publicWorkforceTaskPrice(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.builder()
  *                     .amountInUsd(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.builder()
  *                         .cents(1)

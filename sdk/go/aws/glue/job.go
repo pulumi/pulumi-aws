@@ -372,6 +372,8 @@ type Job struct {
 	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
+	// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+	JobMode pulumi.StringOutput `pulumi:"jobMode"`
 	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 	JobRunQueuingEnabled pulumi.BoolPtrOutput `pulumi:"jobRunQueuingEnabled"`
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
@@ -465,6 +467,8 @@ type jobState struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
+	// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+	JobMode *string `pulumi:"jobMode"`
 	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 	JobRunQueuingEnabled *bool `pulumi:"jobRunQueuingEnabled"`
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
@@ -523,6 +527,8 @@ type JobState struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
+	// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+	JobMode pulumi.StringPtrInput
 	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 	JobRunQueuingEnabled pulumi.BoolPtrInput
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
@@ -583,6 +589,8 @@ type jobArgs struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
+	// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+	JobMode *string `pulumi:"jobMode"`
 	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 	JobRunQueuingEnabled *bool `pulumi:"jobRunQueuingEnabled"`
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
@@ -638,6 +646,8 @@ type JobArgs struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
+	// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+	JobMode pulumi.StringPtrInput
 	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 	JobRunQueuingEnabled pulumi.BoolPtrInput
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
@@ -802,6 +812,11 @@ func (o JobOutput) ExecutionProperty() JobExecutionPropertyOutput {
 // The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 func (o JobOutput) GlueVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
+}
+
+// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+func (o JobOutput) JobMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.JobMode }).(pulumi.StringOutput)
 }
 
 // Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
