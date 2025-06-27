@@ -5,7 +5,6 @@ package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.aws.ecr.enums.LifecyclePolicyCountType;
 import com.pulumi.aws.ecr.enums.LifecyclePolicyTagStatus;
-import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -75,13 +74,13 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
      * 
      */
     @Import(name="tagPrefixList")
-    private @Nullable Output<Either<String,List<String>>> tagPrefixList;
+    private @Nullable Output<List<String>> tagPrefixList;
 
     /**
      * @return A list of image tag prefixes on which to take action.
      * 
      */
-    public Optional<Output<Either<String,List<String>>>> tagPrefixList() {
+    public Optional<Output<List<String>>> tagPrefixList() {
         return Optional.ofNullable(this.tagPrefixList);
     }
 
@@ -197,7 +196,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder tagPrefixList(@Nullable Output<Either<String,List<String>>> tagPrefixList) {
+        public Builder tagPrefixList(@Nullable Output<List<String>> tagPrefixList) {
             $.tagPrefixList = tagPrefixList;
             return this;
         }
@@ -208,7 +207,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder tagPrefixList(Either<String,List<String>> tagPrefixList) {
+        public Builder tagPrefixList(List<String> tagPrefixList) {
             return tagPrefixList(Output.of(tagPrefixList));
         }
 
@@ -218,18 +217,8 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder tagPrefixList(String tagPrefixList) {
-            return tagPrefixList(Either.ofLeft(tagPrefixList));
-        }
-
-        /**
-         * @param tagPrefixList A list of image tag prefixes on which to take action.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagPrefixList(List<String> tagPrefixList) {
-            return tagPrefixList(Either.ofRight(tagPrefixList));
+        public Builder tagPrefixList(String... tagPrefixList) {
+            return tagPrefixList(List.of(tagPrefixList));
         }
 
         /**
