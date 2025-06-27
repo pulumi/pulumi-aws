@@ -345,6 +345,15 @@ func TestAccSsmParameter(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "ssmparameter"),
 			RunUpdateTest: true,
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				tier, ok := stack.Outputs["tier"]
+				require.Equalf(t, true, ok, "tier not found in outputs")
+				assert.Equal(t, "Standard", tier)
+
+				tier2, ok := stack.Outputs["tier2"]
+				require.Equalf(t, true, ok, "tier2 not found in outputs")
+				assert.Equal(t, "Standard", tier2)
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -924,6 +933,10 @@ func TestLogGroupUpgrade(t *testing.T) {
 
 func TestQueueUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("queue"), nodeProviderUpgradeOpts())
+}
+
+func TestSsmParameterUpgrade(t *testing.T) {
+	testProviderUpgrade(t, "ssmparameter", nodeProviderUpgradeOpts())
 }
 
 func TestRoute53Upgrade(t *testing.T) {

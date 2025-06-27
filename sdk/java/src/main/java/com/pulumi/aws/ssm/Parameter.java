@@ -286,14 +286,14 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tier", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tier;
+    private Output<String> tier;
 
     /**
      * @return Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
-    public Output<Optional<String>> tier() {
-        return Codegen.optional(this.tier);
+    public Output<String> tier() {
+        return this.tier;
     }
     /**
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.

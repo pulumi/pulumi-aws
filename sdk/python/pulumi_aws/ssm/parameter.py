@@ -858,7 +858,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Output[Optional[builtins.str]]:
+    def tier(self) -> pulumi.Output[builtins.str]:
         """
         Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         """
