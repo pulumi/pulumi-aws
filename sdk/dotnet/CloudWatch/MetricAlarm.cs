@@ -464,14 +464,14 @@ namespace Pulumi.Aws.CloudWatch
         public Input<bool>? ActionsEnabled { get; set; }
 
         [Input("alarmActions")]
-        private InputList<string>? _alarmActions;
+        private InputList<Union<string, Pulumi.Aws.Sns.Topic>>? _alarmActions;
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        public InputList<string> AlarmActions
+        public InputList<Union<string, Pulumi.Aws.Sns.Topic>> AlarmActions
         {
-            get => _alarmActions ?? (_alarmActions = new InputList<string>());
+            get => _alarmActions ?? (_alarmActions = new InputList<Union<string, Pulumi.Aws.Sns.Topic>>());
             set => _alarmActions = value;
         }
 
@@ -527,14 +527,14 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? ExtendedStatistic { get; set; }
 
         [Input("insufficientDataActions")]
-        private InputList<string>? _insufficientDataActions;
+        private InputList<Union<string, Pulumi.Aws.Sns.Topic>>? _insufficientDataActions;
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        public InputList<string> InsufficientDataActions
+        public InputList<Union<string, Pulumi.Aws.Sns.Topic>> InsufficientDataActions
         {
-            get => _insufficientDataActions ?? (_insufficientDataActions = new InputList<string>());
+            get => _insufficientDataActions ?? (_insufficientDataActions = new InputList<Union<string, Pulumi.Aws.Sns.Topic>>());
             set => _insufficientDataActions = value;
         }
 
@@ -571,14 +571,14 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Namespace { get; set; }
 
         [Input("okActions")]
-        private InputList<string>? _okActions;
+        private InputList<Union<string, Pulumi.Aws.Sns.Topic>>? _okActions;
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        public InputList<string> OkActions
+        public InputList<Union<string, Pulumi.Aws.Sns.Topic>> OkActions
         {
-            get => _okActions ?? (_okActions = new InputList<string>());
+            get => _okActions ?? (_okActions = new InputList<Union<string, Pulumi.Aws.Sns.Topic>>());
             set => _okActions = value;
         }
 
@@ -658,14 +658,14 @@ namespace Pulumi.Aws.CloudWatch
         public Input<bool>? ActionsEnabled { get; set; }
 
         [Input("alarmActions")]
-        private InputList<string>? _alarmActions;
+        private InputList<Union<string, Pulumi.Aws.Sns.Topic>>? _alarmActions;
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        public InputList<string> AlarmActions
+        public InputList<Union<string, Pulumi.Aws.Sns.Topic>> AlarmActions
         {
-            get => _alarmActions ?? (_alarmActions = new InputList<string>());
+            get => _alarmActions ?? (_alarmActions = new InputList<Union<string, Pulumi.Aws.Sns.Topic>>());
             set => _alarmActions = value;
         }
 
@@ -727,14 +727,14 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? ExtendedStatistic { get; set; }
 
         [Input("insufficientDataActions")]
-        private InputList<string>? _insufficientDataActions;
+        private InputList<Union<string, Pulumi.Aws.Sns.Topic>>? _insufficientDataActions;
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        public InputList<string> InsufficientDataActions
+        public InputList<Union<string, Pulumi.Aws.Sns.Topic>> InsufficientDataActions
         {
-            get => _insufficientDataActions ?? (_insufficientDataActions = new InputList<string>());
+            get => _insufficientDataActions ?? (_insufficientDataActions = new InputList<Union<string, Pulumi.Aws.Sns.Topic>>());
             set => _insufficientDataActions = value;
         }
 
@@ -771,14 +771,14 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Namespace { get; set; }
 
         [Input("okActions")]
-        private InputList<string>? _okActions;
+        private InputList<Union<string, Pulumi.Aws.Sns.Topic>>? _okActions;
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        public InputList<string> OkActions
+        public InputList<Union<string, Pulumi.Aws.Sns.Topic>> OkActions
         {
-            get => _okActions ?? (_okActions = new InputList<string>());
+            get => _okActions ?? (_okActions = new InputList<Union<string, Pulumi.Aws.Sns.Topic>>());
             set => _okActions = value;
         }
 

@@ -14,17 +14,18 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .group import Group
 
 __all__ = ['GroupPolicyAttachmentArgs', 'GroupPolicyAttachment']
 
 @pulumi.input_type
 class GroupPolicyAttachmentArgs:
     def __init__(__self__, *,
-                 group: pulumi.Input[builtins.str],
+                 group: pulumi.Input[Union[builtins.str, 'Group']],
                  policy_arn: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a GroupPolicyAttachment resource.
-        :param pulumi.Input[builtins.str] group: The group the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'Group']] group: The group the policy should be applied to
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         pulumi.set(__self__, "group", group)
@@ -32,14 +33,14 @@ class GroupPolicyAttachmentArgs:
 
     @property
     @pulumi.getter
-    def group(self) -> pulumi.Input[builtins.str]:
+    def group(self) -> pulumi.Input[Union[builtins.str, 'Group']]:
         """
         The group the policy should be applied to
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: pulumi.Input[builtins.str]):
+    def group(self, value: pulumi.Input[Union[builtins.str, 'Group']]):
         pulumi.set(self, "group", value)
 
     @property
@@ -58,11 +59,11 @@ class GroupPolicyAttachmentArgs:
 @pulumi.input_type
 class _GroupPolicyAttachmentState:
     def __init__(__self__, *,
-                 group: Optional[pulumi.Input[builtins.str]] = None,
+                 group: Optional[pulumi.Input[Union[builtins.str, 'Group']]] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachment resources.
-        :param pulumi.Input[builtins.str] group: The group the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'Group']] group: The group the policy should be applied to
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         if group is not None:
@@ -72,14 +73,14 @@ class _GroupPolicyAttachmentState:
 
     @property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[builtins.str]]:
+    def group(self) -> Optional[pulumi.Input[Union[builtins.str, 'Group']]]:
         """
         The group the policy should be applied to
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[builtins.str]]):
+    def group(self, value: Optional[pulumi.Input[Union[builtins.str, 'Group']]]):
         pulumi.set(self, "group", value)
 
     @property
@@ -101,7 +102,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group: Optional[pulumi.Input[builtins.str]] = None,
+                 group: Optional[pulumi.Input[Union[builtins.str, 'Group']]] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -135,7 +136,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] group: The group the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'Group']] group: The group the policy should be applied to
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         ...
@@ -188,7 +189,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group: Optional[pulumi.Input[builtins.str]] = None,
+                 group: Optional[pulumi.Input[Union[builtins.str, 'Group']]] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -215,7 +216,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group: Optional[pulumi.Input[builtins.str]] = None,
+            group: Optional[pulumi.Input[Union[builtins.str, 'Group']]] = None,
             policy_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupPolicyAttachment':
         """
         Get an existing GroupPolicyAttachment resource's state with the given name, id, and optional extra
@@ -224,7 +225,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] group: The group the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'Group']] group: The group the policy should be applied to
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

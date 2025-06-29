@@ -1,0 +1,3 @@
+name: resource-refs-go
+description: Basic example of an AWS resource references.
+runtime: go

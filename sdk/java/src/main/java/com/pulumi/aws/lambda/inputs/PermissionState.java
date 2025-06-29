@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.lambda.inputs;
 
+import com.pulumi.aws.lambda.Function;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -50,13 +52,13 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="function")
-    private @Nullable Output<String> function;
+    private @Nullable Output<Either<String,Function>> function;
 
     /**
      * @return Name of the Lambda function
      * 
      */
-    public Optional<Output<String>> function() {
+    public Optional<Output<Either<String,Function>>> function() {
         return Optional.ofNullable(this.function);
     }
 
@@ -282,7 +284,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder function(@Nullable Output<String> function) {
+        public Builder function(@Nullable Output<Either<String,Function>> function) {
             $.function = function;
             return this;
         }
@@ -293,8 +295,28 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder function(String function) {
+        public Builder function(Either<String,Function> function) {
             return function(Output.of(function));
+        }
+
+        /**
+         * @param function Name of the Lambda function
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(String function) {
+            return function(Either.ofLeft(function));
+        }
+
+        /**
+         * @param function Name of the Lambda function
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(Function function) {
+            return function(Either.ofRight(function));
         }
 
         /**

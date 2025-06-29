@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .role import Role
 
 __all__ = ['RolePolicyAttachmentArgs', 'RolePolicyAttachment']
 
@@ -21,11 +22,11 @@ __all__ = ['RolePolicyAttachmentArgs', 'RolePolicyAttachment']
 class RolePolicyAttachmentArgs:
     def __init__(__self__, *,
                  policy_arn: pulumi.Input[builtins.str],
-                 role: pulumi.Input[builtins.str]):
+                 role: pulumi.Input[Union[builtins.str, 'Role']]):
         """
         The set of arguments for constructing a RolePolicyAttachment resource.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to which the policy should be applied
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to which the policy should be applied
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
         pulumi.set(__self__, "role", role)
@@ -44,14 +45,14 @@ class RolePolicyAttachmentArgs:
 
     @property
     @pulumi.getter
-    def role(self) -> pulumi.Input[builtins.str]:
+    def role(self) -> pulumi.Input[Union[builtins.str, 'Role']]:
         """
         The name of the IAM role to which the policy should be applied
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: pulumi.Input[builtins.str]):
+    def role(self, value: pulumi.Input[Union[builtins.str, 'Role']]):
         pulumi.set(self, "role", value)
 
 
@@ -59,11 +60,11 @@ class RolePolicyAttachmentArgs:
 class _RolePolicyAttachmentState:
     def __init__(__self__, *,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None):
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None):
         """
         Input properties used for looking up and filtering RolePolicyAttachment resources.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to which the policy should be applied
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to which the policy should be applied
         """
         if policy_arn is not None:
             pulumi.set(__self__, "policy_arn", policy_arn)
@@ -84,14 +85,14 @@ class _RolePolicyAttachmentState:
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[builtins.str]]:
+    def role(self) -> Optional[pulumi.Input[Union[builtins.str, 'Role']]]:
         """
         The name of the IAM role to which the policy should be applied
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[builtins.str]]):
+    def role(self, value: Optional[pulumi.Input[Union[builtins.str, 'Role']]]):
         pulumi.set(self, "role", value)
 
 
@@ -102,7 +103,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  __props__=None):
         """
         Attaches a Managed IAM Policy to an IAM role
@@ -153,7 +154,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to which the policy should be applied
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to which the policy should be applied
         """
         ...
     @overload
@@ -223,7 +224,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,7 +251,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-            role: Optional[pulumi.Input[builtins.str]] = None) -> 'RolePolicyAttachment':
+            role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None) -> 'RolePolicyAttachment':
         """
         Get an existing RolePolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -259,7 +260,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] role: The name of the IAM role to which the policy should be applied
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: The name of the IAM role to which the policy should be applied
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

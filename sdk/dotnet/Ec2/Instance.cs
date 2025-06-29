@@ -840,7 +840,7 @@ namespace Pulumi.Aws.Ec2
         /// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         /// </summary>
         [Input("iamInstanceProfile")]
-        public Input<string>? IamInstanceProfile { get; set; }
+        public InputUnion<string, Pulumi.Aws.Iam.InstanceProfile>? IamInstanceProfile { get; set; }
 
         /// <summary>
         /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
@@ -1189,7 +1189,7 @@ namespace Pulumi.Aws.Ec2
         /// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         /// </summary>
         [Input("iamInstanceProfile")]
-        public Input<string>? IamInstanceProfile { get; set; }
+        public InputUnion<string, Pulumi.Aws.Iam.InstanceProfile>? IamInstanceProfile { get; set; }
 
         /// <summary>
         /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.

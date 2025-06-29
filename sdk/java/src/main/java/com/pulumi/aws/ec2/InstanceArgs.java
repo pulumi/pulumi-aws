@@ -18,6 +18,7 @@ import com.pulumi.aws.ec2.inputs.InstanceMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.InstancePrivateDnsNameOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceRootBlockDeviceArgs;
+import com.pulumi.aws.iam.InstanceProfile;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -295,13 +296,13 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="iamInstanceProfile")
-    private @Nullable Output<String> iamInstanceProfile;
+    private @Nullable Output<Either<String,InstanceProfile>> iamInstanceProfile;
 
     /**
      * @return IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
-    public Optional<Output<String>> iamInstanceProfile() {
+    public Optional<Output<Either<String,InstanceProfile>>> iamInstanceProfile() {
         return Optional.ofNullable(this.iamInstanceProfile);
     }
 
@@ -1193,7 +1194,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder iamInstanceProfile(@Nullable Output<String> iamInstanceProfile) {
+        public Builder iamInstanceProfile(@Nullable Output<Either<String,InstanceProfile>> iamInstanceProfile) {
             $.iamInstanceProfile = iamInstanceProfile;
             return this;
         }
@@ -1204,8 +1205,28 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder iamInstanceProfile(String iamInstanceProfile) {
+        public Builder iamInstanceProfile(Either<String,InstanceProfile> iamInstanceProfile) {
             return iamInstanceProfile(Output.of(iamInstanceProfile));
+        }
+
+        /**
+         * @param iamInstanceProfile IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamInstanceProfile(String iamInstanceProfile) {
+            return iamInstanceProfile(Either.ofLeft(iamInstanceProfile));
+        }
+
+        /**
+         * @param iamInstanceProfile IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamInstanceProfile(InstanceProfile iamInstanceProfile) {
+            return iamInstanceProfile(Either.ofRight(iamInstanceProfile));
         }
 
         /**

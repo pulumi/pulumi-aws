@@ -131,7 +131,7 @@ namespace Pulumi.Aws.ApiGateway
         /// REST API identifier.
         /// </summary>
         [Input("restApi", required: true)]
-        public Input<string> RestApi { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi> RestApi { get; set; } = null!;
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.ApiGateway
         /// REST API identifier.
         /// </summary>
         [Input("restApi")]
-        public Input<string>? RestApi { get; set; }
+        public InputUnion<string, Pulumi.Aws.ApiGateway.RestApi>? RestApi { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;

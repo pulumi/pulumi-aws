@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .user import User
 
 __all__ = ['UserPolicyAttachmentArgs', 'UserPolicyAttachment']
 
@@ -21,11 +22,11 @@ __all__ = ['UserPolicyAttachmentArgs', 'UserPolicyAttachment']
 class UserPolicyAttachmentArgs:
     def __init__(__self__, *,
                  policy_arn: pulumi.Input[builtins.str],
-                 user: pulumi.Input[builtins.str]):
+                 user: pulumi.Input[Union[builtins.str, 'User']]):
         """
         The set of arguments for constructing a UserPolicyAttachment resource.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] user: The user the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'User']] user: The user the policy should be applied to
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
         pulumi.set(__self__, "user", user)
@@ -44,14 +45,14 @@ class UserPolicyAttachmentArgs:
 
     @property
     @pulumi.getter
-    def user(self) -> pulumi.Input[builtins.str]:
+    def user(self) -> pulumi.Input[Union[builtins.str, 'User']]:
         """
         The user the policy should be applied to
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: pulumi.Input[builtins.str]):
+    def user(self, value: pulumi.Input[Union[builtins.str, 'User']]):
         pulumi.set(self, "user", value)
 
 
@@ -59,11 +60,11 @@ class UserPolicyAttachmentArgs:
 class _UserPolicyAttachmentState:
     def __init__(__self__, *,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 user: Optional[pulumi.Input[builtins.str]] = None):
+                 user: Optional[pulumi.Input[Union[builtins.str, 'User']]] = None):
         """
         Input properties used for looking up and filtering UserPolicyAttachment resources.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] user: The user the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'User']] user: The user the policy should be applied to
         """
         if policy_arn is not None:
             pulumi.set(__self__, "policy_arn", policy_arn)
@@ -84,14 +85,14 @@ class _UserPolicyAttachmentState:
 
     @property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[builtins.str]]:
+    def user(self) -> Optional[pulumi.Input[Union[builtins.str, 'User']]]:
         """
         The user the policy should be applied to
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[builtins.str]]):
+    def user(self, value: Optional[pulumi.Input[Union[builtins.str, 'User']]]):
         pulumi.set(self, "user", value)
 
 
@@ -102,7 +103,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 user: Optional[pulumi.Input[builtins.str]] = None,
+                 user: Optional[pulumi.Input[Union[builtins.str, 'User']]] = None,
                  __props__=None):
         """
         Attaches a Managed IAM Policy to an IAM user
@@ -136,7 +137,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] user: The user the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'User']] user: The user the policy should be applied to
         """
         ...
     @overload
@@ -189,7 +190,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 user: Optional[pulumi.Input[builtins.str]] = None,
+                 user: Optional[pulumi.Input[Union[builtins.str, 'User']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -216,7 +217,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-            user: Optional[pulumi.Input[builtins.str]] = None) -> 'UserPolicyAttachment':
+            user: Optional[pulumi.Input[Union[builtins.str, 'User']]] = None) -> 'UserPolicyAttachment':
         """
         Get an existing UserPolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -225,7 +226,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[builtins.str] user: The user the policy should be applied to
+        :param pulumi.Input[Union[builtins.str, 'User']] user: The user the policy should be applied to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
