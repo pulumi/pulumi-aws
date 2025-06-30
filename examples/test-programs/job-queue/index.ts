@@ -20,6 +20,9 @@ new aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", {
     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
 });
 
+
+const vpc = new aws.ec2.Vpc("sampleVpc", { cidrBlock: "10.1.0.0/16" });
+
 const sg = new aws.ec2.SecurityGroup("sampleSecurityGroup", {
     egress: [{
         cidrBlocks: ["0.0.0.0/0"],
@@ -27,10 +30,8 @@ const sg = new aws.ec2.SecurityGroup("sampleSecurityGroup", {
         protocol: "-1",
         toPort: 0,
     }],
+    vpcId: vpc.id,
 });
-
-const vpc = new aws.ec2.Vpc("sampleVpc", { cidrBlock: "10.1.0.0/16" });
-
 const subnet = new aws.ec2.Subnet("sampleSubnet", {
     cidrBlock: "10.1.1.0/24",
     vpcId: vpc.id,

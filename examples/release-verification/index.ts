@@ -55,10 +55,10 @@ const websiteBucket = new aws.s3.Bucket("websiteBucket", {
         indexDocument: "index.html",
         routingRules: `[{
             "Condition": {
-                "KeyPrefixEquals": "docs/",
+                "KeyPrefixEquals": "docs/"
             },
             "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/",
+                "ReplaceKeyPrefixWith": "documents/"
             }
         }]`
     }
