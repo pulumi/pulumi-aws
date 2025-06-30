@@ -234,11 +234,6 @@ func providerUpgradeTest(
 		previewTest.UpdateSource(t, options.NewSourcePath)
 	}
 
-	t.Log("LinkNodeSDK??????", linkNodeSDK)
-	if !linkNodeSDK {
-		t.FailNow()
-	}
-
 	// For upgrade tests we only want to link the new SDK
 	// for the new (upgrade) deployment
 	if linkNodeSDK {
