@@ -171,7 +171,7 @@ const provider = new aws.Provider("provider", {
 
 In `v6` of the Pulumi AWS Provider the `s3.Bucket` and `s3.BucketV2` resources represent different resource implementations. `s3.BucketV2` represents the latest version of the upstream Terraform resources, while `s3.Bucket` is a separate resource maintained by Pulumi to keep backwards compatibility with the `v4` release of the upstream Terraform Provider.
 
-In `v7` we are taking the first step in unifying these two resources. In `v7` both `s3.Bucket` and `s3.BucketV2` will represent the latest version of the upstream Terraform S3 Bucket resource. As part of moving the `s3.Bucket` resource to the latest upstream implementation, there are a couple of SDK level breaking changes.
+In `v7` we are taking the first step in unifying these two resources by moving the `s3.Bucket` resource to the latest upstream implementation. As a result, in `v7` both `s3.Bucket` and `s3.BucketV2` will represent the latest version of the upstream Terraform S3 Bucket resource. As part of this change, there are a couple of SDK level breaking changes to `s3.Bucket`.
 
 - The `loggings` input property has been renamed to `logging` and the type has changed from a list to a single object.
 - The `website.routingRules` now only accepts a `string` input property.
