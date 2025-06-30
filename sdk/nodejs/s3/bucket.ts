@@ -316,7 +316,7 @@ export interface BucketState {
      *
      * @deprecated acl is deprecated. Use the aws.s3.BucketAcl resource instead.
      */
-    acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
      * ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -394,7 +394,7 @@ export interface BucketState {
      *
      * @deprecated policy is deprecated. Use the aws.s3.BucketPolicy resource instead.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | inputs.s3.PolicyDocument>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -477,7 +477,7 @@ export interface BucketArgs {
      *
      * @deprecated acl is deprecated. Use the aws.s3.BucketAcl resource instead.
      */
-    acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
      * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      */
@@ -535,7 +535,7 @@ export interface BucketArgs {
      *
      * @deprecated policy is deprecated. Use the aws.s3.BucketPolicy resource instead.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | inputs.s3.PolicyDocument>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

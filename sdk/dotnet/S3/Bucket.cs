@@ -293,7 +293,7 @@ namespace Pulumi.Aws.S3
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Input("acl")]
-        public Input<string>? Acl { get; set; }
+        public InputUnion<string, Pulumi.Aws.S3.CannedAcl>? Acl { get; set; }
 
         /// <summary>
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.S3
         /// Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentArgs>? Policy { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.S3
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Input("acl")]
-        public Input<string>? Acl { get; set; }
+        public InputUnion<string, Pulumi.Aws.S3.CannedAcl>? Acl { get; set; }
 
         /// <summary>
         /// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
@@ -576,7 +576,7 @@ namespace Pulumi.Aws.S3
         /// Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

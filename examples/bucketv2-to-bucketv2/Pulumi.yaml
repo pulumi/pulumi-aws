@@ -1,0 +1,3 @@
+name: bucketv2-to-bucketv2-ts
+runtime: nodejs
+description: A simple example of using the `Bucket` APIs.

@@ -53,14 +53,14 @@ bucket.onObjectCreated("bucket-callback", async (event) => {
 const websiteBucket = new aws.s3.Bucket("websiteBucket", {
     website: {
         indexDocument: "index.html",
-        routingRules: [{
-            Condition: {
-                KeyPrefixEquals: "docs/",
+        routingRules: `[{
+            "Condition": {
+                "KeyPrefixEquals": "docs/"
             },
-            Redirect: {
-                ReplaceKeyPrefixWith: "documents/",
+            "Redirect": {
+                "ReplaceKeyPrefixWith": "documents/"
             }
-        }]
+        }]`
     }
 });
 

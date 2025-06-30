@@ -169,25 +169,15 @@ const provider = new aws.Provider("provider", {
 
 ## S3 Bucket/BucketV2 Changes
 
-As part of this major version upgrade we are removing the old S3 `Bucket` resource
-and are renaming `BucketV2` to `Bucket`. This change should simplify things for
-users and make it easier to understand which bucket resources to use. There will
-now only be one version of bucket resources without any version information.
+In `v6` of the Pulumi AWS Provider the `s3.Bucket` and `s3.BucketV2` resources represent different resource implementations. `s3.BucketV2` represents the latest version of the upstream Terraform resources, while `s3.Bucket` is a separate resource maintained by Pulumi to keep backwards compatibility with the `v4` release of the upstream Terraform Provider.
 
-As part of this change there will be breaking changes in the Bucket SDKs
-that fall into two categories.
+In `v7` we are taking the first step in unifying these two resources by moving the `s3.Bucket` resource to the latest upstream implementation. As a result, in `v7` both `s3.Bucket` and `s3.BucketV2` will represent the latest version of the upstream Terraform S3 Bucket resource. As part of this change, there are a couple of SDK level breaking changes to `s3.Bucket`.
 
-1. Renamed resources. Users will need to update their code to rename the
-   resource to the new name (e.g. `BucketV2` => `Bucket`)
-2. MaxItemsOne changes. Fields that were previously (in v6) lists that only
-   accepted a single item have been changed to no longer be lists. For example,
-   the `serverSideEncryptionConfigurations` field on `BucketV2` was a list that
-   only accepted a single configuration item. This is now
-   `serverSideEncryptionConfiguration`.
- 
-### Renamed Resources
+- The `loggings` input property has been renamed to `logging` and the type has changed from a list to a single object.
+- The `website.routingRules` now only accepts a `string` input property.
 
-- `aws:s3/bucketV2:BucketV2` => `s3/bucket:Bucket`
+We have also introduced new Bucket configuration resources that are alternatives to their `V2` counterparts. The `V2` versions will be removed in `v8` of the Pulumi AWS Provider.
+
 - `aws.s3.BucketAccelerateConfigurationV2` => `aws.s3.BucketAccelerateConfiguration`
 - `aws.s3.BucketRequestPaymentConfigurationV2` => `aws.s3.BucketRequestPaymentConfiguration`
 - `aws.s3.BucketAclV2` => `aws.s3.BucketAcl`
@@ -199,35 +189,10 @@ that fall into two categories.
 - `aws.s3.BucketVersioningV2` => `aws.s3.BucketVersioning`
 - `aws.s3.BucketWebsiteConfigurationV2` => `aws.s3.BucketWebsiteConfiguration`
 
-### MaxItemsOne Changes
-
-The following input properties have changed from a list of properties to a
-single property.
-
-- `loggings` => `logging`
-- `replicationConfigurations` => `replicationConfiguration`
-  - `rules`
-    - `destinations` => `destination`
-      - `replicationTimes` => `replicationTime`
-      - `accessControlTranslations` => `accessControlTranslation`
-    - `filters` => `filter`
-    - `sourceSelectionCriterias` => `sourceSelectionCriteria`
-      - `sseKmsEncryptedObjects` => `sseKmsEncryptedObjects` (list to object)
-- `serverSideEncryptionConfigurations` => `serverSideEncryptionConfiguration`
-  - `rules` => `rule`
-    - `applyServerSideEncryptionByDefaults` => `applyServerSideEncryptionByDefault`
-- `versionings` => `versioning`
-- `website` => `websites`
-- `lifecycleRules`
-  - `noncurrentVersionExpirations` => `noncurrentVersionExpiration`
-  - `expirations` => `expiration`
-
 ### Migration
 
 In order to perform this migration first update your code to use the new resource or property names and then run pulumi with the `--refresh` and `--run-program` arguments. Make sure you have [installed](https://www.pulumi.com/docs/iac/download-install/) the latest version of the Pulumi CLI.
 
-1. Rename `BucketV2` resources to `Bucket`
-2. Rename any `Bucket*V2` resources (e.g. `BucketAclV2` to `BucketAcl`)
 3. Fix any differences in property types (e.g. `Bucket.loggings` (array) to `Bucket.logging` (object))
 4. Run `pulumi up --refresh --run-program`
 5. Ensure there is no diff in the update. If there is, go back to step 1
@@ -242,180 +207,24 @@ In order to perform this migration first update your code to use the new resourc
 import * as aws from '@pulumi/aws';
 const awsProvider = new aws.Provider('provider');
 
-// Replication IAM Role
-const replication = new aws.iam.Role("replication", {
-    assumeRolePolicy: `{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "s3.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}`,
-}, { provider: awsProvider });
-
-// Destination Bucket
-const destinationBucket = new aws.s3.BucketV2("destinationBucket", {
-    forceDestroy: true,
-    versionings: [{
-        enabled: true,
-    }],
-}, { provider: awsProvider });
-
-// Logging Bucket
-const loggingBucket = new aws.s3.BucketV2("loggingBucket", {
-    forceDestroy: true,
-}, { provider: awsProvider });
-
-// Bucket Ownership Controls
-const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
-    bucket: loggingBucket.id,
-    rule: {
-        objectOwnership: "BucketOwnerPreferred",
-    },
-}, { provider: awsProvider });
-
-// Bucket ACL
-const exampleBucketAcl = new aws.s3.BucketAclV2("exampleBucketAcl", {
-    bucket: loggingBucket.id,
-    acl: "log-delivery-write",
-}, { 
-    provider: awsProvider,
-    dependsOn: [exampleBucketOwnershipControls],
-});
-
-// Migration Bucket
-const migrationBucket = new aws.s3.BucketV2("migrationBucket", {
-    forceDestroy: true,
-    serverSideEncryptionConfigurations: [{
-        rules: [{
-            applyServerSideEncryptionByDefaults: [{
-                sseAlgorithm: "AES256",
-            }],
-        }],
-    }],
-    corsRules: [{
-        allowedHeaders: ["*"],
-        allowedMethods: ["PUT", "POST"],
-        allowedOrigins: ["https://s3-website-test.mydomain.com"],
-        exposeHeaders: ["ETag"],
-        maxAgeSeconds: 3000,
-    }],
-    lifecycleRules: [
-        {
-            id: "noncurrent",
-            enabled: true,
-            expirations: [{
-                days: 30,
-            }],
-            noncurrentVersionExpirations: [{
-                days: 30,
-            }],
-        },
-        {
-            id: "log",
-            enabled: true,
-            prefix: "log/",
-            tags: {
-                rule: "log",
-                autoclean: "true",
-            },
-            transitions: [{
-                days: 30,
-                storageClass: "STANDARD_IA",
-            }],
-        },
-    ],
+// Migration bucket
+const migrationBucket = new aws.s3.Bucket("migrationBucket", {
     loggings: [{
         targetBucket: loggingBucket.bucket,
         targetPrefix: "/log",
     }],
-    websites: [{
+    website: {
         indexDocument: "index.html",
         errorDocument: "error.html",
-        routingRules: `[{
-  "Condition": {
-    "KeyPrefixEquals": "docs"
-  },
-  "Redirect": {
-    "ReplaceKeyPrefixWith": "documents/"
-  }
-}]`,
-    }],
-    versionings: [{
-        enabled: true,
-    }],
-    replicationConfigurations: [{
-        role: replication.arn,
-        rules: [{
-            id: "foobar",
-            status: "Disabled",
-            filters: [{
-                tags: {},
-            }],
-            destinations: [{
-                bucket: destinationBucket.arn,
-                replicationTimes: [{
-                    status: "Disabled",
-                    minutes: 15,
-                }],
-                metrics: [{
-                    status: "Disabled",
-                    minutes: 15,
-                }],
-            }],
+        routingRules: [{
+          Condition: {
+            KeyPrefixEquals: "docs"
+          },
+          Redirect: {
+            ReplaceKeyPrefixWith: "documents/"
+          }
         }],
-    }],
-}, { provider: awsProvider });
-
-// Replication Policy
-const replicationPolicy = new aws.iam.Policy("replication", {
-    policy: pulumi.jsonStringify({
-      Version: "2012-10-17",
-      Statement: [
-        {
-          Action: [
-            "s3:GetReplicationConfiguration",
-            "s3:ListBucket"
-          ],
-          Effect: "Allow",
-          Resource: [
-            migrationBucket.arn,
-          ]
-        },
-        {
-          Action: [
-            "s3:GetObjectVersionForReplication",
-            "s3:GetObjectVersionAcl",
-            "s3:GetObjectVersionTagging"
-          ],
-          Effect: "Allow",
-          Resource: [
-            `${migrationBucket.arn}/*`
-          ]
-        },
-        {
-          Action: [
-            "s3:ReplicateObject",
-            "s3:ReplicateDelete",
-            "s3:ReplicateTags"
-          ],
-          Effect: "Allow",
-          Resource: `${destinationBucket.arn}/*`
-        }
-      ]
-    }),
-}, { provider: awsProvider });
-
-// Role Policy Attachment
-const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
-    role: replication.name,
-    policyArn: replicationPolicy.arn,
+    },
 }, { provider: awsProvider });
 ```
 
@@ -423,98 +232,10 @@ const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replic
 
 ```typescript
 import * as aws from '@pulumi/aws';
-
 const awsProvider = new aws.Provider('provider');
 
-// Replication IAM Role
-const replication = new aws.iam.Role("replication", {
-    assumeRolePolicy: `{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "s3.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}`,
-}, { provider: awsProvider });
-
-// Destination Bucket
-const destinationBucket = new aws.s3.Bucket("destinationBucket", {
-    forceDestroy: true,
-    versioning: {
-        enabled: true,
-    },
-}, { provider: awsProvider });
-
-// Logging Bucket
-const loggingBucket = new aws.s3.Bucket("loggingBucket", {
-    forceDestroy: true,
-}, { provider: awsProvider });
-
-// Example Bucket Ownership Controls
-const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
-    bucket: loggingBucket.id,
-    rule: {
-        objectOwnership: "BucketOwnerPreferred",
-    },
-}, { provider: awsProvider });
-
-// Example Bucket ACL
-const exampleBucketAcl = new aws.s3.BucketAcl("exampleBucketAcl", {
-    bucket: loggingBucket.id,
-    acl: "log-delivery-write",
-}, { 
-    provider: awsProvider,
-    dependsOn: [exampleBucketOwnershipControls],
-});
-
-// Migration Bucket
+// Migration bucket
 const migrationBucket = new aws.s3.Bucket("migrationBucket", {
-    forceDestroy: true,
-    serverSideEncryptionConfiguration: {
-        rule: {
-            applyServerSideEncryptionByDefault: {
-                sseAlgorithm: "AES256",
-            },
-        },
-    },
-    corsRules: [{
-        allowedHeaders: ["*"],
-        allowedMethods: ["PUT", "POST"],
-        allowedOrigins: ["https://s3-website-test.mydomain.com"],
-        exposeHeaders: ["ETag"],
-        maxAgeSeconds: 3000,
-    }],
-    lifecycleRules: [
-        {
-            id: "noncurrent",
-            enabled: true,
-            expiration: {
-                days: 30,
-            },
-            noncurrentVersionExpiration: {
-                days: 30,
-            },
-        },
-        {
-            id: "log",
-            enabled: true,
-            prefix: "log/",
-            tags: {
-                rule: "log",
-                autoclean: "true",
-            },
-            transitions: [{
-                days: 30,
-                storageClass: "STANDARD_IA",
-            }],
-        },
-    ],
     logging: {
         targetBucket: loggingBucket.bucket,
         targetPrefix: "/log",
@@ -523,83 +244,14 @@ const migrationBucket = new aws.s3.Bucket("migrationBucket", {
         indexDocument: "index.html",
         errorDocument: "error.html",
         routingRules: `[{
-  "Condition": {
-    "KeyPrefixEquals": "docs"
-  },
-  "Redirect": {
-    "ReplaceKeyPrefixWith": "documents/"
-  }
-}]`,
+          "Condition": {
+            "KeyPrefixEquals": "docs"
+          },
+          "Redirect": {
+            "ReplaceKeyPrefixWith": "documents/"
+          }
+        }]`,
     },
-    versioning: {
-        enabled: true,
-    },
-    replicationConfiguration: {
-        role: replication.arn,
-        rules: [{
-            id: "foobar",
-            status: "Disabled",
-            filter: {
-                tags: {},
-            },
-            destination: {
-                bucket: destinationBucket.arn,
-                replicationTime: {
-                    status: "Disabled",
-                    minutes: 15,
-                },
-                metrics: {
-                    status: "Disabled",
-                    minutes: 15,
-                },
-            },
-        }],
-    },
-}, { provider: awsProvider });
-
-// Replication Policy
-const replicationPolicy = new aws.iam.Policy("replication", {
-    policy: pulumi.jsonStringify({
-      Version: "2012-10-17",
-      Statement: [
-        {
-          Action: [
-            "s3:GetReplicationConfiguration",
-            "s3:ListBucket"
-          ],
-          Effect: "Allow",
-          Resource: [
-            migrationBucket.arn,
-          ]
-        },
-        {
-          Action: [
-            "s3:GetObjectVersionForReplication",
-            "s3:GetObjectVersionAcl",
-            "s3:GetObjectVersionTagging"
-          ],
-          Effect: "Allow",
-          Resource: [
-            `${migrationBucket.arn}/*`
-          ]
-        },
-        {
-          Action: [
-            "s3:ReplicateObject",
-            "s3:ReplicateDelete",
-            "s3:ReplicateTags"
-          ],
-          Effect: "Allow",
-          Resource: `${destinationBucket.arn}/*`
-        }
-      ]
-    }),
-}, { provider: awsProvider });
-
-// Replication Role Policy Attachment
-const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
-    role: replication.name,
-    policyArn: replicationPolicy.arn,
 }, { provider: awsProvider });
 ```
 

@@ -257,7 +257,7 @@ type bucketState struct {
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -361,7 +361,7 @@ type BucketState struct {
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -459,7 +459,7 @@ type bucketArgs struct {
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -544,7 +544,7 @@ type BucketArgs struct {
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
