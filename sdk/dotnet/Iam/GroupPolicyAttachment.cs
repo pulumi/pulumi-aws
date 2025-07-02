@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Iam
         /// The group the policy should be applied to
         /// </summary>
         [Input("group", required: true)]
-        public Input<string> Group { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Iam.Group> Group { get; set; } = null!;
 
         /// <summary>
         /// The ARN of the policy you want to apply
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Iam
         /// The group the policy should be applied to
         /// </summary>
         [Input("group")]
-        public Input<string>? Group { get; set; }
+        public InputUnion<string, Pulumi.Aws.Iam.Group>? Group { get; set; }
 
         /// <summary>
         /// The ARN of the policy you want to apply

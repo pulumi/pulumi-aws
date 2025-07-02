@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.apigateway.inputs;
 
+import com.pulumi.aws.apigateway.RestApi;
 import com.pulumi.aws.apigateway.inputs.IntegrationTlsConfigArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -231,13 +233,13 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="restApi")
-    private @Nullable Output<String> restApi;
+    private @Nullable Output<Either<String,RestApi>> restApi;
 
     /**
      * @return ID of the associated REST API.
      * 
      */
-    public Optional<Output<String>> restApi() {
+    public Optional<Output<Either<String,RestApi>>> restApi() {
         return Optional.ofNullable(this.restApi);
     }
 
@@ -647,7 +649,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(@Nullable Output<String> restApi) {
+        public Builder restApi(@Nullable Output<Either<String,RestApi>> restApi) {
             $.restApi = restApi;
             return this;
         }
@@ -658,8 +660,28 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder restApi(String restApi) {
+        public Builder restApi(Either<String,RestApi> restApi) {
             return restApi(Output.of(restApi));
+        }
+
+        /**
+         * @param restApi ID of the associated REST API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(String restApi) {
+            return restApi(Either.ofLeft(restApi));
+        }
+
+        /**
+         * @param restApi ID of the associated REST API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restApi(RestApi restApi) {
+            return restApi(Either.ofRight(restApi));
         }
 
         /**

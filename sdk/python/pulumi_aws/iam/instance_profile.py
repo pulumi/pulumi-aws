@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .role import Role
 
 __all__ = ['InstanceProfileArgs', 'InstanceProfile']
 
@@ -23,14 +24,14 @@ class InstanceProfileArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
         :param pulumi.Input[builtins.str] name: Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed. The `name` must be unique, regardless of the `path` or `role`. In other words, if there are different `role` or `path` values but the same `name` as an existing instance profile, it will still cause an `EntityAlreadyExists` error.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\\u0021) through the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercase letters.
-        :param pulumi.Input[builtins.str] role: Name of the role to add to the profile.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: Name of the role to add to the profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
@@ -82,14 +83,14 @@ class InstanceProfileArgs:
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[builtins.str]]:
+    def role(self) -> Optional[pulumi.Input[Union[builtins.str, 'Role']]]:
         """
         Name of the role to add to the profile.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[builtins.str]]):
+    def role(self, value: Optional[pulumi.Input[Union[builtins.str, 'Role']]]):
         pulumi.set(self, "role", value)
 
     @property
@@ -113,7 +114,7 @@ class _InstanceProfileState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  unique_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -124,7 +125,7 @@ class _InstanceProfileState:
         :param pulumi.Input[builtins.str] name: Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed. The `name` must be unique, regardless of the `path` or `role`. In other words, if there are different `role` or `path` values but the same `name` as an existing instance profile, it will still cause an `EntityAlreadyExists` error.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\\u0021) through the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercase letters.
-        :param pulumi.Input[builtins.str] role: Name of the role to add to the profile.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: Name of the role to add to the profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] unique_id: [Unique ID][1] assigned by AWS.
@@ -210,14 +211,14 @@ class _InstanceProfileState:
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[builtins.str]]:
+    def role(self) -> Optional[pulumi.Input[Union[builtins.str, 'Role']]]:
         """
         Name of the role to add to the profile.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[builtins.str]]):
+    def role(self, value: Optional[pulumi.Input[Union[builtins.str, 'Role']]]):
         pulumi.set(self, "role", value)
 
     @property
@@ -266,7 +267,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -310,7 +311,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed. The `name` must be unique, regardless of the `path` or `role`. In other words, if there are different `role` or `path` values but the same `name` as an existing instance profile, it will still cause an `EntityAlreadyExists` error.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\\u0021) through the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercase letters.
-        :param pulumi.Input[builtins.str] role: Name of the role to add to the profile.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: Name of the role to add to the profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -373,7 +374,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
-                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -408,7 +409,7 @@ class InstanceProfile(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             path: Optional[pulumi.Input[builtins.str]] = None,
-            role: Optional[pulumi.Input[builtins.str]] = None,
+            role: Optional[pulumi.Input[Union[builtins.str, 'Role']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             unique_id: Optional[pulumi.Input[builtins.str]] = None) -> 'InstanceProfile':
@@ -424,7 +425,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed. The `name` must be unique, regardless of the `path` or `role`. In other words, if there are different `role` or `path` values but the same `name` as an existing instance profile, it will still cause an `EntityAlreadyExists` error.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] path: Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\\u0021) through the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercase letters.
-        :param pulumi.Input[builtins.str] role: Name of the role to add to the profile.
+        :param pulumi.Input[Union[builtins.str, 'Role']] role: Name of the role to add to the profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] unique_id: [Unique ID][1] assigned by AWS.

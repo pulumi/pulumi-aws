@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam;
 
+import com.pulumi.aws.iam.Role;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -34,13 +36,13 @@ public final class RolePolicyAttachmentArgs extends com.pulumi.resources.Resourc
      * 
      */
     @Import(name="role", required=true)
-    private Output<String> role;
+    private Output<Either<String,Role>> role;
 
     /**
      * @return The name of the IAM role to which the policy should be applied
      * 
      */
-    public Output<String> role() {
+    public Output<Either<String,Role>> role() {
         return this.role;
     }
 
@@ -96,7 +98,7 @@ public final class RolePolicyAttachmentArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder role(Output<String> role) {
+        public Builder role(Output<Either<String,Role>> role) {
             $.role = role;
             return this;
         }
@@ -107,8 +109,28 @@ public final class RolePolicyAttachmentArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder role(String role) {
+        public Builder role(Either<String,Role> role) {
             return role(Output.of(role));
+        }
+
+        /**
+         * @param role The name of the IAM role to which the policy should be applied
+         * 
+         * @return builder
+         * 
+         */
+        public Builder role(String role) {
+            return role(Either.ofLeft(role));
+        }
+
+        /**
+         * @param role The name of the IAM role to which the policy should be applied
+         * 
+         * @return builder
+         * 
+         */
+        public Builder role(Role role) {
+            return role(Either.ofRight(role));
         }
 
         public RolePolicyAttachmentArgs build() {

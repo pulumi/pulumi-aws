@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .topic import Topic
 
 __all__ = ['TopicSubscriptionArgs', 'TopicSubscription']
 
@@ -22,7 +23,7 @@ class TopicSubscriptionArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[builtins.str],
                  protocol: pulumi.Input[builtins.str],
-                 topic: pulumi.Input[builtins.str],
+                 topic: pulumi.Input[Union[builtins.str, 'Topic']],
                  confirmation_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  delivery_policy: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint_auto_confirms: Optional[pulumi.Input[builtins.bool]] = None,
@@ -37,7 +38,7 @@ class TopicSubscriptionArgs:
         The set of arguments for constructing a TopicSubscription resource.
         :param pulumi.Input[builtins.str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[builtins.str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
-        :param pulumi.Input[builtins.str] topic: ARN of the SNS topic to subscribe to.
+        :param pulumi.Input[Union[builtins.str, 'Topic']] topic: ARN of the SNS topic to subscribe to.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
@@ -101,7 +102,7 @@ class TopicSubscriptionArgs:
 
     @property
     @pulumi.getter
-    def topic(self) -> pulumi.Input[builtins.str]:
+    def topic(self) -> pulumi.Input[Union[builtins.str, 'Topic']]:
         """
         ARN of the SNS topic to subscribe to.
 
@@ -110,7 +111,7 @@ class TopicSubscriptionArgs:
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: pulumi.Input[builtins.str]):
+    def topic(self, value: pulumi.Input[Union[builtins.str, 'Topic']]):
         pulumi.set(self, "topic", value)
 
     @property
@@ -253,7 +254,7 @@ class _TopicSubscriptionState:
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  replay_policy: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 topic: Optional[pulumi.Input[builtins.str]] = None):
+                 topic: Optional[pulumi.Input[Union[builtins.str, 'Topic']]] = None):
         """
         Input properties used for looking up and filtering TopicSubscription resources.
         :param pulumi.Input[builtins.str] arn: ARN of the subscription.
@@ -272,7 +273,7 @@ class _TopicSubscriptionState:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[builtins.str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
-        :param pulumi.Input[builtins.str] topic: ARN of the SNS topic to subscribe to.
+        :param pulumi.Input[Union[builtins.str, 'Topic']] topic: ARN of the SNS topic to subscribe to.
                
                The following arguments are optional:
         """
@@ -505,7 +506,7 @@ class _TopicSubscriptionState:
 
     @property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[builtins.str]]:
+    def topic(self) -> Optional[pulumi.Input[Union[builtins.str, 'Topic']]]:
         """
         ARN of the SNS topic to subscribe to.
 
@@ -514,7 +515,7 @@ class _TopicSubscriptionState:
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[builtins.str]]):
+    def topic(self, value: Optional[pulumi.Input[Union[builtins.str, 'Topic']]]):
         pulumi.set(self, "topic", value)
 
 
@@ -536,7 +537,7 @@ class TopicSubscription(pulumi.CustomResource):
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  replay_policy: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 topic: Optional[pulumi.Input[builtins.str]] = None,
+                 topic: Optional[pulumi.Input[Union[builtins.str, 'Topic']]] = None,
                  __props__=None):
         """
         Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
@@ -740,7 +741,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[builtins.str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
-        :param pulumi.Input[builtins.str] topic: ARN of the SNS topic to subscribe to.
+        :param pulumi.Input[Union[builtins.str, 'Topic']] topic: ARN of the SNS topic to subscribe to.
                
                The following arguments are optional:
         """
@@ -965,7 +966,7 @@ class TopicSubscription(pulumi.CustomResource):
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  replay_policy: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 topic: Optional[pulumi.Input[builtins.str]] = None,
+                 topic: Optional[pulumi.Input[Union[builtins.str, 'Topic']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1024,7 +1025,7 @@ class TopicSubscription(pulumi.CustomResource):
             region: Optional[pulumi.Input[builtins.str]] = None,
             replay_policy: Optional[pulumi.Input[builtins.str]] = None,
             subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-            topic: Optional[pulumi.Input[builtins.str]] = None) -> 'TopicSubscription':
+            topic: Optional[pulumi.Input[Union[builtins.str, 'Topic']]] = None) -> 'TopicSubscription':
         """
         Get an existing TopicSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1048,7 +1049,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[builtins.str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
-        :param pulumi.Input[builtins.str] topic: ARN of the SNS topic to subscribe to.
+        :param pulumi.Input[Union[builtins.str, 'Topic']] topic: ARN of the SNS topic to subscribe to.
                
                The following arguments are optional:
         """

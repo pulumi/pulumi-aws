@@ -289,7 +289,7 @@ namespace Pulumi.Aws.Ec2
         /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
         [Input("iamInstanceProfile")]
-        public Input<string>? IamInstanceProfile { get; set; }
+        public InputUnion<string, Pulumi.Aws.Iam.InstanceProfile>? IamInstanceProfile { get; set; }
 
         /// <summary>
         /// The EC2 image ID to launch.
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Ec2
         /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
         [Input("iamInstanceProfile")]
-        public Input<string>? IamInstanceProfile { get; set; }
+        public InputUnion<string, Pulumi.Aws.Iam.InstanceProfile>? IamInstanceProfile { get; set; }
 
         /// <summary>
         /// The EC2 image ID to launch.

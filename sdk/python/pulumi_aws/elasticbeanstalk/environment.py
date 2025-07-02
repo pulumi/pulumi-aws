@@ -16,13 +16,15 @@ else:
 from .. import _utilities
 from . import outputs
 from ._inputs import *
+from .application import Application
+from .application_version import ApplicationVersion
 
 __all__ = ['EnvironmentArgs', 'Environment']
 
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 application: pulumi.Input[builtins.str],
+                 application: pulumi.Input[Union[builtins.str, 'Application']],
                  cname_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -34,11 +36,11 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_name: Optional[pulumi.Input[builtins.str]] = None,
                  tier: Optional[pulumi.Input[builtins.str]] = None,
-                 version: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]] = None,
                  wait_for_ready_timeout: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[builtins.str] application: Name of the application that contains the version
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the application that contains the version
                to be deployed
         :param pulumi.Input[builtins.str] cname_prefix: Prefix to use for the fully qualified DNS name of
                the Environment.
@@ -62,7 +64,7 @@ class EnvironmentArgs:
                template to use in deployment
         :param pulumi.Input[builtins.str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
-        :param pulumi.Input[builtins.str] version: The name of the Elastic Beanstalk Application Version
+        :param pulumi.Input[Union[builtins.str, 'ApplicationVersion']] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[builtins.str] wait_for_ready_timeout: The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
@@ -99,7 +101,7 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def application(self) -> pulumi.Input[builtins.str]:
+    def application(self) -> pulumi.Input[Union[builtins.str, 'Application']]:
         """
         Name of the application that contains the version
         to be deployed
@@ -107,7 +109,7 @@ class EnvironmentArgs:
         return pulumi.get(self, "application")
 
     @application.setter
-    def application(self, value: pulumi.Input[builtins.str]):
+    def application(self, value: pulumi.Input[Union[builtins.str, 'Application']]):
         pulumi.set(self, "application", value)
 
     @property
@@ -255,7 +257,7 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+    def version(self) -> Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]]:
         """
         The name of the Elastic Beanstalk Application Version
         to use in deployment.
@@ -263,7 +265,7 @@ class EnvironmentArgs:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+    def version(self, value: Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]]):
         pulumi.set(self, "version", value)
 
     @property
@@ -286,7 +288,7 @@ class EnvironmentArgs:
 class _EnvironmentState:
     def __init__(__self__, *,
                  all_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentAllSettingArgs']]]] = None,
-                 application: Optional[pulumi.Input[builtins.str]] = None,
+                 application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  cname: Optional[pulumi.Input[builtins.str]] = None,
@@ -308,14 +310,14 @@ class _EnvironmentState:
                  template_name: Optional[pulumi.Input[builtins.str]] = None,
                  tier: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]] = None,
                  wait_for_ready_timeout: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentAllSettingArgs']]] all_settings: List of all option settings configured in this Environment. These
                are a combination of default settings and their overrides from `setting` in
                the configuration.
-        :param pulumi.Input[builtins.str] application: Name of the application that contains the version
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the application that contains the version
                to be deployed
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] autoscaling_groups: The autoscaling groups used by this Environment.
         :param pulumi.Input[builtins.str] cname: Fully qualified DNS name for this Environment.
@@ -348,7 +350,7 @@ class _EnvironmentState:
         :param pulumi.Input[builtins.str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] triggers: Autoscaling triggers in use by this Environment.
-        :param pulumi.Input[builtins.str] version: The name of the Elastic Beanstalk Application Version
+        :param pulumi.Input[Union[builtins.str, 'ApplicationVersion']] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[builtins.str] wait_for_ready_timeout: The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
@@ -422,7 +424,7 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter
-    def application(self) -> Optional[pulumi.Input[builtins.str]]:
+    def application(self) -> Optional[pulumi.Input[Union[builtins.str, 'Application']]]:
         """
         Name of the application that contains the version
         to be deployed
@@ -430,7 +432,7 @@ class _EnvironmentState:
         return pulumi.get(self, "application")
 
     @application.setter
-    def application(self, value: Optional[pulumi.Input[builtins.str]]):
+    def application(self, value: Optional[pulumi.Input[Union[builtins.str, 'Application']]]):
         pulumi.set(self, "application", value)
 
     @property
@@ -695,7 +697,7 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+    def version(self) -> Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]]:
         """
         The name of the Elastic Beanstalk Application Version
         to use in deployment.
@@ -703,7 +705,7 @@ class _EnvironmentState:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+    def version(self, value: Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]]):
         pulumi.set(self, "version", value)
 
     @property
@@ -728,7 +730,7 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[builtins.str]] = None,
+                 application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
                  cname_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -740,7 +742,7 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_name: Optional[pulumi.Input[builtins.str]] = None,
                  tier: Optional[pulumi.Input[builtins.str]] = None,
-                 version: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]] = None,
                  wait_for_ready_timeout: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -815,7 +817,7 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] application: Name of the application that contains the version
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the application that contains the version
                to be deployed
         :param pulumi.Input[builtins.str] cname_prefix: Prefix to use for the fully qualified DNS name of
                the Environment.
@@ -839,7 +841,7 @@ class Environment(pulumi.CustomResource):
                template to use in deployment
         :param pulumi.Input[builtins.str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
-        :param pulumi.Input[builtins.str] version: The name of the Elastic Beanstalk Application Version
+        :param pulumi.Input[Union[builtins.str, 'ApplicationVersion']] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[builtins.str] wait_for_ready_timeout: The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
@@ -937,7 +939,7 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[builtins.str]] = None,
+                 application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
                  cname_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -949,7 +951,7 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_name: Optional[pulumi.Input[builtins.str]] = None,
                  tier: Optional[pulumi.Input[builtins.str]] = None,
-                 version: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]] = None,
                  wait_for_ready_timeout: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -998,7 +1000,7 @@ class Environment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             all_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict']]]]] = None,
-            application: Optional[pulumi.Input[builtins.str]] = None,
+            application: Optional[pulumi.Input[Union[builtins.str, 'Application']]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             cname: Optional[pulumi.Input[builtins.str]] = None,
@@ -1020,7 +1022,7 @@ class Environment(pulumi.CustomResource):
             template_name: Optional[pulumi.Input[builtins.str]] = None,
             tier: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            version: Optional[pulumi.Input[builtins.str]] = None,
+            version: Optional[pulumi.Input[Union[builtins.str, 'ApplicationVersion']]] = None,
             wait_for_ready_timeout: Optional[pulumi.Input[builtins.str]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
@@ -1032,7 +1034,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict']]]] all_settings: List of all option settings configured in this Environment. These
                are a combination of default settings and their overrides from `setting` in
                the configuration.
-        :param pulumi.Input[builtins.str] application: Name of the application that contains the version
+        :param pulumi.Input[Union[builtins.str, 'Application']] application: Name of the application that contains the version
                to be deployed
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] autoscaling_groups: The autoscaling groups used by this Environment.
         :param pulumi.Input[builtins.str] cname: Fully qualified DNS name for this Environment.
@@ -1065,7 +1067,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] triggers: Autoscaling triggers in use by this Environment.
-        :param pulumi.Input[builtins.str] version: The name of the Elastic Beanstalk Application Version
+        :param pulumi.Input[Union[builtins.str, 'ApplicationVersion']] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[builtins.str] wait_for_ready_timeout: The maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should

@@ -3,6 +3,9 @@
 
 package com.pulumi.aws.elasticbeanstalk.inputs;
 
+import com.pulumi.aws.elasticbeanstalk.Application;
+import com.pulumi.aws.s3.Bucket;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -22,13 +25,13 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="application")
-    private @Nullable Output<String> application;
+    private @Nullable Output<Either<String,Application>> application;
 
     /**
      * @return Name of the Beanstalk Application the version is associated with.
      * 
      */
-    public Optional<Output<String>> application() {
+    public Optional<Output<Either<String,Application>>> application() {
         return Optional.ofNullable(this.application);
     }
 
@@ -52,13 +55,13 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="bucket")
-    private @Nullable Output<String> bucket;
+    private @Nullable Output<Either<String,Bucket>> bucket;
 
     /**
      * @return S3 bucket that contains the Application Version source bundle.
      * 
      */
-    public Optional<Output<String>> bucket() {
+    public Optional<Output<Either<String,Bucket>>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
@@ -226,7 +229,7 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder application(@Nullable Output<String> application) {
+        public Builder application(@Nullable Output<Either<String,Application>> application) {
             $.application = application;
             return this;
         }
@@ -237,8 +240,28 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder application(String application) {
+        public Builder application(Either<String,Application> application) {
             return application(Output.of(application));
+        }
+
+        /**
+         * @param application Name of the Beanstalk Application the version is associated with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder application(String application) {
+            return application(Either.ofLeft(application));
+        }
+
+        /**
+         * @param application Name of the Beanstalk Application the version is associated with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder application(Application application) {
+            return application(Either.ofRight(application));
         }
 
         /**
@@ -268,7 +291,7 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder bucket(@Nullable Output<String> bucket) {
+        public Builder bucket(@Nullable Output<Either<String,Bucket>> bucket) {
             $.bucket = bucket;
             return this;
         }
@@ -279,8 +302,28 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder bucket(String bucket) {
+        public Builder bucket(Either<String,Bucket> bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param bucket S3 bucket that contains the Application Version source bundle.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucket(String bucket) {
+            return bucket(Either.ofLeft(bucket));
+        }
+
+        /**
+         * @param bucket S3 bucket that contains the Application Version source bundle.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucket(Bucket bucket) {
+            return bucket(Either.ofRight(bucket));
         }
 
         /**

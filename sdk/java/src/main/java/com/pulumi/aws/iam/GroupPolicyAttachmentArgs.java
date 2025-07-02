@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam;
 
+import com.pulumi.aws.iam.Group;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,13 +21,13 @@ public final class GroupPolicyAttachmentArgs extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="group", required=true)
-    private Output<String> group;
+    private Output<Either<String,Group>> group;
 
     /**
      * @return The group the policy should be applied to
      * 
      */
-    public Output<String> group() {
+    public Output<Either<String,Group>> group() {
         return this.group;
     }
 
@@ -75,7 +77,7 @@ public final class GroupPolicyAttachmentArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder group(Output<String> group) {
+        public Builder group(Output<Either<String,Group>> group) {
             $.group = group;
             return this;
         }
@@ -86,8 +88,28 @@ public final class GroupPolicyAttachmentArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder group(String group) {
+        public Builder group(Either<String,Group> group) {
             return group(Output.of(group));
+        }
+
+        /**
+         * @param group The group the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder group(String group) {
+            return group(Either.ofLeft(group));
+        }
+
+        /**
+         * @param group The group the policy should be applied to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder group(Group group) {
+            return group(Either.ofRight(group));
         }
 
         /**

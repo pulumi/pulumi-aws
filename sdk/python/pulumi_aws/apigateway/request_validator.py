@@ -14,20 +14,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .rest_api import RestApi
 
 __all__ = ['RequestValidatorArgs', 'RequestValidator']
 
 @pulumi.input_type
 class RequestValidatorArgs:
     def __init__(__self__, *,
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  validate_request_body: Optional[pulumi.Input[builtins.bool]] = None,
                  validate_request_parameters: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated Rest API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated Rest API
         :param pulumi.Input[builtins.str] name: Name of the request validator
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
@@ -45,14 +46,14 @@ class RequestValidatorArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         ID of the associated Rest API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -109,14 +110,14 @@ class _RequestValidatorState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  validate_request_body: Optional[pulumi.Input[builtins.bool]] = None,
                  validate_request_parameters: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RequestValidator resources.
         :param pulumi.Input[builtins.str] name: Name of the request validator
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated Rest API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated Rest API
         :param pulumi.Input[builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
         :param pulumi.Input[builtins.bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """
@@ -157,14 +158,14 @@ class _RequestValidatorState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         ID of the associated Rest API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -200,7 +201,7 @@ class RequestValidator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  validate_request_body: Optional[pulumi.Input[builtins.bool]] = None,
                  validate_request_parameters: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -232,7 +233,7 @@ class RequestValidator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the request validator
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated Rest API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated Rest API
         :param pulumi.Input[builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
         :param pulumi.Input[builtins.bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """
@@ -283,7 +284,7 @@ class RequestValidator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  validate_request_body: Optional[pulumi.Input[builtins.bool]] = None,
                  validate_request_parameters: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -314,7 +315,7 @@ class RequestValidator(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             validate_request_body: Optional[pulumi.Input[builtins.bool]] = None,
             validate_request_parameters: Optional[pulumi.Input[builtins.bool]] = None) -> 'RequestValidator':
         """
@@ -326,7 +327,7 @@ class RequestValidator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the request validator
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated Rest API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated Rest API
         :param pulumi.Input[builtins.bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
         :param pulumi.Input[builtins.bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
         """

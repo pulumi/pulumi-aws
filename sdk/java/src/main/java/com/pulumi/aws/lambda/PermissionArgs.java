@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.lambda;
 
+import com.pulumi.aws.lambda.Function;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -51,13 +53,13 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="function", required=true)
-    private Output<String> function;
+    private Output<Either<String,Function>> function;
 
     /**
      * @return Name of the Lambda function
      * 
      */
-    public Output<String> function() {
+    public Output<Either<String,Function>> function() {
         return this.function;
     }
 
@@ -283,7 +285,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder function(Output<String> function) {
+        public Builder function(Output<Either<String,Function>> function) {
             $.function = function;
             return this;
         }
@@ -294,8 +296,28 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder function(String function) {
+        public Builder function(Either<String,Function> function) {
             return function(Output.of(function));
+        }
+
+        /**
+         * @param function Name of the Lambda function
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(String function) {
+            return function(Either.ofLeft(function));
+        }
+
+        /**
+         * @param function Name of the Lambda function
+         * 
+         * @return builder
+         * 
+         */
+        public Builder function(Function function) {
+            return function(Either.ofRight(function));
         }
 
         /**

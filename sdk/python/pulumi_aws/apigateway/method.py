@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .rest_api import RestApi
 
 __all__ = ['MethodArgs', 'Method']
 
@@ -23,7 +24,7 @@ class MethodArgs:
                  authorization: pulumi.Input[builtins.str],
                  http_method: pulumi.Input[builtins.str],
                  resource_id: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  api_key_required: Optional[pulumi.Input[builtins.bool]] = None,
                  authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -37,7 +38,7 @@ class MethodArgs:
         :param pulumi.Input[builtins.str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         :param pulumi.Input[builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[builtins.str] resource_id: API resource ID
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
@@ -109,14 +110,14 @@ class MethodArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -233,7 +234,7 @@ class _MethodState:
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None):
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None):
         """
         Input properties used for looking up and filtering Method resources.
         :param pulumi.Input[builtins.bool] api_key_required: Specify if the method requires an API key
@@ -250,7 +251,7 @@ class _MethodState:
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[builtins.str] request_validator_id: ID of a `apigateway.RequestValidator`
         :param pulumi.Input[builtins.str] resource_id: API resource ID
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         """
         if api_key_required is not None:
             pulumi.set(__self__, "api_key_required", api_key_required)
@@ -414,14 +415,14 @@ class _MethodState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         ID of the associated REST API
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
 
@@ -442,7 +443,7 @@ class Method(pulumi.CustomResource):
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  __props__=None):
         """
         Provides a HTTP Method for an API Gateway Resource.
@@ -521,7 +522,7 @@ class Method(pulumi.CustomResource):
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[builtins.str] request_validator_id: ID of a `apigateway.RequestValidator`
         :param pulumi.Input[builtins.str] resource_id: API resource ID
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         """
         ...
     @overload
@@ -616,7 +617,7 @@ class Method(pulumi.CustomResource):
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -667,7 +668,7 @@ class Method(pulumi.CustomResource):
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
             request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None) -> 'Method':
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None) -> 'Method':
         """
         Get an existing Method resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -689,7 +690,7 @@ class Method(pulumi.CustomResource):
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[builtins.str] request_validator_id: ID of a `apigateway.RequestValidator`
         :param pulumi.Input[builtins.str] resource_id: API resource ID
-        :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: ID of the associated REST API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

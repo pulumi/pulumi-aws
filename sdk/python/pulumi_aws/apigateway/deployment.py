@@ -14,20 +14,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .rest_api import RestApi
 
 __all__ = ['DeploymentArgs', 'Deployment']
 
 @pulumi.input_type
 class DeploymentArgs:
     def __init__(__self__, *,
-                 rest_api: pulumi.Input[builtins.str],
+                 rest_api: pulumi.Input[Union[builtins.str, 'RestApi']],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input[builtins.str] description: Description of the deployment.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -45,14 +46,14 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> pulumi.Input[builtins.str]:
+    def rest_api(self) -> pulumi.Input[Union[builtins.str, 'RestApi']]:
         """
         REST API identifier.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: pulumi.Input[builtins.str]):
+    def rest_api(self, value: pulumi.Input[Union[builtins.str, 'RestApi']]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -110,7 +111,7 @@ class _DeploymentState:
                  created_date: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -118,7 +119,7 @@ class _DeploymentState:
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
         :param pulumi.Input[builtins.str] description: Description of the deployment.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
@@ -173,14 +174,14 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
+    def rest_api(self) -> Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]:
         """
         REST API identifier.
         """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
-    def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
+    def rest_api(self, value: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]]):
         pulumi.set(self, "rest_api", value)
 
     @property
@@ -216,7 +217,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -245,7 +246,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the deployment.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
@@ -293,7 +294,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 rest_api: Optional[pulumi.Input[builtins.str]] = None,
+                 rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -326,7 +327,7 @@ class Deployment(pulumi.CustomResource):
             created_date: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
-            rest_api: Optional[pulumi.Input[builtins.str]] = None,
+            rest_api: Optional[pulumi.Input[Union[builtins.str, 'RestApi']]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Deployment':
         """
@@ -339,7 +340,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
         :param pulumi.Input[builtins.str] description: Description of the deployment.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[builtins.str] rest_api: REST API identifier.
+        :param pulumi.Input[Union[builtins.str, 'RestApi']] rest_api: REST API identifier.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
