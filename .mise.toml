@@ -1,0 +1,7 @@
+[tools]
+
+[hooks]
+postinstall = "mise run upstream"
+
+[tasks.upstream]
+run = "make upstream"
