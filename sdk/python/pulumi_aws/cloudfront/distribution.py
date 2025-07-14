@@ -28,6 +28,7 @@ class DistributionArgs:
                  restrictions: pulumi.Input['DistributionRestrictionsArgs'],
                  viewer_certificate: pulumi.Input['DistributionViewerCertificateArgs'],
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 anycast_ip_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
@@ -51,6 +52,7 @@ class DistributionArgs:
         :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements (multiples allowed).
@@ -74,6 +76,8 @@ class DistributionArgs:
         pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
+        if anycast_ip_list_id is not None:
+            pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if continuous_deployment_policy_id is not None:
@@ -176,6 +180,18 @@ class DistributionArgs:
     @aliases.setter
     def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "aliases", value)
+
+    @property
+    @pulumi.getter(name="anycastIpListId")
+    def anycast_ip_list_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ID of the Anycast static IP list that is associated with the distribution.
+        """
+        return pulumi.get(self, "anycast_ip_list_id")
+
+    @anycast_ip_list_id.setter
+    def anycast_ip_list_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "anycast_ip_list_id", value)
 
     @property
     @pulumi.getter
@@ -362,6 +378,7 @@ class DistributionArgs:
 class _DistributionState:
     def __init__(__self__, *,
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 anycast_ip_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  caller_reference: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
@@ -396,6 +413,7 @@ class _DistributionState:
         """
         Input properties used for looking up and filtering Distribution resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[builtins.str] comment: Any comments you want to include about the distribution.
@@ -430,6 +448,8 @@ class _DistributionState:
         """
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
+        if anycast_ip_list_id is not None:
+            pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if caller_reference is not None:
@@ -504,6 +524,18 @@ class _DistributionState:
     @aliases.setter
     def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "aliases", value)
+
+    @property
+    @pulumi.getter(name="anycastIpListId")
+    def anycast_ip_list_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ID of the Anycast static IP list that is associated with the distribution.
+        """
+        return pulumi.get(self, "anycast_ip_list_id")
+
+    @anycast_ip_list_id.setter
+    def anycast_ip_list_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "anycast_ip_list_id", value)
 
     @property
     @pulumi.getter
@@ -885,6 +917,7 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 anycast_ip_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
@@ -1185,6 +1218,7 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
@@ -1504,6 +1538,7 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 anycast_ip_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
@@ -1534,6 +1569,7 @@ class Distribution(pulumi.CustomResource):
             __props__ = DistributionArgs.__new__(DistributionArgs)
 
             __props__.__dict__["aliases"] = aliases
+            __props__.__dict__["anycast_ip_list_id"] = anycast_ip_list_id
             __props__.__dict__["comment"] = comment
             __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
             __props__.__dict__["custom_error_responses"] = custom_error_responses
@@ -1586,6 +1622,7 @@ class Distribution(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            anycast_ip_list_id: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             caller_reference: Optional[pulumi.Input[builtins.str]] = None,
             comment: Optional[pulumi.Input[builtins.str]] = None,
@@ -1625,6 +1662,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[builtins.str] comment: Any comments you want to include about the distribution.
@@ -1662,6 +1700,7 @@ class Distribution(pulumi.CustomResource):
         __props__ = _DistributionState.__new__(_DistributionState)
 
         __props__.__dict__["aliases"] = aliases
+        __props__.__dict__["anycast_ip_list_id"] = anycast_ip_list_id
         __props__.__dict__["arn"] = arn
         __props__.__dict__["caller_reference"] = caller_reference
         __props__.__dict__["comment"] = comment
@@ -1702,6 +1741,14 @@ class Distribution(pulumi.CustomResource):
         Extra CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
+
+    @property
+    @pulumi.getter(name="anycastIpListId")
+    def anycast_ip_list_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        ID of the Anycast static IP list that is associated with the distribution.
+        """
+        return pulumi.get(self, "anycast_ip_list_id")
 
     @property
     @pulumi.getter

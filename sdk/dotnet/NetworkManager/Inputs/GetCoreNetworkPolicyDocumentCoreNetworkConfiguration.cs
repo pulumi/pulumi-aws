@@ -24,6 +24,12 @@ namespace Pulumi.Aws.NetworkManager.Inputs
             set => _asnRanges = value;
         }
 
+        /// <summary>
+        /// Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+        /// </summary>
+        [Input("dnsSupport")]
+        public bool? DnsSupport { get; set; }
+
         [Input("edgeLocations", required: true)]
         private List<Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs>? _edgeLocations;
 
@@ -47,6 +53,12 @@ namespace Pulumi.Aws.NetworkManager.Inputs
             get => _insideCidrBlocks ?? (_insideCidrBlocks = new List<string>());
             set => _insideCidrBlocks = value;
         }
+
+        /// <summary>
+        /// — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+        /// </summary>
+        [Input("securityGroupReferencingSupport")]
+        public bool? SecurityGroupReferencingSupport { get; set; }
 
         /// <summary>
         /// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.

@@ -43,6 +43,21 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ID of the Anycast static IP list that is associated with the distribution.
+     * 
+     */
+    @Import(name="anycastIpListId")
+    private @Nullable Output<String> anycastIpListId;
+
+    /**
+     * @return ID of the Anycast static IP list that is associated with the distribution.
+     * 
+     */
+    public Optional<Output<String>> anycastIpListId() {
+        return Optional.ofNullable(this.anycastIpListId);
+    }
+
+    /**
      * Any comments you want to include about the distribution.
      * 
      */
@@ -346,6 +361,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
 
     private DistributionArgs(DistributionArgs $) {
         this.aliases = $.aliases;
+        this.anycastIpListId = $.anycastIpListId;
         this.comment = $.comment;
         this.continuousDeploymentPolicyId = $.continuousDeploymentPolicyId;
         this.customErrorResponses = $.customErrorResponses;
@@ -415,6 +431,27 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
+        }
+
+        /**
+         * @param anycastIpListId ID of the Anycast static IP list that is associated with the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anycastIpListId(@Nullable Output<String> anycastIpListId) {
+            $.anycastIpListId = anycastIpListId;
+            return this;
+        }
+
+        /**
+         * @param anycastIpListId ID of the Anycast static IP list that is associated with the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anycastIpListId(String anycastIpListId) {
+            return anycastIpListId(Output.of(anycastIpListId));
         }
 
         /**

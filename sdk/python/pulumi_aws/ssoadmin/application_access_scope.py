@@ -195,7 +195,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
             application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
             instance_arn=example.arns[0])
         example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
-            application_arn=example_application.application_arn,
+            application_arn=example_application.arn,
             authorized_targets=["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
             scope="sso:account:access")
         ```
@@ -240,7 +240,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
             application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
             instance_arn=example.arns[0])
         example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
-            application_arn=example_application.application_arn,
+            application_arn=example_application.arn,
             authorized_targets=["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
             scope="sso:account:access")
         ```

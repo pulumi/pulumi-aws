@@ -181,7 +181,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
@@ -193,7 +193,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
@@ -231,7 +231,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
@@ -243,7 +243,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```

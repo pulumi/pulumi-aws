@@ -1096,7 +1096,7 @@
     },
     {
       "old": "  For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide\n",
-      "new": "  For more information about building IAM policy documents with TODO, see the AWS IAM Policy Document Guide\n"
+      "new": "  For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide\n"
     }
   ],
   "iam_role_policy_attachment.html.markdown": [

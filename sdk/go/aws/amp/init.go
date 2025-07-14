@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:amp/alertManagerDefinition:AlertManagerDefinition":
 		r = &AlertManagerDefinition{}
+	case "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration":
+		r = &QueryLoggingConfiguration{}
 	case "aws:amp/ruleGroupNamespace:RuleGroupNamespace":
 		r = &RuleGroupNamespace{}
 	case "aws:amp/scraper:Scraper":
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"amp/alertManagerDefinition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amp/queryLoggingConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

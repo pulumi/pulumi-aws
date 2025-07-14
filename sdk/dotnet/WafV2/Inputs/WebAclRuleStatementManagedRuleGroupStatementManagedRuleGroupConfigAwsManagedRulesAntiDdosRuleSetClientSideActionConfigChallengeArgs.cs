@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("exemptUriRegularExpressions")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>? _exemptUriRegularExpressions;
+
+        /// <summary>
+        /// Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
+        /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs> ExemptUriRegularExpressions
         {
             get => _exemptUriRegularExpressions ?? (_exemptUriRegularExpressions = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>());

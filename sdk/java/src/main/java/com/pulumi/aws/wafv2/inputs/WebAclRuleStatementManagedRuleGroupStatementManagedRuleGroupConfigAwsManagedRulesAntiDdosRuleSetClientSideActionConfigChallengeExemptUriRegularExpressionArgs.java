@@ -15,9 +15,17 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs();
 
+    /**
+     * Regular expression string.
+     * 
+     */
     @Import(name="regexString")
     private @Nullable Output<String> regexString;
 
+    /**
+     * @return Regular expression string.
+     * 
+     */
     public Optional<Output<String>> regexString() {
         return Optional.ofNullable(this.regexString);
     }
@@ -46,11 +54,23 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param regexString Regular expression string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexString(@Nullable Output<String> regexString) {
             $.regexString = regexString;
             return this;
         }
 
+        /**
+         * @param regexString Regular expression string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regexString(String regexString) {
             return regexString(Output.of(regexString));
         }

@@ -212,6 +212,10 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
     /**
+     * Enables skew protection for the branch.
+     */
+    public readonly enableSkewProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * Environment variables for the branch.
      */
     public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -276,6 +280,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["enableNotification"] = state ? state.enableNotification : undefined;
             resourceInputs["enablePerformanceMode"] = state ? state.enablePerformanceMode : undefined;
             resourceInputs["enablePullRequestPreview"] = state ? state.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = state ? state.enableSkewProtection : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["framework"] = state ? state.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = state ? state.pullRequestEnvironmentName : undefined;
@@ -304,6 +309,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["enableNotification"] = args ? args.enableNotification : undefined;
             resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
             resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = args ? args.enableSkewProtection : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["framework"] = args ? args.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
@@ -390,6 +396,10 @@ export interface BranchState {
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
     /**
+     * Enables skew protection for the branch.
+     */
+    enableSkewProtection?: pulumi.Input<boolean>;
+    /**
      * Environment variables for the branch.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -475,6 +485,10 @@ export interface BranchArgs {
      * Enables pull request previews for this branch.
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
+    /**
+     * Enables skew protection for the branch.
+     */
+    enableSkewProtection?: pulumi.Input<boolean>;
     /**
      * Environment variables for the branch.
      */

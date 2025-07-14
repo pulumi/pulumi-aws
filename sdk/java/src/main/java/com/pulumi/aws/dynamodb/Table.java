@@ -176,6 +176,66 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Global Tables with Multi-Region Strong Consistency
+ * 
+ * A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you&#39;re always reading the latest version of an item, irrespective of the Region in which you&#39;re performing the read.
+ * 
+ * **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+ * 
+ * Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Table("example", TableArgs.builder()
+ *             .name("example")
+ *             .hashKey("TestTableHashKey")
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .streamEnabled(true)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
+ *             .attributes(TableAttributeArgs.builder()
+ *                 .name("TestTableHashKey")
+ *                 .type("S")
+ *                 .build())
+ *             .replicas(            
+ *                 TableReplicaArgs.builder()
+ *                     .regionName("us-east-2")
+ *                     .consistencyMode("STRONG")
+ *                     .build(),
+ *                 TableReplicaArgs.builder()
+ *                     .regionName("us-west-2")
+ *                     .consistencyMode("STRONG")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Replica Tagging
  * 
  * You can manage global table replicas&#39; tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.

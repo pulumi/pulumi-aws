@@ -244,6 +244,21 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables skew protection for the branch.
+     * 
+     */
+    @Import(name="enableSkewProtection")
+    private @Nullable Output<Boolean> enableSkewProtection;
+
+    /**
+     * @return Enables skew protection for the branch.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSkewProtection() {
+        return Optional.ofNullable(this.enableSkewProtection);
+    }
+
+    /**
      * Environment variables for the branch.
      * 
      */
@@ -396,6 +411,7 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         this.enableNotification = $.enableNotification;
         this.enablePerformanceMode = $.enablePerformanceMode;
         this.enablePullRequestPreview = $.enablePullRequestPreview;
+        this.enableSkewProtection = $.enableSkewProtection;
         this.environmentVariables = $.environmentVariables;
         this.framework = $.framework;
         this.pullRequestEnvironmentName = $.pullRequestEnvironmentName;
@@ -758,6 +774,27 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enablePullRequestPreview(Boolean enablePullRequestPreview) {
             return enablePullRequestPreview(Output.of(enablePullRequestPreview));
+        }
+
+        /**
+         * @param enableSkewProtection Enables skew protection for the branch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSkewProtection(@Nullable Output<Boolean> enableSkewProtection) {
+            $.enableSkewProtection = enableSkewProtection;
+            return this;
+        }
+
+        /**
+         * @param enableSkewProtection Enables skew protection for the branch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSkewProtection(Boolean enableSkewProtection) {
+            return enableSkewProtection(Output.of(enableSkewProtection));
         }
 
         /**

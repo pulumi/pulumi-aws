@@ -36,7 +36,7 @@ type ProfilesResourceAssociation struct {
 	// Resource ID of the resource to be associated with the profile.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Resource properties for the resource to be associated with the profile.
-	ResourceProperties pulumi.StringPtrOutput `pulumi:"resourceProperties"`
+	ResourceProperties pulumi.StringOutput `pulumi:"resourceProperties"`
 	// Type of resource associated with the profile.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
@@ -268,8 +268,8 @@ func (o ProfilesResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 }
 
 // Resource properties for the resource to be associated with the profile.
-func (o ProfilesResourceAssociationOutput) ResourceProperties() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringPtrOutput { return v.ResourceProperties }).(pulumi.StringPtrOutput)
+func (o ProfilesResourceAssociationOutput) ResourceProperties() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilesResourceAssociation) pulumi.StringOutput { return v.ResourceProperties }).(pulumi.StringOutput)
 }
 
 // Type of resource associated with the profile.

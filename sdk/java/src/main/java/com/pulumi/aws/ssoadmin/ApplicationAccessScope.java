@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplicationAccessScope = new ApplicationAccessScope("exampleApplicationAccessScope", ApplicationAccessScopeArgs.builder()
- *             .applicationArn(exampleApplication.applicationArn())
+ *             .applicationArn(exampleApplication.arn())
  *             .authorizedTargets("arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012")
  *             .scope("sso:account:access")
  *             .build());

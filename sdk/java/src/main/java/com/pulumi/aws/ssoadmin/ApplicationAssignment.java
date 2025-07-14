@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApplicationAssignment("example", ApplicationAssignmentArgs.builder()
- *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
+ *             .applicationArn(exampleAwsSsoadminApplication.arn())
  *             .principalId(exampleAwsIdentitystoreUser.userId())
  *             .principalType("USER")
  *             .build());
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ApplicationAssignment("example", ApplicationAssignmentArgs.builder()
- *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
+ *             .applicationArn(exampleAwsSsoadminApplication.arn())
  *             .principalId(exampleAwsIdentitystoreGroup.groupId())
  *             .principalType("GROUP")
  *             .build());

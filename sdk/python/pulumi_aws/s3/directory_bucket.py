@@ -27,6 +27,7 @@ class DirectoryBucketArgs:
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input['DirectoryBucketLocationArgs']] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
@@ -35,6 +36,7 @@ class DirectoryBucketArgs:
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -46,6 +48,8 @@ class DirectoryBucketArgs:
             pulumi.set(__self__, "location", location)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -111,6 +115,18 @@ class DirectoryBucketArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Bucket type. Valid values: `Directory`.
@@ -131,6 +147,8 @@ class _DirectoryBucketState:
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input['DirectoryBucketLocationArgs']] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DirectoryBucket resources.
@@ -140,6 +158,8 @@ class _DirectoryBucketState:
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         if arn is not None:
@@ -154,6 +174,10 @@ class _DirectoryBucketState:
             pulumi.set(__self__, "location", location)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -231,6 +255,30 @@ class _DirectoryBucketState:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Bucket type. Valid values: `Directory`.
@@ -253,6 +301,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -302,6 +351,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         ...
@@ -370,6 +420,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -387,8 +438,10 @@ class DirectoryBucket(pulumi.CustomResource):
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["location"] = location
             __props__.__dict__["region"] = region
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(DirectoryBucket, __self__).__init__(
             'aws:s3/directoryBucket:DirectoryBucket',
             resource_name,
@@ -405,6 +458,8 @@ class DirectoryBucket(pulumi.CustomResource):
             force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
             location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'DirectoryBucket':
         """
         Get an existing DirectoryBucket resource's state with the given name, id, and optional extra
@@ -419,6 +474,8 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Bucket type. Valid values: `Directory`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -431,6 +488,8 @@ class DirectoryBucket(pulumi.CustomResource):
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["location"] = location
         __props__.__dict__["region"] = region
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
         return DirectoryBucket(resource_name, opts=opts, __props__=__props__)
 
@@ -481,6 +540,22 @@ class DirectoryBucket(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter

@@ -20,6 +20,11 @@ public final class GetDistributionResult {
      */
     private List<String> aliases;
     /**
+     * @return ID of the Anycast static IP list that is associated with the distribution, if any.
+     * 
+     */
+    private String anycastIpListId;
+    /**
      * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      * 
      */
@@ -81,6 +86,13 @@ public final class GetDistributionResult {
      */
     public List<String> aliases() {
         return this.aliases;
+    }
+    /**
+     * @return ID of the Anycast static IP list that is associated with the distribution, if any.
+     * 
+     */
+    public String anycastIpListId() {
+        return this.anycastIpListId;
     }
     /**
      * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
@@ -169,6 +181,7 @@ public final class GetDistributionResult {
     @CustomType.Builder
     public static final class Builder {
         private List<String> aliases;
+        private String anycastIpListId;
         private String arn;
         private String domainName;
         private Boolean enabled;
@@ -184,6 +197,7 @@ public final class GetDistributionResult {
         public Builder(GetDistributionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aliases = defaults.aliases;
+    	      this.anycastIpListId = defaults.anycastIpListId;
     	      this.arn = defaults.arn;
     	      this.domainName = defaults.domainName;
     	      this.enabled = defaults.enabled;
@@ -207,6 +221,14 @@ public final class GetDistributionResult {
         }
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
+        }
+        @CustomType.Setter
+        public Builder anycastIpListId(String anycastIpListId) {
+            if (anycastIpListId == null) {
+              throw new MissingRequiredPropertyException("GetDistributionResult", "anycastIpListId");
+            }
+            this.anycastIpListId = anycastIpListId;
+            return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
@@ -299,6 +321,7 @@ public final class GetDistributionResult {
         public GetDistributionResult build() {
             final var _resultValue = new GetDistributionResult();
             _resultValue.aliases = aliases;
+            _resultValue.anycastIpListId = anycastIpListId;
             _resultValue.arn = arn;
             _resultValue.domainName = domainName;
             _resultValue.enabled = enabled;

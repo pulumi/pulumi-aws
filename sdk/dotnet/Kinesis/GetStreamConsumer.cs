@@ -120,6 +120,14 @@ namespace Pulumi.Aws.Kinesis
         [Input("streamArn", required: true)]
         public string StreamArn { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetStreamConsumerArgs()
         {
         }
@@ -152,6 +160,14 @@ namespace Pulumi.Aws.Kinesis
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public GetStreamConsumerInvokeArgs()
         {
         }
@@ -178,6 +194,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Status;
         public readonly string StreamArn;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetStreamConsumerResult(
@@ -193,7 +210,9 @@ namespace Pulumi.Aws.Kinesis
 
             string status,
 
-            string streamArn)
+            string streamArn,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             CreationTimestamp = creationTimestamp;
@@ -202,6 +221,7 @@ namespace Pulumi.Aws.Kinesis
             Region = region;
             Status = status;
             StreamArn = streamArn;
+            Tags = tags;
         }
     }
 }

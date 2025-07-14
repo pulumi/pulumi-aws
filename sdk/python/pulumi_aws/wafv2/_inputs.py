@@ -24510,6 +24510,9 @@ if not MYPY:
         Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
         """
         exempt_uri_regular_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgsDict']]]]
+        """
+        Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
+        """
         sensitivity: NotRequired[pulumi.Input[builtins.str]]
         """
         Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
@@ -24525,6 +24528,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  sensitivity: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] usage_of_action: Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs']]] exempt_uri_regular_expressions: Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
         :param pulumi.Input[builtins.str] sensitivity: Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
         """
         pulumi.set(__self__, "usage_of_action", usage_of_action)
@@ -24548,6 +24552,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="exemptUriRegularExpressions")
     def exempt_uri_regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs']]]]:
+        """
+        Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
+        """
         return pulumi.get(self, "exempt_uri_regular_expressions")
 
     @exempt_uri_regular_expressions.setter
@@ -24570,6 +24577,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgsDict(TypedDict):
         regex_string: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Regular expression string.
+        """
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -24577,12 +24587,18 @@ elif False:
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs:
     def __init__(__self__, *,
                  regex_string: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] regex_string: Regular expression string.
+        """
         if regex_string is not None:
             pulumi.set(__self__, "regex_string", regex_string)
 
     @property
     @pulumi.getter(name="regexString")
     def regex_string(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Regular expression string.
+        """
         return pulumi.get(self, "regex_string")
 
     @regex_string.setter

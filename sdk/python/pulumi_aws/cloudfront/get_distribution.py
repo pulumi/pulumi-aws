@@ -27,10 +27,13 @@ class GetDistributionResult:
     """
     A collection of values returned by getDistribution.
     """
-    def __init__(__self__, aliases=None, arn=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, id=None, in_progress_validation_batches=None, last_modified_time=None, status=None, tags=None, web_acl_id=None):
+    def __init__(__self__, aliases=None, anycast_ip_list_id=None, arn=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, id=None, in_progress_validation_batches=None, last_modified_time=None, status=None, tags=None, web_acl_id=None):
         if aliases and not isinstance(aliases, list):
             raise TypeError("Expected argument 'aliases' to be a list")
         pulumi.set(__self__, "aliases", aliases)
+        if anycast_ip_list_id and not isinstance(anycast_ip_list_id, str):
+            raise TypeError("Expected argument 'anycast_ip_list_id' to be a str")
+        pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -72,6 +75,14 @@ class GetDistributionResult:
         List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
+
+    @property
+    @pulumi.getter(name="anycastIpListId")
+    def anycast_ip_list_id(self) -> builtins.str:
+        """
+        ID of the Anycast static IP list that is associated with the distribution, if any.
+        """
+        return pulumi.get(self, "anycast_ip_list_id")
 
     @property
     @pulumi.getter
@@ -170,6 +181,7 @@ class AwaitableGetDistributionResult(GetDistributionResult):
             yield self
         return GetDistributionResult(
             aliases=self.aliases,
+            anycast_ip_list_id=self.anycast_ip_list_id,
             arn=self.arn,
             domain_name=self.domain_name,
             enabled=self.enabled,
@@ -209,6 +221,7 @@ def get_distribution(id: Optional[builtins.str] = None,
 
     return AwaitableGetDistributionResult(
         aliases=pulumi.get(__ret__, 'aliases'),
+        anycast_ip_list_id=pulumi.get(__ret__, 'anycast_ip_list_id'),
         arn=pulumi.get(__ret__, 'arn'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         enabled=pulumi.get(__ret__, 'enabled'),
@@ -245,6 +258,7 @@ def get_distribution_output(id: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getDistribution:getDistribution', __args__, opts=opts, typ=GetDistributionResult)
     return __ret__.apply(lambda __response__: GetDistributionResult(
         aliases=pulumi.get(__response__, 'aliases'),
+        anycast_ip_list_id=pulumi.get(__response__, 'anycast_ip_list_id'),
         arn=pulumi.get(__response__, 'arn'),
         domain_name=pulumi.get(__response__, 'domain_name'),
         enabled=pulumi.get(__response__, 'enabled'),

@@ -847,6 +847,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "amp/queryLoggingConfiguration",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration": "QueryLoggingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "amp/ruleGroupNamespace",
   "fqn": "pulumi_aws.amp",
   "classes": {

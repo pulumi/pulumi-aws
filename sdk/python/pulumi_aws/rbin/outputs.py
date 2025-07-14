@@ -17,11 +17,65 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'RuleExcludeResourceTag',
     'RuleLockConfiguration',
     'RuleLockConfigurationUnlockDelay',
     'RuleResourceTag',
     'RuleRetentionPeriod',
 ]
+
+@pulumi.output_type
+class RuleExcludeResourceTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTagKey":
+            suggest = "resource_tag_key"
+        elif key == "resourceTagValue":
+            suggest = "resource_tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleExcludeResourceTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleExcludeResourceTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleExcludeResourceTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_tag_key: builtins.str,
+                 resource_tag_value: Optional[builtins.str] = None):
+        """
+        :param builtins.str resource_tag_key: Tag key.
+               
+               The following argument is optional:
+        :param builtins.str resource_tag_value: Tag value.
+        """
+        pulumi.set(__self__, "resource_tag_key", resource_tag_key)
+        if resource_tag_value is not None:
+            pulumi.set(__self__, "resource_tag_value", resource_tag_value)
+
+    @property
+    @pulumi.getter(name="resourceTagKey")
+    def resource_tag_key(self) -> builtins.str:
+        """
+        Tag key.
+
+        The following argument is optional:
+        """
+        return pulumi.get(self, "resource_tag_key")
+
+    @property
+    @pulumi.getter(name="resourceTagValue")
+    def resource_tag_value(self) -> Optional[builtins.str]:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "resource_tag_value")
+
 
 @pulumi.output_type
 class RuleLockConfiguration(dict):
@@ -83,8 +137,8 @@ class RuleLockConfigurationUnlockDelay(dict):
                  unlock_delay_unit: builtins.str,
                  unlock_delay_value: builtins.int):
         """
-        :param builtins.str unlock_delay_unit: The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
-        :param builtins.int unlock_delay_value: The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+        :param builtins.str unlock_delay_unit: Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+        :param builtins.int unlock_delay_value: Unlock delay period, measured in the unit specified for UnlockDelayUnit.
         """
         pulumi.set(__self__, "unlock_delay_unit", unlock_delay_unit)
         pulumi.set(__self__, "unlock_delay_value", unlock_delay_value)
@@ -93,7 +147,7 @@ class RuleLockConfigurationUnlockDelay(dict):
     @pulumi.getter(name="unlockDelayUnit")
     def unlock_delay_unit(self) -> builtins.str:
         """
-        The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+        Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
         """
         return pulumi.get(self, "unlock_delay_unit")
 
@@ -101,7 +155,7 @@ class RuleLockConfigurationUnlockDelay(dict):
     @pulumi.getter(name="unlockDelayValue")
     def unlock_delay_value(self) -> builtins.int:
         """
-        The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+        Unlock delay period, measured in the unit specified for UnlockDelayUnit.
         """
         return pulumi.get(self, "unlock_delay_value")
 
@@ -131,10 +185,10 @@ class RuleResourceTag(dict):
                  resource_tag_key: builtins.str,
                  resource_tag_value: Optional[builtins.str] = None):
         """
-        :param builtins.str resource_tag_key: The tag key.
+        :param builtins.str resource_tag_key: Tag key.
                
                The following argument is optional:
-        :param builtins.str resource_tag_value: The tag value.
+        :param builtins.str resource_tag_value: Tag value.
         """
         pulumi.set(__self__, "resource_tag_key", resource_tag_key)
         if resource_tag_value is not None:
@@ -144,7 +198,7 @@ class RuleResourceTag(dict):
     @pulumi.getter(name="resourceTagKey")
     def resource_tag_key(self) -> builtins.str:
         """
-        The tag key.
+        Tag key.
 
         The following argument is optional:
         """
@@ -154,7 +208,7 @@ class RuleResourceTag(dict):
     @pulumi.getter(name="resourceTagValue")
     def resource_tag_value(self) -> Optional[builtins.str]:
         """
-        The tag value.
+        Tag value.
         """
         return pulumi.get(self, "resource_tag_value")
 
@@ -184,8 +238,8 @@ class RuleRetentionPeriod(dict):
                  retention_period_unit: builtins.str,
                  retention_period_value: builtins.int):
         """
-        :param builtins.str retention_period_unit: The unit of time in which the retention period is measured. Currently, only DAYS is supported.
-        :param builtins.int retention_period_value: The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+        :param builtins.str retention_period_unit: Unit of time in which the retention period is measured. Currently, only DAYS is supported.
+        :param builtins.int retention_period_value: Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
         """
         pulumi.set(__self__, "retention_period_unit", retention_period_unit)
         pulumi.set(__self__, "retention_period_value", retention_period_value)
@@ -194,7 +248,7 @@ class RuleRetentionPeriod(dict):
     @pulumi.getter(name="retentionPeriodUnit")
     def retention_period_unit(self) -> builtins.str:
         """
-        The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+        Unit of time in which the retention period is measured. Currently, only DAYS is supported.
         """
         return pulumi.get(self, "retention_period_unit")
 
@@ -202,7 +256,7 @@ class RuleRetentionPeriod(dict):
     @pulumi.getter(name="retentionPeriodValue")
     def retention_period_value(self) -> builtins.int:
         """
-        The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+        Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
         """
         return pulumi.get(self, "retention_period_value")
 

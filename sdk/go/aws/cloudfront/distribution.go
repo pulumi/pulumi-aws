@@ -395,6 +395,8 @@ type Distribution struct {
 
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId pulumi.StringPtrOutput `pulumi:"anycastIpListId"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
@@ -506,6 +508,8 @@ func GetDistribution(ctx *pulumi.Context,
 type distributionState struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn *string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
@@ -573,6 +577,8 @@ type distributionState struct {
 type DistributionState struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayInput
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId pulumi.StringPtrInput
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringPtrInput
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
@@ -644,6 +650,8 @@ func (DistributionState) ElementType() reflect.Type {
 type distributionArgs struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -690,6 +698,8 @@ type distributionArgs struct {
 type DistributionArgs struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayInput
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId pulumi.StringPtrInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -822,6 +832,11 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 // Extra CNAMEs (alternate domain names), if any, for this distribution.
 func (o DistributionOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+// ID of the Anycast static IP list that is associated with the distribution.
+func (o DistributionOutput) AnycastIpListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.AnycastIpListId }).(pulumi.StringPtrOutput)
 }
 
 // ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.

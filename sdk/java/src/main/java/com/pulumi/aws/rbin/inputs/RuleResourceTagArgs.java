@@ -17,7 +17,7 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
     public static final RuleResourceTagArgs Empty = new RuleResourceTagArgs();
 
     /**
-     * The tag key.
+     * Tag key.
      * 
      * The following argument is optional:
      * 
@@ -26,7 +26,7 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
     private Output<String> resourceTagKey;
 
     /**
-     * @return The tag key.
+     * @return Tag key.
      * 
      * The following argument is optional:
      * 
@@ -36,14 +36,14 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The tag value.
+     * Tag value.
      * 
      */
     @Import(name="resourceTagValue")
     private @Nullable Output<String> resourceTagValue;
 
     /**
-     * @return The tag value.
+     * @return Tag value.
      * 
      */
     public Optional<Output<String>> resourceTagValue() {
@@ -76,7 +76,7 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTagKey The tag key.
+         * @param resourceTagKey Tag key.
          * 
          * The following argument is optional:
          * 
@@ -89,7 +89,7 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTagKey The tag key.
+         * @param resourceTagKey Tag key.
          * 
          * The following argument is optional:
          * 
@@ -101,7 +101,7 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTagValue The tag value.
+         * @param resourceTagValue Tag value.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class RuleResourceTagArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTagValue The tag value.
+         * @param resourceTagValue Tag value.
          * 
          * @return builder
          * 

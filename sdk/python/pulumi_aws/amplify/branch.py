@@ -31,6 +31,7 @@ class BranchArgs:
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -51,6 +52,7 @@ class BranchArgs:
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
@@ -79,6 +81,8 @@ class BranchArgs:
             pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+        if enable_skew_protection is not None:
+            pulumi.set(__self__, "enable_skew_protection", enable_skew_protection)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if framework is not None:
@@ -227,6 +231,18 @@ class BranchArgs:
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enables skew protection for the branch.
+        """
+        return pulumi.get(self, "enable_skew_protection")
+
+    @enable_skew_protection.setter
+    def enable_skew_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_skew_protection", value)
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -329,6 +345,7 @@ class _BranchState:
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -355,6 +372,7 @@ class _BranchState:
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
@@ -395,6 +413,8 @@ class _BranchState:
             pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+        if enable_skew_protection is not None:
+            pulumi.set(__self__, "enable_skew_protection", enable_skew_protection)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if framework is not None:
@@ -595,6 +615,18 @@ class _BranchState:
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enables skew protection for the branch.
+        """
+        return pulumi.get(self, "enable_skew_protection")
+
+    @enable_skew_protection.setter
+    def enable_skew_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_skew_protection", value)
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -720,6 +752,7 @@ class Branch(pulumi.CustomResource):
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -850,6 +883,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
@@ -999,6 +1033,7 @@ class Branch(pulumi.CustomResource):
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1030,6 +1065,7 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["enable_notification"] = enable_notification
             __props__.__dict__["enable_performance_mode"] = enable_performance_mode
             __props__.__dict__["enable_pull_request_preview"] = enable_pull_request_preview
+            __props__.__dict__["enable_skew_protection"] = enable_skew_protection
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["framework"] = framework
             __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
@@ -1070,6 +1106,7 @@ class Branch(pulumi.CustomResource):
             enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
             enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
             enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+            enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             framework: Optional[pulumi.Input[builtins.str]] = None,
             pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1101,6 +1138,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
@@ -1130,6 +1168,7 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["enable_notification"] = enable_notification
         __props__.__dict__["enable_performance_mode"] = enable_performance_mode
         __props__.__dict__["enable_pull_request_preview"] = enable_pull_request_preview
+        __props__.__dict__["enable_skew_protection"] = enable_skew_protection
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["framework"] = framework
         __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
@@ -1260,6 +1299,14 @@ class Branch(pulumi.CustomResource):
         Enables pull request previews for this branch.
         """
         return pulumi.get(self, "enable_pull_request_preview")
+
+    @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Enables skew protection for the branch.
+        """
+        return pulumi.get(self, "enable_skew_protection")
 
     @property
     @pulumi.getter(name="environmentVariables")

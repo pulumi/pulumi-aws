@@ -18,6 +18,10 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+        /// </summary>
+        public readonly string? ConsistencyMode;
+        /// <summary>
         /// ARN of the CMK that should be used for the AWS KMS encryption.
         /// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
         /// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -54,6 +58,8 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         private TableReplica(
             string? arn,
 
+            string? consistencyMode,
+
             string? kmsKeyArn,
 
             bool? pointInTimeRecovery,
@@ -67,6 +73,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
             string? streamLabel)
         {
             Arn = arn;
+            ConsistencyMode = consistencyMode;
             KmsKeyArn = kmsKeyArn;
             PointInTimeRecovery = pointInTimeRecovery;
             PropagateTags = propagateTags;

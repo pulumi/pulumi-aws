@@ -13,6 +13,118 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type RuleExcludeResourceTag struct {
+	// Tag key.
+	//
+	// The following argument is optional:
+	ResourceTagKey string `pulumi:"resourceTagKey"`
+	// Tag value.
+	ResourceTagValue *string `pulumi:"resourceTagValue"`
+}
+
+// RuleExcludeResourceTagInput is an input type that accepts RuleExcludeResourceTagArgs and RuleExcludeResourceTagOutput values.
+// You can construct a concrete instance of `RuleExcludeResourceTagInput` via:
+//
+//	RuleExcludeResourceTagArgs{...}
+type RuleExcludeResourceTagInput interface {
+	pulumi.Input
+
+	ToRuleExcludeResourceTagOutput() RuleExcludeResourceTagOutput
+	ToRuleExcludeResourceTagOutputWithContext(context.Context) RuleExcludeResourceTagOutput
+}
+
+type RuleExcludeResourceTagArgs struct {
+	// Tag key.
+	//
+	// The following argument is optional:
+	ResourceTagKey pulumi.StringInput `pulumi:"resourceTagKey"`
+	// Tag value.
+	ResourceTagValue pulumi.StringPtrInput `pulumi:"resourceTagValue"`
+}
+
+func (RuleExcludeResourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleExcludeResourceTag)(nil)).Elem()
+}
+
+func (i RuleExcludeResourceTagArgs) ToRuleExcludeResourceTagOutput() RuleExcludeResourceTagOutput {
+	return i.ToRuleExcludeResourceTagOutputWithContext(context.Background())
+}
+
+func (i RuleExcludeResourceTagArgs) ToRuleExcludeResourceTagOutputWithContext(ctx context.Context) RuleExcludeResourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleExcludeResourceTagOutput)
+}
+
+// RuleExcludeResourceTagArrayInput is an input type that accepts RuleExcludeResourceTagArray and RuleExcludeResourceTagArrayOutput values.
+// You can construct a concrete instance of `RuleExcludeResourceTagArrayInput` via:
+//
+//	RuleExcludeResourceTagArray{ RuleExcludeResourceTagArgs{...} }
+type RuleExcludeResourceTagArrayInput interface {
+	pulumi.Input
+
+	ToRuleExcludeResourceTagArrayOutput() RuleExcludeResourceTagArrayOutput
+	ToRuleExcludeResourceTagArrayOutputWithContext(context.Context) RuleExcludeResourceTagArrayOutput
+}
+
+type RuleExcludeResourceTagArray []RuleExcludeResourceTagInput
+
+func (RuleExcludeResourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleExcludeResourceTag)(nil)).Elem()
+}
+
+func (i RuleExcludeResourceTagArray) ToRuleExcludeResourceTagArrayOutput() RuleExcludeResourceTagArrayOutput {
+	return i.ToRuleExcludeResourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i RuleExcludeResourceTagArray) ToRuleExcludeResourceTagArrayOutputWithContext(ctx context.Context) RuleExcludeResourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleExcludeResourceTagArrayOutput)
+}
+
+type RuleExcludeResourceTagOutput struct{ *pulumi.OutputState }
+
+func (RuleExcludeResourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleExcludeResourceTag)(nil)).Elem()
+}
+
+func (o RuleExcludeResourceTagOutput) ToRuleExcludeResourceTagOutput() RuleExcludeResourceTagOutput {
+	return o
+}
+
+func (o RuleExcludeResourceTagOutput) ToRuleExcludeResourceTagOutputWithContext(ctx context.Context) RuleExcludeResourceTagOutput {
+	return o
+}
+
+// Tag key.
+//
+// The following argument is optional:
+func (o RuleExcludeResourceTagOutput) ResourceTagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleExcludeResourceTag) string { return v.ResourceTagKey }).(pulumi.StringOutput)
+}
+
+// Tag value.
+func (o RuleExcludeResourceTagOutput) ResourceTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleExcludeResourceTag) *string { return v.ResourceTagValue }).(pulumi.StringPtrOutput)
+}
+
+type RuleExcludeResourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleExcludeResourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleExcludeResourceTag)(nil)).Elem()
+}
+
+func (o RuleExcludeResourceTagArrayOutput) ToRuleExcludeResourceTagArrayOutput() RuleExcludeResourceTagArrayOutput {
+	return o
+}
+
+func (o RuleExcludeResourceTagArrayOutput) ToRuleExcludeResourceTagArrayOutputWithContext(ctx context.Context) RuleExcludeResourceTagArrayOutput {
+	return o
+}
+
+func (o RuleExcludeResourceTagArrayOutput) Index(i pulumi.IntInput) RuleExcludeResourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleExcludeResourceTag {
+		return vs[0].([]RuleExcludeResourceTag)[vs[1].(int)]
+	}).(RuleExcludeResourceTagOutput)
+}
+
 type RuleLockConfiguration struct {
 	// Information about the retention rule unlock delay. See `unlockDelay` below.
 	UnlockDelay RuleLockConfigurationUnlockDelay `pulumi:"unlockDelay"`
@@ -151,9 +263,9 @@ func (o RuleLockConfigurationPtrOutput) UnlockDelay() RuleLockConfigurationUnloc
 }
 
 type RuleLockConfigurationUnlockDelay struct {
-	// The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+	// Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
 	UnlockDelayUnit string `pulumi:"unlockDelayUnit"`
-	// The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+	// Unlock delay period, measured in the unit specified for UnlockDelayUnit.
 	UnlockDelayValue int `pulumi:"unlockDelayValue"`
 }
 
@@ -169,9 +281,9 @@ type RuleLockConfigurationUnlockDelayInput interface {
 }
 
 type RuleLockConfigurationUnlockDelayArgs struct {
-	// The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+	// Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
 	UnlockDelayUnit pulumi.StringInput `pulumi:"unlockDelayUnit"`
-	// The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+	// Unlock delay period, measured in the unit specified for UnlockDelayUnit.
 	UnlockDelayValue pulumi.IntInput `pulumi:"unlockDelayValue"`
 }
 
@@ -252,12 +364,12 @@ func (o RuleLockConfigurationUnlockDelayOutput) ToRuleLockConfigurationUnlockDel
 	}).(RuleLockConfigurationUnlockDelayPtrOutput)
 }
 
-// The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+// Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
 func (o RuleLockConfigurationUnlockDelayOutput) UnlockDelayUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleLockConfigurationUnlockDelay) string { return v.UnlockDelayUnit }).(pulumi.StringOutput)
 }
 
-// The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+// Unlock delay period, measured in the unit specified for UnlockDelayUnit.
 func (o RuleLockConfigurationUnlockDelayOutput) UnlockDelayValue() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleLockConfigurationUnlockDelay) int { return v.UnlockDelayValue }).(pulumi.IntOutput)
 }
@@ -286,7 +398,7 @@ func (o RuleLockConfigurationUnlockDelayPtrOutput) Elem() RuleLockConfigurationU
 	}).(RuleLockConfigurationUnlockDelayOutput)
 }
 
-// The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+// Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
 func (o RuleLockConfigurationUnlockDelayPtrOutput) UnlockDelayUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleLockConfigurationUnlockDelay) *string {
 		if v == nil {
@@ -296,7 +408,7 @@ func (o RuleLockConfigurationUnlockDelayPtrOutput) UnlockDelayUnit() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+// Unlock delay period, measured in the unit specified for UnlockDelayUnit.
 func (o RuleLockConfigurationUnlockDelayPtrOutput) UnlockDelayValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleLockConfigurationUnlockDelay) *int {
 		if v == nil {
@@ -307,11 +419,11 @@ func (o RuleLockConfigurationUnlockDelayPtrOutput) UnlockDelayValue() pulumi.Int
 }
 
 type RuleResourceTag struct {
-	// The tag key.
+	// Tag key.
 	//
 	// The following argument is optional:
 	ResourceTagKey string `pulumi:"resourceTagKey"`
-	// The tag value.
+	// Tag value.
 	ResourceTagValue *string `pulumi:"resourceTagValue"`
 }
 
@@ -327,11 +439,11 @@ type RuleResourceTagInput interface {
 }
 
 type RuleResourceTagArgs struct {
-	// The tag key.
+	// Tag key.
 	//
 	// The following argument is optional:
 	ResourceTagKey pulumi.StringInput `pulumi:"resourceTagKey"`
-	// The tag value.
+	// Tag value.
 	ResourceTagValue pulumi.StringPtrInput `pulumi:"resourceTagValue"`
 }
 
@@ -386,14 +498,14 @@ func (o RuleResourceTagOutput) ToRuleResourceTagOutputWithContext(ctx context.Co
 	return o
 }
 
-// The tag key.
+// Tag key.
 //
 // The following argument is optional:
 func (o RuleResourceTagOutput) ResourceTagKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleResourceTag) string { return v.ResourceTagKey }).(pulumi.StringOutput)
 }
 
-// The tag value.
+// Tag value.
 func (o RuleResourceTagOutput) ResourceTagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleResourceTag) *string { return v.ResourceTagValue }).(pulumi.StringPtrOutput)
 }
@@ -419,9 +531,9 @@ func (o RuleResourceTagArrayOutput) Index(i pulumi.IntInput) RuleResourceTagOutp
 }
 
 type RuleRetentionPeriod struct {
-	// The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+	// Unit of time in which the retention period is measured. Currently, only DAYS is supported.
 	RetentionPeriodUnit string `pulumi:"retentionPeriodUnit"`
-	// The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+	// Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
 	RetentionPeriodValue int `pulumi:"retentionPeriodValue"`
 }
 
@@ -437,9 +549,9 @@ type RuleRetentionPeriodInput interface {
 }
 
 type RuleRetentionPeriodArgs struct {
-	// The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+	// Unit of time in which the retention period is measured. Currently, only DAYS is supported.
 	RetentionPeriodUnit pulumi.StringInput `pulumi:"retentionPeriodUnit"`
-	// The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+	// Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
 	RetentionPeriodValue pulumi.IntInput `pulumi:"retentionPeriodValue"`
 }
 
@@ -520,12 +632,12 @@ func (o RuleRetentionPeriodOutput) ToRuleRetentionPeriodPtrOutputWithContext(ctx
 	}).(RuleRetentionPeriodPtrOutput)
 }
 
-// The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+// Unit of time in which the retention period is measured. Currently, only DAYS is supported.
 func (o RuleRetentionPeriodOutput) RetentionPeriodUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleRetentionPeriod) string { return v.RetentionPeriodUnit }).(pulumi.StringOutput)
 }
 
-// The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+// Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
 func (o RuleRetentionPeriodOutput) RetentionPeriodValue() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleRetentionPeriod) int { return v.RetentionPeriodValue }).(pulumi.IntOutput)
 }
@@ -554,7 +666,7 @@ func (o RuleRetentionPeriodPtrOutput) Elem() RuleRetentionPeriodOutput {
 	}).(RuleRetentionPeriodOutput)
 }
 
-// The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+// Unit of time in which the retention period is measured. Currently, only DAYS is supported.
 func (o RuleRetentionPeriodPtrOutput) RetentionPeriodUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleRetentionPeriod) *string {
 		if v == nil {
@@ -564,7 +676,7 @@ func (o RuleRetentionPeriodPtrOutput) RetentionPeriodUnit() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+// Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
 func (o RuleRetentionPeriodPtrOutput) RetentionPeriodValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleRetentionPeriod) *int {
 		if v == nil {
@@ -575,6 +687,8 @@ func (o RuleRetentionPeriodPtrOutput) RetentionPeriodValue() pulumi.IntPtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleExcludeResourceTagInput)(nil)).Elem(), RuleExcludeResourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleExcludeResourceTagArrayInput)(nil)).Elem(), RuleExcludeResourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleLockConfigurationInput)(nil)).Elem(), RuleLockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleLockConfigurationPtrInput)(nil)).Elem(), RuleLockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleLockConfigurationUnlockDelayInput)(nil)).Elem(), RuleLockConfigurationUnlockDelayArgs{})
@@ -583,6 +697,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleResourceTagArrayInput)(nil)).Elem(), RuleResourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleRetentionPeriodInput)(nil)).Elem(), RuleRetentionPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleRetentionPeriodPtrInput)(nil)).Elem(), RuleRetentionPeriodArgs{})
+	pulumi.RegisterOutputType(RuleExcludeResourceTagOutput{})
+	pulumi.RegisterOutputType(RuleExcludeResourceTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleLockConfigurationOutput{})
 	pulumi.RegisterOutputType(RuleLockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleLockConfigurationUnlockDelayOutput{})

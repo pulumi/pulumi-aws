@@ -35,6 +35,21 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
     }
 
     /**
+     * Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
+     * 
+     */
+    @Import(name="dnsSupport")
+    private @Nullable Output<Boolean> dnsSupport;
+
+    /**
+     * @return Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> dnsSupport() {
+        return Optional.ofNullable(this.dnsSupport);
+    }
+
+    /**
      * A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
      * 
      */
@@ -65,6 +80,21 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
     }
 
     /**
+     * — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+     * 
+     */
+    @Import(name="securityGroupReferencingSupport")
+    private @Nullable Output<Boolean> securityGroupReferencingSupport;
+
+    /**
+     * @return — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> securityGroupReferencingSupport() {
+        return Optional.ofNullable(this.securityGroupReferencingSupport);
+    }
+
+    /**
      * Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
      * 
      */
@@ -83,8 +113,10 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
 
     private GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs $) {
         this.asnRanges = $.asnRanges;
+        this.dnsSupport = $.dnsSupport;
         this.edgeLocations = $.edgeLocations;
         this.insideCidrBlocks = $.insideCidrBlocks;
+        this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
         this.vpnEcmpSupport = $.vpnEcmpSupport;
     }
 
@@ -135,6 +167,27 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
          */
         public Builder asnRanges(String... asnRanges) {
             return asnRanges(List.of(asnRanges));
+        }
+
+        /**
+         * @param dnsSupport Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsSupport(@Nullable Output<Boolean> dnsSupport) {
+            $.dnsSupport = dnsSupport;
+            return this;
+        }
+
+        /**
+         * @param dnsSupport Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsSupport(Boolean dnsSupport) {
+            return dnsSupport(Output.of(dnsSupport));
         }
 
         /**
@@ -197,6 +250,27 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
          */
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
+        }
+
+        /**
+         * @param securityGroupReferencingSupport — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(@Nullable Output<Boolean> securityGroupReferencingSupport) {
+            $.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
+
+        /**
+         * @param securityGroupReferencingSupport — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(Boolean securityGroupReferencingSupport) {
+            return securityGroupReferencingSupport(Output.of(securityGroupReferencingSupport));
         }
 
         /**

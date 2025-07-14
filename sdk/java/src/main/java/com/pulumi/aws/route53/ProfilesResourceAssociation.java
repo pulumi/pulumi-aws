@@ -103,14 +103,14 @@ public class ProfilesResourceAssociation extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="resourceProperties", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> resourceProperties;
+    private Output<String> resourceProperties;
 
     /**
      * @return Resource properties for the resource to be associated with the profile.
      * 
      */
-    public Output<Optional<String>> resourceProperties() {
-        return Codegen.optional(this.resourceProperties);
+    public Output<String> resourceProperties() {
+        return this.resourceProperties;
     }
     /**
      * Type of resource associated with the profile.

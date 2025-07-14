@@ -46,6 +46,10 @@ export interface GetDistributionResult {
      */
     readonly aliases: string[];
     /**
+     * ID of the Anycast static IP list that is associated with the distribution, if any.
+     */
+    readonly anycastIpListId: string;
+    /**
      * ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
     readonly arn: string;

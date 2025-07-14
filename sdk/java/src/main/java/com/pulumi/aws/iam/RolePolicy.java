@@ -96,48 +96,40 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/rolePolicy:RolePolicy")
 public class RolePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the role policy. If omitted, this provider will
-     * assign a random, unique name.
+     * The name of the role policy.
+     * If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the role policy. If omitted, this provider will
-     * assign a random, unique name.
+     * @return The name of the role policy.
+     * If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix.
+     * Conflicts with `name`.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix.
+     * Conflicts with `name`.
      * 
      */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }

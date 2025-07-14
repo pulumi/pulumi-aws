@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Rbin.Inputs
     public sealed class RuleLockConfigurationUnlockDelayGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+        /// Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
         /// </summary>
         [Input("unlockDelayUnit", required: true)]
         public Input<string> UnlockDelayUnit { get; set; } = null!;
 
         /// <summary>
-        /// The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+        /// Unlock delay period, measured in the unit specified for UnlockDelayUnit.
         /// </summary>
         [Input("unlockDelayValue", required: true)]
         public Input<int> UnlockDelayValue { get; set; } = null!;

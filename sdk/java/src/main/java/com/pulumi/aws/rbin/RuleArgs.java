@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.rbin;
 
+import com.pulumi.aws.rbin.inputs.RuleExcludeResourceTagArgs;
 import com.pulumi.aws.rbin.inputs.RuleLockConfigurationArgs;
 import com.pulumi.aws.rbin.inputs.RuleResourceTagArgs;
 import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
@@ -22,18 +23,33 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final RuleArgs Empty = new RuleArgs();
 
     /**
-     * The retention rule description.
+     * Retention rule description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The retention rule description.
+     * @return Retention rule description.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+     * 
+     */
+    @Import(name="excludeResourceTags")
+    private @Nullable Output<List<RuleExcludeResourceTagArgs>> excludeResourceTags;
+
+    /**
+     * @return Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+     * 
+     */
+    public Optional<Output<List<RuleExcludeResourceTagArgs>>> excludeResourceTags() {
+        return Optional.ofNullable(this.excludeResourceTags);
     }
 
     /**
@@ -67,14 +83,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+     * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
     @Import(name="resourceTags")
     private @Nullable Output<List<RuleResourceTagArgs>> resourceTags;
 
     /**
-     * @return Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+     * @return Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
     public Optional<Output<List<RuleResourceTagArgs>>> resourceTags() {
@@ -82,14 +98,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+     * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+     * @return Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      * 
      */
     public Output<String> resourceType() {
@@ -126,6 +142,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
 
     private RuleArgs(RuleArgs $) {
         this.description = $.description;
+        this.excludeResourceTags = $.excludeResourceTags;
         this.lockConfiguration = $.lockConfiguration;
         this.region = $.region;
         this.resourceTags = $.resourceTags;
@@ -153,7 +170,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The retention rule description.
+         * @param description Retention rule description.
          * 
          * @return builder
          * 
@@ -164,13 +181,44 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The retention rule description.
+         * @param description Retention rule description.
          * 
          * @return builder
          * 
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeResourceTags(@Nullable Output<List<RuleExcludeResourceTagArgs>> excludeResourceTags) {
+            $.excludeResourceTags = excludeResourceTags;
+            return this;
+        }
+
+        /**
+         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeResourceTags(List<RuleExcludeResourceTagArgs> excludeResourceTags) {
+            return excludeResourceTags(Output.of(excludeResourceTags));
+        }
+
+        /**
+         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeResourceTags(RuleExcludeResourceTagArgs... excludeResourceTags) {
+            return excludeResourceTags(List.of(excludeResourceTags));
         }
 
         /**
@@ -216,7 +264,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTags Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
          * 
          * @return builder
          * 
@@ -227,7 +275,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTags Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
          * 
          * @return builder
          * 
@@ -237,7 +285,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTags Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
          * 
          * @return builder
          * 
@@ -247,7 +295,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+         * @param resourceType Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
          * 
          * @return builder
          * 
@@ -258,7 +306,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+         * @param resourceType Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
          * 
          * @return builder
          * 

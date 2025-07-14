@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     instanceArn: example.then(example => example.arns?.[0]),
  * });
  * const exampleApplicationAccessScope = new aws.ssoadmin.ApplicationAccessScope("example", {
- *     applicationArn: exampleApplication.applicationArn,
+ *     applicationArn: exampleApplication.arn,
  *     authorizedTargets: ["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
  *     scope: "sso:account:access",
  * });

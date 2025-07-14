@@ -27,7 +27,7 @@ class GetStreamConsumerResult:
     """
     A collection of values returned by getStreamConsumer.
     """
-    def __init__(__self__, arn=None, creation_timestamp=None, id=None, name=None, region=None, status=None, stream_arn=None):
+    def __init__(__self__, arn=None, creation_timestamp=None, id=None, name=None, region=None, status=None, stream_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetStreamConsumerResult:
         if stream_arn and not isinstance(stream_arn, str):
             raise TypeError("Expected argument 'stream_arn' to be a str")
         pulumi.set(__self__, "stream_arn", stream_arn)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -94,6 +97,11 @@ class GetStreamConsumerResult:
     def stream_arn(self) -> builtins.str:
         return pulumi.get(self, "stream_arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetStreamConsumerResult(GetStreamConsumerResult):
     # pylint: disable=using-constant-test
@@ -107,13 +115,15 @@ class AwaitableGetStreamConsumerResult(GetStreamConsumerResult):
             name=self.name,
             region=self.region,
             status=self.status,
-            stream_arn=self.stream_arn)
+            stream_arn=self.stream_arn,
+            tags=self.tags)
 
 
 def get_stream_consumer(arn: Optional[builtins.str] = None,
                         name: Optional[builtins.str] = None,
                         region: Optional[builtins.str] = None,
                         stream_arn: Optional[builtins.str] = None,
+                        tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamConsumerResult:
     """
     Provides details about a Kinesis Stream Consumer.
@@ -141,6 +151,7 @@ def get_stream_consumer(arn: Optional[builtins.str] = None,
     __args__['name'] = name
     __args__['region'] = region
     __args__['streamArn'] = stream_arn
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult).value
 
@@ -151,11 +162,13 @@ def get_stream_consumer(arn: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
-        stream_arn=pulumi.get(__ret__, 'stream_arn'))
+        stream_arn=pulumi.get(__ret__, 'stream_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
     Provides details about a Kinesis Stream Consumer.
@@ -183,6 +196,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]
     __args__['name'] = name
     __args__['region'] = region
     __args__['streamArn'] = stream_arn
+    __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult)
     return __ret__.apply(lambda __response__: GetStreamConsumerResult(
@@ -192,4 +206,5 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
-        stream_arn=pulumi.get(__response__, 'stream_arn')))
+        stream_arn=pulumi.get(__response__, 'stream_arn'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -407,6 +407,12 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// </summary>
+        [Output("anycastIpListId")]
+        public Output<string?> AnycastIpListId { get; private set; } = null!;
+
+        /// <summary>
         /// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         /// </summary>
         [Output("arn")]
@@ -651,6 +657,12 @@ namespace Pulumi.Aws.CloudFront
         }
 
         /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// </summary>
+        [Input("anycastIpListId")]
+        public Input<string>? AnycastIpListId { get; set; }
+
+        /// <summary>
         /// Any comments you want to include about the distribution.
         /// </summary>
         [Input("comment")]
@@ -819,6 +831,12 @@ namespace Pulumi.Aws.CloudFront
             get => _aliases ?? (_aliases = new InputList<string>());
             set => _aliases = value;
         }
+
+        /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// </summary>
+        [Input("anycastIpListId")]
+        public Input<string>? AnycastIpListId { get; set; }
 
         /// <summary>
         /// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.

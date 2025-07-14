@@ -25,6 +25,11 @@ export const getWorkspaces: typeof import("./getWorkspaces").getWorkspaces = nul
 export const getWorkspacesOutput: typeof import("./getWorkspaces").getWorkspacesOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaces","getWorkspacesOutput"], () => require("./getWorkspaces"));
 
+export { QueryLoggingConfigurationArgs, QueryLoggingConfigurationState } from "./queryLoggingConfiguration";
+export type QueryLoggingConfiguration = import("./queryLoggingConfiguration").QueryLoggingConfiguration;
+export const QueryLoggingConfiguration: typeof import("./queryLoggingConfiguration").QueryLoggingConfiguration = null as any;
+utilities.lazyLoad(exports, ["QueryLoggingConfiguration"], () => require("./queryLoggingConfiguration"));
+
 export { RuleGroupNamespaceArgs, RuleGroupNamespaceState } from "./ruleGroupNamespace";
 export type RuleGroupNamespace = import("./ruleGroupNamespace").RuleGroupNamespace;
 export const RuleGroupNamespace: typeof import("./ruleGroupNamespace").RuleGroupNamespace = null as any;
@@ -52,6 +57,8 @@ const _module = {
         switch (type) {
             case "aws:amp/alertManagerDefinition:AlertManagerDefinition":
                 return new AlertManagerDefinition(name, <any>undefined, { urn })
+            case "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration":
+                return new QueryLoggingConfiguration(name, <any>undefined, { urn })
             case "aws:amp/ruleGroupNamespace:RuleGroupNamespace":
                 return new RuleGroupNamespace(name, <any>undefined, { urn })
             case "aws:amp/scraper:Scraper":
@@ -66,6 +73,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "amp/alertManagerDefinition", _module)
+pulumi.runtime.registerResourceModule("aws", "amp/queryLoggingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/ruleGroupNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/scraper", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/workspace", _module)

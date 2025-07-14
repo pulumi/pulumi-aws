@@ -19468,6 +19468,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  sensitivity: Optional[builtins.str] = None):
         """
         :param builtins.str usage_of_action: Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs'] exempt_uri_regular_expressions: Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
         :param builtins.str sensitivity: Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
         """
         pulumi.set(__self__, "usage_of_action", usage_of_action)
@@ -19487,6 +19488,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="exemptUriRegularExpressions")
     def exempt_uri_regular_expressions(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression']]:
+        """
+        Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
+        """
         return pulumi.get(self, "exempt_uri_regular_expressions")
 
     @property
@@ -19519,12 +19523,18 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
     def __init__(__self__, *,
                  regex_string: Optional[builtins.str] = None):
+        """
+        :param builtins.str regex_string: Regular expression string.
+        """
         if regex_string is not None:
             pulumi.set(__self__, "regex_string", regex_string)
 
     @property
     @pulumi.getter(name="regexString")
     def regex_string(self) -> Optional[builtins.str]:
+        """
+        Regular expression string.
+        """
         return pulumi.get(self, "regex_string")
 
 

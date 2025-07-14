@@ -1043,6 +1043,40 @@ class Table(pulumi.CustomResource):
             ])
         ```
 
+        ### Global Tables with Multi-Region Strong Consistency
+
+        A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
+
+        **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+
+        Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[{
+                "name": "TestTableHashKey",
+                "type": "S",
+            }],
+            replicas=[
+                {
+                    "region_name": "us-east-2",
+                    "consistency_mode": "STRONG",
+                },
+                {
+                    "region_name": "us-west-2",
+                    "consistency_mode": "STRONG",
+                },
+            ])
+        ```
+
         ### Replica Tagging
 
         You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
@@ -1224,6 +1258,40 @@ class Table(pulumi.CustomResource):
                 },
                 {
                     "region_name": "us-west-2",
+                },
+            ])
+        ```
+
+        ### Global Tables with Multi-Region Strong Consistency
+
+        A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
+
+        **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+
+        Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[{
+                "name": "TestTableHashKey",
+                "type": "S",
+            }],
+            replicas=[
+                {
+                    "region_name": "us-east-2",
+                    "consistency_mode": "STRONG",
+                },
+                {
+                    "region_name": "us-west-2",
+                    "consistency_mode": "STRONG",
                 },
             ])
         ```
