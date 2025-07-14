@@ -51,9 +51,21 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.namePrefix);
     }
 
+    /**
+     * The inline policy document.
+     * This is a JSON formatted string.
+     * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
+    /**
+     * @return The inline policy document.
+     * This is a JSON formatted string.
+     * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
+     * 
+     */
     public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -146,19 +158,51 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
             return namePrefix(Output.of(namePrefix));
         }
 
+        /**
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
         }
 
+        /**
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Either.ofLeft(policy));
         }
 
+        /**
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(PolicyDocumentArgs policy) {
             return policy(Either.ofRight(policy));
         }
