@@ -459,14 +459,11 @@ namespace Pulumi.Aws.Eks
         [Output("bootstrapSelfManagedAddons")]
         public Output<bool?> BootstrapSelfManagedAddons { get; private set; } = null!;
 
-        [Output("certificateAuthorities")]
-        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthorities { get; private set; } = null!;
-
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        [Output("certificateAuthority")]
-        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthority { get; private set; } = null!;
+        [Output("certificateAuthorities")]
+        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthorities { get; private set; } = null!;
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -804,22 +801,14 @@ namespace Pulumi.Aws.Eks
 
         [Input("certificateAuthorities")]
         private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthorities;
-        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthorities
-        {
-            get => _certificateAuthorities ?? (_certificateAuthorities = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
-            set => _certificateAuthorities = value;
-        }
-
-        [Input("certificateAuthority")]
-        private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthority;
 
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthority
+        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthorities
         {
-            get => _certificateAuthority ?? (_certificateAuthority = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
-            set => _certificateAuthority = value;
+            get => _certificateAuthorities ?? (_certificateAuthorities = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
+            set => _certificateAuthorities = value;
         }
 
         /// <summary>
