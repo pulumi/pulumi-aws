@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rbin.Inputs
     public sealed class RuleResourceTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tag key.
+        /// Tag key.
         /// 
         /// The following argument is optional:
         /// </summary>
@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Rbin.Inputs
         public Input<string> ResourceTagKey { get; set; } = null!;
 
         /// <summary>
-        /// The tag value.
+        /// Tag value.
         /// </summary>
         [Input("resourceTagValue")]
         public Input<string>? ResourceTagValue { get; set; }

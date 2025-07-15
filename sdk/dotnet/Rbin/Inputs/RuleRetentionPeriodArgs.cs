@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Rbin.Inputs
     public sealed class RuleRetentionPeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+        /// Unit of time in which the retention period is measured. Currently, only DAYS is supported.
         /// </summary>
         [Input("retentionPeriodUnit", required: true)]
         public Input<string> RetentionPeriodUnit { get; set; } = null!;
 
         /// <summary>
-        /// The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+        /// Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
         /// </summary>
         [Input("retentionPeriodValue", required: true)]
         public Input<int> RetentionPeriodValue { get; set; } = null!;

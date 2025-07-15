@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,12 +62,20 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
         return this.streamArn;
     }
 
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private StreamConsumerArgs() {}
 
     private StreamConsumerArgs(StreamConsumerArgs $) {
         this.name = $.name;
         this.region = $.region;
         this.streamArn = $.streamArn;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -148,6 +157,15 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
+        }
+
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public StreamConsumerArgs build() {

@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewApplicationAccessScope(ctx, "example", &ssoadmin.ApplicationAccessScopeArgs{
-//				ApplicationArn: exampleApplication.ApplicationArn,
+//				ApplicationArn: exampleApplication.Arn,
 //				AuthorizedTargets: pulumi.StringArray{
 //					pulumi.String("arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"),
 //				},

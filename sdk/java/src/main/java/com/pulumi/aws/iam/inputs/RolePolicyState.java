@@ -18,16 +18,16 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
     public static final RolePolicyState Empty = new RolePolicyState();
 
     /**
-     * The name of the role policy. If omitted, this provider will
-     * assign a random, unique name.
+     * The name of the role policy.
+     * If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the role policy. If omitted, this provider will
-     * assign a random, unique name.
+     * @return The name of the role policy.
+     * If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -35,16 +35,16 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix.
+     * Conflicts with `name`.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix.
+     * Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -52,14 +52,18 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     * The inline policy document.
+     * This is a JSON formatted string.
+     * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
      * 
      */
     @Import(name="policy")
     private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
     /**
-     * @return The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     * @return The inline policy document.
+     * This is a JSON formatted string.
+     * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
      * 
      */
     public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
@@ -109,8 +113,8 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the role policy. If omitted, this provider will
-         * assign a random, unique name.
+         * @param name The name of the role policy.
+         * If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -121,8 +125,8 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the role policy. If omitted, this provider will
-         * assign a random, unique name.
+         * @param name The name of the role policy.
+         * If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -132,8 +136,8 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix.
+         * Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -144,8 +148,8 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified
-         * prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix.
+         * Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -155,7 +159,9 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
          * 
          * @return builder
          * 
@@ -166,7 +172,9 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
          * 
          * @return builder
          * 
@@ -176,7 +184,9 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
          * 
          * @return builder
          * 
@@ -186,7 +196,9 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+         * @param policy The inline policy document.
+         * This is a JSON formatted string.
+         * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
          * 
          * @return builder
          * 

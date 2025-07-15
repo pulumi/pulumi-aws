@@ -18,9 +18,17 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs();
 
+    /**
+     * Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
+     * 
+     */
     @Import(name="exemptUriRegularExpressions")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>> exemptUriRegularExpressions;
 
+    /**
+     * @return Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
+     * 
+     */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>>> exemptUriRegularExpressions() {
         return Optional.ofNullable(this.exemptUriRegularExpressions);
     }
@@ -81,15 +89,33 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param exemptUriRegularExpressions Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exemptUriRegularExpressions(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>> exemptUriRegularExpressions) {
             $.exemptUriRegularExpressions = exemptUriRegularExpressions;
             return this;
         }
 
+        /**
+         * @param exemptUriRegularExpressions Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exemptUriRegularExpressions(List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs> exemptUriRegularExpressions) {
             return exemptUriRegularExpressions(Output.of(exemptUriRegularExpressions));
         }
 
+        /**
+         * @param exemptUriRegularExpressions Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
+         * 
+         * @return builder
+         * 
+         */
         public Builder exemptUriRegularExpressions(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs... exemptUriRegularExpressions) {
             return exemptUriRegularExpressions(List.of(exemptUriRegularExpressions));
         }

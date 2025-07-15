@@ -306,6 +306,12 @@ namespace Pulumi.Aws.Amplify
         public Output<bool?> EnablePullRequestPreview { get; private set; } = null!;
 
         /// <summary>
+        /// Enables skew protection for the branch.
+        /// </summary>
+        [Output("enableSkewProtection")]
+        public Output<bool?> EnableSkewProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Environment variables for the branch.
         /// </summary>
         [Output("environmentVariables")]
@@ -485,6 +491,12 @@ namespace Pulumi.Aws.Amplify
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
 
+        /// <summary>
+        /// Enables skew protection for the branch.
+        /// </summary>
+        [Input("enableSkewProtection")]
+        public Input<bool>? EnableSkewProtection { get; set; }
+
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
 
@@ -658,6 +670,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
+
+        /// <summary>
+        /// Enables skew protection for the branch.
+        /// </summary>
+        [Input("enableSkewProtection")]
+        public Input<bool>? EnableSkewProtection { get; set; }
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;

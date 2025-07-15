@@ -95,7 +95,7 @@ def get_application_assignments(application_arn: Optional[builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["applicationArn"])
+    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["arn"])
     ```
 
 
@@ -127,7 +127,7 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[bu
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["applicationArn"])
+    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["arn"])
     ```
 
 

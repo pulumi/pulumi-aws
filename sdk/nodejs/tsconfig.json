@@ -48,6 +48,7 @@
         "amp/getWorkspace.ts",
         "amp/getWorkspaces.ts",
         "amp/index.ts",
+        "amp/queryLoggingConfiguration.ts",
         "amp/ruleGroupNamespace.ts",
         "amp/scraper.ts",
         "amp/workspace.ts",

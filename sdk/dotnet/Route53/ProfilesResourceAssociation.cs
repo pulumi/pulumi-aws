@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Route53
         /// Resource properties for the resource to be associated with the profile.
         /// </summary>
         [Output("resourceProperties")]
-        public Output<string?> ResourceProperties { get; private set; } = null!;
+        public Output<string> ResourceProperties { get; private set; } = null!;
 
         /// <summary>
         /// Type of resource associated with the profile.

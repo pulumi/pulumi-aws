@@ -16,14 +16,14 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
     public static final RuleLockConfigurationUnlockDelayArgs Empty = new RuleLockConfigurationUnlockDelayArgs();
 
     /**
-     * The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+     * Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
      * 
      */
     @Import(name="unlockDelayUnit", required=true)
     private Output<String> unlockDelayUnit;
 
     /**
-     * @return The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+     * @return Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
      * 
      */
     public Output<String> unlockDelayUnit() {
@@ -31,14 +31,14 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
     }
 
     /**
-     * The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+     * Unlock delay period, measured in the unit specified for UnlockDelayUnit.
      * 
      */
     @Import(name="unlockDelayValue", required=true)
     private Output<Integer> unlockDelayValue;
 
     /**
-     * @return The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+     * @return Unlock delay period, measured in the unit specified for UnlockDelayUnit.
      * 
      */
     public Output<Integer> unlockDelayValue() {
@@ -71,7 +71,7 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
         }
 
         /**
-         * @param unlockDelayUnit The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+         * @param unlockDelayUnit Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
         }
 
         /**
-         * @param unlockDelayUnit The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+         * @param unlockDelayUnit Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
         }
 
         /**
-         * @param unlockDelayValue The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+         * @param unlockDelayValue Unlock delay period, measured in the unit specified for UnlockDelayUnit.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
         }
 
         /**
-         * @param unlockDelayValue The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+         * @param unlockDelayValue Unlock delay period, measured in the unit specified for UnlockDelayUnit.
          * 
          * @return builder
          * 

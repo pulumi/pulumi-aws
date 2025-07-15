@@ -31,7 +31,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.ApplicationAssignmentConfiguration("example", new()
     ///     {
-    ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
+    ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
     ///         AssignmentRequired = true,
     ///     });
     /// 

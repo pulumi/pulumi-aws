@@ -325,6 +325,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly aliases!: pulumi.Output<string[] | undefined>;
     /**
+     * ID of the Anycast static IP list that is associated with the distribution.
+     */
+    public readonly anycastIpListId!: pulumi.Output<string | undefined>;
+    /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -463,6 +467,7 @@ export class Distribution extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DistributionState | undefined;
             resourceInputs["aliases"] = state ? state.aliases : undefined;
+            resourceInputs["anycastIpListId"] = state ? state.anycastIpListId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["callerReference"] = state ? state.callerReference : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
@@ -512,6 +517,7 @@ export class Distribution extends pulumi.CustomResource {
                 throw new Error("Missing required property 'viewerCertificate'");
             }
             resourceInputs["aliases"] = args ? args.aliases : undefined;
+            resourceInputs["anycastIpListId"] = args ? args.anycastIpListId : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["continuousDeploymentPolicyId"] = args ? args.continuousDeploymentPolicyId : undefined;
             resourceInputs["customErrorResponses"] = args ? args.customErrorResponses : undefined;
@@ -557,6 +563,10 @@ export interface DistributionState {
      * Extra CNAMEs (alternate domain names), if any, for this distribution.
      */
     aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID of the Anycast static IP list that is associated with the distribution.
+     */
+    anycastIpListId?: pulumi.Input<string>;
     /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
@@ -691,6 +701,10 @@ export interface DistributionArgs {
      * Extra CNAMEs (alternate domain names), if any, for this distribution.
      */
     aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID of the Anycast static IP list that is associated with the distribution.
+     */
+    anycastIpListId?: pulumi.Input<string>;
     /**
      * Any comments you want to include about the distribution.
      */

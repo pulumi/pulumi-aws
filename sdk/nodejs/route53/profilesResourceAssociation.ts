@@ -68,7 +68,7 @@ export class ProfilesResourceAssociation extends pulumi.CustomResource {
     /**
      * Resource properties for the resource to be associated with the profile.
      */
-    public readonly resourceProperties!: pulumi.Output<string | undefined>;
+    public readonly resourceProperties!: pulumi.Output<string>;
     /**
      * Type of resource associated with the profile.
      */

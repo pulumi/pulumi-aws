@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -29,6 +30,7 @@ public final class GetStreamConsumerResult {
      */
     private String status;
     private String streamArn;
+    private Map<String,String> tags;
 
     private GetStreamConsumerResult() {}
     public String arn() {
@@ -64,6 +66,9 @@ public final class GetStreamConsumerResult {
     public String streamArn() {
         return this.streamArn;
     }
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -81,6 +86,7 @@ public final class GetStreamConsumerResult {
         private String region;
         private String status;
         private String streamArn;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetStreamConsumerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -91,6 +97,7 @@ public final class GetStreamConsumerResult {
     	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.streamArn = defaults.streamArn;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -149,6 +156,14 @@ public final class GetStreamConsumerResult {
             this.streamArn = streamArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetStreamConsumerResult build() {
             final var _resultValue = new GetStreamConsumerResult();
             _resultValue.arn = arn;
@@ -158,6 +173,7 @@ public final class GetStreamConsumerResult {
             _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.streamArn = streamArn;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

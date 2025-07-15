@@ -28,12 +28,14 @@ class RolePolicyArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a RolePolicy resource.
-        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The inline policy document.
+               This is a JSON formatted string.
+               For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
-        :param pulumi.Input[builtins.str] name: The name of the role policy. If omitted, this provider will
-               assign a random, unique name.
-        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
+        :param pulumi.Input[builtins.str] name: The name of the role policy.
+               If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix.
+               Conflicts with `name`.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "role", role)
@@ -46,7 +48,9 @@ class RolePolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
-        The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        The inline policy document.
+        This is a JSON formatted string.
+        For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         """
         return pulumi.get(self, "policy")
 
@@ -70,8 +74,8 @@ class RolePolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the role policy. If omitted, this provider will
-        assign a random, unique name.
+        The name of the role policy.
+        If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -83,8 +87,8 @@ class RolePolicyArgs:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix.
+        Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -102,11 +106,13 @@ class _RolePolicyState:
                  role: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering RolePolicy resources.
-        :param pulumi.Input[builtins.str] name: The name of the role policy. If omitted, this provider will
-               assign a random, unique name.
-        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        :param pulumi.Input[builtins.str] name: The name of the role policy.
+               If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix.
+               Conflicts with `name`.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The inline policy document.
+               This is a JSON formatted string.
+               For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
         """
         if name is not None:
@@ -122,8 +128,8 @@ class _RolePolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the role policy. If omitted, this provider will
-        assign a random, unique name.
+        The name of the role policy.
+        If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -135,8 +141,8 @@ class _RolePolicyState:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix.
+        Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -148,7 +154,9 @@ class _RolePolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
-        The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        The inline policy document.
+        This is a JSON formatted string.
+        For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         """
         return pulumi.get(self, "policy")
 
@@ -230,11 +238,13 @@ class RolePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] name: The name of the role policy. If omitted, this provider will
-               assign a random, unique name.
-        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        :param pulumi.Input[builtins.str] name: The name of the role policy.
+               If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix.
+               Conflicts with `name`.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The inline policy document.
+               This is a JSON formatted string.
+               For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
         """
         ...
@@ -348,11 +358,13 @@ class RolePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] name: The name of the role policy. If omitted, this provider will
-               assign a random, unique name.
-        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
-               prefix. Conflicts with `name`.
-        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        :param pulumi.Input[builtins.str] name: The name of the role policy.
+               If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix.
+               Conflicts with `name`.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The inline policy document.
+               This is a JSON formatted string.
+               For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         :param pulumi.Input[builtins.str] role: The name of the IAM role to attach to the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -369,8 +381,8 @@ class RolePolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the role policy. If omitted, this provider will
-        assign a random, unique name.
+        The name of the role policy.
+        If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -378,8 +390,8 @@ class RolePolicy(pulumi.CustomResource):
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[builtins.str]:
         """
-        Creates a unique name beginning with the specified
-        prefix. Conflicts with `name`.
+        Creates a unique name beginning with the specified prefix.
+        Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -387,7 +399,9 @@ class RolePolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[builtins.str]:
         """
-        The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        The inline policy document.
+        This is a JSON formatted string.
+        For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         """
         return pulumi.get(self, "policy")
 

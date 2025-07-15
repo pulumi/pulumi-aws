@@ -287,6 +287,8 @@ type Branch struct {
 	EnablePerformanceMode pulumi.BoolPtrOutput `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrOutput `pulumi:"enablePullRequestPreview"`
+	// Enables skew protection for the branch.
+	EnableSkewProtection pulumi.BoolPtrOutput `pulumi:"enableSkewProtection"`
 	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// Framework for the branch.
@@ -380,6 +382,8 @@ type branchState struct {
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	// Enables skew protection for the branch.
+	EnableSkewProtection *bool `pulumi:"enableSkewProtection"`
 	// Environment variables for the branch.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Framework for the branch.
@@ -431,6 +435,8 @@ type BranchState struct {
 	EnablePerformanceMode pulumi.BoolPtrInput
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrInput
+	// Enables skew protection for the branch.
+	EnableSkewProtection pulumi.BoolPtrInput
 	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapInput
 	// Framework for the branch.
@@ -478,6 +484,8 @@ type branchArgs struct {
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	// Enables skew protection for the branch.
+	EnableSkewProtection *bool `pulumi:"enableSkewProtection"`
 	// Environment variables for the branch.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Framework for the branch.
@@ -518,6 +526,8 @@ type BranchArgs struct {
 	EnablePerformanceMode pulumi.BoolPtrInput
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrInput
+	// Enables skew protection for the branch.
+	EnableSkewProtection pulumi.BoolPtrInput
 	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapInput
 	// Framework for the branch.
@@ -694,6 +704,11 @@ func (o BranchOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 // Enables pull request previews for this branch.
 func (o BranchOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
+}
+
+// Enables skew protection for the branch.
+func (o BranchOutput) EnableSkewProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnableSkewProtection }).(pulumi.BoolPtrOutput)
 }
 
 // Environment variables for the branch.

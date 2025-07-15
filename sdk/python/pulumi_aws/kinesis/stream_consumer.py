@@ -22,7 +22,8 @@ class StreamConsumerArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a StreamConsumer resource.
         :param pulumi.Input[builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
@@ -34,6 +35,8 @@ class StreamConsumerArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -71,6 +74,15 @@ class StreamConsumerArgs:
     def region(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _StreamConsumerState:
@@ -79,7 +91,9 @@ class _StreamConsumerState:
                  creation_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering StreamConsumer resources.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the stream consumer.
@@ -98,6 +112,10 @@ class _StreamConsumerState:
             pulumi.set(__self__, "region", region)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -159,6 +177,24 @@ class _StreamConsumerState:
     def stream_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "stream_arn", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.type_token("aws:kinesis/streamConsumer:StreamConsumer")
 class StreamConsumer(pulumi.CustomResource):
@@ -169,6 +205,7 @@ class StreamConsumer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage a Kinesis Stream Consumer.
@@ -258,6 +295,7 @@ class StreamConsumer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -272,8 +310,10 @@ class StreamConsumer(pulumi.CustomResource):
             if stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_arn'")
             __props__.__dict__["stream_arn"] = stream_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_timestamp"] = None
+            __props__.__dict__["tags_all"] = None
         super(StreamConsumer, __self__).__init__(
             'aws:kinesis/streamConsumer:StreamConsumer',
             resource_name,
@@ -288,7 +328,9 @@ class StreamConsumer(pulumi.CustomResource):
             creation_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
-            stream_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'StreamConsumer':
+            stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'StreamConsumer':
         """
         Get an existing StreamConsumer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -311,6 +353,8 @@ class StreamConsumer(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["stream_arn"] = stream_arn
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return StreamConsumer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -352,4 +396,14 @@ class StreamConsumer(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         """
         return pulumi.get(self, "stream_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
+        return pulumi.get(self, "tags_all")
 

@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression {
+    /**
+     * @return Regular expression string.
+     * 
+     */
     private @Nullable String regexString;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression() {}
+    /**
+     * @return Regular expression string.
+     * 
+     */
     public Optional<String> regexString() {
         return Optional.ofNullable(this.regexString);
     }

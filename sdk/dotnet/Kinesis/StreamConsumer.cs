@@ -82,6 +82,12 @@ namespace Pulumi.Aws.Kinesis
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a StreamConsumer resource with the given unique name, arguments, and options.
@@ -146,6 +152,14 @@ namespace Pulumi.Aws.Kinesis
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public StreamConsumerArgs()
         {
         }
@@ -183,6 +197,22 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public StreamConsumerState()
         {

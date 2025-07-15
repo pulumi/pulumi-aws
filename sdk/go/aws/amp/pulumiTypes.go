@@ -13,6 +13,565 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type QueryLoggingConfigurationDestination struct {
+	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+	CloudwatchLogs *QueryLoggingConfigurationDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+	Filters *QueryLoggingConfigurationDestinationFilters `pulumi:"filters"`
+}
+
+// QueryLoggingConfigurationDestinationInput is an input type that accepts QueryLoggingConfigurationDestinationArgs and QueryLoggingConfigurationDestinationOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationDestinationInput` via:
+//
+//	QueryLoggingConfigurationDestinationArgs{...}
+type QueryLoggingConfigurationDestinationInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationDestinationOutput() QueryLoggingConfigurationDestinationOutput
+	ToQueryLoggingConfigurationDestinationOutputWithContext(context.Context) QueryLoggingConfigurationDestinationOutput
+}
+
+type QueryLoggingConfigurationDestinationArgs struct {
+	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+	Filters QueryLoggingConfigurationDestinationFiltersPtrInput `pulumi:"filters"`
+}
+
+func (QueryLoggingConfigurationDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationDestination)(nil)).Elem()
+}
+
+func (i QueryLoggingConfigurationDestinationArgs) ToQueryLoggingConfigurationDestinationOutput() QueryLoggingConfigurationDestinationOutput {
+	return i.ToQueryLoggingConfigurationDestinationOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationDestinationArgs) ToQueryLoggingConfigurationDestinationOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationOutput)
+}
+
+// QueryLoggingConfigurationDestinationArrayInput is an input type that accepts QueryLoggingConfigurationDestinationArray and QueryLoggingConfigurationDestinationArrayOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationDestinationArrayInput` via:
+//
+//	QueryLoggingConfigurationDestinationArray{ QueryLoggingConfigurationDestinationArgs{...} }
+type QueryLoggingConfigurationDestinationArrayInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationDestinationArrayOutput() QueryLoggingConfigurationDestinationArrayOutput
+	ToQueryLoggingConfigurationDestinationArrayOutputWithContext(context.Context) QueryLoggingConfigurationDestinationArrayOutput
+}
+
+type QueryLoggingConfigurationDestinationArray []QueryLoggingConfigurationDestinationInput
+
+func (QueryLoggingConfigurationDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryLoggingConfigurationDestination)(nil)).Elem()
+}
+
+func (i QueryLoggingConfigurationDestinationArray) ToQueryLoggingConfigurationDestinationArrayOutput() QueryLoggingConfigurationDestinationArrayOutput {
+	return i.ToQueryLoggingConfigurationDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationDestinationArray) ToQueryLoggingConfigurationDestinationArrayOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationArrayOutput)
+}
+
+type QueryLoggingConfigurationDestinationOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationDestination)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationDestinationOutput) ToQueryLoggingConfigurationDestinationOutput() QueryLoggingConfigurationDestinationOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationOutput) ToQueryLoggingConfigurationDestinationOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationOutput {
+	return o
+}
+
+// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+func (o QueryLoggingConfigurationDestinationOutput) CloudwatchLogs() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationDestination) *QueryLoggingConfigurationDestinationCloudwatchLogs {
+		return v.CloudwatchLogs
+	}).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
+}
+
+// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+func (o QueryLoggingConfigurationDestinationOutput) Filters() QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationDestination) *QueryLoggingConfigurationDestinationFilters {
+		return v.Filters
+	}).(QueryLoggingConfigurationDestinationFiltersPtrOutput)
+}
+
+type QueryLoggingConfigurationDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryLoggingConfigurationDestination)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationDestinationArrayOutput) ToQueryLoggingConfigurationDestinationArrayOutput() QueryLoggingConfigurationDestinationArrayOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationArrayOutput) ToQueryLoggingConfigurationDestinationArrayOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationArrayOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationArrayOutput) Index(i pulumi.IntInput) QueryLoggingConfigurationDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryLoggingConfigurationDestination {
+		return vs[0].([]QueryLoggingConfigurationDestination)[vs[1].(int)]
+	}).(QueryLoggingConfigurationDestinationOutput)
+}
+
+type QueryLoggingConfigurationDestinationCloudwatchLogs struct {
+	// The ARN of the CloudWatch log group to which query logs will be sent.
+	LogGroupArn string `pulumi:"logGroupArn"`
+}
+
+// QueryLoggingConfigurationDestinationCloudwatchLogsInput is an input type that accepts QueryLoggingConfigurationDestinationCloudwatchLogsArgs and QueryLoggingConfigurationDestinationCloudwatchLogsOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationDestinationCloudwatchLogsInput` via:
+//
+//	QueryLoggingConfigurationDestinationCloudwatchLogsArgs{...}
+type QueryLoggingConfigurationDestinationCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationDestinationCloudwatchLogsOutput() QueryLoggingConfigurationDestinationCloudwatchLogsOutput
+	ToQueryLoggingConfigurationDestinationCloudwatchLogsOutputWithContext(context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsOutput
+}
+
+type QueryLoggingConfigurationDestinationCloudwatchLogsArgs struct {
+	// The ARN of the CloudWatch log group to which query logs will be sent.
+	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
+}
+
+func (QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (i QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ToQueryLoggingConfigurationDestinationCloudwatchLogsOutput() QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
+	return i.ToQueryLoggingConfigurationDestinationCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ToQueryLoggingConfigurationDestinationCloudwatchLogsOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
+}
+
+func (i QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return i.ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput).ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput is an input type that accepts QueryLoggingConfigurationDestinationCloudwatchLogsArgs, QueryLoggingConfigurationDestinationCloudwatchLogsPtr and QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput` via:
+//
+//	        QueryLoggingConfigurationDestinationCloudwatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput
+	ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput
+}
+
+type queryLoggingConfigurationDestinationCloudwatchLogsPtrType QueryLoggingConfigurationDestinationCloudwatchLogsArgs
+
+func QueryLoggingConfigurationDestinationCloudwatchLogsPtr(v *QueryLoggingConfigurationDestinationCloudwatchLogsArgs) QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput {
+	return (*queryLoggingConfigurationDestinationCloudwatchLogsPtrType)(v)
+}
+
+func (*queryLoggingConfigurationDestinationCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLoggingConfigurationDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *queryLoggingConfigurationDestinationCloudwatchLogsPtrType) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return i.ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *queryLoggingConfigurationDestinationCloudwatchLogsPtrType) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
+}
+
+type QueryLoggingConfigurationDestinationCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsOutput() QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return o.ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryLoggingConfigurationDestinationCloudwatchLogs) *QueryLoggingConfigurationDestinationCloudwatchLogs {
+		return &v
+	}).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
+}
+
+// The ARN of the CloudWatch log group to which query logs will be sent.
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) LogGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationDestinationCloudwatchLogs) string { return v.LogGroupArn }).(pulumi.StringOutput)
+}
+
+type QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLoggingConfigurationDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) Elem() QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationCloudwatchLogs) QueryLoggingConfigurationDestinationCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret QueryLoggingConfigurationDestinationCloudwatchLogs
+		return ret
+	}).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
+}
+
+// The ARN of the CloudWatch log group to which query logs will be sent.
+func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type QueryLoggingConfigurationDestinationFilters struct {
+	// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+	QspThreshold int `pulumi:"qspThreshold"`
+}
+
+// QueryLoggingConfigurationDestinationFiltersInput is an input type that accepts QueryLoggingConfigurationDestinationFiltersArgs and QueryLoggingConfigurationDestinationFiltersOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationDestinationFiltersInput` via:
+//
+//	QueryLoggingConfigurationDestinationFiltersArgs{...}
+type QueryLoggingConfigurationDestinationFiltersInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationDestinationFiltersOutput() QueryLoggingConfigurationDestinationFiltersOutput
+	ToQueryLoggingConfigurationDestinationFiltersOutputWithContext(context.Context) QueryLoggingConfigurationDestinationFiltersOutput
+}
+
+type QueryLoggingConfigurationDestinationFiltersArgs struct {
+	// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+	QspThreshold pulumi.IntInput `pulumi:"qspThreshold"`
+}
+
+func (QueryLoggingConfigurationDestinationFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationDestinationFilters)(nil)).Elem()
+}
+
+func (i QueryLoggingConfigurationDestinationFiltersArgs) ToQueryLoggingConfigurationDestinationFiltersOutput() QueryLoggingConfigurationDestinationFiltersOutput {
+	return i.ToQueryLoggingConfigurationDestinationFiltersOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationDestinationFiltersArgs) ToQueryLoggingConfigurationDestinationFiltersOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationFiltersOutput)
+}
+
+func (i QueryLoggingConfigurationDestinationFiltersArgs) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return i.ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationDestinationFiltersArgs) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationFiltersOutput).ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx)
+}
+
+// QueryLoggingConfigurationDestinationFiltersPtrInput is an input type that accepts QueryLoggingConfigurationDestinationFiltersArgs, QueryLoggingConfigurationDestinationFiltersPtr and QueryLoggingConfigurationDestinationFiltersPtrOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationDestinationFiltersPtrInput` via:
+//
+//	        QueryLoggingConfigurationDestinationFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueryLoggingConfigurationDestinationFiltersPtrInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput
+	ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput
+}
+
+type queryLoggingConfigurationDestinationFiltersPtrType QueryLoggingConfigurationDestinationFiltersArgs
+
+func QueryLoggingConfigurationDestinationFiltersPtr(v *QueryLoggingConfigurationDestinationFiltersArgs) QueryLoggingConfigurationDestinationFiltersPtrInput {
+	return (*queryLoggingConfigurationDestinationFiltersPtrType)(v)
+}
+
+func (*queryLoggingConfigurationDestinationFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLoggingConfigurationDestinationFilters)(nil)).Elem()
+}
+
+func (i *queryLoggingConfigurationDestinationFiltersPtrType) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return i.ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *queryLoggingConfigurationDestinationFiltersPtrType) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationFiltersPtrOutput)
+}
+
+type QueryLoggingConfigurationDestinationFiltersOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationDestinationFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationDestinationFilters)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigurationDestinationFiltersOutput() QueryLoggingConfigurationDestinationFiltersOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigurationDestinationFiltersOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return o.ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryLoggingConfigurationDestinationFilters) *QueryLoggingConfigurationDestinationFilters {
+		return &v
+	}).(QueryLoggingConfigurationDestinationFiltersPtrOutput)
+}
+
+// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+func (o QueryLoggingConfigurationDestinationFiltersOutput) QspThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationDestinationFilters) int { return v.QspThreshold }).(pulumi.IntOutput)
+}
+
+type QueryLoggingConfigurationDestinationFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationDestinationFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLoggingConfigurationDestinationFilters)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) Elem() QueryLoggingConfigurationDestinationFiltersOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationFilters) QueryLoggingConfigurationDestinationFilters {
+		if v != nil {
+			return *v
+		}
+		var ret QueryLoggingConfigurationDestinationFilters
+		return ret
+	}).(QueryLoggingConfigurationDestinationFiltersOutput)
+}
+
+// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) QspThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationFilters) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.QspThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type QueryLoggingConfigurationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// QueryLoggingConfigurationTimeoutsInput is an input type that accepts QueryLoggingConfigurationTimeoutsArgs and QueryLoggingConfigurationTimeoutsOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationTimeoutsInput` via:
+//
+//	QueryLoggingConfigurationTimeoutsArgs{...}
+type QueryLoggingConfigurationTimeoutsInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationTimeoutsOutput() QueryLoggingConfigurationTimeoutsOutput
+	ToQueryLoggingConfigurationTimeoutsOutputWithContext(context.Context) QueryLoggingConfigurationTimeoutsOutput
+}
+
+type QueryLoggingConfigurationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (QueryLoggingConfigurationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i QueryLoggingConfigurationTimeoutsArgs) ToQueryLoggingConfigurationTimeoutsOutput() QueryLoggingConfigurationTimeoutsOutput {
+	return i.ToQueryLoggingConfigurationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationTimeoutsArgs) ToQueryLoggingConfigurationTimeoutsOutputWithContext(ctx context.Context) QueryLoggingConfigurationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationTimeoutsOutput)
+}
+
+func (i QueryLoggingConfigurationTimeoutsArgs) ToQueryLoggingConfigurationTimeoutsPtrOutput() QueryLoggingConfigurationTimeoutsPtrOutput {
+	return i.ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i QueryLoggingConfigurationTimeoutsArgs) ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationTimeoutsOutput).ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// QueryLoggingConfigurationTimeoutsPtrInput is an input type that accepts QueryLoggingConfigurationTimeoutsArgs, QueryLoggingConfigurationTimeoutsPtr and QueryLoggingConfigurationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `QueryLoggingConfigurationTimeoutsPtrInput` via:
+//
+//	        QueryLoggingConfigurationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueryLoggingConfigurationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToQueryLoggingConfigurationTimeoutsPtrOutput() QueryLoggingConfigurationTimeoutsPtrOutput
+	ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(context.Context) QueryLoggingConfigurationTimeoutsPtrOutput
+}
+
+type queryLoggingConfigurationTimeoutsPtrType QueryLoggingConfigurationTimeoutsArgs
+
+func QueryLoggingConfigurationTimeoutsPtr(v *QueryLoggingConfigurationTimeoutsArgs) QueryLoggingConfigurationTimeoutsPtrInput {
+	return (*queryLoggingConfigurationTimeoutsPtrType)(v)
+}
+
+func (*queryLoggingConfigurationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i *queryLoggingConfigurationTimeoutsPtrType) ToQueryLoggingConfigurationTimeoutsPtrOutput() QueryLoggingConfigurationTimeoutsPtrOutput {
+	return i.ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *queryLoggingConfigurationTimeoutsPtrType) ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationTimeoutsPtrOutput)
+}
+
+type QueryLoggingConfigurationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationTimeoutsOutput) ToQueryLoggingConfigurationTimeoutsOutput() QueryLoggingConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationTimeoutsOutput) ToQueryLoggingConfigurationTimeoutsOutputWithContext(ctx context.Context) QueryLoggingConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationTimeoutsOutput) ToQueryLoggingConfigurationTimeoutsPtrOutput() QueryLoggingConfigurationTimeoutsPtrOutput {
+	return o.ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o QueryLoggingConfigurationTimeoutsOutput) ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryLoggingConfigurationTimeouts) *QueryLoggingConfigurationTimeouts {
+		return &v
+	}).(QueryLoggingConfigurationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QueryLoggingConfigurationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o QueryLoggingConfigurationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QueryLoggingConfigurationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type QueryLoggingConfigurationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (QueryLoggingConfigurationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o QueryLoggingConfigurationTimeoutsPtrOutput) ToQueryLoggingConfigurationTimeoutsPtrOutput() QueryLoggingConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationTimeoutsPtrOutput) ToQueryLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o QueryLoggingConfigurationTimeoutsPtrOutput) Elem() QueryLoggingConfigurationTimeoutsOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationTimeouts) QueryLoggingConfigurationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret QueryLoggingConfigurationTimeouts
+		return ret
+	}).(QueryLoggingConfigurationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QueryLoggingConfigurationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o QueryLoggingConfigurationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QueryLoggingConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueryLoggingConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScraperDestination struct {
 	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
 	Amp *ScraperDestinationAmp `pulumi:"amp"`
@@ -1465,6 +2024,14 @@ func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationInput)(nil)).Elem(), QueryLoggingConfigurationDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationArrayInput)(nil)).Elem(), QueryLoggingConfigurationDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationCloudwatchLogsInput)(nil)).Elem(), QueryLoggingConfigurationDestinationCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput)(nil)).Elem(), QueryLoggingConfigurationDestinationCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationFiltersInput)(nil)).Elem(), QueryLoggingConfigurationDestinationFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationFiltersPtrInput)(nil)).Elem(), QueryLoggingConfigurationDestinationFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationTimeoutsInput)(nil)).Elem(), QueryLoggingConfigurationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationTimeoutsPtrInput)(nil)).Elem(), QueryLoggingConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationPtrInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpInput)(nil)).Elem(), ScraperDestinationAmpArgs{})
@@ -1485,6 +2052,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationTimeoutsPtrInput)(nil)).Elem(), WorkspaceConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationOutput{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationArrayOutput{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationFiltersOutput{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationFiltersPtrOutput{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationTimeoutsOutput{})
+	pulumi.RegisterOutputType(QueryLoggingConfigurationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpOutput{})

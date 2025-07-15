@@ -71,7 +71,9 @@ type StreamConsumer struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
+	StreamArn pulumi.StringOutput    `pulumi:"streamArn"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewStreamConsumer registers a new resource with the given unique name, arguments, and options.
@@ -116,7 +118,9 @@ type streamConsumerState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-	StreamArn *string `pulumi:"streamArn"`
+	StreamArn *string           `pulumi:"streamArn"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 type StreamConsumerState struct {
@@ -130,6 +134,8 @@ type StreamConsumerState struct {
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (StreamConsumerState) ElementType() reflect.Type {
@@ -142,7 +148,8 @@ type streamConsumerArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
-	StreamArn string `pulumi:"streamArn"`
+	StreamArn string            `pulumi:"streamArn"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamConsumer resource.
@@ -153,6 +160,7 @@ type StreamConsumerArgs struct {
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn pulumi.StringInput
+	Tags      pulumi.StringMapInput
 }
 
 func (StreamConsumerArgs) ElementType() reflect.Type {
@@ -265,6 +273,14 @@ func (o StreamConsumerOutput) Region() pulumi.StringOutput {
 // Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 func (o StreamConsumerOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+func (o StreamConsumerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o StreamConsumerOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type StreamConsumerArrayOutput struct{ *pulumi.OutputState }

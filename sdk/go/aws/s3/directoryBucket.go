@@ -97,6 +97,10 @@ type DirectoryBucket struct {
 	Location DirectoryBucketLocationPtrOutput `pulumi:"location"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -146,6 +150,10 @@ type directoryBucketState struct {
 	Location *DirectoryBucketLocation `pulumi:"location"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Bucket type. Valid values: `Directory`.
 	Type *string `pulumi:"type"`
 }
@@ -163,6 +171,10 @@ type DirectoryBucketState struct {
 	Location DirectoryBucketLocationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringPtrInput
 }
@@ -182,6 +194,8 @@ type directoryBucketArgs struct {
 	Location *DirectoryBucketLocation `pulumi:"location"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Bucket type. Valid values: `Directory`.
 	Type *string `pulumi:"type"`
 }
@@ -198,6 +212,8 @@ type DirectoryBucketArgs struct {
 	Location DirectoryBucketLocationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringPtrInput
 }
@@ -317,6 +333,16 @@ func (o DirectoryBucketOutput) Location() DirectoryBucketLocationPtrOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DirectoryBucketOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o DirectoryBucketOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o DirectoryBucketOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Bucket type. Valid values: `Directory`.

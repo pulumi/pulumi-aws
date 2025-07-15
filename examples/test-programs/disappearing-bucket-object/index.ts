@@ -11,3 +11,5 @@ if (cfg.get("bucket-object") !== "exclude") {
         source: new pulumi.asset.FileAsset("index.ts"),
     });
 }
+
+export const bucketName = b.bucket;

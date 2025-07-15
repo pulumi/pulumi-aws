@@ -1323,9 +1323,13 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 	//
 	//     log.Printf("[WARN] S3 Object (%s) not found, removing from state", d.Id())
 	//
+	outputs, err := test.CurrentStack().Outputs(test.Context())
+	require.NoError(t, err)
+	bucketName, ok := outputs["bucketName"].Value.(string)
+	require.True(t, ok)
 	assert.Containsf(t,
 		rr.StdErr+rr.StdOut,
-		"warning: S3 Object (index.ts) not found, removing from state",
+		fmt.Sprintf("warning: S3 Object (%s/index.ts) not found, removing from state", bucketName),
 		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
 }
 

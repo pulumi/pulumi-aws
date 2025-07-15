@@ -141,6 +141,55 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
+    /// ### Global Tables with Multi-Region Strong Consistency
+    /// 
+    /// A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
+    /// 
+    /// **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+    /// 
+    /// Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "TestTableHashKey",
+    ///                 Type = "S",
+    ///             },
+    ///         },
+    ///         Replicas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = "us-east-2",
+    ///                 ConsistencyMode = "STRONG",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = "us-west-2",
+    ///                 ConsistencyMode = "STRONG",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Replica Tagging
     /// 
     /// You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.

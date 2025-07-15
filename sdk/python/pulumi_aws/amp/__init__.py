@@ -10,6 +10,7 @@ from .alert_manager_definition import *
 from .get_default_scraper_configuration import *
 from .get_workspace import *
 from .get_workspaces import *
+from .query_logging_configuration import *
 from .rule_group_namespace import *
 from .scraper import *
 from .workspace import *

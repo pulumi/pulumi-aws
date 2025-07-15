@@ -16,6 +16,14 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'QueryLoggingConfigurationDestinationArgs',
+    'QueryLoggingConfigurationDestinationArgsDict',
+    'QueryLoggingConfigurationDestinationCloudwatchLogsArgs',
+    'QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict',
+    'QueryLoggingConfigurationDestinationFiltersArgs',
+    'QueryLoggingConfigurationDestinationFiltersArgsDict',
+    'QueryLoggingConfigurationTimeoutsArgs',
+    'QueryLoggingConfigurationTimeoutsArgsDict',
     'ScraperDestinationArgs',
     'ScraperDestinationArgsDict',
     'ScraperDestinationAmpArgs',
@@ -39,6 +47,192 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class QueryLoggingConfigurationDestinationArgsDict(TypedDict):
+        cloudwatch_logs: NotRequired[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict']]
+        """
+        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+        """
+        filters: NotRequired[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgsDict']]
+        """
+        A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+        """
+elif False:
+    QueryLoggingConfigurationDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QueryLoggingConfigurationDestinationArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs: Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']] = None,
+                 filters: Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']] = None):
+        """
+        :param pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+        :param pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs'] filters: A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']]:
+        """
+        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgs']]):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']]:
+        """
+        A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgs']]):
+        pulumi.set(self, "filters", value)
+
+
+if not MYPY:
+    class QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict(TypedDict):
+        log_group_arn: pulumi.Input[builtins.str]
+        """
+        The ARN of the CloudWatch log group to which query logs will be sent.
+        """
+elif False:
+    QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QueryLoggingConfigurationDestinationCloudwatchLogsArgs:
+    def __init__(__self__, *,
+                 log_group_arn: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent.
+        """
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        The ARN of the CloudWatch log group to which query logs will be sent.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "log_group_arn", value)
+
+
+if not MYPY:
+    class QueryLoggingConfigurationDestinationFiltersArgsDict(TypedDict):
+        qsp_threshold: pulumi.Input[builtins.int]
+        """
+        The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+        """
+elif False:
+    QueryLoggingConfigurationDestinationFiltersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QueryLoggingConfigurationDestinationFiltersArgs:
+    def __init__(__self__, *,
+                 qsp_threshold: pulumi.Input[builtins.int]):
+        """
+        :param pulumi.Input[builtins.int] qsp_threshold: The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+        """
+        pulumi.set(__self__, "qsp_threshold", qsp_threshold)
+
+    @property
+    @pulumi.getter(name="qspThreshold")
+    def qsp_threshold(self) -> pulumi.Input[builtins.int]:
+        """
+        The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+        """
+        return pulumi.get(self, "qsp_threshold")
+
+    @qsp_threshold.setter
+    def qsp_threshold(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "qsp_threshold", value)
+
+
+if not MYPY:
+    class QueryLoggingConfigurationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    QueryLoggingConfigurationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QueryLoggingConfigurationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[builtins.str]] = None,
+                 delete: Optional[pulumi.Input[builtins.str]] = None,
+                 update: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "update", value)
+
 
 if not MYPY:
     class ScraperDestinationArgsDict(TypedDict):

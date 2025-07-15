@@ -856,18 +856,26 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult(dict):
     def __init__(__self__, *,
                  asn_ranges: Sequence[builtins.str],
                  edge_locations: Sequence['outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult'],
+                 dns_support: Optional[builtins.bool] = None,
                  inside_cidr_blocks: Optional[Sequence[builtins.str]] = None,
+                 security_group_referencing_support: Optional[builtins.bool] = None,
                  vpn_ecmp_support: Optional[builtins.bool] = None):
         """
         :param Sequence[builtins.str] asn_ranges: List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
         :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'] edge_locations: A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
+        :param builtins.bool dns_support: Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
         :param Sequence[builtins.str] inside_cidr_blocks: The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
+        :param builtins.bool security_group_referencing_support: — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
         :param builtins.bool vpn_ecmp_support: Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
         """
         pulumi.set(__self__, "asn_ranges", asn_ranges)
         pulumi.set(__self__, "edge_locations", edge_locations)
+        if dns_support is not None:
+            pulumi.set(__self__, "dns_support", dns_support)
         if inside_cidr_blocks is not None:
             pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if vpn_ecmp_support is not None:
             pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
@@ -888,12 +896,28 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult(dict):
         return pulumi.get(self, "edge_locations")
 
     @property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+        """
+        return pulumi.get(self, "dns_support")
+
+    @property
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[Sequence[builtins.str]]:
         """
         The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         """
         return pulumi.get(self, "inside_cidr_blocks")
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[builtins.bool]:
+        """
+        — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+        """
+        return pulumi.get(self, "security_group_referencing_support")
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")

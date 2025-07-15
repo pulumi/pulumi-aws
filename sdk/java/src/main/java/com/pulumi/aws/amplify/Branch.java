@@ -463,6 +463,20 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enablePullRequestPreview);
     }
     /**
+     * Enables skew protection for the branch.
+     * 
+     */
+    @Export(name="enableSkewProtection", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableSkewProtection;
+
+    /**
+     * @return Enables skew protection for the branch.
+     * 
+     */
+    public Output<Optional<Boolean>> enableSkewProtection() {
+        return Codegen.optional(this.enableSkewProtection);
+    }
+    /**
      * Environment variables for the branch.
      * 
      */

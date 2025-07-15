@@ -33,6 +33,21 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+     * 
+     */
+    @Import(name="consistencyMode")
+    private @Nullable Output<String> consistencyMode;
+
+    /**
+     * @return Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+     * 
+     */
+    public Optional<Output<String>> consistencyMode() {
+        return Optional.ofNullable(this.consistencyMode);
+    }
+
+    /**
      * ARN of the CMK that should be used for the AWS KMS encryption.
      * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
      * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -142,6 +157,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
 
     private TableReplicaArgs(TableReplicaArgs $) {
         this.arn = $.arn;
+        this.consistencyMode = $.consistencyMode;
         this.kmsKeyArn = $.kmsKeyArn;
         this.pointInTimeRecovery = $.pointInTimeRecovery;
         this.propagateTags = $.propagateTags;
@@ -187,6 +203,27 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param consistencyMode Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consistencyMode(@Nullable Output<String> consistencyMode) {
+            $.consistencyMode = consistencyMode;
+            return this;
+        }
+
+        /**
+         * @param consistencyMode Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consistencyMode(String consistencyMode) {
+            return consistencyMode(Output.of(consistencyMode));
         }
 
         /**

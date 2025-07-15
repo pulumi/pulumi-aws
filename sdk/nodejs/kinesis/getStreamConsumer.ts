@@ -28,6 +28,7 @@ export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.Inv
         "name": args.name,
         "region": args.region,
         "streamArn": args.streamArn,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -51,6 +52,7 @@ export interface GetStreamConsumerArgs {
      * ARN of the data stream the consumer is registered with.
      */
     streamArn: string;
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -73,6 +75,7 @@ export interface GetStreamConsumerResult {
      */
     readonly status: string;
     readonly streamArn: string;
+    readonly tags: {[key: string]: string};
 }
 /**
  * Provides details about a Kinesis Stream Consumer.
@@ -98,6 +101,7 @@ export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?
         "name": args.name,
         "region": args.region,
         "streamArn": args.streamArn,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -121,4 +125,5 @@ export interface GetStreamConsumerOutputArgs {
      * ARN of the data stream the consumer is registered with.
      */
     streamArn: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

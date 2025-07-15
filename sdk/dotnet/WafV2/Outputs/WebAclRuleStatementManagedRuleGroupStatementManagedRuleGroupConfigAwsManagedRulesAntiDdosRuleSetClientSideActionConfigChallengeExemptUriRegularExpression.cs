@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression
     {
+        /// <summary>
+        /// Regular expression string.
+        /// </summary>
         public readonly string? RegexString;
 
         [OutputConstructor]

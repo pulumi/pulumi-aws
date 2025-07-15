@@ -31,10 +31,50 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description:  pulumi.String("example_rule"),
+//				Description:  pulumi.String("Example tag-level retention rule"),
 //				ResourceType: pulumi.String("EBS_SNAPSHOT"),
 //				ResourceTags: rbin.RuleResourceTagArray{
 //					&rbin.RuleResourceTagArgs{
+//						ResourceTagKey:   pulumi.String("tag_key"),
+//						ResourceTagValue: pulumi.String("tag_value"),
+//					},
+//				},
+//				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
+//					RetentionPeriodValue: pulumi.Int(10),
+//					RetentionPeriodUnit:  pulumi.String("DAYS"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"test_tag_key": pulumi.String("test_tag_value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Region-Level Retention Rule
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rbin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
+//				Description:  pulumi.String("Example region-level retention rule with exclusion tags"),
+//				ResourceType: pulumi.String("EC2_IMAGE"),
+//				ExcludeResourceTags: rbin.RuleExcludeResourceTagArray{
+//					&rbin.RuleExcludeResourceTagArgs{
 //						ResourceTagKey:   pulumi.String("tag_key"),
 //						ResourceTagValue: pulumi.String("tag_value"),
 //					},
@@ -67,25 +107,27 @@ type Rule struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The retention rule description.
+	// Retention rule description.
 	Description pulumi.StringOutput `pulumi:"description"`
+	// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
+	ExcludeResourceTags RuleExcludeResourceTagArrayOutput `pulumi:"excludeResourceTags"`
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration RuleLockConfigurationPtrOutput `pulumi:"lockConfiguration"`
-	// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+	// (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
 	LockEndTime pulumi.StringOutput `pulumi:"lockEndTime"`
-	// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
+	// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
 	LockState pulumi.StringOutput `pulumi:"lockState"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
+	// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags RuleResourceTagArrayOutput `pulumi:"resourceTags"`
-	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+	// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
 	//
 	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodOutput `pulumi:"retentionPeriod"`
-	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+	// (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  pulumi.StringOutput    `pulumi:"status"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -128,25 +170,27 @@ func GetRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
 	Arn *string `pulumi:"arn"`
-	// The retention rule description.
+	// Retention rule description.
 	Description *string `pulumi:"description"`
+	// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
+	ExcludeResourceTags []RuleExcludeResourceTag `pulumi:"excludeResourceTags"`
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration *RuleLockConfiguration `pulumi:"lockConfiguration"`
-	// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+	// (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
 	LockEndTime *string `pulumi:"lockEndTime"`
-	// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
+	// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
 	LockState *string `pulumi:"lockState"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
+	// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags []RuleResourceTag `pulumi:"resourceTags"`
-	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+	// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType *string `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
 	//
 	// The following arguments are optional:
 	RetentionPeriod *RuleRetentionPeriod `pulumi:"retentionPeriod"`
-	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+	// (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  *string           `pulumi:"status"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -154,25 +198,27 @@ type ruleState struct {
 
 type RuleState struct {
 	Arn pulumi.StringPtrInput
-	// The retention rule description.
+	// Retention rule description.
 	Description pulumi.StringPtrInput
+	// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
+	ExcludeResourceTags RuleExcludeResourceTagArrayInput
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration RuleLockConfigurationPtrInput
-	// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+	// (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
 	LockEndTime pulumi.StringPtrInput
-	// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
+	// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
 	LockState pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
+	// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags RuleResourceTagArrayInput
-	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+	// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringPtrInput
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
 	//
 	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodPtrInput
-	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+	// (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -183,15 +229,17 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	// The retention rule description.
+	// Retention rule description.
 	Description *string `pulumi:"description"`
+	// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
+	ExcludeResourceTags []RuleExcludeResourceTag `pulumi:"excludeResourceTags"`
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration *RuleLockConfiguration `pulumi:"lockConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
+	// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags []RuleResourceTag `pulumi:"resourceTags"`
-	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+	// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType string `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
 	//
@@ -202,15 +250,17 @@ type ruleArgs struct {
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// The retention rule description.
+	// Retention rule description.
 	Description pulumi.StringPtrInput
+	// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
+	ExcludeResourceTags RuleExcludeResourceTagArrayInput
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration RuleLockConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
+	// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags RuleResourceTagArrayInput
-	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+	// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringInput
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
 	//
@@ -310,9 +360,14 @@ func (o RuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The retention rule description.
+// Retention rule description.
 func (o RuleOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `excludeResourceTags` below.
+func (o RuleOutput) ExcludeResourceTags() RuleExcludeResourceTagArrayOutput {
+	return o.ApplyT(func(v *Rule) RuleExcludeResourceTagArrayOutput { return v.ExcludeResourceTags }).(RuleExcludeResourceTagArrayOutput)
 }
 
 // Information about the retention rule lock configuration. See `lockConfiguration` below.
@@ -320,12 +375,12 @@ func (o RuleOutput) LockConfiguration() RuleLockConfigurationPtrOutput {
 	return o.ApplyT(func(v *Rule) RuleLockConfigurationPtrOutput { return v.LockConfiguration }).(RuleLockConfigurationPtrOutput)
 }
 
-// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+// (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
 func (o RuleOutput) LockEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LockEndTime }).(pulumi.StringOutput)
 }
 
-// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
+// (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
 func (o RuleOutput) LockState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LockState }).(pulumi.StringOutput)
 }
@@ -335,12 +390,12 @@ func (o RuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
+// Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 func (o RuleOutput) ResourceTags() RuleResourceTagArrayOutput {
 	return o.ApplyT(func(v *Rule) RuleResourceTagArrayOutput { return v.ResourceTags }).(RuleResourceTagArrayOutput)
 }
 
-// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+// Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 func (o RuleOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -352,7 +407,7 @@ func (o RuleOutput) RetentionPeriod() RuleRetentionPeriodOutput {
 	return o.ApplyT(func(v *Rule) RuleRetentionPeriodOutput { return v.RetentionPeriod }).(RuleRetentionPeriodOutput)
 }
 
-// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+// (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 func (o RuleOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

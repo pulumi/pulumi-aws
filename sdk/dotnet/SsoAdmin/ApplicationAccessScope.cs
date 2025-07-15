@@ -35,7 +35,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleApplicationAccessScope = new Aws.SsoAdmin.ApplicationAccessScope("example", new()
     ///     {
-    ///         ApplicationArn = exampleApplication.ApplicationArn,
+    ///         ApplicationArn = exampleApplication.Arn,
     ///         AuthorizedTargets = new[]
     ///         {
     ///             "arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012",

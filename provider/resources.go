@@ -6046,6 +6046,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_vpc_route_server_peer":                      {"routeServerPeerId"},
 		"aws_dsql_cluster_peering":                       {"identifier"},
 		"aws_dsql_cluster":                               {"identifier"},
+		"aws_prometheus_query_logging_configuration":     {"workspaceId"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

@@ -465,7 +465,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceProperties")
-    def resource_properties(self) -> pulumi.Output[Optional[builtins.str]]:
+    def resource_properties(self) -> pulumi.Output[builtins.str]:
         """
         Resource properties for the resource to be associated with the profile.
         """

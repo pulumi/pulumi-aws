@@ -138,6 +138,10 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly ImmutableArray<string> Aliases;
         /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution, if any.
+        /// </summary>
+        public readonly string AnycastIpListId;
+        /// <summary>
         /// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
         /// </summary>
         public readonly string Arn;
@@ -187,6 +191,8 @@ namespace Pulumi.Aws.CloudFront
         private GetDistributionResult(
             ImmutableArray<string> aliases,
 
+            string anycastIpListId,
+
             string arn,
 
             string domainName,
@@ -210,6 +216,7 @@ namespace Pulumi.Aws.CloudFront
             string webAclId)
         {
             Aliases = aliases;
+            AnycastIpListId = anycastIpListId;
             Arn = arn;
             DomainName = domainName;
             Enabled = enabled;

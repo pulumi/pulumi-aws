@@ -284,7 +284,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
+     *             .applicationArn(exampleAwsSsoadminApplication.arn())
      *             .build());
      * 
      *     }
@@ -328,7 +328,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
+     *             .applicationArn(exampleAwsSsoadminApplication.arn())
      *             .build());
      * 
      *     }
@@ -372,7 +372,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
+     *             .applicationArn(exampleAwsSsoadminApplication.arn())
      *             .build());
      * 
      *     }
@@ -416,7 +416,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
+     *             .applicationArn(exampleAwsSsoadminApplication.arn())
      *             .build());
      * 
      *     }
@@ -460,7 +460,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
+     *             .applicationArn(exampleAwsSsoadminApplication.arn())
      *             .build());
      * 
      *     }
