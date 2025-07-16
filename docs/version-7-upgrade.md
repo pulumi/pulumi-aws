@@ -58,6 +58,7 @@ Upgrade topics:
 * [Resource `aws.ecs.TaskDefinition`](#resource-awsecstaskdefinition)
 * [Resource `aws.ec2.Eip`](#resource-awsec2eip)
 * [Resource `aws.eks.Addon`](#resource-awseksaddon)
+* [Resource `aws.eks.Cluster`](#resource-awsekscluster)
 * [Resource `aws.elasticache.ReplicationGroup`](#resource-awselasticachereplicationgroup)
 * [Resource `aws.elasticache.User`](#resource-awselasticacheuser)
 * [Resource `aws.elasticache.UserGroup`](#resource-awselasticacheusergroup)
@@ -708,6 +709,10 @@ Remove `vpc`—it is no longer supported. Use `domain` instead.
 ## Resource `aws.eks.Addon`
 
 Remove `resolveConflicts`—it is no longer supported. Use `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` instead.
+
+## Resource `aws.eks.Cluster`
+
+`certificateAuthority` is no longer supported. Use `certificateAuthorities` instead.
 
 ## Resource `aws.elasticache.ReplicationGroup`
 
