@@ -323,7 +323,7 @@ class _ClusterState:
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
-                 certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
+                 certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
@@ -352,7 +352,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[builtins.str] arn: ARN of the cluster.
         :param pulumi.Input[builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]] certificate_authorities: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+        :param pulumi.Input['ClusterCertificateAuthorityArgs'] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[builtins.str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[builtins.str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
@@ -385,8 +385,8 @@ class _ClusterState:
             pulumi.set(__self__, "arn", arn)
         if bootstrap_self_managed_addons is not None:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
-        if certificate_authorities is not None:
-            pulumi.set(__self__, "certificate_authorities", certificate_authorities)
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if compute_config is not None:
@@ -471,16 +471,16 @@ class _ClusterState:
         pulumi.set(self, "bootstrap_self_managed_addons", value)
 
     @property
-    @pulumi.getter(name="certificateAuthorities")
-    def certificate_authorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]]:
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> Optional[pulumi.Input['ClusterCertificateAuthorityArgs']]:
         """
         Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         """
-        return pulumi.get(self, "certificate_authorities")
+        return pulumi.get(self, "certificate_authority")
 
-    @certificate_authorities.setter
-    def certificate_authorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]]):
-        pulumi.set(self, "certificate_authorities", value)
+    @certificate_authority.setter
+    def certificate_authority(self, value: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']]):
+        pulumi.set(self, "certificate_authority", value)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -1398,7 +1398,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["zonal_shift_config"] = zonal_shift_config
             __props__.__dict__["arn"] = None
-            __props__.__dict__["certificate_authorities"] = None
+            __props__.__dict__["certificate_authority"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["endpoint"] = None
@@ -1419,7 +1419,7 @@ class Cluster(pulumi.CustomResource):
             access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
-            certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]]]] = None,
+            certificate_authority: Optional[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
             cluster_id: Optional[pulumi.Input[builtins.str]] = None,
             compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
@@ -1453,7 +1453,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[builtins.str] arn: ARN of the cluster.
         :param pulumi.Input[builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]]] certificate_authorities: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[builtins.str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[builtins.str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
@@ -1487,7 +1487,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["access_config"] = access_config
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
-        __props__.__dict__["certificate_authorities"] = certificate_authorities
+        __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["compute_config"] = compute_config
         __props__.__dict__["created_at"] = created_at
@@ -1538,12 +1538,12 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "bootstrap_self_managed_addons")
 
     @property
-    @pulumi.getter(name="certificateAuthorities")
-    def certificate_authorities(self) -> pulumi.Output[Sequence['outputs.ClusterCertificateAuthority']]:
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> pulumi.Output['outputs.ClusterCertificateAuthority']:
         """
         Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         """
-        return pulumi.get(self, "certificate_authorities")
+        return pulumi.get(self, "certificate_authority")
 
     @property
     @pulumi.getter(name="clusterId")

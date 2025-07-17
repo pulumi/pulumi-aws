@@ -513,15 +513,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    @Export(name="certificateAuthorities", refs={List.class,ClusterCertificateAuthority.class}, tree="[0,1]")
-    private Output<List<ClusterCertificateAuthority>> certificateAuthorities;
+    @Export(name="certificateAuthority", refs={ClusterCertificateAuthority.class}, tree="[0]")
+    private Output<ClusterCertificateAuthority> certificateAuthority;
 
     /**
      * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public Output<List<ClusterCertificateAuthority>> certificateAuthorities() {
-        return this.certificateAuthorities;
+    public Output<ClusterCertificateAuthority> certificateAuthority() {
+        return this.certificateAuthority;
     }
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn&#39;t available for an AWS EKS cluster on AWS cloud.

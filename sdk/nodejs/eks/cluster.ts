@@ -330,7 +330,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
+    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
@@ -442,7 +442,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = state ? state.accessConfig : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bootstrapSelfManagedAddons"] = state ? state.bootstrapSelfManagedAddons : undefined;
-            resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
+            resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
@@ -493,7 +493,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["zonalShiftConfig"] = args ? args.zonalShiftConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["certificateAuthorities"] = undefined /*out*/;
+            resourceInputs["certificateAuthority"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -526,7 +526,7 @@ export interface ClusterState {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
+    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */

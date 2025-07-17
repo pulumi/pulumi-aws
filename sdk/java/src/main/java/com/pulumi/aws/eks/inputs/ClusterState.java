@@ -79,15 +79,15 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    @Import(name="certificateAuthorities")
-    private @Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthorities;
+    @Import(name="certificateAuthority")
+    private @Nullable Output<ClusterCertificateAuthorityArgs> certificateAuthority;
 
     /**
      * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public Optional<Output<List<ClusterCertificateAuthorityArgs>>> certificateAuthorities() {
-        return Optional.ofNullable(this.certificateAuthorities);
+    public Optional<Output<ClusterCertificateAuthorityArgs>> certificateAuthority() {
+        return Optional.ofNullable(this.certificateAuthority);
     }
 
     /**
@@ -445,7 +445,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.accessConfig = $.accessConfig;
         this.arn = $.arn;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
-        this.certificateAuthorities = $.certificateAuthorities;
+        this.certificateAuthority = $.certificateAuthority;
         this.clusterId = $.clusterId;
         this.computeConfig = $.computeConfig;
         this.createdAt = $.createdAt;
@@ -553,34 +553,24 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateAuthorities Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+         * @param certificateAuthority Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder certificateAuthorities(@Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthorities) {
-            $.certificateAuthorities = certificateAuthorities;
+        public Builder certificateAuthority(@Nullable Output<ClusterCertificateAuthorityArgs> certificateAuthority) {
+            $.certificateAuthority = certificateAuthority;
             return this;
         }
 
         /**
-         * @param certificateAuthorities Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+         * @param certificateAuthority Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder certificateAuthorities(List<ClusterCertificateAuthorityArgs> certificateAuthorities) {
-            return certificateAuthorities(Output.of(certificateAuthorities));
-        }
-
-        /**
-         * @param certificateAuthorities Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder certificateAuthorities(ClusterCertificateAuthorityArgs... certificateAuthorities) {
-            return certificateAuthorities(List.of(certificateAuthorities));
+        public Builder certificateAuthority(ClusterCertificateAuthorityArgs certificateAuthority) {
+            return certificateAuthority(Output.of(certificateAuthority));
         }
 
         /**

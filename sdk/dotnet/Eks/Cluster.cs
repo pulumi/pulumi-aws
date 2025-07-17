@@ -462,8 +462,8 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        [Output("certificateAuthorities")]
-        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthorities { get; private set; } = null!;
+        [Output("certificateAuthority")]
+        public Output<Outputs.ClusterCertificateAuthority> CertificateAuthority { get; private set; } = null!;
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -799,17 +799,11 @@ namespace Pulumi.Aws.Eks
         [Input("bootstrapSelfManagedAddons")]
         public Input<bool>? BootstrapSelfManagedAddons { get; set; }
 
-        [Input("certificateAuthorities")]
-        private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthorities;
-
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthorities
-        {
-            get => _certificateAuthorities ?? (_certificateAuthorities = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
-            set => _certificateAuthorities = value;
-        }
+        [Input("certificateAuthority")]
+        public Input<Inputs.ClusterCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
