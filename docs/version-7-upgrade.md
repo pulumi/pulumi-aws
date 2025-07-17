@@ -712,7 +712,7 @@ Remove `resolveConflicts`—it is no longer supported. Use `resolveConflictsOnCr
 
 ## Resource `aws.eks.Cluster`
 
-`certificateAuthority` is no longer supported. Use `certificateAuthorities` instead.
+`certificateAuthorities` is no longer supported. Use `certificateAuthority` instead.
 
 ## Resource `aws.elasticache.ReplicationGroup`
 
