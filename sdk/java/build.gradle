@@ -17,7 +17,8 @@ def resolvedVersion = System.getenv("PACKAGE_VERSION") ?:
 
 def signingKey = System.getenv("SIGNING_KEY")
 def signingPassword = System.getenv("SIGNING_PASSWORD")
-def publishRepoURL = System.getenv("PUBLISH_REPO_URL") ?: "https://s01.oss.sonatype.org"
+def publishRepoURL = System.getenv("PUBLISH_REPO_URL") ?: "https://central.sonatype.com/repository/maven-snapshots/"
+def publishStagingURL = System.getenv("PUBLISH_STAGING_URL") ?: "https://ossrh-staging-api.central.sonatype.com/service/local/"
 def publishRepoUsername = System.getenv("PUBLISH_REPO_USERNAME")
 def publishRepoPassword = System.getenv("PUBLISH_REPO_PASSWORD")
 
@@ -44,7 +45,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:1.13.0")
+    implementation("com.pulumi:pulumi:1.16.0")
 }
 
 task sourcesJar(type: Jar) {
@@ -138,8 +139,8 @@ if (publishRepoUsername) {
     nexusPublishing {
         repositories {
             sonatype {
-                nexusUrl.set(uri(publishRepoURL + "/service/local/"))
-                snapshotRepositoryUrl.set(uri(publishRepoURL + "/content/repositories/snapshots/"))
+                nexusUrl.set(uri(publishStagingURL))
+                snapshotRepositoryUrl.set(uri(publishRepoURL))
                 username = publishRepoUsername
                 password = publishRepoPassword
             }
