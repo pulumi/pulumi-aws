@@ -42,6 +42,7 @@ class Region(builtins.str, Enum):
     IL_CENTRAL1 = "il-central-1"
     ME_CENTRAL1 = "me-central-1"
     ME_SOUTH1 = "me-south-1"
+    MX_CENTRAL1 = "mx-central-1"
     SA_EAST1 = "sa-east-1"
     US_EAST1 = "us-east-1"
     US_EAST2 = "us-east-2"

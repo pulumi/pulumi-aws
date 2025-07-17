@@ -55,6 +55,7 @@ export const Region = {
     ILCentral1: "il-central-1",
     MECentral1: "me-central-1",
     MESouth1: "me-south-1",
+    MXCentral1: "mx-central-1",
     SAEast1: "sa-east-1",
     USEast1: "us-east-1",
     USEast2: "us-east-2",

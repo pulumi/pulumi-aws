@@ -18,12 +18,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.vpc.getEndpointAssociations({
+ * const example = aws.vpc.getVpcEndpointAssociations({
  *     vpcEndpointId: exampleAwsVpcEndpoint.id,
  * });
  * ```
  */
+/** @deprecated aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations */
 export function getEndpointAssociations(args: GetEndpointAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAssociationsResult> {
+    pulumi.log.warn("getEndpointAssociations is deprecated: aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpc/getEndpointAssociations:getEndpointAssociations", {
         "region": args.region,
@@ -71,12 +73,14 @@ export interface GetEndpointAssociationsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.vpc.getEndpointAssociations({
+ * const example = aws.vpc.getVpcEndpointAssociations({
  *     vpcEndpointId: exampleAwsVpcEndpoint.id,
  * });
  * ```
  */
+/** @deprecated aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations */
 export function getEndpointAssociationsOutput(args: GetEndpointAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointAssociationsResult> {
+    pulumi.log.warn("getEndpointAssociations is deprecated: aws.vpc/getendpointassociations.getEndpointAssociations has been deprecated in favor of aws.vpc/getvpcendpointassociations.getVpcEndpointAssociations")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getEndpointAssociations:getEndpointAssociations", {
         "region": args.region,

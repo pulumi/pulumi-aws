@@ -1352,6 +1352,12 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_backup_restore_testing_plan": {
+				Tok: awsResource(backupMod, "RestoreTestingPlan"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoName("name", 255, "_"),
+				},
+			},
 			// Batch
 			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment"), tfbridge.GetLogger),
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -2002,19 +2008,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					// Use "ingress" instead of "ingresses" to match AWS APIs
 					"ingress": {
 						Name: "ingress",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"description": {Default: &info.Default{Value: ""}},
-							},
-						},
 					},
 					"egress": {
 						Name: "egress",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"description": {Default: &info.Default{Value: ""}},
-							},
-						},
 					},
 				},
 			},
@@ -2071,7 +2067,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			"aws_default_vpc":  {Tok: awsResource(ec2Mod, "DefaultVpc")},
-			"aws_vpc":          {Tok: awsResource(ec2Mod, "Vpc")},
+			"aws_vpc":          {Tok: awsResource(ec2Mod, vpcMod)},
 			"aws_vpc_endpoint": {Tok: awsResource(ec2Mod, "VpcEndpoint")},
 			"aws_vpc_endpoint_connection_notification":        {Tok: awsResource(ec2Mod, "VpcEndpointConnectionNotification")},
 			"aws_vpc_endpoint_route_table_association":        {Tok: awsResource(ec2Mod, "VpcEndpointRouteTableAssociation")},
@@ -3934,20 +3930,20 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_waf_xss_match_set":           {Tok: awsResource(wafMod, "XssMatchSet")},
 			"aws_waf_sql_injection_match_set": {Tok: awsResource(wafMod, "SqlInjectionMatchSet")},
 			// Web Application Firewall V2 (WAFv2)
+			"aws_wafv2_api_key": {
+				Tok: awsResource(wafV2Mod, "ApiKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"api_key": {
+						CSharpName: "Key",
+					},
+				},
+			},
 			"aws_wafv2_ip_set":                        {Tok: awsResource(wafV2Mod, "IpSet")},
 			"aws_wafv2_regex_pattern_set":             {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
 			"aws_wafv2_web_acl_association":           {Tok: awsResource(wafV2Mod, "WebAclAssociation")},
 			"aws_wafv2_rule_group":                    {Tok: awsResource(wafV2Mod, "RuleGroup")},
 			"aws_wafv2_web_acl":                       {Tok: awsResource(wafV2Mod, "WebAcl")},
 			"aws_wafv2_web_acl_logging_configuration": {Tok: awsResource(wafV2Mod, "WebAclLoggingConfiguration")},
-			"aws_wafv2_api_key": {
-				Tok: awsResource(wafV2Mod, "ApiKey"),
-				Fields: map[string]*info.Schema{
-					"api_key": {
-						CSharpName: "Key",
-					},
-				},
-			},
 			// Web Application Firewall (WAF) Regional
 			"aws_wafregional_byte_match_set": {
 				Tok: awsResource(wafregionalMod, "ByteMatchSet"),
@@ -4302,6 +4298,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		ExtraResources: resourceOverlays,
 		ExtraTypes:     extraTypes,
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+			// Vpc
 			"aws_auditmanager_control": {
 				Tok: awsDataSource(auditmanagerMod, "getControl"),
 			},
@@ -4309,15 +4306,14 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsDataSource(auditmanagerMod, "getFramework"),
 			},
 			"aws_vpc_security_group_rule": {
-				Tok: awsDataSource("Vpc", "getSecurityGroupRule"),
+				Tok: awsDataSource(vpcMod, "getSecurityGroupRule"),
 			},
 			"aws_vpc_security_group_rules": {
-				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+				Tok: awsDataSource(vpcMod, "getSecurityGroupRules"),
 			},
 			"aws_vpc_endpoint_associations": {
-				Tok: awsDataSource("Vpc", "getEndpointAssociations"),
+				Tok: awsDataSource(vpcMod, "getEndpointAssociations"),
 			},
-
 			// AWS
 			"aws_arn":                     {Tok: awsDataSource(awsMod, "getArn")},
 			"aws_availability_zone":       {Tok: awsDataSource(awsMod, "getAvailabilityZone")},
@@ -5417,19 +5413,19 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			Tok: awsResource(route53Mod, "CidrLocation"),
 		},
 		"aws_vpc_security_group_egress_rule": {
-			Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
+			Tok: awsResource(vpcMod, "SecurityGroupEgressRule"),
 		},
 		"aws_vpc_security_group_ingress_rule": {
-			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+			Tok: awsResource(vpcMod, "SecurityGroupIngressRule"),
 		},
 		"aws_vpc_security_group_vpc_association": {
-			Tok: awsResource("Vpc", "SecurityGroupVpcAssociation"),
+			Tok: awsResource(vpcMod, "SecurityGroupVpcAssociation"),
 		},
 		"aws_vpc_endpoint_private_dns": {
-			Tok: awsResource("Vpc", "EndpointPrivateDns"),
+			Tok: awsResource(vpcMod, "EndpointPrivateDns"),
 		},
 		"aws_vpc_endpoint_service_private_dns_verification": {
-			Tok: awsResource("Vpc", "EndpointServicePrivateDnsVerification"),
+			Tok: awsResource(vpcMod, "EndpointServicePrivateDnsVerification"),
 		},
 		"aws_quicksight_iam_policy_assignment": {
 			Tok: awsResource("QuickSight", "IamPolicyAssignment"),
