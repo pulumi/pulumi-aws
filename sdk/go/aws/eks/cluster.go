@@ -464,7 +464,7 @@ type Cluster struct {
 	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
 	BootstrapSelfManagedAddons pulumi.BoolPtrOutput `pulumi:"bootstrapSelfManagedAddons"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
+	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
@@ -558,7 +558,7 @@ type clusterState struct {
 	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
 	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
+	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId *string `pulumi:"clusterId"`
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
@@ -617,7 +617,7 @@ type ClusterState struct {
 	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthorities ClusterCertificateAuthorityArrayInput
+	CertificateAuthority ClusterCertificateAuthorityPtrInput
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId pulumi.StringPtrInput
 	// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
@@ -858,8 +858,8 @@ func (o ClusterOutput) BootstrapSelfManagedAddons() pulumi.BoolPtrOutput {
 }
 
 // Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-func (o ClusterOutput) CertificateAuthorities() ClusterCertificateAuthorityArrayOutput {
-	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityArrayOutput { return v.CertificateAuthorities }).(ClusterCertificateAuthorityArrayOutput)
+func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityOutput)
 }
 
 // The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.

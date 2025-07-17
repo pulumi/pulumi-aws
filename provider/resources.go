@@ -2272,6 +2272,13 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			"aws_eks_cluster": {
+				Fields: map[string]*info.Schema{
+					"certificate_authority": {
+						Name: "certificateAuthority",
+						// The upstream API only returns a single item
+						MaxItemsOne: tfbridge.True(),
+					},
+				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					// if the defaultOutboundAccessEnabled property is not set, set it to the default value of true
 					// this prevents an unnecessary replacement when upgrading the provider
