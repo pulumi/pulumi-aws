@@ -64,6 +64,8 @@ jobs:
           COVERAGE_OUTPUT_DIR: ${{ runner.temp }}/cov
       - name: Summarize Provider Coverage Results
         run: cat ${{ env.COVERAGE_OUTPUT_DIR }}/shortSummary.txt
+        env:
+          COVERAGE_OUTPUT_DIR: ${{ runner.temp }}/cov
       - name: Upload coverage data to S3
         run: >-
           summaryName="${PROVIDER}_summary_$(date +"%Y-%m-%d_%H-%M-%S").json"
