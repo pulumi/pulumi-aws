@@ -307,9 +307,6 @@ We are removing the `defaultAddonsToRemoves` property. This property does not ex
 
 Users can replicate the behavior of `defaultAddonsToRemoves` by setting `bootstrapSelfManagedAddons` to `false` and then adding platform addons that they actually want as `aws.eks.Addon` resources.
 
-TODO[pulumi/pulumi-aws#5525]
-See the upgrade guide for more details.
-
 ### Function `aws.ecr.getCredentials`
 
 The `ecr.getCredentials` function was added to address a functionality that did not exist in the upstream provider. The upstream Terraform provider now has a `aws.ecr.getAuthorizationToken` function that should be used instead.
