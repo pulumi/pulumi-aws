@@ -96,7 +96,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         public SecurityGroupIngressArgs()
         {
-            Description = "";
         }
         public static new SecurityGroupIngressArgs Empty => new SecurityGroupIngressArgs();
     }

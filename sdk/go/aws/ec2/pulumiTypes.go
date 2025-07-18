@@ -27248,19 +27248,6 @@ type SecurityGroupEgress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
-// Defaults sets the appropriate defaults for SecurityGroupEgress
-func (val *SecurityGroupEgress) Defaults() *SecurityGroupEgress {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if tmp.Description == nil {
-		description_ := ""
-		tmp.Description = &description_
-	}
-	return &tmp
-}
-
 // SecurityGroupEgressInput is an input type that accepts SecurityGroupEgressArgs and SecurityGroupEgressOutput values.
 // You can construct a concrete instance of `SecurityGroupEgressInput` via:
 //
@@ -27297,17 +27284,6 @@ type SecurityGroupEgressArgs struct {
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
-// Defaults sets the appropriate defaults for SecurityGroupEgressArgs
-func (val *SecurityGroupEgressArgs) Defaults() *SecurityGroupEgressArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if tmp.Description == nil {
-		tmp.Description = pulumi.StringPtr("")
-	}
-	return &tmp
-}
 func (SecurityGroupEgressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityGroupEgress)(nil)).Elem()
 }
@@ -27453,19 +27429,6 @@ type SecurityGroupIngress struct {
 	ToPort int `pulumi:"toPort"`
 }
 
-// Defaults sets the appropriate defaults for SecurityGroupIngress
-func (val *SecurityGroupIngress) Defaults() *SecurityGroupIngress {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if tmp.Description == nil {
-		description_ := ""
-		tmp.Description = &description_
-	}
-	return &tmp
-}
-
 // SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
 // You can construct a concrete instance of `SecurityGroupIngressInput` via:
 //
@@ -27502,17 +27465,6 @@ type SecurityGroupIngressArgs struct {
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
-// Defaults sets the appropriate defaults for SecurityGroupIngressArgs
-func (val *SecurityGroupIngressArgs) Defaults() *SecurityGroupIngressArgs {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if tmp.Description == nil {
-		tmp.Description = pulumi.StringPtr("")
-	}
-	return &tmp
-}
 func (SecurityGroupIngressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
 }

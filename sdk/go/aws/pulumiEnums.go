@@ -40,6 +40,7 @@ const (
 	RegionILCentral1   = Region("il-central-1")
 	RegionMECentral1   = Region("me-central-1")
 	RegionMESouth1     = Region("me-south-1")
+	RegionMXCentral1   = Region("mx-central-1")
 	RegionSAEast1      = Region("sa-east-1")
 	RegionUSEast1      = Region("us-east-1")
 	RegionUSEast2      = Region("us-east-2")
@@ -203,6 +204,7 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 //	RegionILCentral1
 //	RegionMECentral1
 //	RegionMESouth1
+//	RegionMXCentral1
 //	RegionSAEast1
 //	RegionUSEast1
 //	RegionUSEast2

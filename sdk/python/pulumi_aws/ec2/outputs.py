@@ -12748,8 +12748,6 @@ class SecurityGroupEgress(dict):
         pulumi.set(__self__, "to_port", to_port)
         if cidr_blocks is not None:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
-        if description is None:
-            description = ''
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ipv6_cidr_blocks is not None:
@@ -12897,8 +12895,6 @@ class SecurityGroupIngress(dict):
         pulumi.set(__self__, "to_port", to_port)
         if cidr_blocks is not None:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
-        if description is None:
-            description = ''
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ipv6_cidr_blocks is not None:
